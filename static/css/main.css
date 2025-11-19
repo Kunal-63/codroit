@@ -1600,3 +1600,79 @@ img[data-src] {
 img.loaded {
     opacity: 1;
 }
+
+/* ============================================
+   Additional Responsive Tweaks
+   ============================================ */
+
+/* Make media elements scale to container */
+img, picture, video, iframe, embed {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive embedded videos/iframes */
+.responsive-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+}
+.responsive-embed iframe,
+.responsive-embed embed,
+.responsive-embed video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Reduce hero top padding on small screens to avoid overflow */
+@media (max-width: 767.98px) {
+    .hero-section {
+        padding-top: 80px;
+        min-height: 60vh;
+    }
+
+    /* Make the floating nav compact and full width (already mostly handled), ensure logo smaller */
+    .logo-img {
+        height: 36px;
+    }
+
+    /* Collapse contact button inside mobile menu to full width */
+    .navbar-collapse .btn-contact {
+        display: block;
+        width: 100%;
+        padding-left: 0.8rem !important;
+        padding-right: 0.8rem !important;
+        margin: 0.5rem 0 0 0;
+        text-align: center;
+    }
+
+    /* Reduce large hero headings if they overflow */
+    .hero-content h1 {
+        font-size: clamp(1.8rem, 6vw, 3rem);
+    }
+}
+
+/* Slight adjustments for medium devices */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .logo-img {
+        height: 40px;
+    }
+
+    .hero-section {
+        padding-top: 100px;
+    }
+}
+
+/* Make footer columns stack nicely when needed (adds small spacing) */
+@media (max-width: 575.98px) {
+    .footer .footer-brand,
+    .footer .footer-links,
+    .footer .footer-contact {
+        margin-bottom: 1.25rem;
+    }
+}
