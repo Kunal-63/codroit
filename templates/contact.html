@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - Codroit | Get In Touch{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="hero-section" style="min-height: 60vh; padding-top: 120px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                <h1 style="color: white; margin-bottom: 1rem;">Contact Us</h1>
+                <p class="subtitle">Let's discuss how we can help transform your business</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="contact-form" data-aos="fade-up">
+                    <div class="section-title text-center mb-4">
+                        <h2 style="color: var(--dark); margin-bottom: 1rem;">Get In Touch</h2>
+                        <p style="color: var(--gray);">Fill out the form below and we'll get back to you as soon as possible.</p>
+                    </div>
+
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ 'success' if category == 'success' else 'danger' }} alert-dismissible fade show" role="alert" style="border-radius: 10px; margin-bottom: 1.5rem;">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+
+                    <form action="{{ url_for('contact') }}" method="POST">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="first_name" placeholder="First Name *" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="last_name" placeholder="Last Name *" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Email Address *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" rows="5" placeholder="Your Message *" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Info Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card text-center">
+                    <div class="service-icon" style="margin: 0 auto 1.5rem;">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Location</h3>
+                    <p>Ahmedabad, India</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card text-center">
+                    <div class="service-icon" style="margin: 0 auto 1.5rem;">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:info@codroit.in" style="color: var(--primary); text-decoration: none;">info@codroit.in</a></p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card text-center">
+                    <div class="service-icon" style="margin: 0 auto 1.5rem;">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+919876543210" style="color: var(--primary); text-decoration: none;">+91 98765 43210</a></p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-card text-center">
+                    <div class="service-icon" style="margin: 0 auto 1.5rem;">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section (Optional) -->
+<section class="section" style="padding-top: 0;">
+    <div class="container-fluid p-0">
+        <div style="height: 400px; background: var(--light-gray); display: flex; align-items: center; justify-content: center; border-radius: 20px; margin: 0 15px;">
+            <div class="text-center">
+                <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: var(--gray); margin-bottom: 1rem;"></i>
+                <p style="color: var(--gray);">Ahmedabad, Gujarat, India</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
