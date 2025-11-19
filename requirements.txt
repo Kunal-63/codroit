@@ -1,2 +1,2 @@
-flask>=2.0
-vercel-wsgi>=0.9
+flask
+vercel-wsgi
