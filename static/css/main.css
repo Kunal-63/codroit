@@ -1676,3 +1676,35 @@ img, picture, video, iframe, embed {
         margin-bottom: 1.25rem;
     }
 }
+
+/* Prevent any horizontal scroll caused by wide pseudo-elements or components */
+html {
+    overflow-x: hidden;
+}
+
+/* Stronger navbar toggler overrides so the icon is visible on mobile */
+@media (max-width: 991.98px) {
+    /* Toggler button appearance */
+    .navbar-toggler {
+        border: 2px solid #000 !important;
+        color: #000 !important;
+        z-index: 2000;
+    }
+
+    /* Override Bootstrap's navbar-dark/ light icon to use a black SVG */
+    .navbar-dark .navbar-toggler-icon,
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+        background-size: 100% 100% !important;
+    }
+
+    /* Ensure collapsed menu covers full width and doesn't produce overflow */
+    .navbar-collapse {
+        width: 100%;
+    }
+}
+
+/* Fallback: ensure any element accidentally wider than viewport is clamped */
+* {
+    max-width: 100vw;
+}
