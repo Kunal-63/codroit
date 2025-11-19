@@ -1,5 +1,5 @@
 # api/index.py
-from vercel_wsgi import make_handler
-from app import app  # import the Flask app object
+from app import app  # import your Flask app instance
 
-handler = make_handler(app)
+# Vercel automatically looks for a variable named `app`
+# This is enough for Vercel to run your Flask app.
