@@ -7,7 +7,7 @@
             items: 1,
             loop: true,
             autoplay: true,
-            smartSpeed: 1500,
+            smartSpeed: 800,
             margin: 0,
             nav: true,
             navText: ['', '<i class="fa fa-arrow-right" aria-hidden="true"></i>']
@@ -31,7 +31,7 @@
             items: 3,
             loop: true,
             autoplay: true,
-            smartSpeed: 1500,
+            smartSpeed: 800,
             margin: 0,
             center: true,
             responsive: {
@@ -51,7 +51,7 @@
             items: 1,
             loop: true,
             autoplay: true,
-            smartSpeed: 1500,
+            smartSpeed: 800,
             autoplayTimeout: 12000,
             margin: 0,
             nav: true,
@@ -95,13 +95,13 @@
     $("#menubtn").on('click', function () {
         $('html, body').animate({
             scrollTop: $("#menu").offset().top - 100
-        }, 1500);
+        }, 800);
     });
 
     // :: 4.0 ScrollUp Active JS
     if ($.fn.scrollUp) {
         $.scrollUp({
-            scrollSpeed: 1500,
+            scrollSpeed: 800,
             scrollText: '<i class="pe-7s-angle-up" aria-hidden="true"></i>'
         });
     }
@@ -110,7 +110,7 @@
     if ($.fn.onePageNav) {
         $('#caviarMenu').onePageNav({
             currentClass: 'active',
-            scrollSpeed: 2000,
+            scrollSpeed: 1000,
             easing: 'easeOutQuad'
         });
     }

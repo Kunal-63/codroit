@@ -46,9 +46,9 @@ navLinks.forEach(link => {
 // Initialize AOS (Animate On Scroll) with enhanced settings
 if (typeof AOS !== 'undefined') {
     AOS.init({
-        duration: 1200,
+        duration: 800,
         once: true,
-        offset: 120,
+        offset: 100,
         easing: 'ease-out-cubic',
         delay: 0
     });
@@ -224,21 +224,22 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     });
     
     // Enhanced portfolio items animation
-    gsap.utils.toArray('.portfolio-item').forEach((item, index) => {
-        gsap.from(item, {
-            opacity: 0,
-            scale: 0.7,
-            rotationY: -20,
-            duration: 0.8,
-            ease: 'back.out(1.7)',
-            scrollTrigger: {
-                trigger: item,
-                start: 'top 85%',
-                toggleActions: 'play none none none'
-            },
-            delay: index * 0.15
-        });
-    });
+    /* GSAP Portfolio Animation Disabled - using AOS instead */
+    // gsap.utils.toArray('.portfolio-item').forEach((item, index) => {
+    //     gsap.from(item, {
+    //         opacity: 0,
+    //         scale: 0.7,
+    //         rotationY: -20,
+    //         duration: 0.8,
+    //         ease: 'back.out(1.7)',
+    //         scrollTrigger: {
+    //             trigger: item,
+    //             start: 'top 85%',
+    //             toggleActions: 'play none none none'
+    //         },
+    //         delay: index * 0.15
+    //     });
+    // });
     
     // Parallax effect for sections
     gsap.utils.toArray('.section').forEach((section, index) => {
@@ -412,7 +413,7 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 // Observe elements for animation
-document.querySelectorAll('.service-card, .portfolio-item, .testimonial-card, .stat-item').forEach(el => {
+document.querySelectorAll('.service-card, .testimonial-card, .stat-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(40px) scale(0.95)';
     el.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';

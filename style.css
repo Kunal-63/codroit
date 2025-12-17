@@ -196,8 +196,8 @@ a:hover,
 a:focus,
 a:active {
     text-decoration: none;
-    -webkit-transition-duration: 500ms;
-    transition-duration: 500ms;
+    -webkit-transition-duration: 300ms;
+    transition-duration: 300ms;
     font-weight: 600;
     outline: none;
 }
@@ -591,8 +591,8 @@ li {
     top: 0;
     left: 0;
     z-index: 99;
-    -webkit-transition-duration: 700ms;
-    transition-duration: 700ms;
+    -webkit-transition-duration: 400ms;
+    transition-duration: 400ms;
 }
 
 .sticky .header_area {

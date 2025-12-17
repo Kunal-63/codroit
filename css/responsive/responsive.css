@@ -260,3 +260,64 @@
         margin: 0 7.5px
     }
 }
+
+@media (max-width: 767px) {
+    .section-padding-150 {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .section-padding-150-0 {
+        padding-top: 50px;
+        padding-bottom: 0;
+    }
+    .section-padding-0-150 {
+        padding-top: 0;
+        padding-bottom: 50px;
+    }
+    .section-padding-120-0 {
+        padding-top: 50px;
+        padding-bottom: 0;
+    }
+    .section-padding-0-120 {
+        padding-top: 0;
+        padding-bottom: 50px;
+    }
+    .section-padding-100 {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .section-padding-100-0 {
+        padding-top: 50px;
+        padding-bottom: 0;
+    }
+    .section-padding-0-100 {
+        padding-top: 0;
+        padding-bottom: 50px;
+    }
+    .mt-150 {
+        margin-top: 50px;
+    }
+    .mt-100 {
+        margin-top: 40px;
+    }
+    .mb-100 {
+        margin-bottom: 40px;
+    }
+    .mr-100 {
+        margin-right: 30px;
+    }
+    .ml-100 {
+        margin-left: 30px;
+    }
+    .pt-200 {
+        padding-top: 100px;
+    }
+    /* Reduce hero slider height on mobile */
+    .single-hero-slides {
+        height: 450px;
+    }
+    /* Ensure no weird gaps around awards/menu */
+    .caviar-dish-menu:before {
+        display: none; /* Often causes overflow or weird spacing issues on mobile */
+    }
+}
