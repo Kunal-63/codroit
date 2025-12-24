@@ -85,11 +85,7 @@
 }
 
 /* About page image optimization */
-.about-image-modern img,
-.about-image img {
-    max-height: 500px;
-    object-fit: cover;
-}
+
 
 @media (max-width: 768px) {
     .about-image-modern img,
