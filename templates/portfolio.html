@@ -1,41 +1,38 @@
-{% extends "base.html" %}
-
-{% block title %}Portfolio - Codroit | Our Work{% endblock %}
-
-{% block extra_css %}
+{% extends "base.html" %} {% block title %}Portfolio - Codroit | Our Work{%
+endblock %} {% block extra_css %}
 <style>
-/* Testimonials Carousel Styles */
-.testimonials-section-modern {
+  /* Testimonials Carousel Styles */
+  .testimonials-section-modern {
     background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-}
+  }
 
-.testimonials-slider-container {
+  .testimonials-slider-container {
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
     padding: 20px 80px;
-}
+  }
 
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
     .testimonials-slider-container {
-        padding: 20px 60px;
+      padding: 20px 60px;
     }
-}
+  }
 
-.testimonials-slider {
+  .testimonials-slider {
     display: flex;
     gap: 2rem;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
-}
+  }
 
-.testimonial-slide-item {
+  .testimonial-slide-item {
     flex: 0 0 calc(33.333% - 1.35rem);
     min-width: calc(33.333% - 1.35rem);
-}
+  }
 
-.testimonial-card-carousel {
+  .testimonial-card-carousel {
     background: white;
     border-radius: 25px;
     padding: 2.5rem 2rem;
@@ -45,44 +42,44 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-}
+  }
 
-.testimonial-card-carousel:hover {
+  .testimonial-card-carousel:hover {
     box-shadow: 0 20px 70px rgba(0, 188, 212, 0.12);
     border-color: rgba(0, 188, 212, 0.3);
     transform: translateY(-5px);
-}
+  }
 
-.testimonial-rating {
+  .testimonial-rating {
     color: #ffc107;
     margin-bottom: 1.5rem;
     font-size: 1rem;
     text-align: center;
-}
+  }
 
-.testimonial-content {
+  .testimonial-content {
     margin-bottom: 2rem;
     text-align: center;
     flex-grow: 1;
-}
+  }
 
-.testimonial-content p {
+  .testimonial-content p {
     color: var(--gray);
     font-style: italic;
     line-height: 1.8;
     font-size: 1rem;
     margin: 0;
     text-align: justify;
-}
+  }
 
-.testimonial-author {
+  .testimonial-author {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-}
+  }
 
-.testimonial-avatar {
+  .testimonial-avatar {
     width: 55px;
     height: 55px;
     border-radius: 50%;
@@ -94,27 +91,27 @@
     font-size: 1.4rem;
     flex-shrink: 0;
     box-shadow: 0 8px 25px rgba(0, 188, 212, 0.25);
-}
+  }
 
-.testimonial-info {
+  .testimonial-info {
     text-align: left;
-}
+  }
 
-.testimonial-role {
+  .testimonial-role {
     font-weight: 700;
     font-size: 1rem;
     color: var(--primary);
     margin: 0 0 0.2rem 0;
-}
+  }
 
-.testimonial-company {
+  .testimonial-company {
     color: var(--gray);
     font-size: 0.85rem;
     margin: 0;
-}
+  }
 
-/* Navigation Arrows */
-.testimonial-nav {
+  /* Navigation Arrows */
+  .testimonial-nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -132,189 +129,189 @@
     transition: all 0.3s ease;
     z-index: 10;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
+  }
 
-.testimonial-nav:hover {
+  .testimonial-nav:hover {
     background: var(--gradient-logo);
     color: white;
     border-color: transparent;
     transform: translateY(-50%) scale(1.1);
     box-shadow: 0 6px 25px rgba(0, 188, 212, 0.3);
-}
+  }
 
-.testimonial-nav-prev {
+  .testimonial-nav-prev {
     left: 10px;
-}
+  }
 
-.testimonial-nav-next {
+  .testimonial-nav-next {
     right: 10px;
-}
+  }
 
-/* Dot Indicators */
-.carousel-dots-only {
+  /* Dot Indicators */
+  .carousel-dots-only {
     display: flex;
     justify-content: center;
     gap: 0.75rem;
     margin-top: 3rem;
-}
+  }
 
-.carousel-dot {
+  .carousel-dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
     background: rgba(30, 58, 95, 0.2);
     cursor: pointer;
     transition: all 0.3s ease;
-}
+  }
 
-.carousel-dot.active {
+  .carousel-dot.active {
     background: var(--secondary);
     width: 35px;
     border-radius: 10px;
-}
+  }
 
-.carousel-dot:hover {
+  .carousel-dot:hover {
     background: var(--primary);
-}
+  }
 
-/* Responsive */
-@media (max-width: 1024px) {
+  /* Responsive */
+  @media (max-width: 1024px) {
     .testimonial-slide-item {
-        flex: 0 0 calc(50% - 1rem);
-        min-width: calc(50% - 1rem);
+      flex: 0 0 calc(50% - 1rem);
+      min-width: calc(50% - 1rem);
     }
-}
+  }
 
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
     .testimonial-slide-item {
-        flex: 0 0 100%;
-        min-width: 100%;
+      flex: 0 0 100%;
+      min-width: 100%;
     }
-    
+
     .testimonials-slider {
-        gap: 1.5rem;
+      gap: 1.5rem;
     }
-    
+
     /* Compact horizontal card design for mobile */
     .testimonial-card-carousel {
-        padding: 1.75rem 1.5rem !important;
-        border-radius: 16px;
-        min-height: auto !important;
-        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-        border: 2px solid rgba(0, 188, 212, 0.15);
-        position: relative;
-        overflow: visible;
+      padding: 1.75rem 1.5rem !important;
+      border-radius: 16px;
+      min-height: auto !important;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border: 2px solid rgba(0, 188, 212, 0.15);
+      position: relative;
+      overflow: visible;
     }
-    
+
     /* Decorative corner accent */
     .testimonial-card-carousel::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), transparent);
-        border-radius: 0 16px 0 40px;
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), transparent);
+      border-radius: 0 16px 0 40px;
     }
-    
+
     .testimonial-rating {
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
-        text-align: left;
-        display: flex;
-        gap: 0.25rem;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      text-align: left;
+      display: flex;
+      gap: 0.25rem;
     }
-    
+
     .testimonial-rating i {
-        font-size: 0.85rem;
+      font-size: 0.85rem;
     }
-    
+
     .testimonial-content {
-        margin-bottom: 1rem;
+      margin-bottom: 1rem;
     }
-    
+
     .testimonial-content p {
-        font-size: 0.95rem !important;
-        line-height: 1.6 !important;
-        font-weight: 400;
-        text-align: justify;
-        color: #2c3e50;
+      font-size: 0.95rem !important;
+      line-height: 1.6 !important;
+      font-weight: 400;
+      text-align: justify;
+      color: #2c3e50;
     }
-    
+
     /* Horizontal author layout */
     .testimonial-author {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid rgba(0, 188, 212, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0, 188, 212, 0.1);
     }
-    
+
     .testimonial-avatar {
-        width: 48px !important;
-        height: 48px !important;
-        font-size: 1.2rem !important;
-        flex-shrink: 0;
-        background: linear-gradient(135deg, #00bcd4, #1e3a5f);
-        box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
+      width: 48px !important;
+      height: 48px !important;
+      font-size: 1.2rem !important;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #00bcd4, #1e3a5f);
+      box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
     }
-    
+
     .testimonial-info {
-        text-align: left;
-        flex: 1;
+      text-align: left;
+      flex: 1;
     }
-    
+
     .testimonial-role {
-        font-size: 0.95rem !important;
-        font-weight: 700;
-        margin-bottom: 0.15rem !important;
-        color: #1e3a5f;
+      font-size: 0.95rem !important;
+      font-weight: 700;
+      margin-bottom: 0.15rem !important;
+      color: #1e3a5f;
     }
-    
+
     .testimonial-company {
-        font-size: 0.8rem !important;
-        line-height: 1.3;
-        color: #64748b;
+      font-size: 0.8rem !important;
+      line-height: 1.3;
+      color: #64748b;
     }
-    
+
     /* Enhanced hover effect */
     .testimonial-card-carousel:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 30px rgba(0, 188, 212, 0.15);
-        border-color: rgba(0, 188, 212, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 188, 212, 0.15);
+      border-color: rgba(0, 188, 212, 0.3);
     }
-    
-    .testimonial-nav {
-        width: 45px;
-        height: 45px;
-        font-size: 1rem;
-    }
-    
-    .testimonial-nav-prev {
-        left: 5px;
-    }
-    
-    .testimonial-nav-next {
-        right: 5px;
-    }
-}
 
-/* Make hero subtitle white for better contrast on gradient backgrounds */
-.hero-section .subtitle {
+    .testimonial-nav {
+      width: 45px;
+      height: 45px;
+      font-size: 1rem;
+    }
+
+    .testimonial-nav-prev {
+      left: 5px;
+    }
+
+    .testimonial-nav-next {
+      right: 5px;
+    }
+  }
+
+  /* Make hero subtitle white for better contrast on gradient backgrounds */
+  .hero-section .subtitle {
     color: white !important;
     opacity: 0.95;
-}
+  }
 
-/* Keep section description subtitles black/default */
-.section-description,
-.section-title p {
+  /* Keep section description subtitles black/default */
+  .section-description,
+  .section-title p {
     color: inherit;
     opacity: 1;
-}
+  }
 
-/* Project Modal Styles */
-.project-modal {
+  /* Project Modal Styles */
+  .project-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -323,13 +320,13 @@
     height: 100%;
     z-index: 10000;
     animation: fadeIn 0.3s ease;
-}
+  }
 
-.project-modal.active {
+  .project-modal.active {
     display: block;
-}
+  }
 
-.project-modal-overlay {
+  .project-modal-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -337,9 +334,9 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(5px);
-}
+  }
 
-.project-modal-content {
+  .project-modal-content {
     position: relative;
     width: 90%;
     max-width: 1000px;
@@ -350,25 +347,29 @@
     overflow-y: auto;
     animation: slideUp 0.4s ease;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
+  }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
+  @keyframes fadeIn {
     from {
-        transform: translateY(50px);
-        opacity: 0;
+      opacity: 0;
     }
     to {
-        transform: translateY(0);
-        opacity: 1;
+      opacity: 1;
     }
-}
+  }
 
-.project-modal-close {
+  @keyframes slideUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .project-modal-close {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -383,185 +384,185 @@
     z-index: 10;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-}
+  }
 
-.project-modal-close:hover {
+  .project-modal-close:hover {
     background: #ff4444;
     color: white;
     transform: rotate(90deg);
-}
+  }
 
-.project-modal-body {
+  .project-modal-body {
     padding: 2rem;
-}
+  }
 
-.project-modal-header {
+  .project-modal-header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-bottom: 3rem;
-}
+  }
 
-.project-modal-image {
+  .project-modal-image {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
+  }
 
-.project-modal-image img {
+  .project-modal-image img {
     width: 100%;
     height: 300px;
     object-fit: cover;
-}
+  }
 
-.project-modal-info h2 {
+  .project-modal-info h2 {
     color: #1e3a5f;
     margin-bottom: 1rem;
     font-size: 2rem;
-}
+  }
 
-.project-modal-info p {
+  .project-modal-info p {
     color: #64748b;
     line-height: 1.8;
     margin-bottom: 1.5rem;
-}
+  }
 
-.project-modal-tags {
+  .project-modal-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-}
+  }
 
-.project-modal-tags span {
+  .project-modal-tags span {
     background: linear-gradient(135deg, #00bcd4, #1e3a5f);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 500;
-}
+  }
 
-.project-modal-details {
+  .project-modal-details {
     margin-bottom: 3rem;
-}
+  }
 
-.project-modal-details h3 {
+  .project-modal-details h3 {
     color: #1e3a5f;
     margin-bottom: 1rem;
     font-size: 1.5rem;
-}
+  }
 
-.project-modal-details p {
+  .project-modal-details p {
     color: #64748b;
     line-height: 1.8;
-}
+  }
 
-.project-features-list {
+  .project-features-list {
     list-style: none;
     padding: 0;
-}
+  }
 
-.project-features-list li {
+  .project-features-list li {
     padding: 0.75rem 0;
     padding-left: 2rem;
     position: relative;
     color: #64748b;
     line-height: 1.6;
-}
+  }
 
-.project-features-list li::before {
-    content: '✓';
+  .project-features-list li::before {
+    content: "✓";
     position: absolute;
     left: 0;
     color: #00bcd4;
     font-weight: bold;
     font-size: 1.2rem;
-}
+  }
 
-.project-info-box {
+  .project-info-box {
     background: linear-gradient(135deg, #f8fafc 0%, #e8f4f8 100%);
     padding: 2rem;
     border-radius: 12px;
     border: 2px solid rgba(0, 188, 212, 0.1);
-}
+  }
 
-.project-info-box h4 {
+  .project-info-box h4 {
     color: #1e3a5f;
     margin-bottom: 1.5rem;
     font-size: 1.2rem;
-}
+  }
 
-.project-info-item {
+  .project-info-item {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid rgba(0, 188, 212, 0.1);
-}
+  }
 
-.project-info-item:last-child {
+  .project-info-item:last-child {
     border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
-}
+  }
 
-.project-info-item strong {
+  .project-info-item strong {
     display: block;
     color: #1e3a5f;
     margin-bottom: 0.25rem;
     font-size: 0.9rem;
-}
+  }
 
-.project-info-item span {
+  .project-info-item span {
     color: #64748b;
-}
+  }
 
-.project-modal-review {
+  .project-modal-review {
     background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8f 100%);
     padding: 2.5rem;
     border-radius: 12px;
     margin-top: 2rem;
-}
+  }
 
-.project-modal-review h3 {
+  .project-modal-review h3 {
     color: white;
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
-}
+  }
 
-.project-modal-review h3 i {
+  .project-modal-review h3 i {
     color: #00bcd4;
     margin-right: 0.5rem;
-}
+  }
 
-.review-card {
+  .review-card {
     background: rgba(255, 255, 255, 0.1);
     padding: 2rem;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-}
+  }
 
-.review-rating {
+  .review-rating {
     color: #ffc107;
     font-size: 1.2rem;
     margin-bottom: 1rem;
-}
+  }
 
-.review-text {
+  .review-text {
     color: white !important;
     font-style: italic;
     line-height: 1.8;
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
-}
+  }
 
-.review-author {
+  .review-author {
     display: flex;
     align-items: center;
     gap: 1rem;
     padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
+  }
 
-.review-avatar {
+  .review-avatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -571,778 +572,1019 @@
     justify-content: center;
     color: white;
     font-size: 1.3rem;
-}
+  }
 
-.review-info {
+  .review-info {
     display: flex;
     flex-direction: column;
-}
+  }
 
-.review-info strong {
+  .review-info strong {
     color: white !important;
     font-size: 1rem;
     margin-bottom: 0.25rem;
-}
+  }
 
-.review-info span {
+  .review-info span {
     color: rgba(255, 255, 255, 0.7) !important;
     font-size: 0.9rem;
-}
+  }
 
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
     .project-modal-header {
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
     }
-    
-    .project-modal-image img {
-        height: 200px;
-    }
-    
-    .project-modal-body {
-        padding: 1.5rem;
-    }
-    
-    .project-modal-info h2 {
-        font-size: 1.5rem;
-    }
-}
-</style>
-{% endblock %}
 
-{% block content %}
+    .project-modal-image img {
+      height: 200px;
+    }
+
+    .project-modal-body {
+      padding: 1.5rem;
+    }
+
+    .project-modal-info h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+{% endblock %} {% block content %}
 <!-- Particle Background -->
 <div class="particles-bg" id="particlesBg"></div>
 
 <!-- Page Header -->
-<section class="hero-section" style="min-height: 60vh; padding-top: 120px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center" data-aos="fade-up" data-aos-duration="500">
-                <h1 style="color: white; margin-bottom: 1rem;">Our Portfolio</h1>
-                <p class="subtitle">Showcasing our successful projects and client solutions</p>
-            </div>
-        </div>
+<section class="hero-section" style="min-height: 60vh; padding-top: 120px">
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-lg-8 mx-auto text-center"
+        data-aos="fade-up"
+        data-aos-duration="500"
+      >
+        <h1 style="color: white; margin-bottom: 1rem">Our Portfolio</h1>
+        <p class="subtitle">
+          Showcasing our successful projects and client solutions
+        </p>
+      </div>
     </div>
+  </div>
 </section>
-
 
 <!-- Portfolio Section -->
 <section class="section">
-    <div class="container">
-        <div class="section-title" data-aos="fade-up" data-aos-duration="500">
-            <h2>Featured Projects</h2>
-            <p>Explore some of our recent work and success stories</p>
-        </div>
-        <div class="portfolio-grid">
-            <div class="portfolio-item" data-aos="fade-up" data-aos-duration="400">
-                <div class="portfolio-image">
-                    <img src="/img/web-dev.jpg" alt="Web Development Project">
-                    <div class="portfolio-overlay">
-                        <a href="#" class="btn-primary-custom" style="background: white; color: var(--primary);">
-                            View Project <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="portfolio-content">
-                    <h3>E-Commerce Platform</h3>
-                    <p>Full-stack e-commerce solution with payment integration and inventory management.</p>
-                    <div style="margin-top: 1rem;">
-                        <span style="background: var(--light-gray); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; margin-right: 0.5rem; display: inline-block;">React</span>
-                        <span style="background: var(--light-gray); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; margin-right: 0.5rem; display: inline-block;">Node.js</span>
-                        <span style="background: var(--light-gray); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; display: inline-block;">MongoDB</span>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item" data-aos="fade-up" data-aos-duration="400">
-                <div class="portfolio-image">
-                    <img src="/img/app-dev.jpg" alt="Mobile App Project">
-                    <div class="portfolio-overlay">
-                        <a href="#" class="btn-primary-custom" style="background: white; color: var(--primary);">
-                            View Project <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Mobile Banking App</h3>
-                    <p>Secure mobile banking application with biometric authentication and real-time transactions.</p>
-                    <div style="margin-top: 1rem;">
-                        <span style="background: var(--light-gray); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; margin-right: 0.5rem; display: inline-block;">React Native</span>
-                        <span style="background: var(--light-gray); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; display: inline-block;">Firebase</span>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item" data-aos="fade-up" data-aos-duration="400">
-                <div class="portfolio-image">
-                    <img src="/img/cloud-dev.jpg" alt="Cloud Solution Project">
-                    <div class="portfolio-overlay">
-                        <a href="#" class="btn-primary-custom" style="background: white; color: var(--primary);">
-                            View Project <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Cloud Migration Project</h3>
-                    <p>Complete cloud infrastructure migration with improved scalability and performance.</p>
-                    <div style="margin-top: 1rem;">
-                        <span style="background: var(--light-gray); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; margin-right: 0.5rem; display: inline-block;">AWS</span>
-                        <span style="background: var(--light-gray); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; display: inline-block;">Docker</span>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item" data-aos="fade-up" data-aos-duration="400">
-                <div class="portfolio-image">
-                    <img src="/img/about-us.jpg" alt="Web Application Project">
-                    <div class="portfolio-overlay">
-                        <a href="#" class="btn-primary-custom" style="background: white; color: var(--primary);">
-                            View Project <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="portfolio-content">
-                    <h3>School Management System</h3>
-                    <p>Comprehensive school management platform for Airport School Ahmedabad.</p>
-                    <div style="margin-top: 1rem;">
-                        <span style="background: var(--light-gray); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; margin-right: 0.5rem; display: inline-block;">Vue.js</span>
-                        <span style="background: var(--light-gray); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; display: inline-block;">Python</span>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item" data-aos="fade-up" data-aos-duration="400">
-                <div class="portfolio-image">
-                    <img src="/img/web-dev.jpg" alt="SaaS Platform Project">
-                    <div class="portfolio-overlay">
-                        <a href="#" class="btn-primary-custom" style="background: white; color: var(--primary);">
-                            View Project <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="portfolio-content">
-                    <h3>SaaS Platform</h3>
-                    <p>Multi-tenant SaaS platform with subscription management and analytics dashboard.</p>
-                    <div style="margin-top: 1rem;">
-                        <span style="background: var(--light-gray); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; margin-right: 0.5rem; display: inline-block;">Angular</span>
-                        <span style="background: var(--light-gray); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; display: inline-block;">PostgreSQL</span>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item" data-aos="fade-up" data-aos-duration="400">
-                <div class="portfolio-image">
-                    <img src="/img/app-dev.jpg" alt="Healthcare App Project">
-                    <div class="portfolio-overlay">
-                        <a href="#" class="btn-primary-custom" style="background: white; color: var(--primary);">
-                            View Project <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Healthcare Mobile App</h3>
-                    <p>Patient management and telemedicine application for healthcare providers.</p>
-                    <div style="margin-top: 1rem;">
-                        <span style="background: var(--light-gray); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; margin-right: 0.5rem; display: inline-block;">Flutter</span>
-                        <span style="background: var(--light-gray); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; display: inline-block;">Firebase</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="section-title" data-aos="fade-up" data-aos-duration="500">
+      <h2>Featured Projects</h2>
+      <p>Explore some of our recent work and success stories</p>
     </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-aos="fade-up" data-aos-duration="400">
+        <div class="portfolio-image">
+          <img src="/img/web-dev.jpg" alt="Web Development Project" />
+          <div class="portfolio-overlay">
+            <a
+              href="#"
+              class="btn-primary-custom"
+              style="background: white; color: var(--primary)"
+            >
+              View Project <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+        <div class="portfolio-content">
+          <h3>E-Commerce Platform</h3>
+          <p>
+            Full-stack e-commerce solution with payment integration and
+            inventory management.
+          </p>
+          <div style="margin-top: 1rem">
+            <span
+              style="
+                background: var(--light-gray);
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                margin-right: 0.5rem;
+                display: inline-block;
+              "
+              >React</span
+            >
+            <span
+              style="
+                background: var(--light-gray);
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                margin-right: 0.5rem;
+                display: inline-block;
+              "
+              >Node.js</span
+            >
+            <span
+              style="
+                background: var(--light-gray);
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                display: inline-block;
+              "
+              >MongoDB</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up" data-aos-duration="400">
+        <div class="portfolio-image">
+          <img src="/img/app-dev.jpg" alt="Mobile App Project" />
+          <div class="portfolio-overlay">
+            <a
+              href="#"
+              class="btn-primary-custom"
+              style="background: white; color: var(--primary)"
+            >
+              View Project <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+        <div class="portfolio-content">
+          <h3>Mobile Banking App</h3>
+          <p>
+            Secure mobile banking application with biometric authentication and
+            real-time transactions.
+          </p>
+          <div style="margin-top: 1rem">
+            <span
+              style="
+                background: var(--light-gray);
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                margin-right: 0.5rem;
+                display: inline-block;
+              "
+              >React Native</span
+            >
+            <span
+              style="
+                background: var(--light-gray);
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                display: inline-block;
+              "
+              >Firebase</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up" data-aos-duration="400">
+        <div class="portfolio-image">
+          <img src="/img/cloud-dev.jpg" alt="Cloud Solution Project" />
+          <div class="portfolio-overlay">
+            <a
+              href="#"
+              class="btn-primary-custom"
+              style="background: white; color: var(--primary)"
+            >
+              View Project <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+        <div class="portfolio-content">
+          <h3>Cloud Migration Project</h3>
+          <p>
+            Complete cloud infrastructure migration with improved scalability
+            and performance.
+          </p>
+          <div style="margin-top: 1rem">
+            <span
+              style="
+                background: var(--light-gray);
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                margin-right: 0.5rem;
+                display: inline-block;
+              "
+              >AWS</span
+            >
+            <span
+              style="
+                background: var(--light-gray);
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                display: inline-block;
+              "
+              >Docker</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up" data-aos-duration="400">
+        <div class="portfolio-image">
+          <img src="/img/about-us.jpg" alt="Web Application Project" />
+          <div class="portfolio-overlay">
+            <a
+              href="#"
+              class="btn-primary-custom"
+              style="background: white; color: var(--primary)"
+            >
+              View Project <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+        <div class="portfolio-content">
+          <h3>School Management System</h3>
+          <p>
+            Comprehensive school management platform for Airport School
+            Ahmedabad.
+          </p>
+          <div style="margin-top: 1rem">
+            <span
+              style="
+                background: var(--light-gray);
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                margin-right: 0.5rem;
+                display: inline-block;
+              "
+              >Vue.js</span
+            >
+            <span
+              style="
+                background: var(--light-gray);
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                display: inline-block;
+              "
+              >Python</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up" data-aos-duration="400">
+        <div class="portfolio-image">
+          <img src="/img/web-dev.jpg" alt="SaaS Platform Project" />
+          <div class="portfolio-overlay">
+            <a
+              href="#"
+              class="btn-primary-custom"
+              style="background: white; color: var(--primary)"
+            >
+              View Project <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+        <div class="portfolio-content">
+          <h3>SaaS Platform</h3>
+          <p>
+            Multi-tenant SaaS platform with subscription management and
+            analytics dashboard.
+          </p>
+          <div style="margin-top: 1rem">
+            <span
+              style="
+                background: var(--light-gray);
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                margin-right: 0.5rem;
+                display: inline-block;
+              "
+              >Angular</span
+            >
+            <span
+              style="
+                background: var(--light-gray);
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                display: inline-block;
+              "
+              >PostgreSQL</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up" data-aos-duration="400">
+        <div class="portfolio-image">
+          <img src="/img/app-dev.jpg" alt="Healthcare App Project" />
+          <div class="portfolio-overlay">
+            <a
+              href="#"
+              class="btn-primary-custom"
+              style="background: white; color: var(--primary)"
+            >
+              View Project <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+        <div class="portfolio-content">
+          <h3>Healthcare Mobile App</h3>
+          <p>
+            Patient management and telemedicine application for healthcare
+            providers.
+          </p>
+          <div style="margin-top: 1rem">
+            <span
+              style="
+                background: var(--light-gray);
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                margin-right: 0.5rem;
+                display: inline-block;
+              "
+              >Flutter</span
+            >
+            <span
+              style="
+                background: var(--light-gray);
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                display: inline-block;
+              "
+              >Firebase</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Clients Section -->
 <section class="section clients-section">
-    <div class="container">
-        <div class="section-title" data-aos="fade-up" data-aos-duration="500">
-            <h2>Our Clients</h2>
-            <p>Trusted by leading organizations</p>
-        </div>
-        <div class="clients-grid" data-aos="fade-up" data-aos-duration="400">
-            <div class="client-logo">
-                <img src="/img/school_logo.png" alt="Client Logo">
-            </div>
-            <div class="client-logo">
-                <img src="/img/syr.png" alt="Client Logo">
-            </div>
-            <div class="client-logo">
-                <img src="/img/logo-modified.png" alt="Client Logo">
-            </div>
-            <div class="client-logo">
-                <img src="/img/nexnodez.png" alt="Client Logo">
-            </div>
-        </div>
+  <div class="container">
+    <div class="section-title" data-aos="fade-up" data-aos-duration="500">
+      <h2>Our Clients</h2>
+      <p>Trusted by leading organizations</p>
     </div>
+    <div class="clients-grid" data-aos="fade-up" data-aos-duration="400">
+      <div class="client-logo">
+        <img src="/img/school_logo.png" alt="Client Logo" />
+      </div>
+      <div class="client-logo">
+        <img src="/img/syr.png" alt="Client Logo" />
+      </div>
+      <div class="client-logo">
+        <img src="/img/logo-modified.png" alt="Client Logo" />
+      </div>
+      <div class="client-logo">
+        <img src="/img/nexnodez.png" alt="Client Logo" />
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Testimonials Section - Interactive Carousel -->
 <section class="section testimonials-section-modern">
-    <div class="container">
-        <div class="section-title" data-aos="fade-up" data-aos-duration="500">
-            <h2>Client Testimonials</h2>
-            <p>What our clients say about working with us</p>
-        </div>
-        <!-- Testimonials Carousel -->
-        <div class="testimonials-slider-container" data-aos="fade-up" data-aos-delay="200">
-            <!-- Navigation Arrows -->
-            <button class="testimonial-nav testimonial-nav-prev" id="portfolioTestimonialPrev" aria-label="Previous testimonial">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="testimonial-nav testimonial-nav-next" id="portfolioTestimonialNext" aria-label="Next testimonial">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            
-            <div class="testimonials-slider" id="portfolioTestimonialsSlider">
-                <!-- Review 1 -->
-                <div class="testimonial-slide-item">
-                    <div class="testimonial-card-carousel">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <p>"We've partnered with Codroit on multiple projects, and every time they've delivered exceptional results. Their technical expertise and attention to detail are unmatched."</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="testimonial-info">
-                                <p class="testimonial-role">Head of Department</p>
-                                <p class="testimonial-company">Airport School Ahmedabad</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 2 -->
-                <div class="testimonial-slide-item">
-                    <div class="testimonial-card-carousel">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <p>"Codroit transformed our business with their innovative solutions. The team is professional, responsive, and truly understands our needs. Highly recommended!"</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <div class="testimonial-info">
-                                <p class="testimonial-role">Business Owner</p>
-                                <p class="testimonial-company">Tech Startup</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 3 -->
-                <div class="testimonial-slide-item">
-                    <div class="testimonial-card-carousel">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <p>"Working with Codroit has been a game-changer. They delivered our project on time, within budget, and exceeded our expectations. Professional service at its best."</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="testimonial-info">
-                                <p class="testimonial-role">Project Manager</p>
-                                <p class="testimonial-company">Enterprise Solutions Inc</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 4 -->
-                <div class="testimonial-slide-item">
-                    <div class="testimonial-card-carousel">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <p>"Outstanding work! Codroit's team went above and beyond to ensure our platform was scalable and secure. Their expertise in cloud solutions is remarkable."</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">
-                                <i class="fas fa-laptop-code"></i>
-                            </div>
-                            <div class="testimonial-info">
-                                <p class="testimonial-role">CTO</p>
-                                <p class="testimonial-company">FinTech Solutions</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 5 -->
-                <div class="testimonial-slide-item">
-                    <div class="testimonial-card-carousel">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <p>"The mobile app Codroit developed for us has received amazing feedback from our customers. Smooth, intuitive, and exactly what we envisioned. Fantastic collaboration!"</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <div class="testimonial-info">
-                                <p class="testimonial-role">Product Director</p>
-                                <p class="testimonial-company">E-Commerce Platform</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 6 -->
-                <div class="testimonial-slide-item">
-                    <div class="testimonial-card-carousel">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <p>"Codroit's dedication to quality and customer satisfaction is unparalleled. They turned our complex requirements into a beautiful, functional solution. Highly professional team!"</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">
-                                <i class="fas fa-building"></i>
-                            </div>
-                            <div class="testimonial-info">
-                                <p class="testimonial-role">Operations Manager</p>
-                                <p class="testimonial-company">Healthcare Services</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dot Indicators -->
-            <div class="carousel-dots-only" id="portfolioCarouselDots"></div>
-        </div>
+  <div class="container">
+    <div class="section-title" data-aos="fade-up" data-aos-duration="500">
+      <h2>Client Testimonials</h2>
+      <p>What our clients say about working with us</p>
     </div>
+    <!-- Testimonials Carousel -->
+    <div
+      class="testimonials-slider-container"
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
+      <!-- Navigation Arrows -->
+      <button
+        class="testimonial-nav testimonial-nav-prev"
+        id="portfolioTestimonialPrev"
+        aria-label="Previous testimonial"
+      >
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button
+        class="testimonial-nav testimonial-nav-next"
+        id="portfolioTestimonialNext"
+        aria-label="Next testimonial"
+      >
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <div class="testimonials-slider" id="portfolioTestimonialsSlider">
+        <!-- Review 1 -->
+        <div class="testimonial-slide-item">
+          <div class="testimonial-card-carousel">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="testimonial-content">
+              <p>
+                They made very great contributions to our project and exceeded
+                our expectations. Their software helped us to slove the problem.
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="testimonial-info">
+                <p class="testimonial-role">Head of Department</p>
+                <p class="testimonial-company">Airport School Ahmedabad</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="testimonial-slide-item">
+          <div class="testimonial-card-carousel">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="testimonial-content">
+              <p>
+                They made our company website, that was good. We are still
+                working with them with different projects.
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="testimonial-info">
+                <p class="testimonial-role">Founder</p>
+                <p class="testimonial-company">NexNodez</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="testimonial-slide-item">
+          <div class="testimonial-card-carousel">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="testimonial-content">
+              <p>
+                Very Great! Improved our SEO, made a very great website. They
+                also helped us to generate more leads and increase our online
+                presence.
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <i class="fas fa-building"></i>
+              </div>
+              <div class="testimonial-info">
+                <p class="testimonial-role">Owner</p>
+                <p class="testimonial-company">Mahakali Constructions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="testimonial-slide-item">
+          <div class="testimonial-card-carousel">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="testimonial-content">
+              <p>
+                They made our mobile application, which was very efficient and
+                user-friendly. We used it for cricket match tournaments. We are
+                very satisfied with their work.
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <div class="testimonial-info">
+                <p class="testimonial-role">CTO</p>
+                <p class="testimonial-company">Score your run</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 5 -->
+        <div class="testimonial-slide-item">
+          <div class="testimonial-card-carousel">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="testimonial-content">
+              <p>
+                ONE STOP SOLUTION FOR YOU. I gave them my requirements and they
+                delivered beyond expectations. Highly recommended!
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <div class="testimonial-info">
+                <p class="testimonial-role">Owner</p>
+                <p class="testimonial-company">Welcome Mobiles</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 6 -->
+        <div class="testimonial-slide-item">
+          <div class="testimonial-card-carousel">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="testimonial-content">
+              <p>
+                They are super great, they manage to do meeitngs in our time
+                zone that was so so great of them. Applications are well
+                developed and maintained.
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <div class="testimonial-info">
+                <p class="testimonial-role">Manager</p>
+                <p class="testimonial-company">Ecommerce Applications</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dot Indicators -->
+      <div class="carousel-dots-only" id="portfolioCarouselDots"></div>
+    </div>
+  </div>
 </section>
 
 <!-- CTA Section -->
 <section class="section contact-section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8 mx-auto text-center" data-aos="fade-up" data-aos-duration="500">
-                <h2 style="color: white; margin-bottom: 1.5rem;">Have a Project in Mind?</h2>
-                <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-bottom: 2rem;">Let's discuss how we can bring your vision to life with our expertise and innovative solutions.</p>
-                <a href="{{ url_for('contact') }}" class="btn-primary-custom" style="background: white; color: var(--primary);">
-                    Start Your Project <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row align-items-center">
+      <div
+        class="col-lg-8 mx-auto text-center"
+        data-aos="fade-up"
+        data-aos-duration="500"
+      >
+        <h2 style="color: white; margin-bottom: 1.5rem">
+          Have a Project in Mind?
+        </h2>
+        <p
+          style="
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+          "
+        >
+          Let's discuss how we can bring your vision to life with our expertise
+          and innovative solutions.
+        </p>
+        <a
+          href="{{ url_for('contact') }}"
+          class="btn-primary-custom"
+          style="background: white; color: var(--primary)"
+        >
+          Start Your Project <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Project Details Modal -->
 <div class="project-modal" id="projectModal">
-    <div class="project-modal-overlay" id="modalOverlay"></div>
-    <div class="project-modal-content">
-        <button class="project-modal-close" id="modalClose">
-            <i class="fas fa-times"></i>
-        </button>
-        
-        <div class="project-modal-body">
-            <!-- Project Header -->
-            <div class="project-modal-header">
-                <div class="project-modal-image">
-                    <img id="modalProjectImage" src="" alt="Project">
-                </div>
-                <div class="project-modal-info">
-                    <h2 id="modalProjectTitle"></h2>
-                    <p id="modalProjectDescription"></p>
-                    <div class="project-modal-tags" id="modalProjectTags"></div>
-                </div>
-            </div>
-            
-            <!-- Project Details -->
-            <div class="project-modal-details">
-                <div class="row">
-                    <div class="col-md-8">
-                        <h3>Project Overview</h3>
-                        <p id="modalProjectOverview"></p>
-                        
-                        <h3 style="margin-top: 2rem;">Key Features</h3>
-                        <ul id="modalProjectFeatures" class="project-features-list"></ul>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="project-info-box">
-                            <h4>Project Info</h4>
-                            <div class="project-info-item">
-                                <strong>Client:</strong>
-                                <span id="modalProjectClient"></span>
-                            </div>
-                            <div class="project-info-item">
-                                <strong>Duration:</strong>
-                                <span id="modalProjectDuration"></span>
-                            </div>
-                            <div class="project-info-item">
-                                <strong>Status:</strong>
-                                <span id="modalProjectStatus"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Client Review Section -->
-            <div class="project-modal-review">
-                <h3><i class="fas fa-quote-left"></i> Client Review</h3>
-                <div class="review-card">
-                    <div class="review-rating" id="modalReviewRating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text" id="modalReviewText"></p>
-                    <div class="review-author">
-                        <div class="review-avatar">
-                            <i class="fas fa-user" id="modalReviewIcon"></i>
-                        </div>
-                        <div class="review-info">
-                            <strong id="modalReviewName"></strong>
-                            <span id="modalReviewPosition"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{% endblock %}
+  <div class="project-modal-overlay" id="modalOverlay"></div>
+  <div class="project-modal-content">
+    <button class="project-modal-close" id="modalClose">
+      <i class="fas fa-times"></i>
+    </button>
 
-{% block extra_js %}
+    <div class="project-modal-body">
+      <!-- Project Header -->
+      <div class="project-modal-header">
+        <div class="project-modal-image">
+          <img id="modalProjectImage" src="" alt="Project" />
+        </div>
+        <div class="project-modal-info">
+          <h2 id="modalProjectTitle"></h2>
+          <p id="modalProjectDescription"></p>
+          <div class="project-modal-tags" id="modalProjectTags"></div>
+        </div>
+      </div>
+
+      <!-- Project Details -->
+      <div class="project-modal-details">
+        <div class="row">
+          <div class="col-md-8">
+            <h3>Project Overview</h3>
+            <p id="modalProjectOverview"></p>
+
+            <h3 style="margin-top: 2rem">Key Features</h3>
+            <ul id="modalProjectFeatures" class="project-features-list"></ul>
+          </div>
+          <div class="col-md-4">
+            <div class="project-info-box">
+              <h4>Project Info</h4>
+              <div class="project-info-item">
+                <strong>Client:</strong>
+                <span id="modalProjectClient"></span>
+              </div>
+              <div class="project-info-item">
+                <strong>Duration:</strong>
+                <span id="modalProjectDuration"></span>
+              </div>
+              <div class="project-info-item">
+                <strong>Status:</strong>
+                <span id="modalProjectStatus"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Client Review Section -->
+      <div class="project-modal-review">
+        <h3><i class="fas fa-quote-left"></i> Client Review</h3>
+        <div class="review-card">
+          <div class="review-rating" id="modalReviewRating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-text" id="modalReviewText"></p>
+          <div class="review-author">
+            <div class="review-avatar">
+              <i class="fas fa-user" id="modalReviewIcon"></i>
+            </div>
+            <div class="review-info">
+              <strong id="modalReviewName"></strong>
+              <span id="modalReviewPosition"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block extra_js %}
 <script>
-// Testimonials Carousel - Infinite Scroll with Manual Control
-document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.getElementById('portfolioTestimonialsSlider');
-    const dotsContainer = document.getElementById('portfolioCarouselDots');
-    const prevBtn = document.getElementById('portfolioTestimonialPrev');
-    const nextBtn = document.getElementById('portfolioTestimonialNext');
-    
+  // Testimonials Carousel - Infinite Scroll with Manual Control
+  document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.getElementById("portfolioTestimonialsSlider");
+    const dotsContainer = document.getElementById("portfolioCarouselDots");
+    const prevBtn = document.getElementById("portfolioTestimonialPrev");
+    const nextBtn = document.getElementById("portfolioTestimonialNext");
+
     if (!slider) return;
-    
-    const originalSlides = Array.from(slider.querySelectorAll('.testimonial-slide-item'));
+
+    const originalSlides = Array.from(
+      slider.querySelectorAll(".testimonial-slide-item")
+    );
     const totalSlides = originalSlides.length;
     let currentIndex = 0;
     let autoScrollInterval;
     let isTransitioning = false;
-    
+
     // Clone slides for infinite effect
-    originalSlides.forEach(slide => {
-        const clone = slide.cloneNode(true);
-        slider.appendChild(clone);
+    originalSlides.forEach((slide) => {
+      const clone = slide.cloneNode(true);
+      slider.appendChild(clone);
     });
-    
+
     // Create dot indicators
     for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('div');
-        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-        dot.onclick = () => {
-            stopAutoScroll();
-            goToSlide(i, true);
-            startAutoScroll();
-        };
-        dotsContainer.appendChild(dot);
+      const dot = document.createElement("div");
+      dot.className = "carousel-dot" + (i === 0 ? " active" : "");
+      dot.onclick = () => {
+        stopAutoScroll();
+        goToSlide(i, true);
+        startAutoScroll();
+      };
+      dotsContainer.appendChild(dot);
     }
-    
+
     // Get slide width including gap
     function getSlideWidth() {
-        const slideElement = originalSlides[0];
-        const gap = 32; // 2rem = 32px
-        return slideElement.offsetWidth + gap;
+      const slideElement = originalSlides[0];
+      const gap = 32; // 2rem = 32px
+      return slideElement.offsetWidth + gap;
     }
-    
+
     // Navigation arrow handlers
     if (prevBtn) {
-        prevBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (isTransitioning) return;
-            stopAutoScroll();
-            previousSlide();
-            startAutoScroll();
-        });
-    }
-    
-    if (nextBtn) {
-        nextBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (isTransitioning) return;
-            stopAutoScroll();
-            nextSlide();
-            startAutoScroll();
-        });
-    }
-    
-    // Pause on hover
-    slider.addEventListener('mouseenter', () => {
+      prevBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (isTransitioning) return;
         stopAutoScroll();
-    });
-    
-    slider.addEventListener('mouseleave', () => {
+        previousSlide();
         startAutoScroll();
-    });
-    
-    function updateDots() {
-        const dots = dotsContainer.querySelectorAll('.carousel-dot');
-        const actualIndex = currentIndex % totalSlides;
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === actualIndex);
-        });
+      });
     }
-    
-    function goToSlide(index, smooth = true) {
-        currentIndex = index;
-        const slideWidth = getSlideWidth();
-        const targetPosition = -(slideWidth * currentIndex);
-        
-        if (smooth) {
-            slider.style.transition = 'transform 0.6s ease-in-out';
-        } else {
-            slider.style.transition = 'none';
-        }
-        
-        slider.style.transform = `translateX(${targetPosition}px)`;
-        updateDots();
-    }
-    
-    function nextSlide() {
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", (e) => {
+        e.preventDefault();
         if (isTransitioning) return;
-        isTransitioning = true;
-        
-        currentIndex++;
-        goToSlide(currentIndex, true);
-        
-        // Check if we've reached the cloned slides
-        if (currentIndex >= totalSlides) {
-            setTimeout(() => {
-                currentIndex = 0;
-                goToSlide(0, false); // Jump back without animation
-                isTransitioning = false;
-            }, 600);
-        } else {
-            setTimeout(() => {
-                isTransitioning = false;
-            }, 600);
-        }
-    }
-    
-    function previousSlide() {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        
-        if (currentIndex === 0) {
-            // Jump to the last clone without animation
-            currentIndex = totalSlides;
-            goToSlide(currentIndex, false);
-            
-            setTimeout(() => {
-                currentIndex--;
-                goToSlide(currentIndex, true);
-                setTimeout(() => {
-                    isTransitioning = false;
-                }, 600);
-            }, 20);
-        } else {
-            currentIndex--;
-            goToSlide(currentIndex, true);
-            setTimeout(() => {
-                isTransitioning = false;
-            }, 600);
-        }
-    }
-    
-    function startAutoScroll() {
         stopAutoScroll();
-        autoScrollInterval = setInterval(nextSlide, 5000);
+        nextSlide();
+        startAutoScroll();
+      });
     }
-    
+
+    // Pause on hover
+    slider.addEventListener("mouseenter", () => {
+      stopAutoScroll();
+    });
+
+    slider.addEventListener("mouseleave", () => {
+      startAutoScroll();
+    });
+
+    function updateDots() {
+      const dots = dotsContainer.querySelectorAll(".carousel-dot");
+      const actualIndex = currentIndex % totalSlides;
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === actualIndex);
+      });
+    }
+
+    function goToSlide(index, smooth = true) {
+      currentIndex = index;
+      const slideWidth = getSlideWidth();
+      const targetPosition = -(slideWidth * currentIndex);
+
+      if (smooth) {
+        slider.style.transition = "transform 0.6s ease-in-out";
+      } else {
+        slider.style.transition = "none";
+      }
+
+      slider.style.transform = `translateX(${targetPosition}px)`;
+      updateDots();
+    }
+
+    function nextSlide() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+
+      currentIndex++;
+      goToSlide(currentIndex, true);
+
+      // Check if we've reached the cloned slides
+      if (currentIndex >= totalSlides) {
+        setTimeout(() => {
+          currentIndex = 0;
+          goToSlide(0, false); // Jump back without animation
+          isTransitioning = false;
+        }, 600);
+      } else {
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 600);
+      }
+    }
+
+    function previousSlide() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+
+      if (currentIndex === 0) {
+        // Jump to the last clone without animation
+        currentIndex = totalSlides;
+        goToSlide(currentIndex, false);
+
+        setTimeout(() => {
+          currentIndex--;
+          goToSlide(currentIndex, true);
+          setTimeout(() => {
+            isTransitioning = false;
+          }, 600);
+        }, 20);
+      } else {
+        currentIndex--;
+        goToSlide(currentIndex, true);
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 600);
+      }
+    }
+
+    function startAutoScroll() {
+      stopAutoScroll();
+      autoScrollInterval = setInterval(nextSlide, 5000);
+    }
+
     function stopAutoScroll() {
-        if (autoScrollInterval) {
-            clearInterval(autoScrollInterval);
-            autoScrollInterval = null;
-        }
+      if (autoScrollInterval) {
+        clearInterval(autoScrollInterval);
+        autoScrollInterval = null;
+      }
     }
-    
+
     // Initialize
     goToSlide(0, false);
     startAutoScroll();
-});
+  });
 
-// Project Modal Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('projectModal');
-    const modalOverlay = document.getElementById('modalOverlay');
-    const modalClose = document.getElementById('modalClose');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    
+  // Project Modal Functionality
+  document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("projectModal");
+    const modalOverlay = document.getElementById("modalOverlay");
+    const modalClose = document.getElementById("modalClose");
+    const portfolioItems = document.querySelectorAll(".portfolio-item");
+
     // Project data with details and client reviews
     const projectsData = {
-        0: {
-            title: 'E-Commerce Platform',
-            description: 'Full-stack e-commerce solution with payment integration and inventory management.',
-            image: '/img/web-dev.jpg',
-            tags: ['React', 'Node.js', 'MongoDB'],
-            overview: 'A comprehensive e-commerce platform built for a growing retail business. The solution includes a modern React frontend, robust Node.js backend, and MongoDB database. Features include real-time inventory tracking, secure payment processing, and an intuitive admin dashboard.',
-            features: [
-                'Secure payment gateway integration with Stripe and PayPal',
-                'Real-time inventory management system',
-                'Advanced product search and filtering',
-                'Customer review and rating system',
-                'Responsive design for all devices',
-                'Admin dashboard with analytics'
-            ],
-            client: 'TechMart Retail',
-            duration: '4 months',
-            status: 'Completed',
-            review: {
-                text: 'Codroit delivered an exceptional e-commerce platform that exceeded our expectations. The system is fast, secure, and our sales have increased by 40% since launch. Their team was professional and responsive throughout the project.',
-                name: 'Sarah Johnson',
-                position: 'CEO, TechMart Retail',
-                icon: 'fa-user-tie'
-            }
+      0: {
+        title: "E-Commerce Platform",
+        description:
+          "Full-stack e-commerce solution with payment integration and inventory management.",
+        image: "/img/web-dev.jpg",
+        tags: ["AWS", "Python", "Flutter", "Firebase"],
+        overview:
+          "A robust e-commerce platform built to provide seamless shopping experiences. Developed using React for the frontend, Node.js for the backend, and MongoDB for the database. Features include secure payment processing, real-time inventory updates, and customer reviews.",
+        features: [
+          "Secure payment gateway integration with Stripe and PayPal",
+          "Real-time inventory management system",
+          "Advanced product search and filtering",
+          "Customer review and rating system",
+          "Responsive design for all devices",
+          "Admin dashboard with analytics",
+        ],
+        client: "BUOTIQUE NA",
+        duration: "2 months",
+        status: "Completed",
+        review: {
+          text: "They made our application very fast and responsive. The team was professional and delivered beyond our expectations. Our sales increased by 30% within the first quarter of launch thanks to their excellent work.",
+          name: "Sarah Johnson",
+          position: "CEO, BUOTIQUE NA",
+          icon: "fa-user-tie",
         },
-        1: {
-            title: 'Mobile Banking App',
-            description: 'Secure mobile banking application with biometric authentication and real-time transactions.',
-            image: '/img/app-dev.jpg',
-            tags: ['React Native', 'Firebase'],
-            overview: 'A cutting-edge mobile banking application designed for modern banking needs. Built with React Native for cross-platform compatibility and Firebase for real-time data synchronization. The app features biometric authentication, instant transfers, and comprehensive account management.',
-            features: [
-                'Biometric authentication (Face ID / Fingerprint)',
-                'Real-time transaction notifications',
-                'Instant money transfers',
-                'Bill payment and scheduling',
-                'Account balance and transaction history',
-                'Secure end-to-end encryption'
-            ],
-            client: 'SecureBank Financial',
-            duration: '6 months',
-            status: 'Completed',
-            review: {
-                text: 'The mobile banking app Codroit developed has transformed our customer experience. User adoption exceeded 80% in the first month, and customer satisfaction scores are at an all-time high. Security and performance are outstanding.',
-                name: 'Michael Chen',
-                position: 'CTO, SecureBank Financial',
-                icon: 'fa-building'
-            }
+      },
+      1: {
+        title: "Mobile Banking App",
+        description:
+          "Secure mobile banking application with biometric authentication and real-time transactions.",
+        image: "/img/app-dev.jpg",
+        tags: ["React Native", "Firebase"],
+        overview:
+          "A cutting-edge mobile banking application designed for modern banking needs. Built with React Native for cross-platform compatibility and Firebase for real-time data synchronization. The app features biometric authentication, instant transfers, and comprehensive account management.",
+        features: [
+          "Biometric authentication (Face ID / Fingerprint)",
+          "Real-time transaction notifications",
+          "Instant money transfers",
+          "Bill payment and scheduling",
+          "Account balance and transaction history",
+          "Secure end-to-end encryption",
+        ],
+        client: "SecureBank Financial",
+        duration: "6 months",
+        status: "Completed",
+        review: {
+          text: "The mobile banking app Codroit developed has transformed our customer experience. User adoption exceeded 80% in the first month, and customer satisfaction scores are at an all-time high. Security and performance are outstanding.",
+          name: "Michael Chen",
+          position: "CTO, SecureBank Financial",
+          icon: "fa-building",
         },
-        2: {
-            title: 'Cloud Migration Project',
-            description: 'Complete cloud infrastructure migration with improved scalability and performance.',
-            image: '/img/cloud-dev.jpg',
-            tags: ['AWS', 'Docker'],
-            overview: 'A comprehensive cloud migration project that moved legacy infrastructure to AWS cloud. The project included containerization with Docker, implementation of CI/CD pipelines, and setup of auto-scaling infrastructure. Result was 60% cost reduction and 99.9% uptime.',
-            features: [
-                'Complete AWS cloud infrastructure setup',
-                'Docker containerization of all services',
-                'Automated CI/CD pipeline implementation',
-                'Auto-scaling and load balancing',
-                'Database migration with zero downtime',
-                'Comprehensive monitoring and alerting'
-            ],
-            client: 'Enterprise Solutions Inc',
-            duration: '5 months',
-            status: 'Completed',
-            review: {
-                text: 'Codroit\'s cloud migration expertise saved us both time and money. The transition was seamless with zero downtime, and we\'re now enjoying 60% cost savings with better performance. Their team handled everything professionally.',
-                name: 'David Martinez',
-                position: 'IT Director, Enterprise Solutions Inc',
-                icon: 'fa-cloud'
-            }
-        }
+      },
+      2: {
+        title: "Cloud Migration Project",
+        description:
+          "Complete cloud infrastructure migration with improved scalability and performance.",
+        image: "/img/cloud-dev.jpg",
+        tags: ["AWS", "Docker"],
+        overview:
+          "A comprehensive cloud migration project that moved legacy infrastructure to AWS cloud. The project included containerization with Docker, implementation of CI/CD pipelines, and setup of auto-scaling infrastructure. Result was 60% cost reduction and 99.9% uptime.",
+        features: [
+          "Complete AWS cloud infrastructure setup",
+          "Docker containerization of all services",
+          "Automated CI/CD pipeline implementation",
+          "Auto-scaling and load balancing",
+          "Database migration with zero downtime",
+          "Comprehensive monitoring and alerting",
+        ],
+        client: "Enterprise Solutions Inc",
+        duration: "5 months",
+        status: "Completed",
+        review: {
+          text: "Codroit's cloud migration expertise saved us both time and money. The transition was seamless with zero downtime, and we're now enjoying 60% cost savings with better performance. Their team handled everything professionally.",
+          name: "David Martinez",
+          position: "IT Director, Enterprise Solutions Inc",
+          icon: "fa-cloud",
+        },
+      },
     };
-    
+
     // Open modal when clicking on portfolio items
     portfolioItems.forEach((item, index) => {
-        const viewButton = item.querySelector('.btn-primary-custom');
-        if (viewButton) {
-            viewButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                openModal(index);
-            });
-        }
+      const viewButton = item.querySelector(".btn-primary-custom");
+      if (viewButton) {
+        viewButton.addEventListener("click", function (e) {
+          e.preventDefault();
+          openModal(index);
+        });
+      }
     });
-    
+
     // Close modal handlers
-    modalClose.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', closeModal);
-    
+    modalClose.addEventListener("click", closeModal);
+    modalOverlay.addEventListener("click", closeModal);
+
     // Close on ESC key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
-        }
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closeModal();
+      }
     });
-    
+
     function openModal(projectIndex) {
-        const project = projectsData[projectIndex];
-        if (!project) return;
-        
-        // Populate modal content
-        document.getElementById('modalProjectImage').src = project.image;
-        document.getElementById('modalProjectTitle').textContent = project.title;
-        document.getElementById('modalProjectDescription').textContent = project.description;
-        
-        // Tags
-        const tagsContainer = document.getElementById('modalProjectTags');
-        tagsContainer.innerHTML = project.tags.map(tag => `<span>${tag}</span>`).join('');
-        
-        // Overview
-        document.getElementById('modalProjectOverview').textContent = project.overview;
-        
-        // Features
-        const featuresContainer = document.getElementById('modalProjectFeatures');
-        featuresContainer.innerHTML = project.features.map(feature => `<li>${feature}</li>`).join('');
-        
-        // Project info
-        document.getElementById('modalProjectClient').textContent = project.client;
-        document.getElementById('modalProjectDuration').textContent = project.duration;
-        document.getElementById('modalProjectStatus').textContent = project.status;
-        
-        // Client review
-        document.getElementById('modalReviewText').textContent = project.review.text;
-        document.getElementById('modalReviewName').textContent = project.review.name;
-        document.getElementById('modalReviewPosition').textContent = project.review.position;
-        document.getElementById('modalReviewIcon').className = `fas ${project.review.icon}`;
-        
-        // Show modal
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+      const project = projectsData[projectIndex];
+      if (!project) return;
+
+      // Populate modal content
+      document.getElementById("modalProjectImage").src = project.image;
+      document.getElementById("modalProjectTitle").textContent = project.title;
+      document.getElementById("modalProjectDescription").textContent =
+        project.description;
+
+      // Tags
+      const tagsContainer = document.getElementById("modalProjectTags");
+      tagsContainer.innerHTML = project.tags
+        .map((tag) => `<span>${tag}</span>`)
+        .join("");
+
+      // Overview
+      document.getElementById("modalProjectOverview").textContent =
+        project.overview;
+
+      // Features
+      const featuresContainer = document.getElementById("modalProjectFeatures");
+      featuresContainer.innerHTML = project.features
+        .map((feature) => `<li>${feature}</li>`)
+        .join("");
+
+      // Project info
+      document.getElementById("modalProjectClient").textContent =
+        project.client;
+      document.getElementById("modalProjectDuration").textContent =
+        project.duration;
+      document.getElementById("modalProjectStatus").textContent =
+        project.status;
+
+      // Client review
+      document.getElementById("modalReviewText").textContent =
+        project.review.text;
+      document.getElementById("modalReviewName").textContent =
+        project.review.name;
+      document.getElementById("modalReviewPosition").textContent =
+        project.review.position;
+      document.getElementById(
+        "modalReviewIcon"
+      ).className = `fas ${project.review.icon}`;
+
+      // Show modal
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
     }
-    
+
     function closeModal() {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
+      modal.classList.remove("active");
+      document.body.style.overflow = "";
     }
-});
+  });
 </script>
 {% endblock %}
