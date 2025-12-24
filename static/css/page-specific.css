@@ -1,0 +1,145 @@
+/* ============================================
+   PAGE-SPECIFIC HERO SECTIONS
+   ============================================ */
+
+/* Reduce hero section height on non-home pages */
+.hero-section[style*="min-height: 60vh"] {
+    min-height: 50vh !important;
+}
+
+/* Better spacing for page headers */
+.hero-section[style*="min-height: 60vh"] .container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Optimize text sizing on page headers */
+.hero-section[style*="min-height: 60vh"] h1 {
+    font-size: clamp(2rem, 5vw, 3rem) !important;
+    margin-bottom: 1rem !important;
+}
+
+.hero-section[style*="min-height: 60vh"] .subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem) !important;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Mobile optimization for page headers */
+@media (max-width: 768px) {
+    .hero-section[style*="min-height: 60vh"] {
+        min-height: 35vh !important;
+        padding-top: 100px !important;
+        padding-bottom: 1.5rem !important;
+    }
+    
+    .hero-section[style*="min-height: 60vh"] h1 {
+        font-size: 1.875rem !important;
+        margin-bottom: 0.875rem !important;
+    }
+    
+    .hero-section[style*="min-height: 60vh"] .subtitle {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+    }
+}
+
+/* Portfolio grid improvements */
+.portfolio-grid {
+    margin-top: 2rem;
+}
+
+.portfolio-item {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-item:hover {
+    transform: translateY(-8px);
+}
+
+/* Testimonial cards enhancement */
+.testimonial-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 188, 212, 0.1);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Client logos optimization */
+.clients-grid,
+.clients-grid-modern {
+    align-items: center;
+}
+
+.client-logo,
+.client-logo-modern {
+    transition: all 0.3s ease;
+}
+
+.client-logo:hover,
+.client-logo-modern:hover {
+    transform: scale(1.05);
+}
+
+/* About page image optimization */
+.about-image-modern img,
+.about-image img {
+    max-height: 500px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .about-image-modern img,
+    .about-image img {
+        max-height: 350px;
+    }
+}
+
+/* Contact section improvements */
+.contact-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 188, 212, 0.05) 0%, rgba(30, 58, 95, 0.05) 100%);
+    pointer-events: none;
+}
+
+/* Form styling improvements */
+.contact-form input,
+.contact-form textarea {
+    transition: all 0.3s ease;
+    border: 2px solid rgba(0, 188, 212, 0.2);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #00bcd4;
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1);
+    outline: none;
+}
+
+/* Services page enhancements */
+.service-detail-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 188, 212, 0.1);
+}
+
+.service-detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
