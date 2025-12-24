@@ -72,6 +72,7 @@
     line-height: 1.8;
     font-size: 1rem;
     margin: 0;
+    text-align: justify;
 }
 
 .testimonial-author {
@@ -186,8 +187,8 @@
 
 @media (max-width: 768px) {
     .testimonial-slide-item {
-        flex: 0 0 calc(100% - 2rem);
-        min-width: calc(100% - 2rem);
+        flex: 0 0 100%;
+        min-width: 100%;
     }
     
     .testimonials-slider {
@@ -230,20 +231,15 @@
     }
     
     .testimonial-content {
-        margin-bottom: 1.25rem;
+        margin-bottom: 1rem;
     }
     
     .testimonial-content p {
         font-size: 0.95rem !important;
         line-height: 1.6 !important;
         font-weight: 400;
-        text-align: left;
+        text-align: justify;
         color: #2c3e50;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        line-clamp: 4;
     }
     
     /* Horizontal author layout */
@@ -1046,7 +1042,7 @@
 
 {% block extra_js %}
 <script>
-// Testimonials Carousel - Auto-Scroll with Manual Control
+// Testimonials Carousel - Infinite Scroll with Manual Control
 document.addEventListener('DOMContentLoaded', function() {
     const slider = document.getElementById('portfolioTestimonialsSlider');
     const dotsContainer = document.getElementById('portfolioCarouselDots');
@@ -1055,10 +1051,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (!slider) return;
     
-    const slides = Array.from(slider.querySelectorAll('.testimonial-slide-item'));
-    const totalSlides = slides.length;
+    const originalSlides = Array.from(slider.querySelectorAll('.testimonial-slide-item'));
+    const totalSlides = originalSlides.length;
     let currentIndex = 0;
     let autoScrollInterval;
+    let isTransitioning = false;
+    
+    // Clone slides for infinite effect
+    originalSlides.forEach(slide => {
+        const clone = slide.cloneNode(true);
+        slider.appendChild(clone);
+    });
     
     // Create dot indicators
     for (let i = 0; i < totalSlides; i++) {
@@ -1066,7 +1069,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
         dot.onclick = () => {
             stopAutoScroll();
-            goToSlide(i);
+            goToSlide(i, true);
             startAutoScroll();
         };
         dotsContainer.appendChild(dot);
@@ -1074,7 +1077,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Get slide width including gap
     function getSlideWidth() {
-        const slideElement = slides[0];
+        const slideElement = originalSlides[0];
         const gap = 32; // 2rem = 32px
         return slideElement.offsetWidth + gap;
     }
@@ -1083,9 +1086,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (prevBtn) {
         prevBtn.addEventListener('click', (e) => {
             e.preventDefault();
+            if (isTransitioning) return;
             stopAutoScroll();
-            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-            goToSlide(currentIndex);
+            previousSlide();
             startAutoScroll();
         });
     }
@@ -1093,9 +1096,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (nextBtn) {
         nextBtn.addEventListener('click', (e) => {
             e.preventDefault();
+            if (isTransitioning) return;
             stopAutoScroll();
-            currentIndex = (currentIndex + 1) % totalSlides;
-            goToSlide(currentIndex);
+            nextSlide();
             startAutoScroll();
         });
     }
@@ -1111,33 +1114,76 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function updateDots() {
         const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        const actualIndex = currentIndex % totalSlides;
         dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentIndex);
+            dot.classList.toggle('active', index === actualIndex);
         });
     }
     
-    function goToSlide(index) {
+    function goToSlide(index, smooth = true) {
         currentIndex = index;
-        
-        // Calculate position
         const slideWidth = getSlideWidth();
-        const targetPosition = -(slideWidth * index);
+        const targetPosition = -(slideWidth * currentIndex);
         
-        // Apply transform with smooth transition
-        slider.style.transition = 'transform 0.6s ease-in-out';
+        if (smooth) {
+            slider.style.transition = 'transform 0.6s ease-in-out';
+        } else {
+            slider.style.transition = 'none';
+        }
+        
         slider.style.transform = `translateX(${targetPosition}px)`;
-        
         updateDots();
     }
     
     function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        goToSlide(currentIndex);
+        if (isTransitioning) return;
+        isTransitioning = true;
+        
+        currentIndex++;
+        goToSlide(currentIndex, true);
+        
+        // Check if we've reached the cloned slides
+        if (currentIndex >= totalSlides) {
+            setTimeout(() => {
+                currentIndex = 0;
+                goToSlide(0, false); // Jump back without animation
+                isTransitioning = false;
+            }, 600);
+        } else {
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 600);
+        }
+    }
+    
+    function previousSlide() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        
+        if (currentIndex === 0) {
+            // Jump to the last clone without animation
+            currentIndex = totalSlides;
+            goToSlide(currentIndex, false);
+            
+            setTimeout(() => {
+                currentIndex--;
+                goToSlide(currentIndex, true);
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 600);
+            }, 20);
+        } else {
+            currentIndex--;
+            goToSlide(currentIndex, true);
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 600);
+        }
     }
     
     function startAutoScroll() {
-        stopAutoScroll(); // Clear any existing interval
-        autoScrollInterval = setInterval(nextSlide, 5000); // Auto-scroll every 5 seconds
+        stopAutoScroll();
+        autoScrollInterval = setInterval(nextSlide, 5000);
     }
     
     function stopAutoScroll() {
@@ -1147,8 +1193,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Initialize first slide and start auto-scroll
-    goToSlide(0);
+    // Initialize
+    goToSlide(0, false);
     startAutoScroll();
 });
 

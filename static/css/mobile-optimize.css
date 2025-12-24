@@ -122,6 +122,27 @@
         text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
     }
     
+    /* Force white subtitles on hero sections */
+    .hero-section .subtitle,
+    .hero-section p.subtitle {
+        color: white !important;
+    }
+    
+    /* But section descriptions on white backgrounds should be black */
+    .section .section-description,
+    .section-description,
+    .section .section-title p,
+    .section-header p {
+        color: rgba(0, 0, 0, 0.75) !important;
+        opacity: 1 !important;
+    }
+    
+    /* Keep hero section title paragraphs white */
+    .hero-section .section-title p {
+        color: white !important;
+        opacity: 0.9 !important;
+    }
+    
     .hero-buttons {
         flex-direction: column;
         gap: 1rem !important;
@@ -293,6 +314,16 @@
     }
     
     /* ========== TESTIMONIALS - MOBILE ========== */
+    .testimonials-section-modern {
+        padding: 3rem 1rem !important;
+    }
+    
+    .testimonials-slider-container {
+        padding: 20px 50px !important;
+        overflow: hidden !important;
+        max-width: 100% !important;
+    }
+    
     .testimonial-card-carousel {
         padding: 1.5rem 1.25rem !important;
         border-radius: 16px !important;
@@ -322,6 +353,20 @@
         font-size: 0.75rem !important;
     }
     
+    /* Navigation arrows for mobile */
+    .testimonial-nav {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .testimonial-nav-prev {
+        left: 10px !important;
+    }
+    
+    .testimonial-nav-next {
+        right: 10px !important;
+    }
+    
     /* ========== CLIENTS GRID - MOBILE ========== */
     .clients-grid-modern {
         grid-template-columns: repeat(2, 1fr) !important;
@@ -345,11 +390,19 @@
     .cta-content h2 {
         font-size: 1.5rem !important;
         margin-bottom: 1rem !important;
+        color: white !important;
     }
     
     .cta-content p {
         font-size: 0.9375rem !important;
         margin-bottom: 1.5rem !important;
+        color: white !important;
+    }
+    
+    /* CTA section on all pages */
+    .contact-section h2,
+    .contact-section p {
+        color: white !important;
     }
     
     .cta-buttons {
@@ -377,15 +430,27 @@
         margin-bottom: 0.75rem !important;
     }
     
+    /* Footer text white on mobile */
+    .footer p,
+    .footer-brand p {
+        color: white !important;
+    }
+    
     .footer h6 {
         font-size: 1rem !important;
         margin-bottom: 0.875rem !important;
+        color: white !important;
     }
     
     .footer-links li,
     .footer-contact li {
         padding: 0.375rem 0 !important;
         font-size: 0.8125rem !important;
+    }
+    
+    .footer-links a,
+    .footer-contact a {
+        color: rgba(255, 255, 255, 0.9) !important;
     }
     
     .social-links {
@@ -406,6 +471,7 @@
     
     .footer-bottom p {
         font-size: 0.8125rem !important;
+        color: white !important;
     }
     
     /* ========== BACK TO TOP - MOBILE ========== */
