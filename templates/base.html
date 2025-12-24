@@ -15,6 +15,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Preload AOS for faster animation loading -->
+    <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style">
+    
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
@@ -23,19 +26,14 @@
     
     <!-- Custom CSS -->
     <link href="/static/css/main.css" rel="stylesheet">
+    <link href="/static/css/fast-animations.css" rel="stylesheet">
+    <link href="/static/css/mobile-optimize.css" rel="stylesheet">
+    <link href="/static/css/instant-load.css" rel="stylesheet">
+    <link href="/static/css/home-improvements.css" rel="stylesheet">
     
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="preloader-content">
-            <div class="spinner"></div>
-            <img src="/img/codroit.in-removebg-preview.png" alt="Codroit" class="preloader-logo">
-            <div class="preloader-text">Loading...</div>
-        </div>
-    </div>
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
@@ -134,6 +132,31 @@
     <!-- Three.js for 3D models -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="/static/js/main.js"></script>
+    
+    <!-- Force scroll to top on page load/reload -->
+    <script>
+        // Ensure page always loads at top
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        
+        // Force scroll to top immediately
+        window.addEventListener('beforeunload', function() {
+            window.scrollTo(0, 0);
+        });
+        
+        // Scroll to top on page load
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 0);
+        });
+        
+        // Also on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', function() {
+            window.scrollTo(0, 0);
+        });
+    </script>
     
     {% block extra_js %}{% endblock %}
 </body>

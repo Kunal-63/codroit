@@ -1,0 +1,502 @@
+/* ============================================
+   MOBILE OPTIMIZATION - Minimalist & Clean
+   ============================================ */
+
+/* Mobile-First Responsive Improvements */
+@media (max-width: 768px) {
+    
+    /* ========== GLOBAL MOBILE FIXES ========== */
+    body {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    h1 {
+        font-size: 1.75rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    h2 {
+        font-size: 1.5rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 0.875rem !important;
+    }
+    
+    h3 {
+        font-size: 1.125rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    p {
+        font-size: 0.875rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    /* ========== NAVIGATION - MINIMALIST ========== */
+    #mainNav {
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        border-radius: 0 !important;
+        padding: 0.75rem 1rem !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    #mainNav.scrolled {
+        padding: 0.625rem 1rem !important;
+    }
+    
+    .logo-img {
+        height: 32px !important;
+    }
+    
+    .navbar-brand {
+        font-size: 1.25rem !important;
+        gap: 8px !important;
+    }
+    
+    .navbar-toggler {
+        padding: 0.375rem 0.5rem !important;
+        font-size: 1.125rem !important;
+        border: none !important;
+    }
+    
+    .navbar-collapse {
+        background: white;
+        margin-top: 0.75rem;
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.625rem 1rem !important;
+        margin: 0.25rem 0 !important;
+        font-size: 0.9375rem !important;
+    }
+    
+    .navbar-nav .btn-contact {
+        margin-left: 0 !important;
+        margin-top: 0.5rem !important;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    /* ========== HERO SECTION - COMPACT ========== */
+    .hero-section {
+        min-height: 85vh !important;
+        padding-top: 80px !important;
+        padding-bottom: 3rem !important;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.875rem !important;
+        margin-bottom: 1rem !important;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    .hero-content .subtitle {
+        font-size: 0.9375rem !important;
+        margin-bottom: 1.5rem !important;
+        line-height: 1.5 !important;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.75rem !important;
+    }
+    
+    .btn-primary-custom,
+    .btn-secondary-custom {
+        padding: 0.875rem 1.75rem !important;
+        font-size: 0.9375rem !important;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-stats {
+        gap: 1.5rem !important;
+        margin-top: 2rem !important;
+        padding-top: 1.5rem !important;
+    }
+    
+    .stat-value {
+        font-size: 1.75rem !important;
+    }
+    
+    .stat-text {
+        font-size: 0.75rem !important;
+    }
+    
+    .scroll-indicator {
+        display: none !important;
+    }
+    
+    /* ========== SECTIONS - REDUCED PADDING ========== */
+    .section {
+        padding: 3rem 0 !important;
+    }
+    
+    .section-header {
+        margin-bottom: 2rem !important;
+    }
+    
+    .section-badge {
+        padding: 0.375rem 1rem !important;
+        font-size: 0.75rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    .section-title {
+        font-size: 1.625rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    .section-description {
+        font-size: 0.9375rem !important;
+        line-height: 1.6 !important;
+        padding: 0 1rem;
+    }
+    
+    /* ========== SERVICE CARDS - COMPACT ========== */
+    .service-card-modern,
+    .service-card {
+        padding: 1.5rem 1.25rem !important;
+        margin-bottom: 1.25rem !important;
+        border-radius: 16px !important;
+    }
+    
+    .service-icon-modern,
+    .service-icon {
+        width: 55px !important;
+        height: 55px !important;
+        margin-bottom: 1rem !important;
+        border-radius: 14px !important;
+    }
+    
+    .service-icon-modern i,
+    .service-icon i {
+        font-size: 1.5rem !important;
+    }
+    
+    .service-card-modern h3,
+    .service-card h3 {
+        font-size: 1.125rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    .service-card-modern p,
+    .service-card p {
+        font-size: 0.875rem !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    .service-features {
+        margin-bottom: 1rem !important;
+    }
+    
+    .service-features li {
+        padding: 0.375rem 0 !important;
+        font-size: 0.8125rem !important;
+    }
+    
+    .service-link-modern,
+    .service-link {
+        font-size: 0.875rem !important;
+    }
+    
+    /* ========== FEATURE ITEMS - COMPACT ========== */
+    .feature-item {
+        padding: 1rem !important;
+        margin-bottom: 1rem !important;
+        border-radius: 12px !important;
+    }
+    
+    .feature-icon {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 1.125rem !important;
+        border-radius: 10px !important;
+    }
+    
+    .feature-content h4 {
+        font-size: 1rem !important;
+        margin-bottom: 0.375rem !important;
+    }
+    
+    .feature-content p {
+        font-size: 0.8125rem !important;
+    }
+    
+    /* ========== STATS - COMPACT ========== */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+        margin-top: 2rem !important;
+    }
+    
+    .stat-item {
+        padding: 1.25rem 0.75rem !important;
+        border-radius: 12px !important;
+    }
+    
+    .stat-number {
+        font-size: 1.75rem !important;
+        margin-bottom: 0.375rem !important;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem !important;
+    }
+    
+    /* ========== IMAGES - RESPONSIVE ========== */
+    .about-image,
+    .hero-image,
+    .about-image-modern {
+        border-radius: 16px !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    .hero-image-wrapper {
+        margin-top: 2rem !important;
+    }
+    
+    /* ========== TESTIMONIALS - MOBILE ========== */
+    .testimonial-card-carousel {
+        padding: 1.5rem 1.25rem !important;
+        border-radius: 16px !important;
+    }
+    
+    .testimonial-rating {
+        font-size: 0.875rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .testimonial-content p {
+        font-size: 0.875rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    .testimonial-avatar {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 1.125rem !important;
+    }
+    
+    .testimonial-role {
+        font-size: 0.875rem !important;
+    }
+    
+    .testimonial-company {
+        font-size: 0.75rem !important;
+    }
+    
+    /* ========== CLIENTS GRID - MOBILE ========== */
+    .clients-grid-modern {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+    
+    .client-logo-modern {
+        padding: 1.5rem 1rem !important;
+        border-radius: 12px !important;
+    }
+    
+    .client-logo-modern img {
+        max-height: 50px !important;
+    }
+    
+    /* ========== CTA SECTION - COMPACT ========== */
+    .cta-section-modern {
+        padding: 3rem 0 !important;
+    }
+    
+    .cta-content h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .cta-content p {
+        font-size: 0.9375rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 0.75rem !important;
+    }
+    
+    .btn-large {
+        padding: 0.875rem 1.75rem !important;
+        font-size: 0.9375rem !important;
+        width: 100% !important;
+    }
+    
+    /* ========== FOOTER - COMPACT ========== */
+    .footer {
+        padding: 2.5rem 0 1.5rem !important;
+    }
+    
+    .footer-brand {
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .footer-logo {
+        max-height: 35px !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    .footer h6 {
+        font-size: 1rem !important;
+        margin-bottom: 0.875rem !important;
+    }
+    
+    .footer-links li,
+    .footer-contact li {
+        padding: 0.375rem 0 !important;
+        font-size: 0.8125rem !important;
+    }
+    
+    .social-links {
+        gap: 0.75rem !important;
+        margin-top: 1rem !important;
+    }
+    
+    .social-links a {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 0.875rem !important;
+    }
+    
+    .footer-bottom {
+        margin-top: 2rem !important;
+        padding-top: 1.5rem !important;
+    }
+    
+    .footer-bottom p {
+        font-size: 0.8125rem !important;
+    }
+    
+    /* ========== BACK TO TOP - MOBILE ========== */
+    .back-to-top {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 1.125rem !important;
+        bottom: 20px !important;
+        right: 20px !important;
+    }
+    
+    /* ========== SPACING UTILITIES ========== */
+    .mb-4, .my-4 {
+        margin-bottom: 1.25rem !important;
+    }
+    
+    .mb-5, .my-5 {
+        margin-bottom: 2rem !important;
+    }
+    
+    .mt-4, .my-4 {
+        margin-top: 1.25rem !important;
+    }
+    
+    .mt-5, .my-5 {
+        margin-top: 2rem !important;
+    }
+    
+    .p-4 {
+        padding: 1.25rem !important;
+    }
+    
+    .p-5 {
+        padding: 2rem !important;
+    }
+    
+    /* ========== CONTAINER - MOBILE PADDING ========== */
+    .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* ========== ROW GAPS - REDUCED ========== */
+    .row {
+        margin-left: -0.5rem !important;
+        margin-right: -0.5rem !important;
+    }
+    
+    .row > * {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+    
+    .g-4 {
+        gap: 1rem !important;
+    }
+    
+    /* ========== PORTFOLIO ITEMS - MOBILE ========== */
+    .portfolio-item {
+        margin-bottom: 1.25rem !important;
+    }
+    
+    .portfolio-item img {
+        border-radius: 12px !important;
+    }
+    
+    /* ========== CONTACT FORM - MOBILE ========== */
+    .contact-form {
+        padding: 1.5rem 1.25rem !important;
+        border-radius: 16px !important;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.75rem 1rem !important;
+        font-size: 0.9375rem !important;
+        border-radius: 10px !important;
+    }
+    
+    .btn-submit {
+        padding: 0.875rem 1.75rem !important;
+        font-size: 0.9375rem !important;
+        width: 100% !important;
+    }
+    
+    /* ========== REMOVE EXCESSIVE ANIMATIONS ON MOBILE ========== */
+    .service-card:hover,
+    .feature-item:hover,
+    .stat-item:hover {
+        transform: none !important;
+    }
+    
+    /* ========== OPTIMIZE IMAGES FOR MOBILE ========== */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Extra Small Devices (<576px) */
+@media (max-width: 575.98px) {
+    h1 {
+        font-size: 1.625rem !important;
+    }
+    
+    h2 {
+        font-size: 1.375rem !important;
+    }
+    
+    .section {
+        padding: 2.5rem 0 !important;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .clients-grid-modern {
+        grid-template-columns: 1fr !important;
+    }
+}

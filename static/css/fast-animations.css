@@ -1,0 +1,44 @@
+/* Fast Animation Overrides for About Page */
+
+/* Override AOS default animations for ULTRA-FAST feel */
+[data-aos] {
+    transition-duration: 0.15s !important;
+    transition-timing-function: ease-out !important;
+}
+
+/* Make fade animations ultra-fast */
+[data-aos="fade-up"],
+[data-aos="fade-down"],
+[data-aos="fade-left"],
+[data-aos="fade-right"],
+[data-aos="fade"] {
+    transition-duration: 0.15s !important;
+}
+
+/* Ensure animations trigger immediately */
+[data-aos].aos-animate {
+    transition-delay: 0s !important;
+}
+
+/* Reduce transform distance for INSTANT feel - minimal movement */
+[data-aos="fade-up"] {
+    transform: translate3d(0, 10px, 0) !important;
+}
+
+[data-aos="fade-down"] {
+    transform: translate3d(0, -10px, 0) !important;
+}
+
+[data-aos="fade-left"] {
+    transform: translate3d(10px, 0, 0) !important;
+}
+
+[data-aos="fade-right"] {
+    transform: translate3d(-10px, 0, 0) !important;
+}
+
+/* When animated, snap to position instantly */
+[data-aos].aos-animate {
+    transform: translate3d(0, 0, 0) !important;
+    opacity: 1 !important;
+}

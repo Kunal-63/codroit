@@ -1,16 +1,5 @@
 // Premium Main JavaScript for Codroit Website with 3D Models
 
-// Preloader
-window.addEventListener('load', function() {
-    const preloader = document.getElementById('preloader');
-    setTimeout(() => {
-        preloader.classList.add('hidden');
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 600);
-    }, 1200);
-});
-
 // Navbar scroll effect with enhanced animation
 const navbar = document.getElementById('mainNav');
 let lastScroll = 0;
@@ -43,135 +32,68 @@ navLinks.forEach(link => {
     }
 });
 
-// Initialize AOS (Animate On Scroll) with enhanced settings
-if (typeof AOS !== 'undefined') {
-    AOS.init({
-        duration: 800,
-        once: true,
-        offset: 100,
-        easing: 'ease-out-cubic',
-        delay: 0
-    });
-}
-
-// 3D Scene Setup for Hero Section - Disabled for better readability
-let scene3d, camera3d, renderer3d, controls3d;
-let animationId3d;
-
-function init3DScene() {
-    // Disabled 3D scene for better text readability
-    return;
-    const hero3dContainer = document.querySelector('.hero-3d-container');
-    if (!hero3dContainer || typeof THREE === 'undefined') return;
-    
-    // Scene setup
-    scene3d = new THREE.Scene();
-    scene3d.background = null; // Transparent
-    
-    // Camera setup
-    camera3d = new THREE.PerspectiveCamera(
-        75,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        1000
-    );
-    camera3d.position.z = 5;
-    camera3d.position.y = 1;
-    
-    // Renderer setup
-    renderer3d = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer3d.setSize(window.innerWidth, window.innerHeight);
-    renderer3d.setPixelRatio(window.devicePixelRatio);
-    hero3dContainer.appendChild(renderer3d.domElement);
-    
-    // Create floating geometric shapes
-    const geometry = new THREE.IcosahedronGeometry(0.5, 0);
-    const material = new THREE.MeshStandardMaterial({
-        color: 0xffffff,
-        emissive: 0x00bcd4,
-        emissiveIntensity: 0.3,
-        metalness: 0.8,
-        roughness: 0.2,
-        opacity: 0.4,
-        transparent: true
-    });
-    
-    // Create multiple floating objects (reduced for better readability)
-    for (let i = 0; i < 6; i++) {
-        const mesh = new THREE.Mesh(geometry, material.clone());
-        mesh.position.set(
-            (Math.random() - 0.5) * 10,
-            (Math.random() - 0.5) * 10,
-            (Math.random() - 0.5) * 10
-        );
-        mesh.rotation.set(
-            Math.random() * Math.PI,
-            Math.random() * Math.PI,
-            Math.random() * Math.PI
-        );
-        mesh.userData = {
-            speed: 0.01 + Math.random() * 0.02,
-            rotationSpeed: {
-                x: (Math.random() - 0.5) * 0.02,
-                y: (Math.random() - 0.5) * 0.02,
-                z: (Math.random() - 0.5) * 0.02
-            }
-        };
-        scene3d.add(mesh);
-    }
-    
-    // Add lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene3d.add(ambientLight);
-    
-    const pointLight1 = new THREE.PointLight(0x1e3a5f, 1, 100);
-    pointLight1.position.set(5, 5, 5);
-    scene3d.add(pointLight1);
-    
-    const pointLight2 = new THREE.PointLight(0x00bcd4, 1, 100);
-    pointLight2.position.set(-5, -5, -5);
-    scene3d.add(pointLight2);
-    
-    // Animation loop
-    function animate() {
-        animationId3d = requestAnimationFrame(animate);
-        
-        // Rotate and move objects
-        scene3d.children.forEach((child) => {
-            if (child instanceof THREE.Mesh) {
-                child.rotation.x += child.userData.rotationSpeed.x;
-                child.rotation.y += child.userData.rotationSpeed.y;
-                child.rotation.z += child.userData.rotationSpeed.z;
-                
-                // Floating motion
-                child.position.y += Math.sin(Date.now() * child.userData.speed) * 0.001;
-                child.position.x += Math.cos(Date.now() * child.userData.speed) * 0.001;
-            }
+// Initialize AOS (Animate On Scroll) with optimized settings for INSTANT animations
+// Use DOMContentLoaded to initialize as soon as possible
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 150, // Ultra-fast animation
+            once: true,
+            offset: -200, // Trigger BEFORE element enters viewport (negative offset)
+            easing: 'ease-out', // Snappier easing
+            delay: 0,
+            disable: false,
+            startEvent: 'DOMContentLoaded',
+            initClassName: 'aos-init',
+            animatedClassName: 'aos-animate',
+            mirror: false, // Don't animate on scroll up
+            anchorPlacement: 'top-center' // Trigger when top of element is at center of viewport
         });
         
-        // Rotate camera slightly
-        camera3d.position.x = Math.sin(Date.now() * 0.0005) * 0.5;
-        camera3d.position.y = Math.cos(Date.now() * 0.0003) * 0.3;
-        camera3d.lookAt(0, 0, 0);
-        
-        renderer3d.render(scene3d, camera3d);
+        // Immediately refresh to catch elements already in viewport
+        setTimeout(() => {
+            AOS.refresh();
+        }, 50);
     }
+});
+
+
+// 3D Scene - Disabled for better performance
+// All 3D functionality has been removed to improve page load times and performance
+
+// Particle Background Animation
+function createParticles() {
+    const particlesBg = document.getElementById('particlesBg');
+    if (!particlesBg) return;
     
-    animate();
+    const particleCount = window.innerWidth < 768 ? 20 : 40;
     
-    // Handle window resize
-    window.addEventListener('resize', () => {
-        camera3d.aspect = window.innerWidth / window.innerHeight;
-        camera3d.updateProjectionMatrix();
-        renderer3d.setSize(window.innerWidth, window.innerHeight);
-    });
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random positioning
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        
+        // Random animation delay and duration
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+        
+        // Random size
+        const size = 2 + Math.random() * 4;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
+        particlesBg.appendChild(particle);
+    }
 }
 
-// Initialize 3D scene when page loads
+// Initialize particles when DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init3DScene);
+    document.addEventListener('DOMContentLoaded', createParticles);
 } else {
-    init3DScene();
+    createParticles();
 }
 
 // GSAP Animations with enhanced effects
@@ -241,21 +163,21 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     //     });
     // });
     
-    // Parallax effect for sections
-    gsap.utils.toArray('.section').forEach((section, index) => {
-        if (index % 2 === 0) {
-            gsap.to(section, {
-                yPercent: -30,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top bottom',
-                    end: 'bottom top',
-                    scrub: true
-                }
-            });
-        }
-    });
+    // Parallax effect for sections - DISABLED for better performance
+    // gsap.utils.toArray('.section').forEach((section, index) => {
+    //     if (index % 2 === 0) {
+    //         gsap.to(section, {
+    //             yPercent: -30,
+    //             ease: 'none',
+    //             scrollTrigger: {
+    //                 trigger: section,
+    //                 start: 'top bottom',
+    //                 end: 'bottom top',
+    //                 scrub: true
+    //             }
+    //         });
+    //     }
+    // });
     
     // Stats counter animation with enhanced effect
     const statNumbers = document.querySelectorAll('.stat-number');
@@ -380,21 +302,21 @@ navLinksMobile.forEach(link => {
     });
 });
 
-// Enhanced parallax effect for hero section
-let heroParallax = null;
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const heroSection = document.querySelector('.hero-section');
-    if (heroSection) {
-        if (!heroParallax) {
-            heroParallax = gsap.to(heroSection, {
-                y: scrolled * 0.3,
-                ease: 'none',
-                duration: 0.3
-            });
-        }
-    }
-});
+// Enhanced parallax effect for hero section - DISABLED for better performance
+// let heroParallax = null;
+// window.addEventListener('scroll', function() {
+//     const scrolled = window.pageYOffset;
+//     const heroSection = document.querySelector('.hero-section');
+//     if (heroSection) {
+//         if (!heroParallax) {
+//             heroParallax = gsap.to(heroSection, {
+//                 y: scrolled * 0.3,
+//                 ease: 'none',
+//                 duration: 0.3
+//             });
+//         }
+//     }
+// });
 
 // Enhanced Intersection Observer for animations
 const observerOptions = {
