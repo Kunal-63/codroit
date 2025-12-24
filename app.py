@@ -12,8 +12,8 @@ app.secret_key = os.environ.get('FLASK_SECRET', 'dev-secret-change-me')
 # SMTP Configuration (using environment variables for security)
 SMTP_SERVER = os.environ.get('SMTP_SERVER', 'smtp.gmail.com')
 SMTP_PORT = int(os.environ.get('SMTP_PORT', '587'))
-SMTP_USERNAME = os.environ.get('SMTP_USERNAME', '')
-SMTP_PASSWORD = os.environ.get('SMTP_PASSWORD', '')
+SMTP_USERNAME = os.environ.get('SMTP_USERNAME', 'kunaladwani.work@gmail.com')
+SMTP_PASSWORD = os.environ.get('SMTP_PASSWORD', 'syoz usjb ibbp enos')
 COMPANY_EMAIL = os.environ.get('COMPANY_EMAIL', 'info@codroit.in')
 COMPANY_NAME = 'Codroit'
 
@@ -94,7 +94,6 @@ def contact():
             'message': message,
         }
         
-        # Save to CSV file
         csv_file = 'messages.csv'
         write_header = not os.path.exists(csv_file)
         try:
@@ -155,13 +154,13 @@ Received on {datetime.now().strftime('%B %d, %Y at %I:%M %p')}
                     <p>{message.replace(chr(10), '<br>')}</p>
                 </div>
                 <p>Our team typically responds within 24-48 hours during business days.</p>
-                <p>If you have any urgent inquiries, please feel free to call us at <strong>+91 98765 43210</strong>.</p>
+                <p>If you have any urgent inquiries, please feel free to call us at <strong>+91 95748 08771</strong>.</p>
                 <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
                 <p style="color: #666; font-size: 12px;">
                     Best regards,<br>
                     <strong>The Codroit Team</strong><br>
                     <a href="mailto:info@codroit.in" style="color: #00bcd4;">info@codroit.in</a> | 
-                    <a href="tel:+919876543210" style="color: #00bcd4;">+91 98765 43210</a>
+                    <a href="tel:+919574808771" style="color: #00bcd4;">+91 95748 08771</a>
                 </p>
             </div>
         </body>
