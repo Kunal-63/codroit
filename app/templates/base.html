@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codroit - {{ active_page | capitalize }} | IT Services &amp; Solutions</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <link rel="apple-touch-icon" href="/static/logo.png">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -24,6 +29,13 @@
             }
         }
     </script>
+    <!-- Theme init: run before render to prevent flash -->
+    <script>
+        (function() {
+            const saved = localStorage.getItem('codroit-theme');
+            if (saved === 'dark') document.documentElement.classList.add('dark');
+        })();
+    </script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
@@ -31,7 +43,7 @@
     <!-- Custom CSS -->
     <link href="/static/css/style.css" rel="stylesheet">
 </head>
-<body class="bg-primary text-gray-800 font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white">
+<body class="bg-primary text-gray-800 font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white transition-colors duration-300 dark:bg-slate-950 dark:text-gray-100">
 
     <!-- Dynamic Coding Background Elements -->
     <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none" id="bg-shapes-container">
@@ -101,19 +113,19 @@
             {% block content %}{% endblock %}
             
             <!-- Footer -->
-            <footer class="bg-secondary border-t border-gray-200 pt-20 pb-10">
+            <footer class="bg-secondary border-t border-gray-200 pt-20 pb-10 transition-colors duration-300 dark:bg-slate-900 dark:border-slate-800">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                         <div class="col-span-1 md:col-span-1">
                             <div class="flex items-center gap-2 mb-6">
                                 <img src="/static/logo.png" alt="Codroit" class="h-10 w-auto object-contain">
                             </div>
-                            <p class="text-gray-600 text-sm leading-relaxed">
+                            <p class="text-gray-600 text-sm leading-relaxed dark:text-gray-400">
                                 The Future Depends on IT. We build technology that drives success and scales with your business.
                             </p>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 font-semibold mb-6">Services</h4>
+                            <h4 class="text-gray-900 font-semibold mb-6 dark:text-white">Services</h4>
                             <ul class="space-y-4 text-sm text-gray-600">
                                 <li><a href="/services#web-dev" class="hover:text-accent transition-colors">Web Development</a></li>
                                 <li><a href="/services#app-dev" class="hover:text-accent transition-colors">Mobile Apps</a></li>
@@ -122,7 +134,7 @@
                             </ul>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 font-semibold mb-6">Company</h4>
+                            <h4 class="text-gray-900 font-semibold mb-6 dark:text-white">Company</h4>
                             <ul class="space-y-4 text-sm text-gray-600">
                                 <li><a href="/about" class="hover:text-accent transition-colors">About Us</a></li>
                                 <li><a href="/portfolio" class="hover:text-accent transition-colors">Portfolio</a></li>
@@ -130,7 +142,7 @@
                             </ul>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 font-semibold mb-6">Contact</h4>
+                            <h4 class="text-gray-900 font-semibold mb-6 dark:text-white">Contact</h4>
                             <ul class="space-y-4 text-sm text-gray-600">
                                 <li><a href="mailto:info@codroit.in" class="hover:text-accent transition-colors flex items-center gap-2"><i class="fa-regular fa-envelope text-xs"></i> info@codroit.in</a></li>
                                 <li><a href="tel:+919574808771" class="hover:text-accent transition-colors flex items-center gap-2"><i class="fa-solid fa-phone text-xs"></i> +91 95748 08771</a></li>
@@ -138,9 +150,13 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 dark:border-slate-800">
                         <p class="text-gray-500 text-sm">© 2024 Codroit. All rights reserved.</p>
-                        <div class="flex space-x-6">
+                        <div class="flex items-center space-x-6">
+                            <button id="theme-toggle" class="text-gray-500 hover:text-gray-900 transition-colors p-1" aria-label="Toggle theme">
+                                <i class="fa-solid fa-sun hidden dark:block text-xs"></i>
+                                <i class="fa-solid fa-moon block dark:hidden text-xs"></i>
+                            </button>
                             <a href="#" class="text-gray-500 hover:text-gray-900 transition-colors"><i class="fa-brands fa-twitter"></i></a>
                             <a href="#" class="text-gray-500 hover:text-gray-900 transition-colors"><i class="fa-brands fa-github"></i></a>
                             <a href="#" class="text-gray-500 hover:text-gray-900 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
@@ -165,6 +181,15 @@
         if (mobileBtn && mobileMenu) {
             mobileBtn.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const isDark = document.documentElement.classList.toggle('dark');
+                localStorage.setItem('codroit-theme', isDark ? 'dark' : 'light');
             });
         }
     </script>
