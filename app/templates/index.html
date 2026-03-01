@@ -1,0 +1,348 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-primary" id="hero">
+    <!-- Abstract Background Elements -->
+    <div class="absolute inset-0 z-0 opacity-60">
+        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] mix-blend-multiply animate-pulse duration-3000"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-400/20 rounded-full blur-[120px] mix-blend-multiply animate-pulse duration-3000 delay-1000"></div>
+        <!-- Grid Background -->
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.05)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-sm text-accent mb-8 hero-stagger opacity-0 translate-y-4 font-medium shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                    IT Services &amp; Solutions — Ahmedabad, India
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-8 leading-tight">
+                    <div class="overflow-hidden"><span class="block hero-title-line translate-y-full opacity-0">The Future</span></div>
+                    <div class="overflow-hidden"><span class="block hero-title-line translate-y-full opacity-0">Depends on <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-600">IT</span></span></div>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-xl hero-stagger opacity-0 translate-y-4">
+                    We transform innovative ideas into cutting-edge digital solutions. From web applications to AI-powered platforms, we build technology that drives success and scales with your business.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center gap-4 hero-stagger opacity-0 translate-y-4">
+                    <a href="/contact" class="magnetic-item px-8 py-4 rounded-full bg-accent text-white font-semibold hover:scale-105 transition-transform duration-300 w-full sm:w-auto text-center group shadow-lg shadow-accent/30 hover:shadow-accent/50">
+                        Start Your Project 
+                        <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="/services" class="magnetic-item px-8 py-4 rounded-full bg-white text-gray-900 border border-gray-200 hover:bg-gray-50 transition-colors duration-300 w-full sm:w-auto text-center shadow-sm">
+                        Our Services
+                    </a>
+                </div>
+            </div>
+            <div class="relative hero-stagger opacity-0 translate-y-12 lg:translate-y-0 perspective-1000">
+                <div class="absolute inset-0 bg-gradient-to-tr from-accent/20 to-blue-400/20 rounded-3xl blur-2xl transform scale-105 rotate-on-scroll"></div>
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop" alt="Tech Team at Work" class="relative rounded-3xl shadow-2xl border border-gray-100 w-full object-cover aspect-[4/3] transform hover:rotate-y-12 transition-transform duration-700 ease-out parallax-img" />
+                
+                <!-- Floating Stat Card -->
+                <div class="absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-gray-100 shadow-2xl flex items-center gap-4 animate-blob float-up-scroll">
+                    <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent">
+                        <i class="fa-solid fa-chart-line text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-900 font-bold">99.9%</p>
+                        <p class="text-gray-500 text-sm">Uptime SLA</p>
+                    </div>
+                </div>
+
+                <!-- Second Floating Card -->
+                <div class="absolute -top-6 -right-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-gray-100 shadow-2xl flex items-center gap-3 animate-blob float-up-scroll" style="animation-delay: 1s;">
+                    <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                        <i class="fa-solid fa-check text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-900 font-bold text-sm">50+ Projects</p>
+                        <p class="text-gray-500 text-xs">Delivered</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What We Offer Section -->
+<section class="py-32 relative z-10 bg-secondary" id="services-preview">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 section-header opacity-0 translate-y-8">
+            <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-4">What We Offer</p>
+            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Comprehensive IT solutions <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-600">tailored for your business</span></h2>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg hover-reveal">We combine engineering excellence with world-class design to build software that users love and competitors envy.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Web Development -->
+            <div class="feature-card p-8 rounded-2xl bg-white border border-gray-100 hover:border-accent/40 hover:shadow-2xl transition-all duration-500 opacity-0 translate-y-8 group scale-on-scroll" id="web-dev">
+                <div class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mb-8 text-accent group-hover:bg-accent group-hover:text-white transition-colors transform group-hover:rotate-12 duration-300">
+                    <i class="fa-solid fa-code text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Web Development</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">Custom web applications built with modern technologies. Responsive, scalable, and performance-optimized solutions that drive business growth.</p>
+                <ul class="space-y-2 text-gray-600 text-sm mb-8">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent text-xs"></i> React, Vue.js, Angular</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent text-xs"></i> Node.js, Python, PHP</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent text-xs"></i> E-commerce Solutions</li>
+                </ul>
+                <div class="mt-auto overflow-hidden rounded-xl h-40 border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=2088&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Web Development">
+                </div>
+            </div>
+            <!-- Mobile App Development -->
+            <div class="feature-card p-8 rounded-2xl bg-white border border-gray-100 hover:border-accent/40 hover:shadow-2xl transition-all duration-500 opacity-0 translate-y-8 group scale-on-scroll" style="transition-delay: 100ms;" id="app-dev">
+                <div class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mb-8 text-accent group-hover:bg-accent group-hover:text-white transition-colors transform group-hover:rotate-12 duration-300">
+                    <i class="fa-solid fa-mobile-screen text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Mobile App Development</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">Native and cross-platform mobile applications for iOS and Android. User-centric design meets powerful functionality.</p>
+                <ul class="space-y-2 text-gray-600 text-sm mb-8">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent text-xs"></i> iOS &amp; Android Native</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent text-xs"></i> React Native &amp; Flutter</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent text-xs"></i> App Store Optimization</li>
+                </ul>
+                <div class="mt-auto overflow-hidden rounded-xl h-40 border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Mobile App Development">
+                </div>
+            </div>
+            <!-- Cloud Solutions -->
+            <div class="feature-card p-8 rounded-2xl bg-white border border-gray-100 hover:border-accent/40 hover:shadow-2xl transition-all duration-500 opacity-0 translate-y-8 group scale-on-scroll" style="transition-delay: 200ms;" id="cloud">
+                <div class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mb-8 text-accent group-hover:bg-accent group-hover:text-white transition-colors transform group-hover:-rotate-12 duration-300">
+                    <i class="fa-solid fa-cloud text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Cloud Solutions</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">Scalable cloud infrastructure and migration services. AWS, Azure, and Google Cloud expertise for your business continuity.</p>
+                <ul class="space-y-2 text-gray-600 text-sm mb-8">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent text-xs"></i> AWS, Azure, GCP</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent text-xs"></i> DevOps &amp; CI/CD</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent text-xs"></i> 24/7 Monitoring</li>
+                </ul>
+                <div class="mt-auto overflow-hidden rounded-xl h-40 border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Cloud Solutions">
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="/services" class="magnetic-item inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gray-900 text-white font-semibold hover:scale-105 transition-transform duration-300 shadow-lg">
+                View All Services <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-32 relative z-10 bg-white border-y border-gray-100 overflow-hidden" id="why-us">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 section-header opacity-0 translate-y-8">
+            <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-4">Why Choose Us</p>
+            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">We combine technical expertise<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-600">with creative thinking</span></h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="p-8 rounded-3xl bg-secondary border border-gray-100 hover:border-accent/40 transition-all duration-300 stagger-box opacity-0 translate-y-8 shadow-md hover:shadow-xl hover:-translate-y-2 scale-on-scroll text-center">
+                <div class="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mb-6 text-accent mx-auto">
+                    <i class="fa-solid fa-bolt text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Fast Delivery</h3>
+                <p class="text-gray-600 leading-relaxed text-sm">We deliver projects on time without compromising quality. Speed and precision, always.</p>
+            </div>
+            <div class="p-8 rounded-3xl bg-secondary border border-gray-100 hover:border-accent/40 transition-all duration-300 stagger-box opacity-0 translate-y-8 shadow-md hover:shadow-xl hover:-translate-y-2 scale-on-scroll text-center" style="transition-delay: 100ms;">
+                <div class="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mb-6 text-accent mx-auto">
+                    <i class="fa-solid fa-users text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Expert Team</h3>
+                <p class="text-gray-600 leading-relaxed text-sm">Experienced developers and designers working together for exceptional outcomes.</p>
+            </div>
+            <div class="p-8 rounded-3xl bg-secondary border border-gray-100 hover:border-accent/40 transition-all duration-300 stagger-box opacity-0 translate-y-8 shadow-md hover:shadow-xl hover:-translate-y-2 scale-on-scroll text-center" style="transition-delay: 200ms;">
+                <div class="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mb-6 text-accent mx-auto">
+                    <i class="fa-solid fa-shield-halved text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Secure &amp; Reliable</h3>
+                <p class="text-gray-600 leading-relaxed text-sm">Enterprise-grade security and 99.9% uptime guarantee. Your business is in safe hands.</p>
+            </div>
+            <div class="p-8 rounded-3xl bg-secondary border border-gray-100 hover:border-accent/40 transition-all duration-300 stagger-box opacity-0 translate-y-8 shadow-md hover:shadow-xl hover:-translate-y-2 scale-on-scroll text-center" style="transition-delay: 300ms;">
+                <div class="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mb-6 text-accent mx-auto">
+                    <i class="fa-solid fa-headset text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">24/7 Support</h3>
+                <p class="text-gray-600 leading-relaxed text-sm">Round-the-clock support whenever you need us. We're always here for you.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process / Timeline Section -->
+<section class="py-32 relative z-10 bg-secondary border-b border-gray-100 overflow-hidden" id="process">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 section-header opacity-0 translate-y-8 slide-in-scroll">
+            <div class="max-w-xl">
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Our Process</h2>
+                <p class="text-gray-600 text-lg">A streamlined approach from concept to deployment.</p>
+            </div>
+            <a href="/about" class="text-accent hover:text-blue-600 font-medium hidden md:inline-flex items-center gap-2 mt-4 md:mt-0 transition-colors">
+                Learn more about us <i class="fa-solid fa-arrow-right text-sm"></i>
+            </a>
+        </div>
+        
+        <div class="relative timeline-container">
+            <!-- Line -->
+            <div class="absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 -translate-y-1/2 hidden md:block z-0 line-draw-scroll w-0"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                <div class="timeline-item opacity-0 translate-y-8 p-8 rounded-3xl bg-white border border-gray-100 relative shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:border-accent/40 transition-all duration-300">
+                    <div class="w-10 h-10 rounded-full bg-white text-accent flex items-center justify-center font-bold absolute -top-5 md:-top-12 left-8 border-2 border-accent text-lg shadow-md z-10">1</div>
+                    <div class="overflow-hidden rounded-xl mb-6"><img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=2070&auto=format&fit=crop" class="w-full h-32 object-cover opacity-90 mix-blend-multiply hover:mix-blend-normal transform hover:scale-110 transition-all duration-500" alt="Discovery"></div>
+                    <h4 class="text-gray-900 text-xl font-bold mb-3">Discovery</h4>
+                    <p class="text-gray-600 leading-relaxed">Understanding your business, audience, and objectives to define the right strategy.</p>
+                </div>
+                <div class="timeline-item opacity-0 translate-y-8 p-8 rounded-3xl bg-white border border-gray-100 relative shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:border-accent/40 transition-all duration-300 mt-0 md:mt-16">
+                    <div class="w-10 h-10 rounded-full bg-white text-accent flex items-center justify-center font-bold absolute -top-5 md:-top-12 left-8 border-2 border-accent text-lg shadow-md z-10">2</div>
+                    <div class="overflow-hidden rounded-xl mb-6"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" class="w-full h-32 object-cover opacity-90 mix-blend-multiply hover:mix-blend-normal transform hover:scale-110 transition-all duration-500" alt="Design"></div>
+                    <h4 class="text-gray-900 text-xl font-bold mb-3">Design</h4>
+                    <p class="text-gray-600 leading-relaxed">Crafting premium interfaces and user experiences that align with your brand identity.</p>
+                </div>
+                <div class="timeline-item opacity-0 translate-y-8 p-8 rounded-3xl bg-white border border-gray-100 relative shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:border-accent/40 transition-all duration-300">
+                    <div class="w-10 h-10 rounded-full bg-white text-accent flex items-center justify-center font-bold absolute -top-5 md:-top-12 left-8 border-2 border-accent text-lg shadow-md z-10">3</div>
+                    <div class="overflow-hidden rounded-xl mb-6"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop" class="w-full h-32 object-cover opacity-90 mix-blend-multiply hover:mix-blend-normal transform hover:scale-110 transition-all duration-500" alt="Development"></div>
+                    <h4 class="text-gray-900 text-xl font-bold mb-3">Development</h4>
+                    <p class="text-gray-600 leading-relaxed">Building scalable systems with clean code and cutting-edge technologies.</p>
+                </div>
+                <div class="timeline-item opacity-0 translate-y-8 p-8 rounded-3xl bg-white border border-gray-100 relative shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:border-accent/40 transition-all duration-300 mt-0 md:mt-16">
+                    <div class="w-10 h-10 rounded-full bg-white text-accent flex items-center justify-center font-bold absolute -top-5 md:-top-12 left-8 border-2 border-accent text-lg shadow-md z-10">4</div>
+                    <div class="overflow-hidden rounded-xl mb-6"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" class="w-full h-32 object-cover opacity-90 mix-blend-multiply hover:mix-blend-normal transform hover:scale-110 transition-all duration-500" alt="Deployment"></div>
+                    <h4 class="text-gray-900 text-xl font-bold mb-3">Deployment</h4>
+                    <p class="text-gray-600 leading-relaxed">Rigorous testing, optimization, and seamless launch to production.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-32 relative z-10 bg-white" id="testimonials">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 section-header opacity-0 translate-y-8">
+            <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-4">What Our Clients Say</p>
+            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Real feedback from <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-600">real clients</span></h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Testimonial 1 -->
+            <div class="p-8 rounded-3xl bg-secondary border border-gray-100 hover:border-accent/30 shadow-md hover:shadow-xl transition-all duration-300 stagger-box opacity-0 translate-y-8 scale-on-scroll flex flex-col">
+                <div class="flex text-yellow-400 mb-4 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-700 leading-relaxed mb-6 flex-1">"They made very great contributions to our project and exceeded our expectations. Their software helped us solve the problem efficiently."</p>
+                <div class="flex items-center gap-3 mt-auto">
+                    <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent font-bold text-sm">AH</div>
+                    <div>
+                        <p class="text-gray-900 font-semibold text-sm">Head of Department</p>
+                        <p class="text-gray-500 text-xs">Airport School Ahmedabad</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="p-8 rounded-3xl bg-secondary border border-gray-100 hover:border-accent/30 shadow-md hover:shadow-xl transition-all duration-300 stagger-box opacity-0 translate-y-8 scale-on-scroll flex flex-col" style="transition-delay: 100ms;">
+                <div class="flex text-yellow-400 mb-4 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-700 leading-relaxed mb-6 flex-1">"They made our company website, and it was great. We are still working with them on different projects — they are reliable long-term partners."</p>
+                <div class="flex items-center gap-3 mt-auto">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm">NN</div>
+                    <div>
+                        <p class="text-gray-900 font-semibold text-sm">Founder</p>
+                        <p class="text-gray-500 text-xs">NexNodez</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="p-8 rounded-3xl bg-secondary border border-gray-100 hover:border-accent/30 shadow-md hover:shadow-xl transition-all duration-300 stagger-box opacity-0 translate-y-8 scale-on-scroll flex flex-col" style="transition-delay: 200ms;">
+                <div class="flex text-yellow-400 mb-4 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-700 leading-relaxed mb-6 flex-1">"Very Great! Improved our SEO, made a very great website. They helped us generate more leads and increase our online presence significantly."</p>
+                <div class="flex items-center gap-3 mt-auto">
+                    <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-sm">MC</div>
+                    <div>
+                        <p class="text-gray-900 font-semibold text-sm">Owner</p>
+                        <p class="text-gray-500 text-xs">Mahakali Constructions</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 4 -->
+            <div class="p-8 rounded-3xl bg-secondary border border-gray-100 hover:border-accent/30 shadow-md hover:shadow-xl transition-all duration-300 stagger-box opacity-0 translate-y-8 scale-on-scroll flex flex-col" style="transition-delay: 100ms;">
+                <div class="flex text-yellow-400 mb-4 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-700 leading-relaxed mb-6 flex-1">"They made our mobile application, which was very efficient and user-friendly. We used it for cricket match tournaments. Very satisfied with their work!"</p>
+                <div class="flex items-center gap-3 mt-auto">
+                    <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-sm">SR</div>
+                    <div>
+                        <p class="text-gray-900 font-semibold text-sm">CTO</p>
+                        <p class="text-gray-500 text-xs">Score Your Run</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 5 -->
+            <div class="p-8 rounded-3xl bg-secondary border border-gray-100 hover:border-accent/30 shadow-md hover:shadow-xl transition-all duration-300 stagger-box opacity-0 translate-y-8 scale-on-scroll flex flex-col" style="transition-delay: 200ms;">
+                <div class="flex text-yellow-400 mb-4 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-700 leading-relaxed mb-6 flex-1">"ONE STOP SOLUTION FOR YOU. I gave them my requirements and they delivered beyond expectations. Highly recommended for any digital project!"</p>
+                <div class="flex items-center gap-3 mt-auto">
+                    <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-sm">WM</div>
+                    <div>
+                        <p class="text-gray-900 font-semibold text-sm">Owner</p>
+                        <p class="text-gray-500 text-xs">Welcome Mobiles</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 6 -->
+            <div class="p-8 rounded-3xl bg-secondary border border-gray-100 hover:border-accent/30 shadow-md hover:shadow-xl transition-all duration-300 stagger-box opacity-0 translate-y-8 scale-on-scroll flex flex-col" style="transition-delay: 300ms;">
+                <div class="flex text-yellow-400 mb-4 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-700 leading-relaxed mb-6 flex-1">"They are super great. They even managed meetings in our time zone — so considerate! Applications are well developed and well maintained."</p>
+                <div class="flex items-center gap-3 mt-auto">
+                    <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold text-sm">EA</div>
+                    <div>
+                        <p class="text-gray-900 font-semibold text-sm">Manager</p>
+                        <p class="text-gray-500 text-xs">Ecommerce Applications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-32 relative z-10 bg-primary cta-wrapper">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="p-12 md:p-20 rounded-[3rem] bg-gradient-to-br from-white via-secondary to-accent/10 border border-gray-200 text-center relative overflow-hidden cta-box opacity-0 shadow-[0_20px_50px_rgba(14,165,233,0.15)] hover:shadow-[0_20px_50px_rgba(14,165,233,0.25)] transition-shadow duration-500 scale-on-scroll">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djIwaC0ydi0yMGgtMjB2LTJoMjB2LTIwaDJ2MjBoMjB2MnoiLz48L2c+PC9nPjwvc3ZnPg==')] parallax-bg"></div>
+            
+            <div class="relative z-10">
+                <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-4">Ready to Transform Your Business?</p>
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">The future depends on <span class="text-accent underline decoration-accent/50 underline-offset-8">IT.</span> Let's build it.</h2>
+                <p class="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto">Join the forward-thinking companies that partner with Codroit to transform their digital presence with cutting-edge technology.</p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="/contact" class="inline-flex magnetic-item items-center gap-3 px-10 py-5 rounded-full bg-accent text-white font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-[0_10px_30px_rgba(14,165,233,0.3)] hover:shadow-[0_15px_40px_rgba(14,165,233,0.4)] group">
+                        Get Started Today
+                        <i class="fa-solid fa-paper-plane group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="/portfolio" class="inline-flex magnetic-item items-center gap-3 px-10 py-5 rounded-full border border-gray-300 text-gray-900 font-bold text-lg hover:scale-105 hover:border-accent hover:text-accent transition-all duration-300">
+                        View Our Work
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

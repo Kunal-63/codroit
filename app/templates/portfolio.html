@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="pt-40 pb-20 relative z-10 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] mix-blend-multiply"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl page-reveal opacity-0 translate-y-8">
+            <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-4">Our Work</p>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-6">
+                Featured <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-600">Work</span>
+            </h1>
+            <p class="text-xl text-gray-600 leading-relaxed hover-reveal">
+                A selection of digital products, platforms, and experiences we've crafted for clients across industries.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Grid -->
+<section class="py-20 relative z-10 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <!-- Project 1: Airport School -->
+            <div class="group cursor-pointer stagger-box opacity-0 translate-y-8">
+                <div class="aspect-[4/3] rounded-3xl bg-secondary border border-gray-200 overflow-hidden mb-6 relative shadow-md hover:shadow-2xl transition-shadow duration-500 perspective-1000">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent mix-blend-overlay z-10 group-hover:opacity-100 opacity-0 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=2032&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 group-hover:-rotate-y-3 transition-transform duration-700 ease-out opacity-90 parallax-img" alt="Airport School Ahmedabad">
+                    </div>
+                    <div class="absolute inset-0 flex items-end p-6 z-20">
+                        <span class="px-3 py-1 rounded-full bg-white/90 backdrop-blur text-xs font-semibold text-gray-700 border border-gray-200">Education</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-accent transition-colors">Airport School Ahmedabad</h3>
+                        <p class="text-gray-500">Software &amp; Management System</p>
+                    </div>
+                    <div class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center -rotate-45 group-hover:rotate-0 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2: NexNodez -->
+            <div class="group cursor-pointer stagger-box opacity-0 translate-y-8 md:mt-24">
+                <div class="aspect-[4/3] rounded-3xl bg-secondary border border-gray-200 overflow-hidden mb-6 relative shadow-md hover:shadow-2xl transition-shadow duration-500 perspective-1000">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent mix-blend-overlay z-10 group-hover:opacity-100 opacity-0 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 group-hover:rotate-y-3 transition-transform duration-700 ease-out opacity-90 parallax-img" alt="NexNodez">
+                    </div>
+                    <div class="absolute inset-0 flex items-end p-6 z-20">
+                        <span class="px-3 py-1 rounded-full bg-white/90 backdrop-blur text-xs font-semibold text-gray-700 border border-gray-200">Technology</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-accent transition-colors">NexNodez</h3>
+                        <p class="text-gray-500">Company Website &amp; Digital Platform</p>
+                    </div>
+                    <div class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center -rotate-45 group-hover:rotate-0 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Score Your Run -->
+            <div class="group cursor-pointer stagger-box opacity-0 translate-y-8">
+                <div class="aspect-[4/3] rounded-3xl bg-secondary border border-gray-200 overflow-hidden mb-6 relative shadow-md hover:shadow-2xl transition-shadow duration-500 perspective-1000">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent mix-blend-overlay z-10 group-hover:opacity-100 opacity-0 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1540747913346-19212a4b423b?q=80&w=2005&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 group-hover:-rotate-y-3 transition-transform duration-700 ease-out opacity-90 parallax-img" alt="Score Your Run">
+                    </div>
+                    <div class="absolute inset-0 flex items-end p-6 z-20">
+                        <span class="px-3 py-1 rounded-full bg-white/90 backdrop-blur text-xs font-semibold text-gray-700 border border-gray-200">Sports Tech</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-accent transition-colors">Score Your Run</h3>
+                        <p class="text-gray-500">Mobile App — Cricket Tournament Management</p>
+                    </div>
+                    <div class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center -rotate-45 group-hover:rotate-0 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Mahakali Constructions -->
+            <div class="group cursor-pointer stagger-box opacity-0 translate-y-8 md:mt-24">
+                <div class="aspect-[4/3] rounded-3xl bg-secondary border border-gray-200 overflow-hidden mb-6 relative shadow-md hover:shadow-2xl transition-shadow duration-500 perspective-1000">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent mix-blend-overlay z-10 group-hover:opacity-100 opacity-0 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2076&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 group-hover:rotate-y-3 transition-transform duration-700 ease-out opacity-90 parallax-img" alt="Mahakali Constructions">
+                    </div>
+                    <div class="absolute inset-0 flex items-end p-6 z-20">
+                        <span class="px-3 py-1 rounded-full bg-white/90 backdrop-blur text-xs font-semibold text-gray-700 border border-gray-200">Construction</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-accent transition-colors">Mahakali Constructions</h3>
+                        <p class="text-gray-500">Website &amp; SEO — Lead Generation</p>
+                    </div>
+                    <div class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center -rotate-45 group-hover:rotate-0 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 bg-secondary border-t border-gray-100 relative z-10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center section-header opacity-0 translate-y-8">
+        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Ready to be our next <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-600">success story?</span></h2>
+        <p class="text-xl text-gray-600 mb-10">Let's build something amazing together.</p>
+        <a href="/contact" class="magnetic-item inline-flex items-center gap-3 px-10 py-5 rounded-full bg-accent text-white font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-[0_10px_30px_rgba(14,165,233,0.3)]">
+            Start a Project <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
+</section>
+{% endblock %}

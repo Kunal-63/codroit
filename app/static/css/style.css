@@ -1,0 +1,100 @@
+/* Custom CSS for TechCo */
+
+/* Abstract Background Blob Animation */
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+.animate-blob {
+  animation: blob 7s infinite;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+@keyframes reverse-spin {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+.animate-reverse-spin {
+  animation: reverse-spin 10s linear infinite;
+}
+
+/* Floating Pill Navigation */
+.glass-nav {
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease;
+}
+.glass-nav.scrolled {
+  background-color: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10), 0 2px 8px rgba(14, 165, 233, 0.06);
+}
+
+/* Custom Cursor */
+body {
+  cursor: none;
+}
+a, button, input, textarea, .magnetic-item, .cursor-pointer {
+  cursor: none;
+}
+@media (max-width: 768px) {
+    body, a, button, input, textarea, .magnetic-item, .cursor-pointer {
+        cursor: auto;
+    }
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(15, 23, 42, 1);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: normal;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(15, 23, 42, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9998;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.cursor-dot.hover {
+  width: 0px;
+  height: 0px;
+}
+.cursor-outline.hover {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(15, 23, 42, 0.05);
+  backdrop-filter: blur(2px);
+  border-color: rgba(15, 23, 42, 0.1);
+}

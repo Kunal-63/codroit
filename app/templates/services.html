@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="pt-40 pb-20 relative z-10 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-teal-600/10 rounded-full blur-[120px] mix-blend-screen"></div>
+        <div class="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[120px] mix-blend-screen"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl page-reveal opacity-0 translate-y-8">
+            <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-4">What We Do</p>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-6">
+                Expertise that <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-600">drives results</span>
+            </h1>
+            <p class="text-xl text-gray-600 leading-relaxed hover-reveal">
+                Comprehensive IT solutions tailored to transform your business. From architecture to deployment, we deliver excellence at every step.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Services List -->
+<section class="py-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
+        
+        <!-- Service 1: Web Development -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" id="web-dev">
+            <div class="scroll-reveal opacity-0 -translate-x-8">
+                <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6 text-accent">
+                    <i class="fa-solid fa-code text-xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Web Development</h2>
+                <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    Custom web applications built with modern technologies. Responsive, scalable, and performance-optimized solutions that drive business growth and exceed user expectations.
+                </p>
+                <ul class="space-y-4 text-gray-600">
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> React, Vue.js, Angular</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> Node.js, Python, PHP</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> E-commerce Solutions</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> SEO &amp; Performance Optimization</li>
+                </ul>
+            </div>
+            <div class="rounded-3xl border border-gray-200 scroll-reveal opacity-0 translate-x-8 h-80 flex items-center justify-center relative overflow-hidden group shadow-xl hover:shadow-2xl transition-shadow duration-500 perspective-1000">
+                <div class="absolute inset-0 bg-accent/5 mix-blend-overlay z-10 group-hover:opacity-0 transition-opacity duration-500"></div>
+                <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=2088&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 group-hover:-rotate-y-6 transition-transform duration-700 parallax-img" alt="Web Development">
+            </div>
+        </div>
+
+        <!-- Service 2: Mobile App Development -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" id="app-dev">
+            <div class="order-2 lg:order-1 rounded-3xl border border-gray-200 scroll-reveal opacity-0 -translate-x-8 h-80 flex items-center justify-center relative overflow-hidden group shadow-xl hover:shadow-2xl transition-shadow duration-500 perspective-1000">
+                <div class="absolute inset-0 bg-accent/5 mix-blend-overlay z-10 group-hover:opacity-0 transition-opacity duration-500"></div>
+                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 group-hover:rotate-y-6 transition-transform duration-700 parallax-img" alt="Mobile App Development">
+            </div>
+            <div class="order-1 lg:order-2 scroll-reveal opacity-0 translate-x-8">
+                <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6 text-accent">
+                    <i class="fa-solid fa-mobile-screen text-xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Mobile App Development</h2>
+                <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    Native and cross-platform mobile applications for iOS and Android. User-centric design meets powerful functionality to deliver outstanding mobile experiences.
+                </p>
+                <ul class="space-y-4 text-gray-600">
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> iOS &amp; Android Native</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> React Native &amp; Flutter</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> App Store Optimization</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> UI/UX Design</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Service 3: Cloud Solutions -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" id="cloud">
+            <div class="scroll-reveal opacity-0 -translate-x-8">
+                <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6 text-accent">
+                    <i class="fa-solid fa-cloud text-xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Cloud Solutions</h2>
+                <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    Scalable cloud infrastructure and migration services. AWS, Azure, and Google Cloud expertise to ensure your business runs smoothly with 99.9% uptime.
+                </p>
+                <ul class="space-y-4 text-gray-600">
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> AWS, Azure, GCP</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> DevOps &amp; CI/CD</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> 24/7 Monitoring</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> Cloud Migration</li>
+                </ul>
+            </div>
+            <div class="rounded-3xl border border-gray-200 scroll-reveal opacity-0 translate-x-8 h-80 flex items-center justify-center relative overflow-hidden group shadow-xl hover:shadow-2xl transition-shadow duration-500 perspective-1000">
+                <div class="absolute inset-0 bg-accent/5 mix-blend-overlay z-10 group-hover:opacity-0 transition-opacity duration-500"></div>
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 group-hover:-rotate-y-6 transition-transform duration-700 parallax-img" alt="Cloud Solutions">
+            </div>
+        </div>
+
+        <!-- Service 4: IT Consulting -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" id="consulting">
+            <div class="order-2 lg:order-1 rounded-3xl border border-gray-200 scroll-reveal opacity-0 -translate-x-8 h-80 flex items-center justify-center relative overflow-hidden group shadow-xl hover:shadow-2xl transition-shadow duration-500 perspective-1000">
+                <div class="absolute inset-0 bg-accent/5 mix-blend-overlay z-10 group-hover:opacity-0 transition-opacity duration-500"></div>
+                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=2074&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 group-hover:rotate-y-6 transition-transform duration-700 parallax-img" alt="IT Consulting">
+            </div>
+            <div class="order-1 lg:order-2 scroll-reveal opacity-0 translate-x-8">
+                <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6 text-accent">
+                    <i class="fa-solid fa-lightbulb text-xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">IT Consulting</h2>
+                <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    Strategic technology guidance to help your organization navigate complex digital transformations. We help you make the right technology decisions for sustainable growth.
+                </p>
+                <ul class="space-y-4 text-gray-600">
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> Technology Strategy</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> Digital Transformation</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> System Architecture</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-accent"></i> Team Augmentation</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 bg-secondary border-t border-gray-100 relative z-10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center section-header opacity-0 translate-y-8">
+        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Ready to start your <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-600">project?</span></h2>
+        <p class="text-xl text-gray-600 mb-10">Let's discuss how we can help you achieve your goals with the right technology solutions.</p>
+        <a href="/contact" class="magnetic-item inline-flex items-center gap-3 px-10 py-5 rounded-full bg-accent text-white font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-[0_10px_30px_rgba(14,165,233,0.3)]">
+            Get a Free Consultation <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codroit - {{ active_page | capitalize }} | IT Services &amp; Solutions</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFFFFF',
+                        secondary: '#F8FAFC',
+                        accent: '#0EA5E9',
+                        'accent-glow': 'rgba(14, 165, 233, 0.3)',
+                        'brand-dark': '#E2E8F0'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+<body class="bg-primary text-gray-800 font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white">
+
+    <!-- Dynamic Coding Background Elements -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none" id="bg-shapes-container">
+        <!-- Floating Elements -->
+        <div class="absolute text-gray-200 font-mono text-opacity-50 text-8xl font-black floating-shape" style="top: 15%; left: 8%;">{}</div>
+        <div class="absolute text-gray-200 font-mono text-opacity-50 text-6xl font-black floating-shape" style="top: 75%; left: 5%;">//</div>
+        <div class="absolute text-gray-200 font-mono text-opacity-50 text-[12rem] font-black floating-shape" style="top: 40%; right: 2%;">&lt;/&gt;</div>
+        <div class="absolute text-gray-200 font-mono text-opacity-50 text-7xl font-black floating-shape" style="bottom: 10%; right: 15%;">[]</div>
+        <div class="absolute text-gray-200 font-mono text-opacity-50 text-9xl font-black floating-shape" style="top: 60%; left: 45%;">;</div>
+        
+        <!-- Main Follow Shape -->
+        <div id="main-scroll-shape" class="absolute origin-center flex items-center justify-center text-accent/5" style="top: 20%; left: 50%; transform: translateX(-50%); width: 600px; height: 600px;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-2xl">
+                <path fill="currentColor" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,81.3,-46.3C90.8,-33.5,96.8,-18.1,97.7,-2.4C98.6,13.3,94.4,29.3,86.2,43.2C78,57.1,65.8,69,51.8,76.5C37.8,84,22,87.1,6.5,86.6C-9.1,86.1,-24.3,82,-38.3,74.9C-52.3,67.8,-65.2,57.7,-74.3,44.8C-83.4,31.9,-88.7,16.2,-89.2,0.3C-89.7,-15.6,-85.5,-31.4,-76.8,-44.6C-68.1,-57.8,-54.9,-68.4,-40.8,-75.4C-26.7,-82.4,-11.7,-85.8,1.9,-88.4C15.5,-91,30.6,-83.6,44.7,-76.4Z" transform="translate(100 100)" />
+            </svg>
+            <div class="absolute text-[8rem] font-black font-mono tracking-tighter text-gray-900/10 mix-blend-overlay">codroit</div>
+        </div>
+    </div>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor-dot hidden md:block z-[100]"></div>
+    <div class="cursor-outline hidden md:block z-[100]"></div>
+
+    <!-- Navigation -->
+    <div class="fixed w-full z-50 px-4 sm:px-6 pt-4 transition-all duration-500" id="navbar-wrapper">
+        <nav class="glass-nav max-w-7xl mx-auto transition-all duration-500 rounded-2xl" id="navbar">
+            <div class="px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex-shrink-0 flex items-center cursor-pointer magnetic-item" onclick="window.location.href='/'">
+                        <img src="/static/logo.png" alt="Codroit" class="h-9 w-auto object-contain">
+                    </div>
+                    
+                    <div class="hidden md:flex space-x-8 items-center">
+                        <a href="/" class="nav-link {% if active_page == 'home' %}text-gray-900 font-semibold{% else %}text-gray-600 hover:text-gray-900{% endif %} transition-colors text-sm">Home</a>
+                        <a href="/services" class="nav-link {% if active_page == 'services' %}text-gray-900 font-semibold{% else %}text-gray-600 hover:text-gray-900{% endif %} transition-colors text-sm">Services</a>
+                        <a href="/portfolio" class="nav-link {% if active_page == 'portfolio' %}text-gray-900 font-semibold{% else %}text-gray-600 hover:text-gray-900{% endif %} transition-colors text-sm">Portfolio</a>
+                        <a href="/about" class="nav-link {% if active_page == 'about' %}text-gray-900 font-semibold{% else %}text-gray-600 hover:text-gray-900{% endif %} transition-colors text-sm">About</a>
+                        <a href="/contact" class="magnetic-item px-5 py-2 rounded-full bg-gray-900 text-white font-medium hover:scale-105 transition-transform duration-300 text-sm shadow-md">Get Started</a>
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button class="text-gray-600 hover:text-gray-900 focus:outline-none" id="mobile-menu-btn">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden bg-white/95 backdrop-blur-md w-full border-t border-gray-100 rounded-b-2xl" id="mobile-menu">
+                <div class="px-4 py-4 space-y-1">
+                    <a href="/" class="block px-3 py-2 text-sm font-medium rounded-lg {% if active_page == 'home' %}text-accent bg-accent/5{% else %}text-gray-600 hover:bg-gray-50{% endif %}">Home</a>
+                    <a href="/services" class="block px-3 py-2 text-sm font-medium rounded-lg {% if active_page == 'services' %}text-accent bg-accent/5{% else %}text-gray-600 hover:bg-gray-50{% endif %}">Services</a>
+                    <a href="/portfolio" class="block px-3 py-2 text-sm font-medium rounded-lg {% if active_page == 'portfolio' %}text-accent bg-accent/5{% else %}text-gray-600 hover:bg-gray-50{% endif %}">Portfolio</a>
+                    <a href="/about" class="block px-3 py-2 text-sm font-medium rounded-lg {% if active_page == 'about' %}text-accent bg-accent/5{% else %}text-gray-600 hover:bg-gray-50{% endif %}">About</a>
+                    <a href="/contact" class="block px-3 py-2 text-sm font-medium text-accent bg-accent/5 rounded-lg">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Page Content -->
+    <main class="min-h-screen" id="smooth-wrapper">
+        <div id="smooth-content">
+            {% block content %}{% endblock %}
+            
+            <!-- Footer -->
+            <footer class="bg-secondary border-t border-gray-200 pt-20 pb-10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                        <div class="col-span-1 md:col-span-1">
+                            <div class="flex items-center gap-2 mb-6">
+                                <img src="/static/logo.png" alt="Codroit" class="h-10 w-auto object-contain">
+                            </div>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                The Future Depends on IT. We build technology that drives success and scales with your business.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-900 font-semibold mb-6">Services</h4>
+                            <ul class="space-y-4 text-sm text-gray-600">
+                                <li><a href="/services#web-dev" class="hover:text-accent transition-colors">Web Development</a></li>
+                                <li><a href="/services#app-dev" class="hover:text-accent transition-colors">Mobile Apps</a></li>
+                                <li><a href="/services#cloud" class="hover:text-accent transition-colors">Cloud Solutions</a></li>
+                                <li><a href="/services#consulting" class="hover:text-accent transition-colors">IT Consulting</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-900 font-semibold mb-6">Company</h4>
+                            <ul class="space-y-4 text-sm text-gray-600">
+                                <li><a href="/about" class="hover:text-accent transition-colors">About Us</a></li>
+                                <li><a href="/portfolio" class="hover:text-accent transition-colors">Portfolio</a></li>
+                                <li><a href="/contact" class="hover:text-accent transition-colors">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-900 font-semibold mb-6">Contact</h4>
+                            <ul class="space-y-4 text-sm text-gray-600">
+                                <li><a href="mailto:info@codroit.in" class="hover:text-accent transition-colors flex items-center gap-2"><i class="fa-regular fa-envelope text-xs"></i> info@codroit.in</a></li>
+                                <li><a href="tel:+919574808771" class="hover:text-accent transition-colors flex items-center gap-2"><i class="fa-solid fa-phone text-xs"></i> +91 95748 08771</a></li>
+                                <li><span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-xs"></i> Ahmedabad, India</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-gray-500 text-sm">© 2024 Codroit. All rights reserved.</p>
+                        <div class="flex space-x-6">
+                            <a href="#" class="text-gray-500 hover:text-gray-900 transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-gray-900 transition-colors"><i class="fa-brands fa-github"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-gray-900 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <!-- GSAP & Core JS Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="/static/js/cursor-effects.js"></script>
+    <script src="/static/js/animations.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
