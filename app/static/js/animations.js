@@ -22,6 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
         handleScroll(); // run on load
     }
 
+    // Common fade-in settings for smoothness
+    const fadeConfig = {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power2.out"
+    };
+
     // Page Load Animation
     const loadTl = gsap.timeline();
     
@@ -31,24 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
         loadTl.to(heroLines, {
             y: "0%",
             opacity: 1,
-            duration: 1.2,
-            stagger: 0.2,
-            ease: "power4.out",
-            delay: 0.2
+            duration: 1.5,
+            stagger: 0.15,
+            ease: "power2.out"
         });
     }
 
     // Page Title
     const pageReveal = document.querySelector('.page-reveal');
     if(pageReveal) {
-        loadTl.to(pageReveal, {
-            y: 0,
-            x: 0,
-            opacity: 1,
-            duration: 1.2,
-            ease: "power4.out",
-            delay: 0.2
-        });
+        loadTl.to(pageReveal, { ...fadeConfig, x: 0 }, "-=1");
     }
 
     // Hero Stagger items
@@ -57,82 +57,36 @@ document.addEventListener('DOMContentLoaded', () => {
         loadTl.to(staggerItems, {
             y: 0,
             opacity: 1,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: "power3.out"
-        }, "-=0.8");
+            duration: 1.2,
+            stagger: 0.15,
+            ease: "power2.out"
+        }, "-=1");
     }
 
-    // Scroll Animations
-    // Section Headers
-    gsap.utils.toArray('.section-header').forEach(header => {
-        gsap.to(header, {
-            scrollTrigger: {
-                trigger: header,
-                start: "top 85%",
-            },
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out"
-        });
-    });
+    // Scroll Animations - Smooth Fades for everything
+    const fadeElements = [
+        '.section-header', 
+        '.feature-card', 
+        '.timeline-item', 
+        '.cta-box', 
+        '.scroll-reveal',
+        '.scale-on-scroll' // Re-purposing scale class to just fade for performance
+    ];
 
-    // Feature Cards Stagger
-    gsap.utils.toArray('.feature-card').forEach(card => {
-        gsap.to(card, {
-            scrollTrigger: {
-                trigger: card,
-                start: "top 85%",
-            },
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out"
-        });
-    });
-
-    // Timeline items
-    gsap.utils.toArray('.timeline-item').forEach((item, i) => {
-        gsap.to(item, {
-            scrollTrigger: {
-                trigger: item,
-                start: "top 85%",
-            },
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out"
-        });
-    });
-
-    // CTA Box
-    const ctaBox = document.querySelector('.cta-box');
-    if(ctaBox) {
-        gsap.to(ctaBox, {
-            scrollTrigger: {
-                trigger: ctaBox,
-                start: "top 85%",
-            },
-            scale: 1,
-            opacity: 1,
-            duration: 1,
-            ease: "back.out(1.5)"
-        });
-    }
-
-    // Generic Scroll Reveals
-    gsap.utils.toArray('.scroll-reveal').forEach(el => {
-        gsap.to(el, {
-            scrollTrigger: {
-                trigger: el,
-                start: "top 85%",
-            },
-            y: 0,
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out"
+    fadeElements.forEach(selector => {
+        gsap.utils.toArray(selector).forEach(el => {
+            gsap.to(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 90%",
+                },
+                y: 0,
+                x: 0,
+                scale: 1, // Reset scale if it was set via CSS
+                opacity: 1,
+                duration: 1.2,
+                ease: "power2.out"
+            });
         });
     });
 
@@ -140,95 +94,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const staggerBoxes = gsap.utils.toArray('.stagger-box');
     if(staggerBoxes.length > 0) {
         ScrollTrigger.batch(staggerBoxes, {
-            start: "top 85%",
+            start: "top 90%",
             onEnter: batch => gsap.to(batch, {
                 opacity: 1, 
                 y: 0, 
-                stagger: 0.15, 
-                duration: 0.8,
-                ease: "power3.out"
+                stagger: 0.1, 
+                duration: 1.2,
+                ease: "power2.out"
             })
         });
     }
 
-    /* ---- NEW ADVANCED SCROLL ANIMATIONS ---- */
-
-    // 1. Parallax Images
+    // Parallax Images - Only slight Y movement, no heavy scrubbing
     gsap.utils.toArray('.parallax-img').forEach(img => {
         gsap.to(img, {
             scrollTrigger: {
                 trigger: img.parentElement,
                 start: "top bottom",
                 end: "bottom top",
-                scrub: 1
+                scrub: 2 // smooth scrub
             },
-            y: 50,
+            y: 30, // reduce movement to prevent lag
             ease: "none"
         });
     });
 
-    // 2. Continuous Element Rotation on Scroll
-    gsap.utils.toArray('.rotate-on-scroll').forEach(el => {
-        gsap.to(el, {
-            scrollTrigger: {
-                trigger: el.parentElement,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 0.5
-            },
-            rotation: 180,
-            ease: "none"
-        });
-    });
-
-    // 3. Floating Up Elements (Parallax reversed)
-    gsap.utils.toArray('.float-up-scroll').forEach(el => {
-        gsap.to(el, {
-            scrollTrigger: {
-                trigger: el.parentElement,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1.5
-            },
-            y: -100,
-            ease: "none"
-        });
-    });
-
-    // 4. Line Drawing Animation (Timeline process)
-    const lineDraw = document.querySelector('.line-draw-scroll');
-    if (lineDraw) {
-        gsap.to(lineDraw, {
-            scrollTrigger: {
-                trigger: '.timeline-container',
-                start: "top 60%",
-                end: "bottom 80%",
-                scrub: 1
-            },
-            width: "100%",
-            ease: "none"
-        });
-    }
-
-    // 5. Scale In on Scroll
-    gsap.utils.toArray('.scale-on-scroll').forEach(el => {
-        gsap.fromTo(el, 
-            { scale: 0.8, opacity: 0 },
-            {
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 90%",
-                    end: "top 60%",
-                    scrub: 1
-                },
-                scale: 1,
-                opacity: 1,
-                ease: "power2.out"
-            }
-        );
-    });
-
-    // 6. Parallax Backgrounds (CTA)
+    // Parallax Backgrounds
     gsap.utils.toArray('.parallax-bg').forEach(bg => {
         gsap.fromTo(bg, 
             { backgroundPosition: "50% 0px" },
@@ -237,97 +128,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     trigger: bg.parentElement,
                     start: "top bottom",
                     end: "bottom top",
-                    scrub: true
+                    scrub: 2
                 },
-                backgroundPosition: "50% 100px",
+                backgroundPosition: "50% 50px", // reduced movement
                 ease: "none"
             }
         );
     });
 
-    // 7. Text Reveal Hover effect (Letter staggering)
-    const hoverReveals = document.querySelectorAll('.hover-reveal');
-    hoverReveals.forEach(text => {
-        const originalText = text.innerText;
-        text.innerHTML = '';
-        
-        // Split text into words
-        const words = originalText.split(' ');
-        words.forEach(word => {
-            const wordSpan = document.createElement('span');
-            wordSpan.className = 'inline-block overflow-hidden mr-1';
-            
-            // Split word into letters
-            const chars = word.split('');
-            chars.forEach(char => {
-                const charSpan = document.createElement('span');
-                charSpan.innerText = char;
-                charSpan.className = 'inline-block transform transition-transform duration-300';
-                wordSpan.appendChild(charSpan);
-            });
-            text.appendChild(wordSpan);
-        });
-
-        // Add hover effect
-        text.addEventListener('mouseenter', () => {
-            gsap.to(text.querySelectorAll('span > span'), {
-                y: -5,
-                color: '#0EA5E9',
-                stagger: 0.02,
-                duration: 0.2,
-                ease: "power1.out"
-            });
-        });
-        
-        text.addEventListener('mouseleave', () => {
-            gsap.to(text.querySelectorAll('span > span'), {
-                y: 0,
-                color: 'inherit',
-                stagger: 0.02,
-                duration: 0.2,
-                ease: "power1.in"
-            });
-        });
-    });
-
-    // 8. Dynamic Background Coding Elements
-    gsap.utils.toArray('.floating-shape').forEach((shape, i) => {
-        // Create an organic floating animation using sine/cosine curves
-        gsap.to(shape, {
-            y: `random(-40, 40)`,
-            x: `random(-30, 30)`,
-            rotation: `random(-20, 20)`,
-            duration: `random(4, 8)`,
-            ease: "sine.inOut",
-            yoyo: true,
-            repeat: -1,
-            delay: `random(0, 2)`
-        });
-    });
-
-    // 9. Main Scroll Following Shape (Hero Shape)
-    const mainShape = document.getElementById('main-scroll-shape');
-    if (mainShape) {
-        // Make the shape rotate continuously
-        gsap.to(mainShape.querySelector('svg'), {
-            rotation: 360,
-            duration: 40,
-            ease: "none",
-            repeat: -1
-        });
-
-        // Make the shape follow the scroll, change size and color opacity
-        gsap.to(mainShape, {
-            scrollTrigger: {
-                trigger: document.body,
-                start: "top top",
-                end: "bottom bottom",
-                scrub: 1.5,
-            },
-            y: () => window.innerHeight * 0.8, // Moves down significantly
-            scale: 1.5,
-            rotation: 90,
-            ease: "power1.inOut"
-        });
-    }
 });
