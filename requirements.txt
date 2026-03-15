@@ -1,7 +1,0 @@
-fastapi
-uvicorn
-jinja2
-python-dotenv
-pydantic
-pydantic-settings
-email-validator

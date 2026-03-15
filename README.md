@@ -1,48 +1,73 @@
-# TechCo Premium Website
+# React + TypeScript + Vite
 
-A production-ready, premium company website built with FastAPI, Tailwind CSS, and GSAP.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Tech Stack
+Currently, two official plugins are available:
 
-**Backend:**
-- Python 3.11+
-- FastAPI
-- Uvicorn
-- Jinja2 Templates
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-**Frontend:**
-- HTML5
-- Tailwind CSS (via CDN)
-- Vanilla JavaScript
-- GSAP & ScrollTrigger
+## React Compiler
 
-## Setup Instructions
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-1. **Create and activate a virtual environment:**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate # On Windows: venv\Scripts\activate
-   ```
+## Expanding the ESLint configuration
 
-2. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-3. **Run the development server:**
-   ```bash
-   python app/main.py
-   # Or using uvicorn directly:
-   # uvicorn app.main:app --reload
-   ```
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-4. **View the website:**
-   Open `http://localhost:8000` in your web browser.
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-## Project Structure
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-- `app/main.py`: Main FastAPI application entrypoint.
-- `app/config.py`: Application environment configuration.
-- `app/routes/`: FastAPI API and view routers.
-- `app/templates/`: Jinja2 HTML templates.
-- `app/static/`: Static CSS, JS, and image assets.
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
