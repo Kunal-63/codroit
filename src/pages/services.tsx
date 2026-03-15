@@ -1,6 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { Cloud, ShieldCheck, Code, BarChart, Workflow, Layers, Check, ArrowRight, Server, Headset } from "lucide-react";
+import { Cloud, ShieldCheck, Code, BarChart, Layers, Check, ArrowRight, Headset } from "lucide-react";
 
 export function ServicesPage() {
   const services = [

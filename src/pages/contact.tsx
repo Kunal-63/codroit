@@ -1,4 +1,3 @@
-import React from "react";
 import { Mail, Phone, MapPin, Send, MessageSquareText } from "lucide-react";
 
 // Reusable input class for consistent styling in both themes

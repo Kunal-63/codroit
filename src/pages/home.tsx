@@ -1,8 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import HeroSection from "../components/ui/glassmorphism-trust-hero";
 import {
-  ArrowRight, Shield, Zap, Server, Code, Cloud, Headset,
+  ArrowRight, Shield, Code, Cloud, Headset,
   CheckCircle2, ChevronRight, MessageSquareQuote, Database, Layers
 } from "lucide-react";
 
