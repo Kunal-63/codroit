@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-background-glow"></div>
+
+<!-- PAGE HERO -->
+<section class="page-header text-center py-6">
+    <div class="container z-1 position-relative">
+        <span class="badge bg-primary-subtle text-primary rounded-pill px-4 py-2 mb-4 fs-6 fw-semibold">What We
+            Do</span>
+        <h1 class="display-3 fw-light mb-4 text-dark" style="font-family: 'Outfit';">Our Premium Services</h1>
+        <p class="lead text-muted mb-0" style="max-width:600px; margin:auto;">Comprehensive IT solutions engineered
+            to accelerate your enterprise beyond what's possible today.</p>
+    </div>
+</section>
+
+<!-- SERVICES GRID -->
+<section class="py-6 bg-white border-top border-bottom">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- 1. Cloud Engineering -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-detail-card border-0 shadow-sm h-100 rounded-4 p-4 hover-lift"
+                    data-service="cloud">
+                    <div class="service-icon-wrap mb-4">
+                        <i class="bi bi-cloud-arrow-up text-primary display-5"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Cloud Engineering</h4>
+                    <p class="text-muted mb-4">Scalable, secure, and highly performant cloud architectures designed for
+                        enterprise workloads. We handle AWS, Azure, GCP migrations, hybrid cloud setups, and disaster
+                        recovery pipelines.</p>
+                    <ul class="list-unstyled text-muted small mb-4">
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Multi-cloud architecture</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Cost optimization & FinOps</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Disaster recovery & backup</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Kubernetes & container
+                            orchestration</li>
+                    </ul>
+                    <a href="/portfolio?service=cloud" class="btn btn-outline-primary rounded-pill mt-auto">
+                        <i class="bi bi-folder2-open me-2"></i>View Projects
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. Cybersecurity -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-detail-card border-0 shadow-sm h-100 rounded-4 p-4 hover-lift"
+                    data-service="security">
+                    <div class="service-icon-wrap mb-4">
+                        <i class="bi bi-shield-lock text-primary display-5"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Cybersecurity</h4>
+                    <p class="text-muted mb-4">Proactive threat hunting, zero-trust postures, and compliance management
+                        ensuring your corporate data remains protected end-to-end. From pen testing to SOC-as-a-service.
+                    </p>
+                    <ul class="list-unstyled text-muted small mb-4">
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Penetration testing</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Zero-trust implementation</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>SOC monitoring & SIEM</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Compliance (ISO, SOC2, GDPR)</li>
+                    </ul>
+                    <a href="/portfolio?service=security" class="btn btn-outline-primary rounded-pill mt-auto">
+                        <i class="bi bi-folder2-open me-2"></i>View Projects
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. Enterprise AI -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-detail-card border-0 shadow-sm h-100 rounded-4 p-4 hover-lift"
+                    data-service="ai">
+                    <div class="service-icon-wrap mb-4">
+                        <i class="bi bi-cpu text-primary display-5"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Enterprise AI</h4>
+                    <p class="text-muted mb-4">Agentic intelligence and LLM integrations that automate complex
+                        processes, extract insights, and improve operational decision-making at enterprise scale.</p>
+                    <ul class="list-unstyled text-muted small mb-4">
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>LLM fine-tuning & RAG systems
+                        </li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>AI agent orchestration</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Predictive analytics pipelines
+                        </li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Computer vision solutions</li>
+                    </ul>
+                    <a href="/portfolio?service=ai" class="btn btn-outline-primary rounded-pill mt-auto">
+                        <i class="bi bi-folder2-open me-2"></i>View Projects
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. DevOps & CI/CD -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-detail-card border-0 shadow-sm h-100 rounded-4 p-4 hover-lift"
+                    data-service="devops">
+                    <div class="service-icon-wrap mb-4">
+                        <i class="bi bi-arrow-repeat text-primary display-5"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">DevOps & CI/CD</h4>
+                    <p class="text-muted mb-4">Streamlined deployment pipelines, infrastructure-as-code, and automated
+                        testing frameworks that eliminate friction and accelerate software delivery cycles.</p>
+                    <ul class="list-unstyled text-muted small mb-4">
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>CI/CD pipeline design</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Infrastructure as Code
+                            (Terraform)</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>GitOps workflows</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Automated testing & QA</li>
+                    </ul>
+                    <a href="/portfolio?service=devops" class="btn btn-outline-primary rounded-pill mt-auto">
+                        <i class="bi bi-folder2-open me-2"></i>View Projects
+                    </a>
+                </div>
+            </div>
+
+            <!-- 5. Data Engineering -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-detail-card border-0 shadow-sm h-100 rounded-4 p-4 hover-lift"
+                    data-service="data">
+                    <div class="service-icon-wrap mb-4">
+                        <i class="bi bi-database-gear text-primary display-5"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Data Engineering</h4>
+                    <p class="text-muted mb-4">End-to-end data infrastructure — from ingestion pipelines to warehousing
+                        and BI dashboards — giving your organisation a reliable, real-time data foundation.</p>
+                    <ul class="list-unstyled text-muted small mb-4">
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Data lake & warehouse setup</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>ETL/ELT pipeline automation</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Real-time streaming (Kafka)</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>BI dashboards & reporting</li>
+                    </ul>
+                    <a href="/portfolio?service=data" class="btn btn-outline-primary rounded-pill mt-auto">
+                        <i class="bi bi-folder2-open me-2"></i>View Projects
+                    </a>
+                </div>
+            </div>
+
+            <!-- 6. Software Development -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-detail-card border-0 shadow-sm h-100 rounded-4 p-4 hover-lift"
+                    data-service="software">
+                    <div class="service-icon-wrap mb-4">
+                        <i class="bi bi-code-slash text-primary display-5"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Software Development</h4>
+                    <p class="text-muted mb-4">Custom-built, production-grade software solutions. From microservices
+                        APIs to full-stack enterprise platforms, engineered with clean architecture and long-term
+                        scalability.</p>
+                    <ul class="list-unstyled text-muted small mb-4">
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Microservices & REST APIs</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Full-stack web platforms</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Legacy system modernisation</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Mobile application development
+                        </li>
+                    </ul>
+                    <a href="/portfolio?service=software" class="btn btn-outline-primary rounded-pill mt-auto">
+                        <i class="bi bi-folder2-open me-2"></i>View Projects
+                    </a>
+                </div>
+            </div>
+
+            <!-- 7. IT Consulting -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-detail-card border-0 shadow-sm h-100 rounded-4 p-4 hover-lift"
+                    data-service="consulting">
+                    <div class="service-icon-wrap mb-4">
+                        <i class="bi bi-people text-primary display-5"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">IT Consulting</h4>
+                    <p class="text-muted mb-4">Strategic advisory and technical consulting to align your IT roadmap with
+                        business objectives. We audit, advise, and architect transformation programmes from first
+                        principles.</p>
+                    <ul class="list-unstyled text-muted small mb-4">
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Technology audits & assessments
+                        </li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Digital transformation strategy
+                        </li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Vendor evaluation & selection
+                        </li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Architecture review boards</li>
+                    </ul>
+                    <a href="/portfolio?service=consulting" class="btn btn-outline-primary rounded-pill mt-auto">
+                        <i class="bi bi-folder2-open me-2"></i>View Projects
+                    </a>
+                </div>
+            </div>
+
+            <!-- 8. Managed IT Services -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-detail-card border-0 shadow-sm h-100 rounded-4 p-4 hover-lift"
+                    data-service="managed">
+                    <div class="service-icon-wrap mb-4">
+                        <i class="bi bi-headset text-primary display-5"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Managed IT Services</h4>
+                    <p class="text-muted mb-4">24/7 proactive infrastructure monitoring, incident management, and
+                        support — so your teams can focus on innovation while we keep the lights on reliably.</p>
+                    <ul class="list-unstyled text-muted small mb-4">
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>24/7 NOC monitoring</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>SLA-backed incident response</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Patch & update management</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Help desk & end-user support</li>
+                    </ul>
+                    <a href="/portfolio?service=managed" class="btn btn-outline-primary rounded-pill mt-auto">
+                        <i class="bi bi-folder2-open me-2"></i>View Projects
+                    </a>
+                </div>
+            </div>
+
+            <!-- 9. UI/UX & Digital Branding -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-detail-card border-0 shadow-sm h-100 rounded-4 p-4 hover-lift"
+                    data-service="design">
+                    <div class="service-icon-wrap mb-4">
+                        <i class="bi bi-palette text-primary display-5"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">UI/UX & Digital Branding</h4>
+                    <p class="text-muted mb-4">Human-centred design that transforms complex systems into beautiful,
+                        intuitive experiences. Brand identity, design systems, and digital product design rooted in
+                        research.</p>
+                    <ul class="list-unstyled text-muted small mb-4">
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>UX research & prototyping</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Design system creation</li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Brand identity & visual design
+                        </li>
+                        <li class="mb-1"><i class="bi bi-check2 text-primary me-2"></i>Accessibility (WCAG) compliance
+                        </li>
+                    </ul>
+                    <a href="/portfolio?service=design" class="btn btn-outline-primary rounded-pill mt-auto">
+                        <i class="bi bi-folder2-open me-2"></i>View Projects
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="py-6 bg-soft border-top">
+    <div class="container text-center">
+        <h2 class="fw-bold fs-1 text-primary mb-3">Not sure which service fits?</h2>
+        <p class="text-muted lead mb-5">Our specialists will guide you to the right solution for your specific
+            challenge.</p>
+        <a href="/contact" class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow fw-semibold me-3">
+            <i class="bi bi-chat-dots me-2"></i>Talk to an Expert
+        </a>
+        <a href="/portfolio" class="btn btn-outline-dark btn-lg rounded-pill px-5 py-3 fw-semibold">
+            <i class="bi bi-folder2-open me-2"></i>See Our Work
+        </a>
+    </div>
+</section>
+{% endblock %}

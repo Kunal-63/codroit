@@ -1,0 +1,14 @@
+/* Floating CTA and Footer CSS */
+.floating-cta-container {
+    background: transparent;
+}
+.floating-cta-card {
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+.floating-cta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px rgba(3, 76, 174, 0.3) !important;
+}
+.custom-footer {
+    border-top: 1px solid rgba(0,0,0,0.05) !important;
+}
