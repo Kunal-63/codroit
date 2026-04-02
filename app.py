@@ -30,6 +30,40 @@ def portfolio():
 def contact():
     return render_template('contact.html')
 
+@app.route('/careers')
+def careers():
+    careers_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static', 'careers.json')
+    try:
+        with open(careers_path, 'r', encoding='utf-8') as f:
+            openings = json.load(f)
+    except Exception:
+        openings = []
+    return render_template('careers.html', openings=openings)
+
+@app.route('/subscribe', methods=['POST'])
+def subscribe():
+    email = request.form.get('email') or (request.json and request.json.get('email'))
+    if not email:
+        return jsonify({"status": "error", "message": "Email is required"}), 400
+        
+    subs_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static', 'subscribers.json')
+    try:
+        if os.path.exists(subs_path):
+            with open(subs_path, 'r', encoding='utf-8') as f:
+                subs = json.load(f)
+        else:
+            subs = []
+    except Exception:
+        subs = []
+        
+    if email not in subs:
+        subs.append(email)
+        with open(subs_path, 'w', encoding='utf-8') as f:
+            json.dump(subs, f, indent=4)
+            
+    return jsonify({"status": "success", "message": "Subscribed successfully"}), 200
+
+
 @app.route('/Logo.svg')
 def logo():
     return send_from_directory(os.path.dirname(os.path.abspath(__file__)), 'Logo.svg')

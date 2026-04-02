@@ -197,8 +197,10 @@
         box-shadow: 0 4px 24px rgba(14,19,43,0.06), inset 0 1px 0 rgba(255,255,255,0.9);
     }
 
-    /* Hide scrollbar */
-    .portfolio-tabs-wrapper { scrollbar-width: none; -ms-overflow-style: none; }
+    /* Hide scrollbar and support grabbing */
+    .portfolio-tabs-wrapper { scrollbar-width: none; -ms-overflow-style: none; cursor: grab; }
+    .portfolio-tabs-wrapper:active { cursor: grabbing; }
+    .portfolio-tabs-wrapper.is-dragging .filter-btn { pointer-events: none; }
     .portfolio-tabs-wrapper::-webkit-scrollbar { display: none; }
 
     /* ---- Filter Buttons ---- */
@@ -416,6 +418,7 @@
         const itemsPerPage    = 6;
         let currentFilter     = 'all';
         let allProjects       = [];   // full list, loaded once for modal lookups
+        let isDragging        = false; // track drag state to prevent clicks
 
         const portfolioGrid     = document.getElementById('portfolioGrid');
         const portfolioLoader   = document.getElementById('portfolioLoader');
@@ -423,6 +426,42 @@
         const paginationControls = document.getElementById('paginationControls');
         const paginationUl      = document.getElementById('paginationUl');
         const filterBtns        = document.querySelectorAll('.filter-btn');
+        const tabsWrapper       = document.getElementById('portfolioFilters');
+
+        // ── Desktop Drag & Scroll support for filter tabs ─────────────────
+        if (tabsWrapper) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            tabsWrapper.addEventListener('mousedown', (e) => {
+                isDown = true;
+                isDragging = false;
+                startX = e.pageX - tabsWrapper.offsetLeft;
+                scrollLeft = tabsWrapper.scrollLeft;
+            });
+            tabsWrapper.addEventListener('mouseleave', () => {
+                isDown = false;
+                tabsWrapper.classList.remove('is-dragging');
+                setTimeout(() => isDragging = false, 50);
+            });
+            tabsWrapper.addEventListener('mouseup', () => {
+                isDown = false;
+                tabsWrapper.classList.remove('is-dragging');
+                setTimeout(() => isDragging = false, 50);
+            });
+            tabsWrapper.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - tabsWrapper.offsetLeft;
+                const walk = (x - startX) * 2; 
+                if (Math.abs(walk) > 5) {
+                    isDragging = true;
+                    tabsWrapper.classList.add('is-dragging');
+                }
+                tabsWrapper.scrollLeft = scrollLeft - walk;
+            });
+        }
 
         // ── Bootstrap URL param ────────────────────────────────────────────
         const urlParams = new URLSearchParams(window.location.search);
@@ -458,6 +497,11 @@
         // ── Filter button clicks ───────────────────────────────────────────
         filterBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
+                if (isDragging) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return;
+                }
                 const newFilter = e.currentTarget.dataset.filter;
                 if (newFilter === currentFilter && currentPage === 1) return; // nothing to do
                 currentFilter = newFilter;
