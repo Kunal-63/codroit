@@ -1,6 +1,9 @@
 import os
 import json
 import math
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from flask import Flask, render_template, send_from_directory, request, jsonify
 
 app = Flask(__name__)
@@ -9,6 +12,21 @@ app = Flask(__name__)
 _PROJECTS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static', 'projects.json')
 with open(_PROJECTS_PATH, 'r', encoding='utf-8') as _f:
     ALL_PROJECTS = json.load(_f)
+
+# ─── Gmail SMTP Config ───────────────────────────────────────────────────────
+# Set these environment variables before running the app:
+#   set GMAIL_USER=contact.codroit@gmail.com
+#   set GMAIL_APP_PASSWORD=your_gmail_app_password_here
+#
+# To generate an App Password:
+#   1. Go to https://myaccount.google.com/apppasswords
+#   2. Select "Mail" and your device, then click Generate
+#   3. Use that 16-character password as GMAIL_APP_PASSWORD
+# ─────────────────────────────────────────────────────────────────────────────
+GMAIL_USER     = os.environ.get('GMAIL_USER', 'contact.codroit@gmail.com')
+GMAIL_PASSWORD = os.environ.get('GMAIL_APP_PASSWORD', '')      # Set this via env var
+NOTIFY_TO      = 'info@codroit.in'   # Where to receive contact form emails
+
 
 @app.route('/')
 def home():
@@ -26,9 +44,77 @@ def about():
 def portfolio():
     return render_template('portfolio.html')
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('contact.html')
+    if request.method == 'GET':
+        return render_template('contact.html')
+
+    # ── POST: handle contact form submission ──────────────────────────────────
+    first_name = (request.form.get('first_name') or '').strip()
+    last_name  = (request.form.get('last_name')  or '').strip()
+    email      = (request.form.get('email')      or '').strip()
+    phone      = (request.form.get('phone')      or '').strip()
+    company    = (request.form.get('company')    or '').strip()
+    service    = (request.form.get('service')    or '').strip()
+    message    = (request.form.get('message')    or '').strip()
+
+    if not first_name or not email:
+        return jsonify({'status': 'error', 'message': 'Name and email are required.'}), 400
+
+    full_name = f"{first_name} {last_name}".strip()
+
+    # Build a nicely formatted email body
+    body = f"""
+New message from the Codroit website contact form.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CONTACT DETAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Name      : {full_name}
+Email     : {email}
+Phone     : {phone or 'Not provided'}
+Company   : {company or 'Not provided'}
+Service   : {service or 'Not specified'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MESSAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+{message or '(No message provided)'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sent via codroit.in contact form
+"""
+
+    # Send email only if GMAIL_APP_PASSWORD is configured
+    if GMAIL_PASSWORD:
+        try:
+            msg = MIMEMultipart('alternative')
+            msg['Subject'] = f"[Codroit] New enquiry from {full_name} – {service or 'General'}"
+            msg['From']    = GMAIL_USER
+            msg['To']      = NOTIFY_TO
+            msg['Reply-To'] = email
+
+            msg.attach(MIMEText(body, 'plain'))
+
+            with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
+                server.login(GMAIL_USER, GMAIL_PASSWORD)
+                server.sendmail(GMAIL_USER, NOTIFY_TO, msg.as_string())
+
+        except Exception as e:
+            # Log the error server-side but don't expose details to the client
+            print(f"[SMTP ERROR] Failed to send email: {e}")
+            return jsonify({
+                'status': 'error',
+                'message': 'Failed to send your message right now. Please email us directly at info@codroit.in'
+            }), 500
+    else:
+        # SMTP not configured — log to console (dev/test mode)
+        print("─── CONTACT FORM SUBMISSION (SMTP not configured) ───")
+        print(body)
+        print("─────────────────────────────────────────────────────")
+
+    return jsonify({'status': 'success', 'message': 'Message sent successfully!'}), 200
+
 
 @app.route('/careers')
 def careers():
