@@ -19,13 +19,20 @@
         <div class="filter-bar-wrap">
             <div class="portfolio-tabs-wrapper d-flex gap-2 overflow-auto align-items-center" id="portfolioFilters">
                 <button class="filter-btn active text-nowrap" data-filter="all">All Projects</button>
-                <button class="filter-btn text-nowrap" data-filter="cloud"><i class="bi bi-cloud-arrow-up me-1"></i>Cloud Engineering</button>
-                <button class="filter-btn text-nowrap" data-filter="security"><i class="bi bi-shield-lock me-1"></i>Cybersecurity</button>
-                <button class="filter-btn text-nowrap" data-filter="ai"><i class="bi bi-cpu me-1"></i>Enterprise AI</button>
-                <button class="filter-btn text-nowrap" data-filter="devops"><i class="bi bi-arrow-repeat me-1"></i>DevOps</button>
-                <button class="filter-btn text-nowrap" data-filter="data"><i class="bi bi-database-gear me-1"></i>Data Engineering</button>
-                <button class="filter-btn text-nowrap" data-filter="software"><i class="bi bi-code-slash me-1"></i>Software Dev</button>
-                <button class="filter-btn text-nowrap" data-filter="design"><i class="bi bi-palette me-1"></i>UI/UX</button>
+                <button class="filter-btn text-nowrap" data-filter="cloud"><i
+                        class="bi bi-cloud-arrow-up me-1"></i>Cloud Engineering</button>
+                <button class="filter-btn text-nowrap" data-filter="security"><i
+                        class="bi bi-shield-lock me-1"></i>Cybersecurity</button>
+                <button class="filter-btn text-nowrap" data-filter="ai"><i class="bi bi-cpu me-1"></i>Enterprise
+                    AI</button>
+                <button class="filter-btn text-nowrap" data-filter="devops"><i
+                        class="bi bi-arrow-repeat me-1"></i>DevOps</button>
+                <button class="filter-btn text-nowrap" data-filter="data"><i class="bi bi-database-gear me-1"></i>Data
+                    Engineering</button>
+                <button class="filter-btn text-nowrap" data-filter="software"><i
+                        class="bi bi-code-slash me-1"></i>Software Dev</button>
+                <button class="filter-btn text-nowrap" data-filter="design"><i
+                        class="bi bi-palette me-1"></i>UI/UX</button>
             </div>
         </div>
     </div>
@@ -67,21 +74,25 @@
     </div>
 </section>
 
-<!-- CTA -->
-<section class="py-6 bg-white border-top">
+<!-- CTA SECTION -->
+<section class="py-6 position-relative z-1 mb-4">
     <div class="container">
-        <div class="card border-0 rounded-5 shadow-lg text-white p-5 mx-auto"
-            style="max-width:1000px; background: linear-gradient(135deg, var(--color-primary-night), var(--color-primary-vibrant));">
-            <div class="row align-items-center text-center text-md-start">
-                <div class="col-md-8 mb-4 mb-md-0">
-                    <h2 class="fw-bold mb-3 display-6">Ready to be our next success story?</h2>
-                    <p class="mb-0 text-white-50 fs-5">Let's discuss how we can deliver measurable results for your
-                        organisation.</p>
-                </div>
-                <div class="col-md-4 text-md-end">
+        <div class="card border-0 rounded-5 p-4 p-md-5 mx-auto text-center position-relative overflow-hidden"
+            style="max-width: 900px; background: white; box-shadow: 0 25px 50px rgba(14, 19, 43, 0.08), 0 0 0 1px rgba(0,0,0,0.02);">
+
+            <div class="position-relative z-1 mt-3">
+                <span
+                    class="badge bg-primary-subtle text-primary rounded-pill px-3 py-2 mb-4 fw-semibold shadow-sm">Case
+                    Studies</span>
+                <h2 class="display-5 fw-bold text-dark mb-4">Ready to be our next success story?</h2>
+                <p class="fs-5 text-muted mb-5 mx-auto" style="max-width: 600px;">
+                    Let's discuss how we can deliver measurable results for your organisation.
+                </p>
+                <div class="d-flex justify-content-center gap-3">
                     <a href="/contact"
-                        class="btn btn-light btn-lg rounded-pill px-5 py-3 fw-bold text-primary shadow hover-lift fs-5">Get
-                        Started</a>
+                        class="btn btn-primary btn-lg rounded-pill px-5 py-3 hover-lift fw-bold shadow-sm">
+                        Start a Conversation <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -104,7 +115,8 @@
                     <div class="case-study-hero-overlay"></div>
                     <div class="case-study-hero-content">
                         <span id="modalBadge" class="badge rounded-pill px-3 py-2 mb-3 fw-semibold fs-6"></span>
-                        <h2 id="modalTitle" class="fw-bold mb-2" style="font-family:'Outfit'; font-size:2.2rem; line-height:1.2;"></h2>
+                        <h2 id="modalTitle" class="fw-bold mb-2"
+                            style="font-family:'Outfit'; font-size:2.2rem; line-height:1.2;"></h2>
                         <div class="d-flex align-items-center gap-2 text-white opacity-75 fw-semibold">
                             <i id="modalServiceIcon" class="bi fs-5"></i>
                             <span id="modalService" class="fs-6"></span>
@@ -176,10 +188,11 @@
 
             <!-- FOOTER -->
             <div class="case-study-footer">
-                <a href="/contact" class="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold shadow-sm">
+                <a href="/contact" class="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold shadow hover-lift">
                     <i class="bi bi-chat-dots me-2"></i>Start a Similar Project
                 </a>
-                <button type="button" class="btn btn-outline-secondary rounded-pill px-4 py-3" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-secondary rounded-pill px-4 py-3"
+                    data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -194,14 +207,27 @@
         border: 1px solid rgba(255, 255, 255, 0.75);
         border-radius: 60px;
         padding: 10px 18px;
-        box-shadow: 0 4px 24px rgba(14,19,43,0.06), inset 0 1px 0 rgba(255,255,255,0.9);
+        box-shadow: 0 4px 24px rgba(14, 19, 43, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
 
     /* Hide scrollbar and support grabbing */
-    .portfolio-tabs-wrapper { scrollbar-width: none; -ms-overflow-style: none; cursor: grab; }
-    .portfolio-tabs-wrapper:active { cursor: grabbing; }
-    .portfolio-tabs-wrapper.is-dragging .filter-btn { pointer-events: none; }
-    .portfolio-tabs-wrapper::-webkit-scrollbar { display: none; }
+    .portfolio-tabs-wrapper {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        cursor: grab;
+    }
+
+    .portfolio-tabs-wrapper:active {
+        cursor: grabbing;
+    }
+
+    .portfolio-tabs-wrapper.is-dragging .filter-btn {
+        pointer-events: none;
+    }
+
+    .portfolio-tabs-wrapper::-webkit-scrollbar {
+        display: none;
+    }
 
     /* ---- Filter Buttons ---- */
     .filter-btn {
@@ -210,30 +236,33 @@
         gap: 5px;
         padding: 8px 18px;
         border-radius: 50px;
-        border: 1px solid rgba(255,255,255,0.6);
-        background: rgba(255,255,255,0.2);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.2);
         color: var(--color-primary-night);
         font-weight: 500;
         font-size: 0.875rem;
         cursor: pointer;
         white-space: nowrap;
         transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
     }
+
     .filter-btn:hover {
-        background: rgba(255,255,255,0.7);
-        border-color: rgba(3,76,174,0.25);
+        background: rgba(255, 255, 255, 0.7);
+        border-color: rgba(3, 76, 174, 0.25);
         color: var(--color-primary-vibrant);
         transform: translateY(-2px);
-        box-shadow: 0 4px 14px rgba(3,76,174,0.08), inset 0 1px 0 rgba(255,255,255,0.8);
+        box-shadow: 0 4px 14px rgba(3, 76, 174, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
     }
+
     .filter-btn.active {
         background: linear-gradient(135deg, var(--color-primary-vibrant) 0%, var(--color-primary-night) 100%);
         border-color: transparent;
         color: #fff;
-        box-shadow: 0 4px 16px rgba(3,76,174,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
+        box-shadow: 0 4px 16px rgba(3, 76, 174, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
         transform: translateY(-1px);
     }
+
     .filter-count {
         display: inline-flex;
         align-items: center;
@@ -245,21 +274,28 @@
         font-size: 0.7rem;
         font-weight: 700;
         line-height: 1;
-        background: rgba(3,76,174,0.12);
+        background: rgba(3, 76, 174, 0.12);
         color: var(--color-primary-vibrant);
         margin-left: 4px;
         transition: all 0.25s ease;
     }
+
     .filter-btn.active .filter-count {
-        background: rgba(255,255,255,0.25);
+        background: rgba(255, 255, 255, 0.25);
         color: #fff;
     }
 
     /* ---- Pagination ---- */
-    .pagination { --bs-pagination-border-radius: 50%; }
+    .pagination {
+        --bs-pagination-border-radius: 50%;
+    }
+
     .page-item .page-link {
-        width: 44px; height: 44px;
-        display: flex; align-items: center; justify-content: center;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         border-radius: 50%;
         margin: 0 3px;
         color: var(--color-primary-vibrant);
@@ -267,33 +303,47 @@
         font-weight: 500;
         transition: all 0.25s ease;
     }
+
     .page-item.active .page-link {
         background: linear-gradient(135deg, var(--color-primary-vibrant), var(--color-primary-night));
-        box-shadow: 0 4px 12px rgba(3,76,174,0.3);
+        box-shadow: 0 4px 12px rgba(3, 76, 174, 0.3);
         color: white;
     }
-    .page-link:focus { box-shadow: none; }
+
+    .page-link:focus {
+        box-shadow: none;
+    }
 
     /* ==== Premium Case Study Modal ==== */
-    .case-study-modal { background: #fff; }
+    .case-study-modal {
+        background: #fff;
+    }
 
     .case-study-close {
         position: absolute;
-        top: 18px; right: 18px;
+        top: 18px;
+        right: 18px;
         z-index: 20;
-        width: 40px; height: 40px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
-        background: rgba(255,255,255,0.25);
+        background: rgba(255, 255, 255, 0.25);
         backdrop-filter: blur(12px);
-        border: 1px solid rgba(255,255,255,0.5);
+        border: 1px solid rgba(255, 255, 255, 0.5);
         color: #fff;
         font-size: 1rem;
-        display: flex; align-items: center; justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
         transition: all 0.2s ease;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
     }
-    .case-study-close:hover { background: rgba(255,255,255,0.5); transform: scale(1.1); }
+
+    .case-study-close:hover {
+        background: rgba(255, 255, 255, 0.5);
+        transform: scale(1.1);
+    }
 
     .case-study-hero {
         position: relative;
@@ -302,13 +352,18 @@
         background-position: center;
         overflow: hidden;
     }
+
     .case-study-hero-overlay {
-        position: absolute; inset: 0;
-        background: linear-gradient(160deg, rgba(14,19,43,0.25) 0%, rgba(14,19,43,0.75) 100%);
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(160deg, rgba(14, 19, 43, 0.25) 0%, rgba(14, 19, 43, 0.75) 100%);
     }
+
     .case-study-hero-content {
         position: absolute;
-        bottom: 0; left: 0; right: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         padding: 36px 40px;
         color: #fff;
     }
@@ -323,6 +378,7 @@
         border-bottom: 1px solid #f0f0f0;
         padding: 20px 30px;
     }
+
     .stat-item {
         display: flex;
         flex-direction: column;
@@ -330,6 +386,7 @@
         text-align: center;
         flex: 1;
     }
+
     .stat-label {
         font-size: 0.68rem;
         text-transform: uppercase;
@@ -338,11 +395,13 @@
         font-weight: 700;
         margin: 4px 0 2px;
     }
+
     .stat-value {
         font-size: 0.9rem;
         font-weight: 700;
         color: var(--color-primary-night);
     }
+
     .stat-divider {
         width: 1px;
         height: 48px;
@@ -357,24 +416,44 @@
         flex-direction: column;
         gap: 0;
     }
+
     .case-block {
         display: flex;
         gap: 20px;
         padding: 24px 0;
         border-bottom: 1px solid #f3f4f6;
     }
-    .case-block:last-child { border-bottom: none; }
+
+    .case-block:last-child {
+        border-bottom: none;
+    }
+
     .case-block-icon {
-        width: 44px; height: 44px;
+        width: 44px;
+        height: 44px;
         border-radius: 12px;
-        display: flex; align-items: center; justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 1.2rem;
         flex-shrink: 0;
         margin-top: 2px;
     }
-    .challenge-block .case-block-icon { background: #fff8e7; color: #d97706; }
-    .solution-block .case-block-icon { background: #eff6ff; color: var(--color-primary-vibrant); }
-    .outcome-block .case-block-icon { background: #f0fdf4; color: #16a34a; }
+
+    .challenge-block .case-block-icon {
+        background: #fff8e7;
+        color: #d97706;
+    }
+
+    .solution-block .case-block-icon {
+        background: #eff6ff;
+        color: var(--color-primary-vibrant);
+    }
+
+    .outcome-block .case-block-icon {
+        background: #f0fdf4;
+        color: #16a34a;
+    }
 
     .case-block-title {
         font-weight: 700;
@@ -385,6 +464,7 @@
         letter-spacing: 0.5px;
         font-size: 0.8rem;
     }
+
     .case-block-text {
         color: #4b5563;
         font-size: 1rem;
@@ -402,31 +482,47 @@
     }
 
     @media (max-width: 640px) {
-        .case-study-stats { flex-wrap: wrap; gap: 12px; }
-        .stat-divider { display: none; }
-        .case-study-body { padding: 24px 20px; }
-        .case-study-hero-content { padding: 24px 20px; }
-        .case-study-footer { padding: 16px 20px; flex-wrap: wrap; }
+        .case-study-stats {
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .stat-divider {
+            display: none;
+        }
+
+        .case-study-body {
+            padding: 24px 20px;
+        }
+
+        .case-study-hero-content {
+            padding: 24px 20px;
+        }
+
+        .case-study-footer {
+            padding: 16px 20px;
+            flex-wrap: wrap;
+        }
     }
 </style>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         // ── State ──────────────────────────────────────────────────────────
-        let currentPage       = 1;
+        let currentPage = 1;
         let currentTotalPages = 1;   // kept in sync after every API response
-        const itemsPerPage    = 6;
-        let currentFilter     = 'all';
-        let allProjects       = [];   // full list, loaded once for modal lookups
-        let isDragging        = false; // track drag state to prevent clicks
+        const itemsPerPage = 6;
+        let currentFilter = 'all';
+        let allProjects = [];   // full list, loaded once for modal lookups
+        let isDragging = false; // track drag state to prevent clicks
 
-        const portfolioGrid     = document.getElementById('portfolioGrid');
-        const portfolioLoader   = document.getElementById('portfolioLoader');
-        const noResultsDiv      = document.getElementById('noResults');
+        const portfolioGrid = document.getElementById('portfolioGrid');
+        const portfolioLoader = document.getElementById('portfolioLoader');
+        const noResultsDiv = document.getElementById('noResults');
         const paginationControls = document.getElementById('paginationControls');
-        const paginationUl      = document.getElementById('paginationUl');
-        const filterBtns        = document.querySelectorAll('.filter-btn');
-        const tabsWrapper       = document.getElementById('portfolioFilters');
+        const paginationUl = document.getElementById('paginationUl');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const tabsWrapper = document.getElementById('portfolioFilters');
 
         // ── Desktop Drag & Scroll support for filter tabs ─────────────────
         if (tabsWrapper) {
@@ -454,7 +550,7 @@
                 if (!isDown) return;
                 e.preventDefault();
                 const x = e.pageX - tabsWrapper.offsetLeft;
-                const walk = (x - startX) * 2; 
+                const walk = (x - startX) * 2;
                 if (Math.abs(walk) > 5) {
                     isDragging = true;
                     tabsWrapper.classList.add('is-dragging');
@@ -481,14 +577,14 @@
             .then(r => r.json())
             .then(summary => {
                 filterBtns.forEach(btn => {
-                    const fid  = btn.dataset.filter;
+                    const fid = btn.dataset.filter;
                     const info = summary[fid];
                     if (!info) return;
                     // Remove existing count badge if re-called
                     const old = btn.querySelector('.filter-count');
                     if (old) old.remove();
                     const countEl = document.createElement('span');
-                    countEl.className   = 'filter-count';
+                    countEl.className = 'filter-count';
                     countEl.textContent = info.count;
                     btn.appendChild(countEl);
                 });
@@ -505,7 +601,7 @@
                 const newFilter = e.currentTarget.dataset.filter;
                 if (newFilter === currentFilter && currentPage === 1) return; // nothing to do
                 currentFilter = newFilter;
-                currentPage   = 1;          // ← ALWAYS reset to page 1
+                currentPage = 1;          // ← ALWAYS reset to page 1
                 updateFilterButtonsUI(currentFilter);
                 fetchAndRender();
             });
@@ -516,8 +612,8 @@
 
         // ── Core fetch + render ────────────────────────────────────────────
         function fetchAndRender() {
-            portfolioLoader.style.display  = 'block';
-            portfolioGrid.style.display    = 'none';
+            portfolioLoader.style.display = 'block';
+            portfolioGrid.style.display = 'none';
             paginationControls.style.display = 'none';
             noResultsDiv.classList.add('d-none');
 
@@ -528,8 +624,8 @@
                     portfolioLoader.style.display = 'none';
 
                     // Keep page state in sync with what server actually returned
-                    currentPage       = data.page;
-                    currentTotalPages  = data.total_pages;
+                    currentPage = data.page;
+                    currentTotalPages = data.total_pages;
 
                     if (data.total === 0) {
                         noResultsDiv.classList.remove('d-none');
@@ -592,7 +688,7 @@
 
             for (let i = 1; i <= totalPages; i++) {
                 const activeClass = page === i ? 'active' : '';
-                const bgClass     = page === i ? '' : 'bg-light';
+                const bgClass = page === i ? '' : 'bg-light';
                 html += `<li class="page-item ${activeClass}"><a class="page-link ${bgClass}" href="javascript:void(0)" onclick="goToPage(${i})">${i}</a></li>`;
             }
 
@@ -623,23 +719,23 @@
             const p = allProjects.find(item => item.id === projectId);
             if (!p) return;
 
-            document.getElementById('modalTitle').textContent   = p.title;
+            document.getElementById('modalTitle').textContent = p.title;
             document.getElementById('modalService').textContent = p.service;
             document.getElementById('modalServiceIcon').className = `bi ${p.cardIcon} fs-5`;
 
             const badge = document.getElementById('modalBadge');
             badge.textContent = p.badgeName;
-            badge.className   = `badge rounded-pill px-3 py-2 mb-3 fw-semibold fs-6 bg-${p.badgeColor}`;
+            badge.className = `badge rounded-pill px-3 py-2 mb-3 fw-semibold fs-6 bg-${p.badgeColor}`;
             if (p.badgeColor === 'warning' || p.badgeColor === 'info') badge.classList.add('text-dark');
             else badge.classList.remove('text-dark');
 
-            document.getElementById('modalClient').textContent   = p.client;
+            document.getElementById('modalClient').textContent = p.client;
             document.getElementById('modalDuration').textContent = p.duration;
-            document.getElementById('modalTeam').textContent     = p.team;
-            document.getElementById('modalResult').textContent   = p.result;
+            document.getElementById('modalTeam').textContent = p.team;
+            document.getElementById('modalResult').textContent = p.result;
             document.getElementById('modalChallenge').textContent = p.challenge;
-            document.getElementById('modalSolution').textContent  = p.solution;
-            document.getElementById('modalOutcome').textContent   = p.outcome;
+            document.getElementById('modalSolution').textContent = p.solution;
+            document.getElementById('modalOutcome').textContent = p.outcome;
 
             document.getElementById('modalHeroBg').style.backgroundImage = `url('${p.imageUrl}')`;
             new bootstrap.Modal(document.getElementById('caseStudyModal')).show();

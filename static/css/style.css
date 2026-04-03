@@ -355,33 +355,26 @@ h1, h2, h3, h4, h5, .brand-text {
     background: linear-gradient(135deg, var(--color-primary-vibrant) 0%, #043e8d 100%) !important;
     border: none !important;
     color: white !important;
-    box-shadow: 0 4px 15px rgba(3, 76, 174, 0.2);
 }
 .btn-primary:hover, .btn-primary:focus {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 30px rgba(3, 76, 174, 0.4) !important;
+    background: linear-gradient(135deg, #043e8d 0%, var(--color-primary-vibrant) 100%) !important;
 }
 .btn-outline-dark {
     background: transparent !important;
-    border: 2px solid var(--color-primary-night) !important;
-    color: var(--color-primary-night) !important;
+    border: 1px solid var(--color-text-dark) !important;
+    color: var(--color-text-dark) !important;
 }
 .btn-outline-dark:hover, .btn-outline-dark:focus {
-    background: var(--color-primary-night) !important;
+    background: var(--color-text-dark) !important;
     color: white !important;
-    transform: translateY(-4px);
-    box-shadow: 0 15px 30px rgba(14, 19, 43, 0.3) !important;
 }
 .btn-light {
     background: white !important;
-    color: var(--color-primary-vibrant) !important;
-    border: none !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    color: var(--color-text-dark) !important;
+    border: 1px solid #e9ecef !important;
 }
 .btn-light:hover, .btn-light:focus {
     background: #f8f9fa !important;
-    transform: translateY(-4px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15) !important;
 }
 .py-6 { padding-top: 6rem; padding-bottom: 6rem; }
 .hover-primary { transition: color 0.2s ease; }
@@ -400,8 +393,11 @@ section { position: relative; z-index: 10; }
         font-size: 2.8rem;
         min-height: 120px;
     }
+    .display-1 { font-size: 3rem; }
+    .display-3 { font-size: 2.8rem; }
     .display-4 { font-size: 2.5rem; }
     .display-5 { font-size: 2.2rem; }
+    .display-6 { font-size: 1.8rem; }
     .py-6 { padding-top: 4rem; padding-bottom: 4rem; }
     .hero-section {
         min-height: 85vh; /* Fit naturally on tall phones */
