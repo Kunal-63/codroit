@@ -1,6 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+    /* Premium Input Styling */
+    .premium-input {
+        background-color: rgba(248, 249, 250, 0.9);
+        border: 2px solid rgba(0,0,0,0.03) !important;
+        border-radius: 0.75rem !important;
+        font-family: 'Outfit', sans-serif;
+        font-size: 1.05rem;
+        padding: 0.85rem 1.25rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .premium-input:focus {
+        background-color: #ffffff;
+        border-color: #0b5ed7 !important;
+        box-shadow: 0 4px 12px rgba(11, 94, 215, 0.08), 0 0 0 4px rgba(11, 94, 215, 0.1) !important;
+        transform: translateY(-2px);
+        outline: none;
+    }
+    .premium-input::placeholder {
+        color: #adb5bd;
+        font-weight: 300;
+    }
+    .premium-label {
+        font-family: 'Outfit', sans-serif;
+        color: #495057 !important;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+</style>
 <div class="hero-background-glow"></div>
 
 <!-- PAGE HERO -->
@@ -72,34 +103,34 @@
                     <form id="contactForm">
                         <div class="row g-4">
                             <div class="col-md-6">
-                                <label class="form-label text-muted fw-bold small text-uppercase">First Name</label>
-                                <input type="text" id="firstName" name="first_name" class="form-control form-control-lg bg-light border-0 rounded-3"
+                                <label class="form-label small text-uppercase premium-label">First Name</label>
+                                <input type="text" id="firstName" name="first_name" class="form-control form-control-lg premium-input"
                                     placeholder="Rajan" required>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label text-muted fw-bold small text-uppercase">Last Name</label>
-                                <input type="text" id="lastName" name="last_name" class="form-control form-control-lg bg-light border-0 rounded-3"
+                                <label class="form-label small text-uppercase premium-label">Last Name</label>
+                                <input type="text" id="lastName" name="last_name" class="form-control form-control-lg premium-input"
                                     placeholder="Patel">
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label text-muted fw-bold small text-uppercase">Email Address</label>
-                                <input type="email" id="email" name="email" class="form-control form-control-lg bg-light border-0 rounded-3"
+                                <label class="form-label small text-uppercase premium-label">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control form-control-lg premium-input"
                                     placeholder="you@company.com" required>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label text-muted fw-bold small text-uppercase">Phone
+                                <label class="form-label small text-uppercase premium-label">Phone
                                     (Optional)</label>
-                                <input type="tel" id="phone" name="phone" class="form-control form-control-lg bg-light border-0 rounded-3"
+                                <input type="tel" id="phone" name="phone" class="form-control form-control-lg premium-input"
                                     placeholder="+91 84909 46729">
                             </div>
                             <div class="col-12">
-                                <label class="form-label text-muted fw-bold small text-uppercase">Company / Business</label>
-                                <input type="text" id="company" name="company" class="form-control form-control-lg bg-light border-0 rounded-3"
+                                <label class="form-label small text-uppercase premium-label">Company / Business</label>
+                                <input type="text" id="company" name="company" class="form-control form-control-lg premium-input"
                                     placeholder="Your Company Name">
                             </div>
                             <div class="col-12">
-                                <label class="form-label text-muted fw-bold small text-uppercase">What can we help you with?</label>
-                                <select id="service" name="service" class="form-select form-select-lg bg-light border-0 rounded-3">
+                                <label class="form-label small text-uppercase premium-label">What can we help you with?</label>
+                                <select id="service" name="service" class="form-select form-select-lg premium-input">
                                     <option value="" disabled selected>Select a service...</option>
                                     <option>Brand Building & Identity</option>
                                     <option>Website Development</option>
@@ -117,8 +148,8 @@
                                 </select>
                             </div>
                             <div class="col-12">
-                                <label class="form-label text-muted fw-bold small text-uppercase">Tell us about your project</label>
-                                <textarea id="message" name="message" class="form-control form-control-lg bg-light border-0 rounded-3" rows="5"
+                                <label class="form-label small text-uppercase premium-label">Tell us about your project</label>
+                                <textarea id="message" name="message" class="form-control form-control-lg premium-input" rows="5"
                                     placeholder="Briefly describe what you're looking to achieve..."></textarea>
                             </div>
                             <div class="col-12">
