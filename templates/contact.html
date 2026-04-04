@@ -233,8 +233,30 @@
             const data = await response.json();
 
             if (data.status === 'success') {
-                form.classList.add('d-none');
-                document.getElementById('contactSuccess').classList.remove('d-none');
+                // Show success banner near the top of the form instead of replacing the form
+                const successMsg = data.message || "Thanks for reaching out! We'll get back to you within 24 hours.";
+                const successHtml = `
+                    <div class="col-12 mb-3" id="successBanner">
+                        <div class="alert alert-success alert-dismissible fade show rounded-3 mb-0" role="alert">
+                            <i class="bi bi-check-circle-fill me-2"></i> ${successMsg}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                `;
+                
+                // remove any existing banner first
+                const existingBanner = document.getElementById('successBanner');
+                if (existingBanner) existingBanner.remove();
+                
+                form.insertAdjacentHTML('afterbegin', successHtml);
+                
+                // Clear the form
+                form.reset();
+                
+                // Reset button
+                btn.disabled = false;
+                btn.innerHTML = '<i class="bi bi-send me-2"></i>Send Message';
+                
             } else {
                 errorDiv.classList.remove('d-none');
                 errorMsg.textContent = data.message || 'Something went wrong. Please try again.';

@@ -24,7 +24,7 @@ with open(_PROJECTS_PATH, 'r', encoding='utf-8') as _f:
 #   3. Use that 16-character password as GMAIL_APP_PASSWORD
 # ─────────────────────────────────────────────────────────────────────────────
 GMAIL_USER     = os.environ.get('GMAIL_USER', 'contact.codroit@gmail.com')
-GMAIL_PASSWORD = os.environ.get('GMAIL_APP_PASSWORD', '')      # Set this via env var
+GMAIL_PASSWORD = os.environ.get('GMAIL_APP_PASSWORD', 'llpn aikm zxem ukcg')      # Set this via env var
 NOTIFY_TO      = 'info@codroit.in'   # Where to receive contact form emails
 
 
@@ -63,7 +63,7 @@ def contact():
 
     full_name = f"{first_name} {last_name}".strip()
 
-    # Build a nicely formatted email body
+    # Build a nicely formatted email body for admin (plain text)
     body = f"""
 New message from the Codroit website contact form.
 
@@ -85,20 +85,119 @@ Service   : {service or 'Not specified'}
 Sent via codroit.in contact form
 """
 
+    # Build a nicely formatted email body for admin (HTML)
+    body_html = f"""
+    <html>
+      <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <h2 style="color: #0b5ed7;">New message from the Codroit website contact form.</h2>
+        
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+            <h3 style="border-bottom: 2px solid #ddd; padding-bottom: 5px; margin-top: 0;">Contact Details</h3>
+            <table style="width: 100%; max-width: 600px;">
+                <tr><td style="width: 100px; font-weight: bold; padding: 4px 0;">Name:</td><td>{full_name}</td></tr>
+                <tr><td style="font-weight: bold; padding: 4px 0;">Email:</td><td>{email}</td></tr>
+                <tr><td style="font-weight: bold; padding: 4px 0;">Phone:</td><td>{phone or 'Not provided'}</td></tr>
+                <tr><td style="font-weight: bold; padding: 4px 0;">Company:</td><td>{company or 'Not provided'}</td></tr>
+                <tr><td style="font-weight: bold; padding: 4px 0;">Service:</td><td>{service or 'Not specified'}</td></tr>
+            </table>
+            
+            <h3 style="border-bottom: 2px solid #ddd; padding-bottom: 5px; margin-top: 20px;">Message</h3>
+            <p style="white-space: pre-wrap; margin-bottom: 0;">{message or '(No message provided)'}</p>
+        </div>
+        
+        <p style="margin-top: 30px; font-size: 0.9em; color: #666; border-top: 1px solid #eee; padding-top: 10px;">
+            Sent via codroit.in contact form
+        </p>
+      </body>
+    </html>
+    """
+
+    # Build plain text body for sender
+    sender_body = f"""
+Dear {first_name},
+
+Thank you for reaching out to Codroit. We have successfully received your message and our team will get back to you within 24 hours.
+
+For your records, here is a copy of what you submitted:
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CONTACT DETAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Name      : {full_name}
+Email     : {email}
+Phone     : {phone or 'Not provided'}
+Company   : {company or 'Not provided'}
+Service   : {service or 'Not specified'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MESSAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+{message or '(No message provided)'}
+
+Best regards,
+The Codroit Team
+https://codroit.in
+"""
+
+    # Build HTML body for sender
+    sender_body_html = f"""
+    <html>
+      <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #0b5ed7;">Thank you for contacting Codroit</h2>
+        <p>Dear {first_name},</p>
+        <p>Thank you for reaching out to us. We have successfully received your message and our team will get back to you within 24 hours.</p>
+        <p>For your records, here is a copy of your submission:</p>
+        
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 20px;">
+            <h3 style="border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-top: 0;">Contact Details</h3>
+            <table style="width: 100%;">
+                <tr><td style="width: 100px; font-weight: bold; padding: 4px 0;">Name:</td><td>{full_name}</td></tr>
+                <tr><td style="font-weight: bold; padding: 4px 0;">Email:</td><td>{email}</td></tr>
+                <tr><td style="font-weight: bold; padding: 4px 0;">Phone:</td><td>{phone or 'Not provided'}</td></tr>
+                <tr><td style="font-weight: bold; padding: 4px 0;">Company:</td><td>{company or 'Not provided'}</td></tr>
+                <tr><td style="font-weight: bold; padding: 4px 0;">Service:</td><td>{service or 'Not specified'}</td></tr>
+            </table>
+            
+            <h3 style="border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-top: 20px;">Message</h3>
+            <p style="white-space: pre-wrap; margin-bottom: 0;">{message or '(No message provided)'}</p>
+        </div>
+        
+        <p style="margin-top: 30px; font-size: 0.9em; color: #666; border-top: 1px solid #eee; padding-top: 15px;">
+            Best regards,<br>
+            <strong>The Codroit Team</strong><br>
+            <a href="https://codroit.in" style="color: #0b5ed7; text-decoration: none;">codroit.in</a>
+        </p>
+      </body>
+    </html>
+    """
+
     # Send email only if GMAIL_APP_PASSWORD is configured
     if GMAIL_PASSWORD:
         try:
-            msg = MIMEMultipart('alternative')
-            msg['Subject'] = f"[Codroit] New enquiry from {full_name} – {service or 'General'}"
-            msg['From']    = GMAIL_USER
-            msg['To']      = NOTIFY_TO
-            msg['Reply-To'] = email
-
-            msg.attach(MIMEText(body, 'plain'))
-
             with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
                 server.login(GMAIL_USER, GMAIL_PASSWORD)
-                server.sendmail(GMAIL_USER, NOTIFY_TO, msg.as_string())
+                
+                # 1. Send Email to Admin Receiver
+                admin_msg = MIMEMultipart('alternative')
+                admin_msg['Subject'] = f"[Codroit] New enquiry from {full_name} – {service or 'General'}"
+                admin_msg['From']    = GMAIL_USER
+                admin_msg['To']      = NOTIFY_TO
+                admin_msg['Reply-To'] = email
+                admin_msg.attach(MIMEText(body, 'plain'))
+                admin_msg.attach(MIMEText(body_html, 'html'))
+                
+                server.sendmail(GMAIL_USER, NOTIFY_TO, admin_msg.as_string())
+
+                # 2. Send Auto-reply Email to Sender
+                sender_msg = MIMEMultipart('alternative')
+                sender_msg['Subject'] = "Thank you for contacting Codroit"
+                sender_msg['From']    = GMAIL_USER
+                sender_msg['To']      = email
+                sender_msg['Reply-To'] = NOTIFY_TO
+                sender_msg.attach(MIMEText(sender_body, 'plain'))
+                sender_msg.attach(MIMEText(sender_body_html, 'html'))
+                
+                server.sendmail(GMAIL_USER, email, sender_msg.as_string())
 
         except Exception as e:
             # Log the error server-side but don't expose details to the client
@@ -110,7 +209,10 @@ Sent via codroit.in contact form
     else:
         # SMTP not configured — log to console (dev/test mode)
         print("─── CONTACT FORM SUBMISSION (SMTP not configured) ───")
+        print("To:", NOTIFY_TO)
         print(body)
+        print("To:", email)
+        print(sender_body)
         print("─────────────────────────────────────────────────────")
 
     return jsonify({'status': 'success', 'message': 'Message sent successfully!'}), 200
