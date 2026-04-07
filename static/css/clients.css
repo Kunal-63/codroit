@@ -20,9 +20,17 @@
     100% { transform: translateX(-50%); }
 }
 .client-logo {
-    transition: opacity 0.3s ease;
     cursor: default;
 }
-.client-logo:hover {
-    opacity: 1 !important;
+
+.client-logo img {
+    filter: grayscale(100%);
+    opacity: 0.6;
+    mix-blend-mode: multiply;
+    transition: all 0.4s ease;
+}
+
+.client-logo:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
 }
