@@ -1,118 +1,240 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Codroit – Brand Building, AI & IT Services | Ahmedabad & Manitoba</title>
-    <meta name="description"
-        content="Codroit is a full-service IT company based in Ahmedabad, India and Manitoba, Canada. We specialize in brand building, AI automation, digital marketing, SEO, web & app development, and more.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Codroit – Brand Building, AI & IT Services | Ahmedabad & Manitoba
+    </title>
+    <meta
+      name="description"
+      content="Codroit is a full-service IT company based in Ahmedabad, India and Manitoba, Canada. We specialize in brand building, AI automation, digital marketing, SEO, web & app development, and more."
+    />
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@200;300;400;500&display=swap"
-        rel="stylesheet">
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='images/favicon.png') }}"
+    />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
 
     <!-- Custom Modular CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/video_section.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/services.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/why_choose_us.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/stats.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/clients.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/feedback.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/cta_footer.css') }}">
-</head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/video_section.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/services.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/why_choose_us.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/stats.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/clients.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/feedback.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/cta_footer.css') }}"
+    />
+  </head>
 
-<body>
+  <body>
     <!-- Background Gradient Orbs -->
     <div class="bg-orbs">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
     </div>
 
     <nav class="navbar navbar-expand-lg premium-nav">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="/">
-                <img src="static/images/Logo.png" width="150" height="40" class="me-2" alt="Codroit Logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav gap-4">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/careers">Careers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+          <img
+            src="static/images/Logo.png"
+            width="150"
+            height="40"
+            class="me-2"
+            alt="Codroit Logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav gap-4">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/careers">Careers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
-    <main>
-        {% block content %}{% endblock %}
-    </main>
-
+    <main>{% block content %}{% endblock %}</main>
 
     <!-- FOOTER -->
     <footer class="pt-5 pb-4 bg-light custom-footer">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <a href="/" class="d-flex align-items-center text-dark text-decoration-none mb-4">
-                        <img src="static/images/Logo.png" width="150" height="40" class="me-2" alt="Codroit Logo">
-                    </a>
-                    <p class="text-muted">We Don't Just Build Software. We Build Brands.<br>Your growth is our mission —
-                        powered by AI, driven by creativity, and built to last.</p>
-                </div>
-                <div class="col-md-2 offset-md-2 mb-4 mb-md-0">
-                    <h5 class="fw-bold mb-4 text-dark">Company</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><a href="/about"
-                                class="text-muted text-decoration-none hover-primary fw-medium">About Us</a></li>
-                        <li class="mb-3"><a href="/portfolio"
-                                class="text-muted text-decoration-none hover-primary fw-medium">Portfolio</a></li>
-                        <li class="mb-3"><a href="/services"
-                                class="text-muted text-decoration-none hover-primary fw-medium">Services</a></li>
-                        <li class="mb-3"><a href="/careers"
-                                class="text-muted text-decoration-none hover-primary fw-medium">Careers</a></li>
-                        <li class="mb-3"><a href="/contact"
-                                class="text-muted text-decoration-none hover-primary fw-medium">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5 class="fw-bold mb-4 text-dark">Get in Touch</h5>
-                    <p class="text-muted mb-3"><i class="bi bi-geo-alt me-2 text-primary"></i> Ahmedabad, India</p>
-                    <p class="text-muted mb-2"><i class="bi bi-envelope me-2 text-primary"></i> info@codroit.in</p>
-                    <p class="text-muted mb-3"><i class="bi bi-telephone me-2 text-primary"></i> +91 84909 46729</p>
-                </div>
-            </div>
-            <div
-                class="border-top border-secondary-subtle pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center">
-                <p class="text-muted mb-0 fw-medium">&copy;
-                    <script>document.write(new Date().getFullYear())</script> Codroit. All rights reserved.
-                </p>
-                <div class="social-icons mt-3 mt-md-0">
-                    <a href="https://www.instagram.com/codroit.in/" class="text-muted fs-4 me-4 hover-primary"><i
-                            class="bi bi-instagram"></i></a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-4 mb-4 mb-md-0">
+            <a
+              href="/"
+              class="d-flex align-items-center text-dark text-decoration-none mb-4"
+            >
+              <img
+                src="static/images/Logo.png"
+                width="150"
+                height="40"
+                class="me-2"
+                alt="Codroit Logo"
+              />
+            </a>
+            <p class="text-muted">
+              We Don't Just Build Software. We Build Brands.<br />Your growth is
+              our mission — powered by AI, driven by creativity, and built to
+              last.
+            </p>
+          </div>
+          <div class="col-md-2 offset-md-2 mb-4 mb-md-0">
+            <h5 class="fw-bold mb-4 text-dark">Company</h5>
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <a
+                  href="/about"
+                  class="text-muted text-decoration-none hover-primary fw-medium"
+                  >About Us</a
+                >
+              </li>
+              <li class="mb-3">
+                <a
+                  href="/portfolio"
+                  class="text-muted text-decoration-none hover-primary fw-medium"
+                  >Portfolio</a
+                >
+              </li>
+              <li class="mb-3">
+                <a
+                  href="/services"
+                  class="text-muted text-decoration-none hover-primary fw-medium"
+                  >Services</a
+                >
+              </li>
+              <li class="mb-3">
+                <a
+                  href="/careers"
+                  class="text-muted text-decoration-none hover-primary fw-medium"
+                  >Careers</a
+                >
+              </li>
+              <li class="mb-3">
+                <a
+                  href="/contact"
+                  class="text-muted text-decoration-none hover-primary fw-medium"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5 class="fw-bold mb-4 text-dark">Get in Touch</h5>
+            <p class="text-muted mb-3">
+              <i class="bi bi-geo-alt me-2 text-primary"></i> Ahmedabad, India
+            </p>
+            <p class="text-muted mb-2">
+              <i class="bi bi-envelope me-2 text-primary"></i> info@codroit.in
+            </p>
+            <p class="text-muted mb-3">
+              <i class="bi bi-telephone me-2 text-primary"></i> +91 84909 46729
+            </p>
+          </div>
         </div>
+        <div
+          class="border-top border-secondary-subtle pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center"
+        >
+          <p class="text-muted mb-0 fw-medium">
+            &copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            Codroit. All rights reserved.
+          </p>
+          <div class="social-icons mt-3 mt-md-0">
+            <a
+              href="https://www.instagram.com/codroit.in/"
+              class="text-muted fs-4 me-4 hover-primary"
+              ><i class="bi bi-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Y8667C48WL"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
+      gtag("config", "G-Y8667C48WL");
+    </script>
+  </body>
 </html>
