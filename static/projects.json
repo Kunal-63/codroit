@@ -13,11 +13,11 @@
         "challenge": "QuickDrop needed a scalable mobile application to handle local parcel deliveries efficiently without compromising the user experience.",
         "solution": "We designed and developed a cross-platform mobile application using Flutter, integrating real-time GPS tracking, secure payments, and a dynamic routing algorithm.",
         "outcome": "Achieved over 50,000 active users in the first month and reduced delivery delays by 30%.",
-        "imageUrl": "/static/images/projects/ondemad_delivery/cover image.jpg",
+        "imageUrl": "/static/images/projects/ondemad_delivery/cover_image.jpg",
         "cardIcon": "bi-phone",
         "cardGradient": "linear-gradient(135deg, #0d6efd, #6610f2)",
         "gallery": [
-            "/static/images/projects/ondemad_delivery/cover image.jpg",
+            "/static/images/projects/ondemad_delivery/cover_image.jpg",
             "/static/images/projects/ondemad_delivery/img1.jpg",
             "/static/images/projects/ondemad_delivery/img2.jpg"
         ]
