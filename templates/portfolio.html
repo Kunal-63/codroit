@@ -23,8 +23,8 @@
                     Development</button>
                 <button class="filter-btn text-nowrap" data-filter="web"><i class="bi bi-laptop me-1"></i>Web
                     Development</button>
-                <button class="filter-btn text-nowrap" data-filter="software"><i
-                        class="bi bi-code-slash me-1"></i>Custom Software Development</button>
+                <!-- <button class="filter-btn text-nowrap" data-filter="software"><i
+                        class="bi bi-code-slash me-1"></i>Custom Software Development</button> -->
                 <button class="filter-btn text-nowrap" data-filter="marketing"><i
                         class="bi bi-megaphone me-1"></i>Digital Marketing & SEO</button>
                 <button class="filter-btn text-nowrap" data-filter="ai"><i class="bi bi-cpu me-1"></i>AI</button>
@@ -612,23 +612,29 @@
         .modal-gallery-strip {
             padding: 16px 20px 20px;
         }
+
         .modal-gallery-thumb {
             width: 100px;
             height: 64px;
         }
+
         .case-study-stats {
             flex-wrap: wrap;
             gap: 12px;
         }
+
         .stat-divider {
             display: none;
         }
+
         .case-study-body {
             padding: 24px 20px;
         }
+
         .case-study-hero-content {
             padding: 24px 20px;
         }
+
         .case-study-footer {
             padding: 16px 20px;
             flex-wrap: wrap;
@@ -687,7 +693,7 @@
                 }
                 tabsWrapper.scrollLeft = scrollLeft - walk;
             });
-            
+
             // Add mouse wheel horizontal scrolling
             tabsWrapper.addEventListener('wheel', (e) => {
                 e.preventDefault();
@@ -954,6 +960,7 @@
             opacity: 0;
             transform: translateY(15px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
@@ -996,7 +1003,7 @@
     .portfolio-thumb-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(160deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.3) 100%);
+        background: linear-gradient(160deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
         z-index: 1;
     }
 
@@ -1016,7 +1023,7 @@
         z-index: 3;
         font-size: 0.72rem;
         letter-spacing: 0.3px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
     /* Real-image variant: show the image more prominently */
