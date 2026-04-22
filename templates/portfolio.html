@@ -182,6 +182,17 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- GALLERY STRIP -->
+                <div id="modalGalleryStrip" class="modal-gallery-strip d-none">
+                    <div class="modal-gallery-header">
+                        <span class="modal-gallery-label"><i class="bi bi-images me-2"></i>Project Gallery</span>
+                        <button class="modal-gallery-viewall" id="modalGalleryViewAll">
+                            View All <i class="bi bi-arrow-right ms-1"></i>
+                        </button>
+                    </div>
+                    <div class="modal-gallery-thumbs" id="modalGalleryThumbs"></div>
+                </div>
             </div>
 
             <!-- FOOTER -->
@@ -519,24 +530,105 @@
         border-top: 1px solid #f0f0f0;
     }
 
+    /* ==== Inline Gallery Strip ==== */
+    .modal-gallery-strip {
+        padding: 20px 40px 28px;
+        border-top: 1px solid #f3f4f6;
+        background: #fafbfc;
+    }
+
+    .modal-gallery-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 14px;
+    }
+
+    .modal-gallery-label {
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #9ca3af;
+    }
+
+    .modal-gallery-viewall {
+        background: none;
+        border: none;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--color-primary-vibrant);
+        cursor: pointer;
+        padding: 0;
+        transition: opacity 0.2s;
+    }
+
+    .modal-gallery-viewall:hover {
+        opacity: 0.7;
+    }
+
+    .modal-gallery-thumbs {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .modal-gallery-thumbs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .modal-gallery-thumb {
+        flex-shrink: 0;
+        width: 130px;
+        height: 82px;
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        background: #e5e7eb;
+    }
+
+    .modal-gallery-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .modal-gallery-thumb:hover {
+        border-color: var(--color-primary-vibrant);
+        box-shadow: 0 4px 14px rgba(3, 76, 174, 0.2);
+        transform: translateY(-2px);
+    }
+
+    .modal-gallery-thumb:hover img {
+        transform: scale(1.06);
+    }
+
     @media (max-width: 640px) {
+        .modal-gallery-strip {
+            padding: 16px 20px 20px;
+        }
+        .modal-gallery-thumb {
+            width: 100px;
+            height: 64px;
+        }
         .case-study-stats {
             flex-wrap: wrap;
             gap: 12px;
         }
-
         .stat-divider {
             display: none;
         }
-
         .case-study-body {
             padding: 24px 20px;
         }
-
         .case-study-hero-content {
             padding: 24px 20px;
         }
-
         .case-study-footer {
             padding: 16px 20px;
             flex-wrap: wrap;
@@ -693,20 +785,24 @@
             let html = '';
             items.forEach(p => {
                 const textDark = (p.badgeColor === 'warning' || p.badgeColor === 'info') ? 'text-dark' : 'text-white';
+                const isRealImage = p.imageUrl && !p.imageUrl.includes('unsplash');
                 html += `
-                <div class="col-md-6 col-lg-4" style="animation: fade-in 0.4s ease forwards;">
+                <div class="col-md-6 col-lg-4 portfolio-card-col" style="animation: fade-in 0.4s ease forwards;">
                     <div class="portfolio-card card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-lift c-pointer"
                          onclick="openCaseStudy(${p.id})">
-                        <div class="portfolio-card-img position-relative" style="background: ${p.cardGradient}; height: 200px; display: flex; align-items:center; justify-content:center; overflow:hidden;">
-                            <img src="${p.imageUrl}" alt="${p.title}" class="position-absolute w-100 h-100 object-fit-cover" style="opacity: 0.4; mix-blend-mode: overlay;">
-                            <i class="bi ${p.cardIcon} text-white position-relative z-1" style="font-size: 4.5rem; opacity: 0.9; text-shadow: 0 4px 12px rgba(0,0,0,0.3);"></i>
+                        <div class="portfolio-card-thumb ${isRealImage ? 'has-real-image' : ''}" style="background: ${p.cardGradient};">
+                            <img src="${p.imageUrl}" alt="${p.title}"
+                                 class="portfolio-thumb-img"
+                                 style="object-position: ${isRealImage ? 'top center' : 'center'};">
+                            <div class="portfolio-thumb-overlay"></div>
+                            <div class="portfolio-thumb-icon">
+                                <i class="bi ${p.cardIcon} text-white" style="font-size: 2.8rem; opacity: 0.9; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));"></i>
+                            </div>
+                            <span class="portfolio-card-badge badge bg-${p.badgeColor} ${textDark} rounded-pill px-3 py-2 fw-semibold">${p.badgeName}</span>
                         </div>
                         <div class="card-body p-4 d-flex flex-column">
-                            <div>
-                                <span class="badge bg-${p.badgeColor} ${textDark} rounded-pill mb-3 px-3 py-2 fw-semibold">${p.badgeName}</span>
-                            </div>
                             <h5 class="fw-bold mb-2 text-dark">${p.title}</h5>
-                            <p class="text-muted small mb-4 flex-grow-1">${p.challenge.substring(0, 95)}...</p>
+                            <p class="text-muted small mb-4 flex-grow-1 lh-base">${p.challenge.substring(0, 95)}...</p>
                             <div class="d-flex align-items-center justify-content-between mt-auto pt-3 border-top fw-semibold small">
                                 <div class="text-primary hover-opacity" onclick="openCaseStudy(${p.id})">
                                     Read Case Study <i class="bi bi-arrow-right ms-1"></i>
@@ -790,11 +886,37 @@
             document.getElementById('modalOutcome').textContent = p.outcome;
 
             document.getElementById('modalHeroBg').style.backgroundImage = `url('${p.imageUrl}')`;
+
+            // Gallery strip
+            const strip = document.getElementById('modalGalleryStrip');
+            const thumbsContainer = document.getElementById('modalGalleryThumbs');
+            const viewAllBtn = document.getElementById('modalGalleryViewAll');
+            thumbsContainer.innerHTML = '';
+            if (p.gallery && p.gallery.length > 0) {
+                strip.classList.remove('d-none');
+                p.gallery.forEach((imgSrc, idx) => {
+                    const thumb = document.createElement('div');
+                    thumb.className = 'modal-gallery-thumb';
+                    thumb.innerHTML = `<img src="${imgSrc}" alt="Gallery ${idx + 1}" loading="lazy">`;
+                    thumb.addEventListener('click', () => {
+                        bootstrap.Modal.getInstance(document.getElementById('caseStudyModal')).hide();
+                        setTimeout(() => openGallery(p.id, idx), 350);
+                    });
+                    thumbsContainer.appendChild(thumb);
+                });
+                viewAllBtn.onclick = () => {
+                    bootstrap.Modal.getInstance(document.getElementById('caseStudyModal')).hide();
+                    setTimeout(() => openGallery(p.id, 0), 350);
+                };
+            } else {
+                strip.classList.add('d-none');
+            }
+
             new bootstrap.Modal(document.getElementById('caseStudyModal')).show();
         };
 
-        // ── Gallery Modal ──────────────────────────────────────────────────
-        window.openGallery = function (projectId) {
+        // ── Gallery Modal ───────────────────────────────────────────
+        window.openGallery = function (projectId, startIndex = 0) {
             const p = allProjects.find(item => item.id === projectId);
             if (!p || !p.gallery || p.gallery.length === 0) return;
 
@@ -807,8 +929,8 @@
             inner.innerHTML = '';
 
             p.gallery.forEach((img, idx) => {
-                const activeClass = idx === 0 ? 'active' : '';
-                const currentAttr = idx === 0 ? 'aria-current="true"' : '';
+                const activeClass = idx === startIndex ? 'active' : '';
+                const currentAttr = idx === startIndex ? 'aria-current="true"' : '';
 
                 indicators.innerHTML += `<button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="${idx}" class="${activeClass}" ${currentAttr} aria-label="Slide ${idx + 1}"></button>`;
 
@@ -832,7 +954,6 @@
             opacity: 0;
             transform: translateY(15px);
         }
-
         to {
             opacity: 1;
             transform: translateY(0);
@@ -846,6 +967,66 @@
     .hover-opacity:hover {
         opacity: 0.7;
         transition: opacity 0.2s ease;
+    }
+
+    /* ── Portfolio Card Thumbnail ── */
+    .portfolio-card-thumb {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+    }
+
+    .portfolio-thumb-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.35;
+        mix-blend-mode: overlay;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    /* Cards with real screenshots get a stronger image display */
+    .portfolio-card:hover .portfolio-thumb-img {
+        transform: scale(1.05);
+    }
+
+    .portfolio-thumb-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(160deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.3) 100%);
+        z-index: 1;
+    }
+
+    .portfolio-thumb-icon {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
+
+    .portfolio-card-badge {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        z-index: 3;
+        font-size: 0.72rem;
+        letter-spacing: 0.3px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Real-image variant: show the image more prominently */
+    .portfolio-card-thumb.has-real-image .portfolio-thumb-img {
+        opacity: 0.85;
+        mix-blend-mode: normal;
+    }
+
+    .portfolio-card-thumb.has-real-image .portfolio-thumb-icon {
+        display: none;
     }
 
     #galleryCarousel .carousel-item img {
