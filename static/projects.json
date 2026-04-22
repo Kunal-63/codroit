@@ -13,13 +13,13 @@
         "challenge": "QuickDrop needed a scalable mobile application to handle local parcel deliveries efficiently without compromising the user experience.",
         "solution": "We designed and developed a cross-platform mobile application using Flutter, integrating real-time GPS tracking, secure payments, and a dynamic routing algorithm.",
         "outcome": "Achieved over 50,000 active users in the first month and reduced delivery delays by 30%.",
-        "imageUrl": "/static/images/projects/ondemad_delivery/cover_image.jpg",
+        "imageUrl": "/static/images/projects/AppDev/ondemad_delivery/cover_image.jpg",
         "cardIcon": "bi-phone",
         "cardGradient": "linear-gradient(135deg, #0d6efd, #6610f2)",
         "gallery": [
-            "/static/images/projects/ondemad_delivery/cover_image.jpg",
-            "/static/images/projects/ondemad_delivery/img1.jpg",
-            "/static/images/projects/ondemad_delivery/img2.jpg"
+            "/static/images/projects/AppDev/ondemad_delivery/cover_image.jpg",
+            "/static/images/projects/AppDev/ondemad_delivery/img1.jpg",
+            "/static/images/projects/AppDev/ondemad_delivery/img2.jpg"
         ]
     },
     {
@@ -36,13 +36,13 @@
         "challenge": "FitLife wanted to break into a saturated market by offering an innovative, gamified fitness tracking experience that motivated users daily.",
         "solution": "We created a sleek, native-feel iOS and Android application with custom gamification modules, wearable integration, and interactive user leaderboards.",
         "outcome": "App ranked in the Top 10 for its category on both app stores within 3 weeks of launch with highly positive user reviews.",
-        "imageUrl": "/static/images/projects/health_tracker/cover_img.jpg",
+        "imageUrl": "/static/images/projects/AppDev/health_tracker/cover_img.jpg",
         "cardIcon": "bi-heart-pulse",
         "cardGradient": "linear-gradient(135deg, #cc0000, #ff4c4c)",
         "gallery": [
-            "/static/images/projects/health_tracker/cover_img.jpg",
-            "/static/images/projects/health_tracker/img1.jpg",
-            "/static/images/projects/health_tracker/landing_page.jpg"
+            "/static/images/projects/AppDev/health_tracker/cover_img.jpg",
+            "/static/images/projects/AppDev/health_tracker/img1.jpg",
+            "/static/images/projects/AppDev/health_tracker/landing_page.jpg"
         ]
     },
     {
@@ -59,13 +59,13 @@
         "challenge": "A fast growing fintech startup needed a secure mobile wallet with intuitive UI to handle micro-transactions and peer-to-peer transfers seamlessly.",
         "solution": "Developed a bank-grade secure mobile application featuring biometric login, blockchain ledger integration, and zero-latency transaction updates.",
         "outcome": "Processed over $2M in digital transactions within the first quarter flawlessly, zero security breaches, and 4.9 store ratings.",
-        "imageUrl": "/static/images/projects/fintech_wallet/cover_img.jpg",
+        "imageUrl": "/static/images/projects/AppDev/fintech_wallet/cover_img.jpg",
         "cardIcon": "bi-wallet2",
         "cardGradient": "linear-gradient(135deg, #198754, #0a3622)",
         "gallery": [
-            "/static/images/projects/fintech_wallet/cover_img.jpg",
-            "/static/images/projects/fintech_wallet/img1.jpg",
-            "/static/images/projects/fintech_wallet/landing_page.jpg"
+            "/static/images/projects/AppDev/fintech_wallet/cover_img.jpg",
+            "/static/images/projects/AppDev/fintech_wallet/img1.jpg",
+            "/static/images/projects/AppDev/fintech_wallet/landing_page.jpg"
         ]
     },
     {
@@ -82,13 +82,13 @@
         "challenge": "Compliance and security were becoming major risks due to decentralized systems that lacked modern audit trails and encryption.",
         "solution": "We deployed a real-time tracking engine utilizing Internet of Things (IoT) sensors, giving them complete end-to-end visibility.",
         "outcome": "Supply chain delays were completely eradicated. The client tracked a 30% reduction in logistical costs while perfectly maintaining customer service level agreements.",
-        "imageUrl": "/static/images/projects/dynamic_gateway/cover_img.jpg",
+        "imageUrl": "/static/images/projects/AppDev/dynamic_gateway/cover_img.jpg",
         "cardIcon": "bi-tablet",
         "cardGradient": "linear-gradient(135deg, #ffc107, #d39e00)",
         "gallery": [
-            "/static/images/projects/dynamic_gateway/cover_img.jpg",
-            "/static/images/projects/dynamic_gateway/img1.jpg",
-            "/static/images/projects/dynamic_gateway/landing_page.jpg"
+            "/static/images/projects/AppDev/dynamic_gateway/cover_img.jpg",
+            "/static/images/projects/AppDev/dynamic_gateway/img1.jpg",
+            "/static/images/projects/AppDev/dynamic_gateway/landing_page.jpg"
         ]
     },
     {
@@ -105,13 +105,13 @@
         "challenge": "Manual processes and fragmented databases were costing the organization thousands of hours in unproductive administrative work.",
         "solution": "We engineered a scalable, cloud-native architecture using modern frameworks, seamlessly integrating all their disparate data silos into a unified dashboard.",
         "outcome": "Customer engagement metrics skyrocketed, driving a 200% increase in active daily users and halving their previous churn rates.",
-        "imageUrl": "/static/images/projects/nextgen_dashboard/cover_img.jpg",
+        "imageUrl": "/static/images/projects/AppDev/nextgen_dashboard/cover_img.jpg",
         "cardIcon": "bi-tablet",
         "cardGradient": "linear-gradient(135deg, #e83e8c, #c2185b)",
         "gallery": [
-            "/static/images/projects/nextgen_dashboard/cover_img.jpg",
-            "/static/images/projects/nextgen_dashboard/img1.jpg",
-            "/static/images/projects/nextgen_dashboard/img1.jpg"
+            "/static/images/projects/AppDev/nextgen_dashboard/cover_img.jpg",
+            "/static/images/projects/AppDev/nextgen_dashboard/img1.jpg",
+            "/static/images/projects/AppDev/nextgen_dashboard/img1.jpg"
         ]
     },
     {
@@ -128,13 +128,13 @@
         "challenge": "The client faced significant bottlenecks due to outdated legacy systems that could no longer handle their growing data volumes and customer base.",
         "solution": "Our team developed an intelligent automation workflow powered by custom AI models, cutting out repetitive tasks and ensuring data integrity.",
         "outcome": "The new platform immediately unblocked their operational bottlenecks, resulting in a sustainable 40% growth in quarterly processing capacity.",
-        "imageUrl": "/static/images/projects/advance_portal/cover_img.jpg",
+        "imageUrl": "/static/images/projects/AppDev/advance_portal/cover_img.jpg",
         "cardIcon": "bi-phone",
         "cardGradient": "linear-gradient(135deg, #198754, #0f5132)",
         "gallery": [
-            "/static/images/projects/advance_portal/cover_img.jpg",
-            "/static/images/projects/advance_portal/img1.jpg",
-            "/static/images/projects/advance_portal/landing_page.jpg"
+            "/static/images/projects/AppDev/advance_portal/cover_img.jpg",
+            "/static/images/projects/AppDev/advance_portal/img1.jpg",
+            "/static/images/projects/AppDev/advance_portal/landing_page.jpg"
         ]
     },
     {
@@ -151,13 +151,13 @@
         "challenge": "The client faced significant bottlenecks due to outdated legacy systems that could no longer handle their growing data volumes and customer base.",
         "solution": "By implementing a robust, zero-trust security infrastructure with biometric authentication, we future-proofed their entire platform.",
         "outcome": "The new platform immediately unblocked their operational bottlenecks, resulting in a sustainable 40% growth in quarterly processing capacity.",
-        "imageUrl": "/static/images/projects/predictive_system/cover_img.jpg",
+        "imageUrl": "/static/images/projects/AppDev/predictive_system/cover_img.jpg",
         "cardIcon": "bi-phone",
         "cardGradient": "linear-gradient(135deg, #0dcaf0, #084298)",
         "gallery": [
-            "/static/images/projects/predictive_system/cover_img.jpg",
-            "/static/images/projects/predictive_system/img1.jpg",
-            "/static/images/projects/predictive_system/landing_page.jpg"
+            "/static/images/projects/AppDev/predictive_system/cover_img.jpg",
+            "/static/images/projects/AppDev/predictive_system/img1.jpg",
+            "/static/images/projects/AppDev/predictive_system/landing_page.jpg"
         ]
     },
     {
@@ -174,13 +174,13 @@
         "challenge": "Compliance and security were becoming major risks due to decentralized systems that lacked modern audit trails and encryption.",
         "solution": "By implementing a robust, zero-trust security infrastructure with biometric authentication, we future-proofed their entire platform.",
         "outcome": "The highly secure, compliant platform passed all external audits with zero flags, enabling the client to secure three massive enterprise contracts.",
-        "imageUrl": "/static/images/projects/cloud_native_assistant/cover_img.jpg",
+        "imageUrl": "/static/images/projects/AppDev/cloud_native_assistant/cover_img.jpg",
         "cardIcon": "bi-phone-vibrate",
         "cardGradient": "linear-gradient(135deg, #e83e8c, #c2185b)",
         "gallery": [
-            "/static/images/projects/cloud_native_assistant/cover_img.jpg",
-            "/static/images/projects/cloud_native_assistant/img1.jpg",
-            "/static/images/projects/cloud_native_assistant/landing_page.jpg"
+            "/static/images/projects/AppDev/cloud_native_assistant/cover_img.jpg",
+            "/static/images/projects/AppDev/cloud_native_assistant/img1.jpg",
+            "/static/images/projects/AppDev/cloud_native_assistant/landing_page.jpg"
         ]
     },
     {
@@ -197,13 +197,13 @@
         "challenge": "Manual processes and fragmented databases were costing the organization thousands of hours in unproductive administrative work.",
         "solution": "We completely overhauled their digital touchpoints, delivering a high-performance, mobile-responsive application with an intuitive user interface.",
         "outcome": "Within the first three months of launch, the automated system reduced manual data entry by 90%, shifting extreme overhead into high-margin profit.",
-        "imageUrl": "/static/images/projects/dynamic_hub/cover_img.jpg",
+        "imageUrl": "/static/images/projects/AppDev/dynamic_hub/cover_img.jpg",
         "cardIcon": "bi-phone-landscape",
         "cardGradient": "linear-gradient(135deg, #e83e8c, #c2185b)",
         "gallery": [
-            "/static/images/projects/dynamic_hub/cover_img.jpg",
-            "/static/images/projects/dynamic_hub/img1.jpg",
-            "/static/images/projects/dynamic_hub/landing_page.jpg"
+            "/static/images/projects/AppDev/dynamic_hub/cover_img.jpg",
+            "/static/images/projects/AppDev/dynamic_hub/img1.jpg",
+            "/static/images/projects/AppDev/dynamic_hub/landing_page.jpg"
         ]
     },
     {
@@ -220,13 +220,12 @@
         "challenge": "Urban Nest struggled with a clunky out-of-date website that failed to showcase properties attractively, leading to low user engagement.",
         "solution": "We completely rebuilt their website using a modern Next.js framework with headless CMS, interactive map searching, and immersive 3D virtual tours.",
         "outcome": "Bounce rates dropped by 45%, and the agency observed a 40% jump in qualified inquiries in the first operating quarter.",
-        "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/WebDev/mordern_real_estate/cover_img.jpg",
         "cardIcon": "bi-house",
         "cardGradient": "linear-gradient(135deg, #ffc107, #d39e00)",
         "gallery": [
-            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/WebDev/mordern_real_estate/cover_img.jpg",
+            "/static/images/projects/WebDev/mordern_real_estate/img1.jpg"
         ]
     },
     {
@@ -243,13 +242,13 @@
         "challenge": "A large multinational enterprise needed a centralized, ultra-secure intranet portal to share news, resources, and corporate knowledge across regions.",
         "solution": "We architected a scalable React-based web portal integrated with Microsoft Single Sign-On and enterprise-grade role-based access controls.",
         "outcome": "Streamlined inter-departmental communication globally, effectively connecting over 10,000 employees under a unified digital roof.",
-        "imageUrl": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/WebDev/corporate_knowledge_hub/cover_img.jpg",
         "cardIcon": "bi-globe",
         "cardGradient": "linear-gradient(135deg, #343a40, #212529)",
         "gallery": [
-            "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/WebDev/corporate_knowledge_hub/cover_img.jpg",
+            "/static/images/projects/WebDev/corporate_knowledge_hub/img1.jpg",
+            "/static/images/projects/WebDev/corporate_knowledge_hub/img2.jpg"
         ]
     },
     {
@@ -266,13 +265,13 @@
         "challenge": "Journey Bliss had an overly complex and slow booking engine which caused a high cart abandonment rate among travelers.",
         "solution": "We redesigned the entire booking user journey as a streamlined Single Page Application (SPA), implementing edge caching for lightning fast searches.",
         "outcome": "Booking completions surged by 35% with the new 60% faster UX, driving immediate revenue growth during peak travel season.",
-        "imageUrl": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/WebDev/interactive_travel_booking/cover_img.jpg",
         "cardIcon": "bi-airplane",
         "cardGradient": "linear-gradient(135deg, #0dcaf0, #084298)",
         "gallery": [
-            "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/WebDev/interactive_travel_booking/cover_img.jpg",
+            "/static/images/projects/WebDev/interactive_travel_booking/img1.jpg",
+            "/static/images/projects/WebDev/interactive_travel_booking/img2.jpg"
         ]
     },
     {
@@ -289,13 +288,13 @@
         "challenge": "A lack of digital presence and poor user experience was severely impacting online revenue and causing high customer churn.",
         "solution": "We engineered a scalable, cloud-native architecture using modern frameworks, seamlessly integrating all their disparate data silos into a unified dashboard.",
         "outcome": "Supply chain delays were completely eradicated. The client tracked a 30% reduction in logistical costs while perfectly maintaining customer service level agreements.",
-        "imageUrl": "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/WebDev/robust_hub/cover_img.jpg",
         "cardIcon": "bi-window",
         "cardGradient": "linear-gradient(135deg, #cc0000, #ff4c4c)",
         "gallery": [
-            "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/WebDev/robust_hub/cover_img.jpg",
+            "/static/images/projects/WebDev/robust_hub/img1.jpg",
+            "/static/images/projects/WebDev/robust_hub/img2.jpg"
         ]
     },
     {
@@ -312,13 +311,13 @@
         "challenge": "Manual processes and fragmented databases were costing the organization thousands of hours in unproductive administrative work.",
         "solution": "Our team developed an intelligent automation workflow powered by custom AI models, cutting out repetitive tasks and ensuring data integrity.",
         "outcome": "Supply chain delays were completely eradicated. The client tracked a 30% reduction in logistical costs while perfectly maintaining customer service level agreements.",
-        "imageUrl": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/WebDev/scalable_ecosystem/cover_img.jpg",
         "cardIcon": "bi-window",
         "cardGradient": "linear-gradient(135deg, #6c757d, #343a40)",
         "gallery": [
-            "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1620712948343-0084236b2f6b?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/WebDev/scalable_ecosystem/cover_img.jpg",
+            "/static/images/projects/WebDev/scalable_ecosystem/img1.jpg",
+            "/static/images/projects/WebDev/scalable_ecosystem/img2.jpg"
         ]
     },
     {
@@ -335,13 +334,13 @@
         "challenge": "The client faced significant bottlenecks due to outdated legacy systems that could no longer handle their growing data volumes and customer base.",
         "solution": "We engineered a scalable, cloud-native architecture using modern frameworks, seamlessly integrating all their disparate data silos into a unified dashboard.",
         "outcome": "Customer engagement metrics skyrocketed, driving a 200% increase in active daily users and halving their previous churn rates.",
-        "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/WebDev/automated_ecosystem/cover_img.jpg",
         "cardIcon": "bi-window",
         "cardGradient": "linear-gradient(135deg, #343a40, #212529)",
         "gallery": [
-            "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/WebDev/automated_ecosystem/cover_img.jpg",
+            "/static/images/projects/WebDev/automated_ecosystem/img1.jpg",
+            "/static/images/projects/WebDev/automated_ecosystem/img2.jpg"
         ]
     },
     {
@@ -358,13 +357,12 @@
         "challenge": "Manual processes and fragmented databases were costing the organization thousands of hours in unproductive administrative work.",
         "solution": "We deployed a real-time tracking engine utilizing Internet of Things (IoT) sensors, giving them complete end-to-end visibility.",
         "outcome": "The highly secure, compliant platform passed all external audits with zero flags, enabling the client to secure three massive enterprise contracts.",
-        "imageUrl": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/WebDev/predictive_gateway/cover_img.jpg",
         "cardIcon": "bi-code-slash",
         "cardGradient": "linear-gradient(135deg, #0d6efd, #6610f2)",
         "gallery": [
-            "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1594911772125-07dad7d28820?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/WebDev/predictive_gateway/cover_img.jpg",
+            "/static/images/projects/WebDev/predictive_gateway/img1.jpg"
         ]
     },
     {
@@ -381,13 +379,13 @@
         "challenge": "Compliance and security were becoming major risks due to decentralized systems that lacked modern audit trails and encryption.",
         "solution": "We deployed a real-time tracking engine utilizing Internet of Things (IoT) sensors, giving them complete end-to-end visibility.",
         "outcome": "The highly secure, compliant platform passed all external audits with zero flags, enabling the client to secure three massive enterprise contracts.",
-        "imageUrl": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/WebDev/robust_engine/cover_img.jpg",
         "cardIcon": "bi-globe",
         "cardGradient": "linear-gradient(135deg, #343a40, #212529)",
         "gallery": [
-            "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/WebDev/robust_engine/cover_img.jpg",
+            "/static/images/projects/WebDev/robust_engine/img1.jpg",
+            "/static/images/projects/WebDev/robust_engine/img2.jpg"
         ]
     },
     {
@@ -404,13 +402,12 @@
         "challenge": "A lack of digital presence and poor user experience was severely impacting online revenue and causing high customer churn.",
         "solution": "Our team developed an intelligent automation workflow powered by custom AI models, cutting out repetitive tasks and ensuring data integrity.",
         "outcome": "Supply chain delays were completely eradicated. The client tracked a 30% reduction in logistical costs while perfectly maintaining customer service level agreements.",
-        "imageUrl": "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/WebDev/seamless_network/cover_img.jpg",
         "cardIcon": "bi-globe",
         "cardGradient": "linear-gradient(135deg, #0dcaf0, #084298)",
         "gallery": [
-            "https://images.unsplash.com/photo-1620712948343-0084236b2f6b?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1441984904996-e0b6ba687e12?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1594911772125-07dad7d28820?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/WebDev/seamless_network/cover_img.jpg",
+            "/static/images/projects/WebDev/seamless_network/img1.jpg"
         ]
     },
     {
@@ -956,13 +953,12 @@
         "challenge": "Manual processes and fragmented databases were costing the organization thousands of hours in unproductive administrative work.",
         "solution": "We engineered a scalable, cloud-native architecture using modern frameworks, seamlessly integrating all their disparate data silos into a unified dashboard.",
         "outcome": "Supply chain delays were completely eradicated. The client tracked a 30% reduction in logistical costs while perfectly maintaining customer service level agreements.",
-        "imageUrl": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e12?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/WebDev/predictive_gateway/cover_img.jpg",
         "cardIcon": "bi-robot",
         "cardGradient": "linear-gradient(135deg, #0dcaf0, #084298)",
         "gallery": [
-            "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/WebDev/predictive_gateway/cover_img.jpg",
+            "/static/images/projects/WebDev/predictive_gateway/img1.jpg"
         ]
     },
     {
@@ -1025,13 +1021,12 @@
         "challenge": "Compliance and security were becoming major risks due to decentralized systems that lacked modern audit trails and encryption.",
         "solution": "We deployed a real-time tracking engine utilizing Internet of Things (IoT) sensors, giving them complete end-to-end visibility.",
         "outcome": "The new platform immediately unblocked their operational bottlenecks, resulting in a sustainable 40% growth in quarterly processing capacity.",
-        "imageUrl": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e12?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/WebDev/predictive_gateway/cover_img.jpg",
         "cardIcon": "bi-lightbulb",
         "cardGradient": "linear-gradient(135deg, #ffc107, #d39e00)",
         "gallery": [
-            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/WebDev/predictive_gateway/cover_img.jpg",
+            "/static/images/projects/WebDev/predictive_gateway/img1.jpg"
         ]
     },
     {
@@ -1117,13 +1112,13 @@
         "challenge": "Manual processes and fragmented databases were costing the organization thousands of hours in unproductive administrative work.",
         "solution": "We deployed a real-time tracking engine utilizing Internet of Things (IoT) sensors, giving them complete end-to-end visibility.",
         "outcome": "Within the first three months of launch, the automated system reduced manual data entry by 90%, shifting extreme overhead into high-margin profit.",
-        "imageUrl": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/WebDev/scalable_ecosystem/cover_img.jpg",
         "cardIcon": "bi-cart",
         "cardGradient": "linear-gradient(135deg, #ffc107, #d39e00)",
         "gallery": [
-            "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/WebDev/scalable_ecosystem/cover_img.jpg",
+            "/static/images/projects/WebDev/scalable_ecosystem/img1.jpg",
+            "/static/images/projects/WebDev/scalable_ecosystem/img2.jpg"
         ]
     },
     {
