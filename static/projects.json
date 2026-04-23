@@ -15,7 +15,12 @@
         "outcome": "Average delivery time dropped by 28%, fuel costs fell by 32% due to optimized routing, and customer complaint calls dropped by 74% within the first 3 months — with dispatchers reclaiming over 60 hours per month previously lost to manual planning.",
         "imageUrl": "/static/images/projects/AppDev/ondemad_delivery/cover_image.jpg",
         "cardIcon": "bi-phone",
-        "cardGradient": "linear-gradient(135deg, #0d6efd, #6610f2)"
+        "cardGradient": "linear-gradient(135deg, #0d6efd, #6610f2)",
+        "gallery": [
+            "/static/images/projects/AppDev/ondemad_delivery/cover_image.jpg",
+            "/static/images/projects/AppDev/ondemad_delivery/img1.jpg",
+            "/static/images/projects/AppDev/ondemad_delivery/img2.jpg"
+        ]
     },
     {
         "id": 2,
@@ -33,7 +38,12 @@
         "outcome": "7-day retention improved from 32% to 71%, daily active users doubled to 120,000 within 6 months, and App Store ratings climbed from 3.2 to 4.8 stars — with the redesigned onboarding cited in 40% of positive reviews as the primary reason users stayed.",
         "imageUrl": "/static/images/projects/AppDev/health_tracker/cover_img.jpg",
         "cardIcon": "bi-heart-pulse",
-        "cardGradient": "linear-gradient(135deg, #cc0000, #ff4c4c)"
+        "cardGradient": "linear-gradient(135deg, #cc0000, #ff4c4c)",
+        "gallery": [
+            "/static/images/projects/AppDev/health_tracker/cover_img.jpg",
+            "/static/images/projects/AppDev/health_tracker/img1.jpg",
+            "/static/images/projects/AppDev/health_tracker/landing_page.jpg"
+        ]
     },
     {
         "id": 3,
@@ -51,7 +61,12 @@
         "outcome": "Processed over 2.1 million transactions in the first quarter with sub-2 second settlement time, zero fraud incidents, and 150,000+ downloads across India and Southeast Asia — with the app passing all PCI-DSS and RBI compliance audits on first submission.",
         "imageUrl": "/static/images/projects/AppDev/fintech_wallet/cover_img.jpg",
         "cardIcon": "bi-wallet2",
-        "cardGradient": "linear-gradient(135deg, #198754, #0a3622)"
+        "cardGradient": "linear-gradient(135deg, #198754, #0a3622)",
+        "gallery": [
+            "/static/images/projects/AppDev/fintech_wallet/cover_img.jpg",
+            "/static/images/projects/AppDev/fintech_wallet/img1.jpg",
+            "/static/images/projects/AppDev/fintech_wallet/landing_page.jpg"
+        ]
     },
     {
         "id": 4,
@@ -69,7 +84,12 @@
         "outcome": "Property inquiry volume doubled within 2 months of launch, virtual tour sessions averaged 7 minutes per visit indicating strong buyer intent, and lead-to-site-visit conversion improved by 35% as the sales team focused on pre-qualified, high-intent prospects surfaced by the app.",
         "imageUrl": "/static/images/projects/AppDev/dynamic_gateway/cover_img.jpg",
         "cardIcon": "bi-tablet",
-        "cardGradient": "linear-gradient(135deg, #ffc107, #d39e00)"
+        "cardGradient": "linear-gradient(135deg, #ffc107, #d39e00)",
+        "gallery": [
+            "/static/images/projects/AppDev/dynamic_gateway/cover_img.jpg",
+            "/static/images/projects/AppDev/dynamic_gateway/img1.jpg",
+            "/static/images/projects/AppDev/dynamic_gateway/landing_page.jpg"
+        ]
     },
     {
         "id": 5,
@@ -87,7 +107,11 @@
         "outcome": "Manual reporting effort was entirely eliminated — saving 120+ hours per month across the management team — while inventory discrepancies dropped by 40% due to real-time stock visibility, and decision-making speed improved by 50% as managers acted on live data rather than yesterday's numbers.",
         "imageUrl": "/static/images/projects/AppDev/nextgen_dashboard/cover_img.jpg",
         "cardIcon": "bi-tablet",
-        "cardGradient": "linear-gradient(135deg, #e83e8c, #c2185b)"
+        "cardGradient": "linear-gradient(135deg, #e83e8c, #c2185b)",
+        "gallery": [
+            "/static/images/projects/AppDev/nextgen_dashboard/cover_img.jpg",
+            "/static/images/projects/AppDev/nextgen_dashboard/img1.jpg"
+        ]
     },
     {
         "id": 6,
@@ -105,7 +129,12 @@
         "outcome": "The relaunched platform absorbed 90,000 concurrent onboarding sessions with 99.98% uptime, sub-200ms average API latency at peak load, and zero data loss incidents — turning a PR crisis into a platform success story that VitaTrack featured in their Series A investor deck.",
         "imageUrl": "/static/images/projects/AppDev/advance_portal/cover_img.jpg",
         "cardIcon": "bi-phone",
-        "cardGradient": "linear-gradient(135deg, #198754, #0f5132)"
+        "cardGradient": "linear-gradient(135deg, #198754, #0f5132)",
+        "gallery": [
+            "/static/images/projects/AppDev/advance_portal/cover_img.jpg",
+            "/static/images/projects/AppDev/advance_portal/img1.jpg",
+            "/static/images/projects/AppDev/advance_portal/landing_page.jpg"
+        ]
     },
     {
         "id": 7,
@@ -123,7 +152,12 @@
         "outcome": "Average weekly app opens increased from 2.1 to 4.7 per user, engagement with budgeting features grew by 55%, and premium plan conversion doubled to 4.3% as users who engaged with AI recommendations were 3x more likely to upgrade — adding significant incremental MRR for PayStream.",
         "imageUrl": "/static/images/projects/AppDev/predictive_system/cover_img.jpg",
         "cardIcon": "bi-phone",
-        "cardGradient": "linear-gradient(135deg, #0dcaf0, #084298)"
+        "cardGradient": "linear-gradient(135deg, #0dcaf0, #084298)",
+        "gallery": [
+            "/static/images/projects/AppDev/predictive_system/cover_img.jpg",
+            "/static/images/projects/AppDev/predictive_system/img1.jpg",
+            "/static/images/projects/AppDev/predictive_system/landing_page.jpg"
+        ]
     },
     {
         "id": 8,
@@ -141,7 +175,12 @@
         "outcome": "All 11 critical vulnerabilities were resolved, the app passed subsequent penetration testing with zero critical findings, and Apex retained two major enterprise clients who had issued contract termination notices pending the security remediation — representing over $1.8M in annual contract value.",
         "imageUrl": "/static/images/projects/AppDev/cloud_native_assistant/cover_img.jpg",
         "cardIcon": "bi-phone-vibrate",
-        "cardGradient": "linear-gradient(135deg, #e83e8c, #c2185b)"
+        "cardGradient": "linear-gradient(135deg, #e83e8c, #c2185b)",
+        "gallery": [
+            "/static/images/projects/AppDev/cloud_native_assistant/cover_img.jpg",
+            "/static/images/projects/AppDev/cloud_native_assistant/img1.jpg",
+            "/static/images/projects/AppDev/cloud_native_assistant/landing_page.jpg"
+        ]
     },
     {
         "id": 9,
@@ -159,7 +198,12 @@
         "outcome": "New operator onboarding time dropped from 6 weeks to 3 weeks — a 50% improvement — while the analytics team reclaimed 3 days per week previously spent on manual data reconciliation. Fleet maintenance alerts surfaced 34% more pre-failure issues, reducing unplanned service disruptions.",
         "imageUrl": "/static/images/projects/AppDev/dynamic_hub/cover_img.jpg",
         "cardIcon": "bi-phone-landscape",
-        "cardGradient": "linear-gradient(135deg, #e83e8c, #c2185b)"
+        "cardGradient": "linear-gradient(135deg, #e83e8c, #c2185b)",
+        "gallery": [
+            "/static/images/projects/AppDev/dynamic_hub/cover_img.jpg",
+            "/static/images/projects/AppDev/dynamic_hub/img1.jpg",
+            "/static/images/projects/AppDev/dynamic_hub/landing_page.jpg"
+        ]
     },
     {
         "id": 10,
@@ -177,7 +221,11 @@
         "outcome": "Organic search traffic grew by 120% in 4 months, cost-per-lead dropped by 58% as the portal replaced third-party dependency, and qualified lead volume increased 3.5x — with the CRM data showing portal leads had a 2.1x higher site-visit conversion rate than leads from paid listing platforms.",
         "imageUrl": "/static/images/projects/WebDev/mordern_real_estate/cover_img.jpg",
         "cardIcon": "bi-house",
-        "cardGradient": "linear-gradient(135deg, #ffc107, #d39e00)"
+        "cardGradient": "linear-gradient(135deg, #ffc107, #d39e00)",
+        "gallery": [
+            "/static/images/projects/WebDev/mordern_real_estate/cover_img.jpg",
+            "/static/images/projects/WebDev/mordern_real_estate/img1.jpg"
+        ]
     },
     {
         "id": 11,
@@ -195,7 +243,12 @@
         "outcome": "Internal IT and HR support queries dropped by 45% within 3 months as employees self-served answers, new hire onboarding time reduced from 8 weeks to 4 weeks, and content update turnaround improved from days to hours with the headless CMS workflow replacing manual SharePoint edits.",
         "imageUrl": "/static/images/projects/WebDev/corporate_knowledge_hub/cover_img.jpg",
         "cardIcon": "bi-globe",
-        "cardGradient": "linear-gradient(135deg, #343a40, #212529)"
+        "cardGradient": "linear-gradient(135deg, #343a40, #212529)",
+        "gallery": [
+            "/static/images/projects/WebDev/corporate_knowledge_hub/cover_img.jpg",
+            "/static/images/projects/WebDev/corporate_knowledge_hub/img1.jpg",
+            "/static/images/projects/WebDev/corporate_knowledge_hub/img2.jpg"
+        ]
     },
     {
         "id": 12,
@@ -213,7 +266,12 @@
         "outcome": "Page load time dropped from 8.4s to 1.9s on mobile, booking completion rate improved by 65%, and the bounce rate fell from 73% to 34% — translating to a measurable 41% increase in completed bookings within the first 6 weeks of the relaunch.",
         "imageUrl": "/static/images/projects/WebDev/interactive_travel_booking/cover_img.jpg",
         "cardIcon": "bi-airplane",
-        "cardGradient": "linear-gradient(135deg, #0dcaf0, #084298)"
+        "cardGradient": "linear-gradient(135deg, #0dcaf0, #084298)",
+        "gallery": [
+            "/static/images/projects/WebDev/interactive_travel_booking/cover_img.jpg",
+            "/static/images/projects/WebDev/interactive_travel_booking/img1.jpg",
+            "/static/images/projects/WebDev/interactive_travel_booking/img2.jpg"
+        ]
     },
     {
         "id": 13,
@@ -231,7 +289,12 @@
         "outcome": "The portal passed Apex's internal ISO 27001 security audit on first review, handling 15,000+ authenticated sessions daily without performance issues. Zero unauthorized access incidents occurred post-launch, and the audit trail capability reduced incident investigation time from days to under 2 hours.",
         "imageUrl": "/static/images/projects/WebDev/robust_hub/cover_img.jpg",
         "cardIcon": "bi-window",
-        "cardGradient": "linear-gradient(135deg, #cc0000, #ff4c4c)"
+        "cardGradient": "linear-gradient(135deg, #cc0000, #ff4c4c)",
+        "gallery": [
+            "/static/images/projects/WebDev/robust_hub/cover_img.jpg",
+            "/static/images/projects/WebDev/robust_hub/img1.jpg",
+            "/static/images/projects/WebDev/robust_hub/img2.jpg"
+        ]
     },
     {
         "id": 14,
@@ -249,7 +312,12 @@
         "outcome": "Average per-patient consultation prep time dropped from 22 minutes to under 9 minutes — a 60% reduction in data retrieval time — improving overall clinical throughput by 48% and allowing BlueWave's busiest facility to accommodate 30 additional patient appointments per day.",
         "imageUrl": "/static/images/projects/WebDev/scalable_ecosystem/cover_img.jpg",
         "cardIcon": "bi-window",
-        "cardGradient": "linear-gradient(135deg, #6c757d, #343a40)"
+        "cardGradient": "linear-gradient(135deg, #6c757d, #343a40)",
+        "gallery": [
+            "/static/images/projects/WebDev/scalable_ecosystem/cover_img.jpg",
+            "/static/images/projects/WebDev/scalable_ecosystem/img1.jpg",
+            "/static/images/projects/WebDev/scalable_ecosystem/img2.jpg"
+        ]
     },
     {
         "id": 15,
@@ -267,7 +335,12 @@
         "outcome": "Google ranking for target keywords improved from page 5 to page 1 within 10 weeks, inbound inquiry volume grew by 42%, and agent time spent on initial inquiry responses dropped by 80% through automation — freeing the team to focus exclusively on qualified follow-ups.",
         "imageUrl": "/static/images/projects/WebDev/automated_ecosystem/cover_img.jpg",
         "cardIcon": "bi-window",
-        "cardGradient": "linear-gradient(135deg, #343a40, #212529)"
+        "cardGradient": "linear-gradient(135deg, #343a40, #212529)",
+        "gallery": [
+            "/static/images/projects/WebDev/automated_ecosystem/cover_img.jpg",
+            "/static/images/projects/WebDev/automated_ecosystem/img1.jpg",
+            "/static/images/projects/WebDev/automated_ecosystem/img2.jpg"
+        ]
     },
     {
         "id": 16,
@@ -285,7 +358,11 @@
         "outcome": "Monthly reporting cycle time dropped from 4 days to under 18 hours — a 55% reduction — and the strategy team shifted from reactive reporting to proactive scenario planning using the 90-day forecasts, influencing two major resource allocation decisions that leadership credited with $2.3M in cost avoidance.",
         "imageUrl": "/static/images/projects/WebDev/predictive_gateway/cover_img.jpg",
         "cardIcon": "bi-code-slash",
-        "cardGradient": "linear-gradient(135deg, #0d6efd, #6610f2)"
+        "cardGradient": "linear-gradient(135deg, #0d6efd, #6610f2)",
+        "gallery": [
+            "/static/images/projects/WebDev/predictive_gateway/cover_img.jpg",
+            "/static/images/projects/WebDev/predictive_gateway/img1.jpg"
+        ]
     },
     {
         "id": 17,
@@ -303,7 +380,12 @@
         "outcome": "Average page load time improved from 9.2 seconds to 4.1 seconds — a 55% reduction — Google PageSpeed score rose from 18 to 74, and mobile cart abandonment dropped by 29%, directly contributing to a 22% increase in completed purchases within the first quarter post-launch.",
         "imageUrl": "/static/images/projects/WebDev/robust_engine/cover_img.jpg",
         "cardIcon": "bi-globe",
-        "cardGradient": "linear-gradient(135deg, #343a40, #212529)"
+        "cardGradient": "linear-gradient(135deg, #343a40, #212529)",
+        "gallery": [
+            "/static/images/projects/WebDev/robust_engine/cover_img.jpg",
+            "/static/images/projects/WebDev/robust_engine/img1.jpg",
+            "/static/images/projects/WebDev/robust_engine/img2.jpg"
+        ]
     },
     {
         "id": 18,
@@ -321,7 +403,11 @@
         "outcome": "Unplanned downtime dropped from 16 hours/month to under 4 hours/month — a 75% improvement — average incident detection time fell from employee-reported delays to under 3 minutes via automated alerts, and overall system reliability improved by 40% as proactive monitoring enabled the team to address degradation before full outages occurred.",
         "imageUrl": "/static/images/projects/WebDev/seamless_network/cover_img.jpg",
         "cardIcon": "bi-globe",
-        "cardGradient": "linear-gradient(135deg, #0dcaf0, #084298)"
+        "cardGradient": "linear-gradient(135deg, #0dcaf0, #084298)",
+        "gallery": [
+            "/static/images/projects/WebDev/seamless_network/cover_img.jpg",
+            "/static/images/projects/WebDev/seamless_network/img1.jpg"
+        ]
     },
     {
         "id": 28,
@@ -339,7 +425,18 @@
         "outcome": "Organic traffic grew by 280%, and dependency on paid ads reduced significantly, lowering CAC by 35%.",
         "imageUrl": "/static/images/projects/Marketing/national_seo_strategy.jpg",
         "cardIcon": "bi-graph-up-arrow",
-        "cardGradient": "linear-gradient(135deg, #ffc107, #d39e00)"
+        "cardGradient": "linear-gradient(135deg, #ffc107, #d39e00)",
+        "gallery": [
+            "/static/images/projects/Marketing/b2b_lead_gen_campaign.jpg",
+            "/static/images/projects/Marketing/cloud_native_system.jpg",
+            "/static/images/projects/Marketing/integrated_ecosystem.jpg",
+            "/static/images/projects/Marketing/intelligent_tracker.jpg",
+            "/static/images/projects/Marketing/national_seo_strategy.jpg",
+            "/static/images/projects/Marketing/robust_network.jpg",
+            "/static/images/projects/Marketing/scalabale_assistant.jpg",
+            "/static/images/projects/Marketing/scalable_system.jpg",
+            "/static/images/projects/Marketing/viral_social_media_core.jpg"
+        ]
     },
     {
         "id": 29,
@@ -357,7 +454,18 @@
         "outcome": "Follower base grew by 5x, and online orders increased by 70% during campaign period.",
         "imageUrl": "/static/images/projects/Marketing/viral_social_media_core.jpg",
         "cardIcon": "bi-instagram",
-        "cardGradient": "linear-gradient(135deg, #e83e8c, #c2185b)"
+        "cardGradient": "linear-gradient(135deg, #e83e8c, #c2185b)",
+        "gallery": [
+            "/static/images/projects/Marketing/b2b_lead_gen_campaign.jpg",
+            "/static/images/projects/Marketing/cloud_native_system.jpg",
+            "/static/images/projects/Marketing/integrated_ecosystem.jpg",
+            "/static/images/projects/Marketing/intelligent_tracker.jpg",
+            "/static/images/projects/Marketing/national_seo_strategy.jpg",
+            "/static/images/projects/Marketing/robust_network.jpg",
+            "/static/images/projects/Marketing/scalabale_assistant.jpg",
+            "/static/images/projects/Marketing/scalable_system.jpg",
+            "/static/images/projects/Marketing/viral_social_media_core.jpg"
+        ]
     },
     {
         "id": 30,
@@ -375,7 +483,18 @@
         "outcome": "Lead quality improved significantly, with a 3x increase in conversion from MQL to SQL.",
         "imageUrl": "/static/images/projects/Marketing/b2b_lead_gen_campaign.jpg",
         "cardIcon": "bi-funnel",
-        "cardGradient": "linear-gradient(135deg, #0d6efd, #003087)"
+        "cardGradient": "linear-gradient(135deg, #0d6efd, #003087)",
+        "gallery": [
+            "/static/images/projects/Marketing/b2b_lead_gen_campaign.jpg",
+            "/static/images/projects/Marketing/cloud_native_system.jpg",
+            "/static/images/projects/Marketing/integrated_ecosystem.jpg",
+            "/static/images/projects/Marketing/intelligent_tracker.jpg",
+            "/static/images/projects/Marketing/national_seo_strategy.jpg",
+            "/static/images/projects/Marketing/robust_network.jpg",
+            "/static/images/projects/Marketing/scalabale_assistant.jpg",
+            "/static/images/projects/Marketing/scalable_system.jpg",
+            "/static/images/projects/Marketing/viral_social_media_core.jpg"
+        ]
     },
     {
         "id": 31,
@@ -393,7 +512,18 @@
         "outcome": "Cost per lead reduced by 40%, and consistent inbound inquiries were established.",
         "imageUrl": "/static/images/projects/Marketing/integrated_ecosystem.jpg",
         "cardIcon": "bi-search",
-        "cardGradient": "linear-gradient(135deg, #0dcaf0, #084298)"
+        "cardGradient": "linear-gradient(135deg, #0dcaf0, #084298)",
+        "gallery": [
+            "/static/images/projects/Marketing/b2b_lead_gen_campaign.jpg",
+            "/static/images/projects/Marketing/cloud_native_system.jpg",
+            "/static/images/projects/Marketing/integrated_ecosystem.jpg",
+            "/static/images/projects/Marketing/intelligent_tracker.jpg",
+            "/static/images/projects/Marketing/national_seo_strategy.jpg",
+            "/static/images/projects/Marketing/robust_network.jpg",
+            "/static/images/projects/Marketing/scalabale_assistant.jpg",
+            "/static/images/projects/Marketing/scalable_system.jpg",
+            "/static/images/projects/Marketing/viral_social_media_core.jpg"
+        ]
     },
     {
         "id": 32,
@@ -411,7 +541,18 @@
         "outcome": "Inbound lead volume doubled, and sales team efficiency improved due to better lead tracking.",
         "imageUrl": "/static/images/projects/Marketing/cloud_native_system.jpg",
         "cardIcon": "bi-search",
-        "cardGradient": "linear-gradient(135deg, #ffc107, #d39e00)"
+        "cardGradient": "linear-gradient(135deg, #ffc107, #d39e00)",
+        "gallery": [
+            "/static/images/projects/Marketing/b2b_lead_gen_campaign.jpg",
+            "/static/images/projects/Marketing/cloud_native_system.jpg",
+            "/static/images/projects/Marketing/integrated_ecosystem.jpg",
+            "/static/images/projects/Marketing/intelligent_tracker.jpg",
+            "/static/images/projects/Marketing/national_seo_strategy.jpg",
+            "/static/images/projects/Marketing/robust_network.jpg",
+            "/static/images/projects/Marketing/scalabale_assistant.jpg",
+            "/static/images/projects/Marketing/scalable_system.jpg",
+            "/static/images/projects/Marketing/viral_social_media_core.jpg"
+        ]
     },
     {
         "id": 33,
@@ -429,7 +570,18 @@
         "outcome": "Conversion rates doubled, and overall marketing spend became significantly more efficient.",
         "imageUrl": "/static/images/projects/Marketing/scalable_system.jpg",
         "cardIcon": "bi-bar-chart",
-        "cardGradient": "linear-gradient(135deg, #0d6efd, #6610f2)"
+        "cardGradient": "linear-gradient(135deg, #0d6efd, #6610f2)",
+        "gallery": [
+            "/static/images/projects/Marketing/b2b_lead_gen_campaign.jpg",
+            "/static/images/projects/Marketing/cloud_native_system.jpg",
+            "/static/images/projects/Marketing/integrated_ecosystem.jpg",
+            "/static/images/projects/Marketing/intelligent_tracker.jpg",
+            "/static/images/projects/Marketing/national_seo_strategy.jpg",
+            "/static/images/projects/Marketing/robust_network.jpg",
+            "/static/images/projects/Marketing/scalabale_assistant.jpg",
+            "/static/images/projects/Marketing/scalable_system.jpg",
+            "/static/images/projects/Marketing/viral_social_media_core.jpg"
+        ]
     },
     {
         "id": 34,
@@ -447,7 +599,18 @@
         "outcome": "Website started ranking for high-intent keywords, generating consistent inbound B2B leads.",
         "imageUrl": "/static/images/projects/Marketing/intelligent_tracker.jpg",
         "cardIcon": "bi-search",
-        "cardGradient": "linear-gradient(135deg, #e83e8c, #c2185b)"
+        "cardGradient": "linear-gradient(135deg, #e83e8c, #c2185b)",
+        "gallery": [
+            "/static/images/projects/Marketing/b2b_lead_gen_campaign.jpg",
+            "/static/images/projects/Marketing/cloud_native_system.jpg",
+            "/static/images/projects/Marketing/integrated_ecosystem.jpg",
+            "/static/images/projects/Marketing/intelligent_tracker.jpg",
+            "/static/images/projects/Marketing/national_seo_strategy.jpg",
+            "/static/images/projects/Marketing/robust_network.jpg",
+            "/static/images/projects/Marketing/scalabale_assistant.jpg",
+            "/static/images/projects/Marketing/scalable_system.jpg",
+            "/static/images/projects/Marketing/viral_social_media_core.jpg"
+        ]
     },
     {
         "id": 35,
@@ -465,7 +628,18 @@
         "outcome": "Lead engagement increased by 65%, and conversion rates improved significantly.",
         "imageUrl": "/static/images/projects/Marketing/scalabale_assistant.jpg",
         "cardIcon": "bi-graph-up-arrow",
-        "cardGradient": "linear-gradient(135deg, #198754, #0f5132)"
+        "cardGradient": "linear-gradient(135deg, #198754, #0f5132)",
+        "gallery": [
+            "/static/images/projects/Marketing/b2b_lead_gen_campaign.jpg",
+            "/static/images/projects/Marketing/cloud_native_system.jpg",
+            "/static/images/projects/Marketing/integrated_ecosystem.jpg",
+            "/static/images/projects/Marketing/intelligent_tracker.jpg",
+            "/static/images/projects/Marketing/national_seo_strategy.jpg",
+            "/static/images/projects/Marketing/robust_network.jpg",
+            "/static/images/projects/Marketing/scalabale_assistant.jpg",
+            "/static/images/projects/Marketing/scalable_system.jpg",
+            "/static/images/projects/Marketing/viral_social_media_core.jpg"
+        ]
     },
     {
         "id": 36,
@@ -483,7 +657,18 @@
         "outcome": "Achieved first-page rankings for key search terms and sustained long-term organic traffic growth.",
         "imageUrl": "/static/images/projects/Marketing/robust_network.jpg",
         "cardIcon": "bi-bar-chart",
-        "cardGradient": "linear-gradient(135deg, #cc0000, #ff4c4c)"
+        "cardGradient": "linear-gradient(135deg, #cc0000, #ff4c4c)",
+        "gallery": [
+            "/static/images/projects/Marketing/b2b_lead_gen_campaign.jpg",
+            "/static/images/projects/Marketing/cloud_native_system.jpg",
+            "/static/images/projects/Marketing/integrated_ecosystem.jpg",
+            "/static/images/projects/Marketing/intelligent_tracker.jpg",
+            "/static/images/projects/Marketing/national_seo_strategy.jpg",
+            "/static/images/projects/Marketing/robust_network.jpg",
+            "/static/images/projects/Marketing/scalabale_assistant.jpg",
+            "/static/images/projects/Marketing/scalable_system.jpg",
+            "/static/images/projects/Marketing/viral_social_media_core.jpg"
+        ]
     },
     {
         "id": 37,
@@ -499,13 +684,17 @@
         "challenge": "Capital Security Bank's manual credit risk review process was slow and inconsistent, often missing early signals of loan default or fraudulent applications, leading to multi-million dollar write-offs each quarter.",
         "solution": "Built an end-to-end AI risk scoring engine that ingests over 200 financial signals — including transaction velocity, behavioral patterns, and bureau data — to generate real-time applicant risk profiles with explainable AI outputs for compliance teams.",
         "outcome": "Reduced credit default rates by 38% within two quarters of deployment, cutting manual review time by 60% and enabling the bank to process 3x more loan applications with the same analyst headcount.",
-        "imageUrl": "https://images.unsplash.com/photo-1620712948343-0084236b2f6b?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/AI/ai_risk_assessment_tool.jpg",
         "cardIcon": "bi-shield-check",
         "cardGradient": "linear-gradient(135deg, #0d6efd, #003087)",
         "gallery": [
-            "https://images.unsplash.com/photo-1620712948343-0084236b2f6b?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/AI/advanced_tracker.jpg",
+            "/static/images/projects/AI/ai_risk_assessment_tool.jpg",
+            "/static/images/projects/AI/enterprise_engine.jpg",
+            "/static/images/projects/AI/generative_legal_drafting.jpg",
+            "/static/images/projects/AI/intelligent_customer_agent.jpg",
+            "/static/images/projects/AI/next_gen_hub.jpg",
+            "/static/images/projects/AI/predictive_platform.jpg"
         ]
     },
     {
@@ -522,13 +711,17 @@
         "challenge": "TechFlow Inc's legal team spent an average of 14 hours per contract drafting NDAs, vendor agreements, and SaaS licensing documents from scratch, creating a severe bottleneck that delayed deal closures by weeks.",
         "solution": "Trained and fine-tuned a proprietary LLM on TechFlow's historical contract library, court-accepted clause databases, and jurisdiction-specific legal standards, enabling one-click generation of jurisdiction-compliant first drafts with editable clause suggestions.",
         "outcome": "Contract drafting time dropped from 14 hours to under 2 hours per document, accelerating deal velocity by 70% and saving the legal team an estimated 1,200 hours annually — equivalent to freeing up two full-time paralegal roles.",
-        "imageUrl": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/AI/generative_legal_drafting.jpg",
         "cardIcon": "bi-magic",
         "cardGradient": "linear-gradient(135deg, #212529, #000000)",
         "gallery": [
-            "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/AI/advanced_tracker.jpg",
+            "/static/images/projects/AI/ai_risk_assessment_tool.jpg",
+            "/static/images/projects/AI/enterprise_engine.jpg",
+            "/static/images/projects/AI/generative_legal_drafting.jpg",
+            "/static/images/projects/AI/intelligent_customer_agent.jpg",
+            "/static/images/projects/AI/next_gen_hub.jpg",
+            "/static/images/projects/AI/predictive_platform.jpg"
         ]
     },
     {
@@ -545,13 +738,17 @@
         "challenge": "Nexus Corp's support team was handling over 12,000 monthly tickets, with 80% being repetitive queries about order status, billing, and account settings — causing burnout among agents and pushing average resolution time beyond 48 hours.",
         "solution": "Designed and deployed a multi-intent conversational AI agent integrated with Nexus Corp's CRM, billing platform, and order management system, capable of autonomously resolving common queries, escalating edge cases with full context handoff, and conducting post-resolution satisfaction surveys.",
         "outcome": "Automated 85% of tier-1 support tickets within the first month, reducing average first-response time from 18 hours to under 3 seconds and allowing human agents to focus exclusively on complex, high-value customer interactions.",
-        "imageUrl": "https://images.unsplash.com/photo-1520697830682-ebb6ff4e9e0c?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/AI/intelligent_customer_agent.jpg",
         "cardIcon": "bi-robot",
         "cardGradient": "linear-gradient(135deg, #0dcaf0, #084298)",
         "gallery": [
-            "https://images.unsplash.com/photo-1520697830682-ebb6ff4e9e0c?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1596524430615-b46475ddf6e9?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1516382722659-009c9ce055dc?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/AI/advanced_tracker.jpg",
+            "/static/images/projects/AI/ai_risk_assessment_tool.jpg",
+            "/static/images/projects/AI/enterprise_engine.jpg",
+            "/static/images/projects/AI/generative_legal_drafting.jpg",
+            "/static/images/projects/AI/intelligent_customer_agent.jpg",
+            "/static/images/projects/AI/next_gen_hub.jpg",
+            "/static/images/projects/AI/predictive_platform.jpg"
         ]
     },
     {
@@ -568,13 +765,17 @@
         "challenge": "Capital Security Bank's operations team manually compiled 40+ financial reports each month from siloed legacy systems, consuming over 500 analyst hours and frequently producing outdated figures due to the time lag in data collection.",
         "solution": "Built a centralized predictive analytics platform that ingests real-time data from core banking, treasury, and risk systems, then automatically generates executive dashboards, regulatory reports, and anomaly alerts using ML-driven forecasting models.",
         "outcome": "Eliminated over 500 hours of manual monthly reporting, with reports now generated in minutes instead of days — freeing up the analytics team to focus on strategic initiatives and reducing reporting error rates to near zero.",
-        "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/AI/predictive_platform.jpg",
         "cardIcon": "bi-cpu",
         "cardGradient": "linear-gradient(135deg, #198754, #0f5132)",
         "gallery": [
-            "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/AI/advanced_tracker.jpg",
+            "/static/images/projects/AI/ai_risk_assessment_tool.jpg",
+            "/static/images/projects/AI/enterprise_engine.jpg",
+            "/static/images/projects/AI/generative_legal_drafting.jpg",
+            "/static/images/projects/AI/intelligent_customer_agent.jpg",
+            "/static/images/projects/AI/next_gen_hub.jpg",
+            "/static/images/projects/AI/predictive_platform.jpg"
         ]
     },
     {
@@ -591,13 +792,17 @@
         "challenge": "BlueWave Medical's billing department was losing an estimated $2.1M annually to fraudulent insurance claims and duplicate billing errors, with their legacy rule-based detection system generating excessive false positives that overwhelmed staff.",
         "solution": "Developed an advanced anomaly-tracking system using graph neural networks to map relationships between providers, patients, and billing codes, flagging suspicious claim patterns in real time while continuously learning from adjuster feedback to reduce false positives.",
         "outcome": "Fraudulent transaction detection improved by 40% with false positive rates reduced by 72%, enabling the billing team to recover over $800K in the first operating year while processing claims 3x faster.",
-        "imageUrl": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/AI/advanced_tracker.jpg",
         "cardIcon": "bi-cpu",
         "cardGradient": "linear-gradient(135deg, #0d6efd, #6610f2)",
         "gallery": [
-            "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/AI/advanced_tracker.jpg",
+            "/static/images/projects/AI/ai_risk_assessment_tool.jpg",
+            "/static/images/projects/AI/enterprise_engine.jpg",
+            "/static/images/projects/AI/generative_legal_drafting.jpg",
+            "/static/images/projects/AI/intelligent_customer_agent.jpg",
+            "/static/images/projects/AI/next_gen_hub.jpg",
+            "/static/images/projects/AI/predictive_platform.jpg"
         ]
     },
     {
@@ -636,13 +841,17 @@
         "challenge": "Nexus Corp's enterprise supply chain lacked centralized intelligence, with procurement, logistics, and warehouse teams operating in silos — leading to costly overstocking in some regions and critical stockouts in others.",
         "solution": "Architected a next-generation AI operations hub that unified data from 6 enterprise systems, using computer vision for real-time warehouse monitoring and ML forecasting models to generate automated reorder signals and supplier recommendations.",
         "outcome": "Inventory waste dropped by 25% while stockout incidents fell by 60%, with the centralized hub giving leadership a live, AI-augmented view of the entire supply chain for the first time in company history.",
-        "imageUrl": "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/AI/next_gen_hub.jpg",
         "cardIcon": "bi-magic",
         "cardGradient": "linear-gradient(135deg, #ffc107, #d39e00)",
         "gallery": [
-            "https://images.unsplash.com/photo-1594911772125-07dad7d28820?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/AI/advanced_tracker.jpg",
+            "/static/images/projects/AI/ai_risk_assessment_tool.jpg",
+            "/static/images/projects/AI/enterprise_engine.jpg",
+            "/static/images/projects/AI/generative_legal_drafting.jpg",
+            "/static/images/projects/AI/intelligent_customer_agent.jpg",
+            "/static/images/projects/AI/next_gen_hub.jpg",
+            "/static/images/projects/AI/predictive_platform.jpg"
         ]
     },
     {
@@ -659,13 +868,17 @@
         "challenge": "Lexa Partners LLC managed travel and expense reports for over 300 corporate clients, but their manual document verification process was creating a 10-day lag in reimbursements and failing to catch policy violations until post-approval audits.",
         "solution": "Built a computer vision and NLP-powered enterprise engine that automatically extracts line items from receipts, cross-references them against client-specific policy rules, flags anomalies, and generates audit-ready compliance reports — all within seconds of upload.",
         "outcome": "Achieved 99.8% extraction accuracy across receipts in 7 languages, reduced reimbursement processing time from 10 days to same-day, and surfaced 22% more policy violations pre-approval — saving clients an average of $180K annually in unauthorized expenses.",
-        "imageUrl": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80",
+        "imageUrl": "/static/images/projects/AI/enterprise_engine.jpg",
         "cardIcon": "bi-magic",
         "cardGradient": "linear-gradient(135deg, #198754, #0f5132)",
         "gallery": [
-            "https://images.unsplash.com/photo-1594911772125-07dad7d28820?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1620712948343-0084236b2f6b?auto=format&fit=crop&w=800&q=80"
+            "/static/images/projects/AI/advanced_tracker.jpg",
+            "/static/images/projects/AI/ai_risk_assessment_tool.jpg",
+            "/static/images/projects/AI/enterprise_engine.jpg",
+            "/static/images/projects/AI/generative_legal_drafting.jpg",
+            "/static/images/projects/AI/intelligent_customer_agent.jpg",
+            "/static/images/projects/AI/next_gen_hub.jpg",
+            "/static/images/projects/AI/predictive_platform.jpg"
         ]
     },
     {
