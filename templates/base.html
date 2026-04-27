@@ -80,7 +80,7 @@
       <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="/">
           <img
-            src="static/images/Logo.png"
+            src="{{ url_for('static', filename='images/Logo.png') }}"
             width="150"
             height="40"
             class="me-2"
@@ -133,7 +133,7 @@
               class="d-flex align-items-center text-dark text-decoration-none mb-4"
             >
               <img
-                src="static/images/Logo.png"
+                src="{{ url_for('static', filename='images/Logo.png') }}"
                 width="150"
                 height="40"
                 class="me-2"

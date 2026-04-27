@@ -44,6 +44,48 @@ def about():
 def portfolio():
     return render_template('portfolio.html')
 
+@app.route('/project/<int:project_id>')
+def project(project_id):
+    project = next((p for p in ALL_PROJECTS if p.get('id') == project_id), None)
+    if not project:
+        from flask import abort
+        abort(404)
+
+    def _clean_text(value, fallback):
+        text = (value or '').strip() if isinstance(value, str) else ''
+        return text if text else fallback
+
+    normalized = dict(project)
+    normalized['service'] = _clean_text(normalized.get('service'), 'Project Delivery')
+    normalized['title'] = _clean_text(normalized.get('title'), 'Case Study')
+    normalized['badgeName'] = _clean_text(normalized.get('badgeName'), 'Case Study')
+    normalized['badgeColor'] = _clean_text(normalized.get('badgeColor'), 'primary')
+    normalized['client'] = _clean_text(normalized.get('client'), 'Confidential Client')
+    normalized['duration'] = _clean_text(normalized.get('duration'), 'Timeline available on request')
+    normalized['team'] = _clean_text(normalized.get('team'), 'Cross-functional team')
+    normalized['result'] = _clean_text(normalized.get('result'), 'Business impact delivered')
+    normalized['challenge'] = _clean_text(normalized.get('challenge'), 'Project challenge details will be shared soon.')
+    normalized['solution'] = _clean_text(normalized.get('solution'), 'Implementation details will be shared soon.')
+    normalized['outcome'] = _clean_text(normalized.get('outcome'), 'Outcome summary will be shared soon.')
+    normalized['cardIcon'] = _clean_text(normalized.get('cardIcon'), 'bi-briefcase')
+
+    image_url = _clean_text(normalized.get('imageUrl'), '/static/images/projects/Marketing/national_seo_strategy.jpg')
+    normalized['imageUrl'] = image_url
+
+    raw_gallery = normalized.get('gallery')
+    raw_gallery = raw_gallery if isinstance(raw_gallery, list) else []
+    gallery = [img for img in raw_gallery if isinstance(img, str) and img.strip()]
+    if image_url and image_url not in gallery:
+        gallery.insert(0, image_url)
+    normalized['gallery'] = list(dict.fromkeys(gallery))
+
+    related = [
+        p for p in ALL_PROJECTS
+        if p.get('id') != project_id and p.get('categoryId', '').lower() == normalized.get('categoryId', '').lower()
+    ][:3]
+
+    return render_template('project.html', p=normalized, related_projects=related)
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'GET':
