@@ -150,19 +150,13 @@
         "challenge": "The brand had strong products but low search visibility and relied heavily on paid ads for traffic.",
         "solution": "Executed a full-scale SEO strategy including technical audits, content clusters, and high-authority backlink campaigns.",
         "outcome": "Organic traffic grew by 280%, and dependency on paid ads reduced significantly, lowering CAC by 35%.",
-        "imageUrl": "/static/images/projects/Marketing/national_seo_strategy.jpg",
+        "imageUrl": "/static/images/projects/Marketing/seo_analytics_dashboard.png",
         "cardIcon": "bi-graph-up-arrow",
         "cardGradient": "linear-gradient(135deg, #ffc107, #d39e00)",
         "gallery": [
-            "/static/images/projects/Marketing/b2b_lead_gen_campaign.jpg",
-            "/static/images/projects/Marketing/cloud_native_system.jpg",
-            "/static/images/projects/Marketing/integrated_ecosystem.jpg",
-            "/static/images/projects/Marketing/intelligent_tracker.jpg",
-            "/static/images/projects/Marketing/national_seo_strategy.jpg",
-            "/static/images/projects/Marketing/robust_network.jpg",
-            "/static/images/projects/Marketing/scalabale_assistant.jpg",
-            "/static/images/projects/Marketing/scalable_system.jpg",
-            "/static/images/projects/Marketing/viral_social_media_core.jpg"
+            "/static/images/projects/Marketing/seo_analytics_dashboard.png",
+            "/static/images/projects/Marketing/google_search_ranking.png",
+            "/static/images/projects/Marketing/google_ads_dashboard.png"
         ]
     },
     {
@@ -179,14 +173,12 @@
         "challenge": "The brand struggled to engage younger audiences and had minimal social media presence.",
         "solution": "Launched a short-form video strategy on Instagram Reels and YouTube Shorts with trend-based content and influencer collaborations.",
         "outcome": "Follower base grew by 5x, and online orders increased by 70% during campaign period.",
-        "imageUrl": "/static/images/projects/Marketing/viral_social_cover.png",
+        "imageUrl": "/static/images/projects/Marketing/instagram_profile_mockup.png",
         "cardIcon": "bi-instagram",
         "cardGradient": "linear-gradient(135deg, #e83e8c, #c2185b)",
         "gallery": [
-            "/static/images/projects/Marketing/viral_social_cover.png",
-            "/static/images/projects/Marketing/social_profiles_mockup.png",
-            "/static/images/projects/Marketing/analytics_dash_mockup.png",
-            "/static/images/projects/Marketing/ad_manager_mockup.png"
+            "/static/images/projects/Marketing/instagram_profile_mockup.png",
+            "/static/images/projects/Marketing/social_media_analytics.png"
         ]
     },
     {
