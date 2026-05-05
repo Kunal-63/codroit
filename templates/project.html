@@ -15,7 +15,7 @@
 <section class="pb-5">
     <div class="container">
         <div class="project-cover-card">
-            <img src="{{ p.imageUrl }}" alt="{{ p.title }}" class="project-cover-image">
+            <img src="{{ p.imageUrl }}" alt="{{ p.title }}" class="project-cover-image" fetchpriority="high">
         </div>
     </div>
 </section>
@@ -79,7 +79,7 @@
                             <div class="project-gallery-list">
                                 {% for img in p.gallery %}
                                 <a href="{{ img }}" class="project-gallery-item" target="_blank" rel="noopener noreferrer">
-                                    <img src="{{ img }}" alt="{{ p.title }} gallery image {{ loop.index }}">
+                                    <img src="{{ img }}" alt="{{ p.title }} gallery image {{ loop.index }}" loading="lazy">
                                 </a>
                                 {% endfor %}
                             </div>
@@ -109,7 +109,7 @@
             <div class="col-md-6 col-xl-4">
                 <article class="related-case-card h-100">
                     <a href="/project/{{ rp.id }}" class="related-case-image-wrap">
-                        <img src="{{ rp.imageUrl }}" alt="{{ rp.title }}">
+                        <img src="{{ rp.imageUrl }}" alt="{{ rp.title }}" loading="lazy">
                     </a>
                     <div class="related-case-body">
                         <span class="badge bg-light text-secondary border rounded-pill px-2 py-1 fw-semibold mb-2">{{ rp.badgeName }}</span>

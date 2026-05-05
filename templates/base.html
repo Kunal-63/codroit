@@ -19,6 +19,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@200;300;400;500&display=swap" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@200;300;400;500&display=swap"
       rel="stylesheet"
@@ -31,6 +34,8 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      media="print"
+      onload="this.media='all'"
     />
 
     <!-- Custom Modular CSS -->
@@ -66,6 +71,9 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/cta_footer.css') }}"
     />
+
+    <!-- Preload Critical Assets -->
+    <link rel="preload" as="image" href="{{ url_for('static', filename='images/Logo.png') }}" />
   </head>
 
   <body>
@@ -85,6 +93,7 @@
             height="40"
             class="me-2"
             alt="Codroit Logo"
+            fetchpriority="high"
           />
         </a>
         <button
@@ -138,6 +147,7 @@
                 height="40"
                 class="me-2"
                 alt="Codroit Logo"
+                loading="lazy"
               />
             </a>
             <p class="text-muted">

@@ -559,7 +559,7 @@
                         <div class="portfolio-card-thumb c-pointer rounded-5 shadow-lg overflow-hidden position-relative has-real-image" 
                              style="background: ${p.cardGradient}; aspect-ratio: 4/3; transform: translateZ(0);"
                              onclick="window.location.href='/project/' + ${p.id}">
-                            <img src="${p.imageUrl}" alt="${p.title}" class="portfolio-thumb-img w-100 h-100 object-fit-cover" style="opacity: 0.9;">
+                            <img src="${p.imageUrl}" alt="${p.title}" class="portfolio-thumb-img w-100 h-100 object-fit-cover" style="opacity: 0.9;" loading="lazy">
                             <div class="portfolio-thumb-overlay" style="background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6) 100%);"></div>
                             <span class="portfolio-card-badge badge bg-${p.badgeColor} ${textDark} rounded-pill px-3 py-2 fw-semibold position-absolute top-0 start-0 m-3 shadow-sm" style="z-index: 10;">${p.badgeName}</span>
                             <div class="position-absolute bottom-0 start-0 m-4 z-3 text-white text-uppercase tracking-wider small fw-bold d-flex align-items-center gap-2">

@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         targetMouse.x = e.clientX;
         targetMouse.y = e.clientY;
         mouse.moving = true;
-    });
+    }, { passive: true });
 
     const particles = [];
     const colors = ['#034CAE']; // Single vibrant blue color
@@ -106,8 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Initialize array of particles (increased count)
-    for (let i = 0; i < 200; i++) {
+    // Initialize array of particles
+    const particleCount = window.innerWidth < 768 ? 40 : 80;
+    for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle());
     }
 
@@ -180,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 navbar.classList.remove('scrolled');
             }
-        });
+        }, { passive: true });
     }
 
     // Sleeping Video Cursor Logic
