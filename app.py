@@ -327,6 +327,67 @@ def subscribe():
 def logo():
     return send_from_directory(os.path.dirname(os.path.abspath(__file__)), 'Logo.svg')
 
+@app.route('/sitemap.xml')
+def sitemap():
+    """Generate sitemap.xml for Google Search Console"""
+    from datetime import datetime
+    
+    base_url = "https://codroit.in"  # Change this to your actual domain
+    
+    # Static URLs
+    urls = [
+        {"loc": f"{base_url}/", "priority": "1.0", "changefreq": "weekly"},
+        {"loc": f"{base_url}/services", "priority": "0.9", "changefreq": "monthly"},
+        {"loc": f"{base_url}/about", "priority": "0.8", "changefreq": "monthly"},
+        {"loc": f"{base_url}/portfolio", "priority": "0.9", "changefreq": "weekly"},
+        {"loc": f"{base_url}/contact", "priority": "0.7", "changefreq": "monthly"},
+        {"loc": f"{base_url}/careers", "priority": "0.8", "changefreq": "weekly"},
+        {"loc": f"{base_url}/blogs", "priority": "0.9", "changefreq": "daily"},
+    ]
+    
+    # Dynamic project URLs
+    try:
+        if db:
+            projects = db.projects.find({}, {"id": 1})
+            for project in projects:
+                urls.append({
+                    "loc": f"{base_url}/project/{project['id']}",
+                    "priority": "0.7",
+                    "changefreq": "monthly"
+                })
+    except Exception:
+        pass  # Skip if database is not available
+    
+    # Dynamic blog URLs
+    try:
+        if db:
+            blogs = db.blogs.find({}, {"_id": 1})
+            for blog in blogs:
+                urls.append({
+                    "loc": f"{base_url}/blog/{blog['_id']}",
+                    "priority": "0.6",
+                    "changefreq": "weekly"
+                })
+    except Exception:
+        pass  # Skip if database is not available
+    
+    # Generate XML
+    xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    
+    for url in urls:
+        xml_content += '  <url>\n'
+        xml_content += f'    <loc>{url["loc"]}</loc>\n'
+        xml_content += f'    <priority>{url["priority"]}</priority>\n'
+        xml_content += f'    <changefreq>{url["changefreq"]}</changefreq>\n'
+        xml_content += f'    <lastmod>{datetime.now().strftime("%Y-%m-%d")}</lastmod>\n'
+        xml_content += '  </url>\n'
+    
+    xml_content += '</urlset>'
+    
+    response = app.response_class(xml_content, mimetype='application/xml')
+    return response
+
 @app.route('/api/projects')
 def api_projects():
     ensure_db()
