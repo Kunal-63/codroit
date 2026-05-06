@@ -39,9 +39,11 @@
                         </div>
                         <p class="card-text text-muted mt-3 mb-4 flex-grow-1" style="line-height: 1.6;">{{
                             job.description }}</p>
-                        <a href="mailto:careers@codroit.com?subject=Application for {{ job.title }}"
-                            class="btn btn-outline-primary rounded-pill mt-auto py-2 px-4 shadow-sm"
-                            style="max-width: 150px; font-weight: 500;">Apply Now</a>
+                        
+                        <p class="text-primary fw-medium mb-0 small">
+                            <i class="bi bi-envelope me-2"></i>
+                            Mail to: <a href="mailto:contact.codroit@gmail.com?subject={{ job.title }} Application" class="text-primary text-decoration-underline">contact.codroit@gmail.com</a> with subject "{{ job.title }} Application"
+                        </p>
                     </div>
                 </div>
             </div>
