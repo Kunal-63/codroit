@@ -4,14 +4,52 @@ import math
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from flask import Flask, render_template, send_from_directory, request, jsonify
+from flask import Flask, render_template, send_from_directory, request, jsonify, session, redirect, url_for
+from pymongo import MongoClient
+from bson.objectid import ObjectId
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
+app.secret_key = os.environ.get('SECRET_KEY')
 
-# Load projects once at startup
-_PROJECTS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static', 'projects.json')
-with open(_PROJECTS_PATH, 'r', encoding='utf-8') as _f:
-    ALL_PROJECTS = json.load(_f)
+# Connect to MongoDB
+MONGODB_URI = os.environ.get("MONGODB_URI")
+MONGO_DB_NAME = os.environ.get("MONGO_DB_NAME", "codroit")
+client = None
+db = None
+
+def init_db_connection():
+    global client, db
+    if not MONGODB_URI:
+        print("[MongoDB] Warning: MONGODB_URI is not set. MongoDB access is disabled.")
+        return
+
+    try:
+        client = MongoClient(
+            MONGODB_URI,
+            serverSelectionTimeoutMS=5000,
+            connectTimeoutMS=5000,
+            socketTimeoutMS=5000,
+        )
+        client.admin.command("ping")
+        try:
+            db = client.get_database()
+        except Exception:
+            db = client[MONGO_DB_NAME]
+        print("[MongoDB] Connected successfully.")
+    except Exception as exc:
+        print(f"[MongoDB] Connection failed: {exc}")
+        client = None
+        db = None
+
+init_db_connection()
+
+def ensure_db():
+    if db is None:
+        from flask import abort
+        abort(503, description="MongoDB is unavailable. Please start MongoDB or set MONGO_URI.")
 
 # ─── Gmail SMTP Config ───────────────────────────────────────────────────────
 # Set these environment variables before running the app:
@@ -46,7 +84,8 @@ def portfolio():
 
 @app.route('/project/<int:project_id>')
 def project(project_id):
-    project = next((p for p in ALL_PROJECTS if p.get('id') == project_id), None)
+    ensure_db()
+    project = db.projects.find_one({'id': project_id})
     if not project:
         from flask import abort
         abort(404)
@@ -55,7 +94,7 @@ def project(project_id):
         text = (value or '').strip() if isinstance(value, str) else ''
         return text if text else fallback
 
-    normalized = dict(project)
+    normalized = dict(project) # type: ignore
     normalized['service'] = _clean_text(normalized.get('service'), 'Project Delivery')
     normalized['title'] = _clean_text(normalized.get('title'), 'Case Study')
     normalized['badgeName'] = _clean_text(normalized.get('badgeName'), 'Case Study')
@@ -79,10 +118,10 @@ def project(project_id):
         gallery.insert(0, image_url)
     normalized['gallery'] = list(dict.fromkeys(gallery))
 
-    related = [
-        p for p in ALL_PROJECTS
-        if p.get('id') != project_id and p.get('categoryId', '').lower() == normalized.get('categoryId', '').lower()
-    ][:3]
+    related = list(db.projects.find({
+        'id': {'$ne': project_id},
+        'categoryId': {'$regex': f"^{normalized.get('categoryId', '')}$", '$options': 'i'}
+    }).limit(3))
 
     return render_template('project.html', p=normalized, related_projects=related)
 
@@ -262,10 +301,8 @@ https://codroit.in
 
 @app.route('/careers')
 def careers():
-    careers_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static', 'careers.json')
     try:
-        with open(careers_path, 'r', encoding='utf-8') as f:
-            openings = json.load(f)
+        openings = list(db.careers.find({}))
     except Exception:
         openings = []
     return render_template('careers.html', openings=openings)
@@ -276,20 +313,12 @@ def subscribe():
     if not email:
         return jsonify({"status": "error", "message": "Email is required"}), 400
         
-    subs_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static', 'subscribers.json')
     try:
-        if os.path.exists(subs_path):
-            with open(subs_path, 'r', encoding='utf-8') as f:
-                subs = json.load(f)
-        else:
-            subs = []
+        existing = db.subscribers.find_one({"email": email})
+        if not existing:
+            db.subscribers.insert_one({"email": email})
     except Exception:
-        subs = []
-        
-    if email not in subs:
-        subs.append(email)
-        with open(subs_path, 'w', encoding='utf-8') as f:
-            json.dump(subs, f, indent=4)
+        pass
             
     return jsonify({"status": "success", "message": "Subscribed successfully"}), 200
 
@@ -300,22 +329,21 @@ def logo():
 
 @app.route('/api/projects')
 def api_projects():
+    ensure_db()
     category  = request.args.get('category', 'all').strip().lower()
     page      = max(1, int(request.args.get('page', 1)))
     per_page  = max(1, int(request.args.get('per_page', 6)))
 
-    # Filter
-    if category == 'all':
-        filtered = ALL_PROJECTS
-    else:
-        filtered = [p for p in ALL_PROJECTS if p.get('categoryId', '').lower() == category]
+    query = {}
+    if category != 'all':
+        query['categoryId'] = {'$regex': f"^{category}$", '$options': 'i'}
 
-    total      = len(filtered)
+    total = db.projects.count_documents(query)
     total_pages = max(1, math.ceil(total / per_page))
-    page       = min(page, total_pages)   # clamp so stale page never exceeds total
+    page = min(page, total_pages)
 
     start = (page - 1) * per_page
-    items = filtered[start: start + per_page]
+    items = list(db.projects.find(query, {'_id': 0}).skip(start).limit(per_page))
 
     return jsonify({
         'items':       items,
@@ -327,30 +355,130 @@ def api_projects():
 
 @app.route('/api/projects/summary')
 def api_projects_summary():
-    """Returns total count and total_pages for every category + 'all'."""
+    ensure_db()
     per_page = max(1, int(request.args.get('per_page', 6)))
 
-    # Collect unique categories
-    categories = {}
-    for p in ALL_PROJECTS:
-        cid = p.get('categoryId', '').lower()
-        categories[cid] = categories.get(cid, 0) + 1
+    pipeline = [
+        {"$group": {"_id": {"$toLower": "$categoryId"}, "count": {"$sum": 1}}}
+    ]
+    categories = list(db.projects.aggregate(pipeline))
 
     result = {}
-    # 'all' entry
-    total_all = len(ALL_PROJECTS)
+    total_all = db.projects.count_documents({})
     result['all'] = {
         'count':       total_all,
         'total_pages': max(1, math.ceil(total_all / per_page)),
     }
-    # per-category entries
-    for cid, count in categories.items():
-        result[cid] = {
-            'count':       count,
-            'total_pages': max(1, math.ceil(count / per_page)),
-        }
+    
+    for cat in categories:
+        cid = cat['_id']
+        count = cat['count']
+        if cid:
+            result[cid] = {
+                'count':       count,
+                'total_pages': max(1, math.ceil(count / per_page)),
+            }
 
     return jsonify(result)
+
+@app.route('/blogs')
+def blogs():
+    ensure_db()
+    blogs_list = list(db.blogs.find({}).sort("date", -1))
+    return render_template('blogs.html', blogs=blogs_list)
+
+@app.route('/blog/<blog_id>')
+def blog(blog_id):
+    ensure_db()
+    try:
+        blog_data = db.blogs.find_one({"_id": ObjectId(blog_id)})
+    except:
+        blog_data = None
+    if not blog_data:
+        from flask import abort
+        abort(404)
+    return render_template('blog.html', blog=blog_data)
+
+@app.route('/admin/login', methods=['GET', 'POST'])
+def admin_login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        admin_user = os.environ.get('ADMIN_USER', 'admin')
+        admin_pass = os.environ.get('ADMIN_PASS', 'admin123')
+        if username == admin_user and password == admin_pass:
+            session['admin_logged_in'] = True
+            return redirect(url_for('admin_blogs'))
+        return render_template('admin_login.html', error="Invalid credentials")
+    return render_template('admin_login.html')
+
+@app.route('/admin/logout')
+def admin_logout():
+    session.pop('admin_logged_in', None)
+    return redirect(url_for('home'))
+
+@app.route('/admin/blogs', methods=['GET', 'POST'])
+def admin_blogs():
+    if not session.get('admin_logged_in'):
+        return redirect(url_for('admin_login'))
+    ensure_db()
+    
+    if request.method == 'POST':
+        title = request.form.get('title')
+        author = request.form.get('author')
+        date = request.form.get('date')
+        cover_image = request.form.get('cover_image')
+        db.blogs.insert_one({
+            "title": title,
+            "author": author,
+            "date": date,
+            "cover_image": cover_image,
+            "sections": [] 
+        })
+        return redirect(url_for('admin_blogs'))
+        
+    blogs_list = list(db.blogs.find({}).sort("date", -1))
+    return render_template('admin_blogs.html', blogs=blogs_list)
+
+@app.route('/admin/blog/<blog_id>/delete', methods=['POST'])
+def delete_blog(blog_id):
+    if not session.get('admin_logged_in'):
+        return redirect(url_for('admin_login'))
+    ensure_db()
+    db.blogs.delete_one({"_id": ObjectId(blog_id)})
+    return redirect(url_for('admin_blogs'))
+
+@app.route('/admin/careers', methods=['GET', 'POST'])
+def admin_careers():
+    if not session.get('admin_logged_in'):
+        return redirect(url_for('admin_login'))
+    ensure_db()
+    
+    if request.method == 'POST':
+        title = request.form.get('title')
+        department = request.form.get('department')
+        location = request.form.get('location')
+        job_type = request.form.get('type')
+        description = request.form.get('description')
+        db.careers.insert_one({
+            "title": title,
+            "department": department,
+            "location": location,
+            "type": job_type,
+            "description": description
+        })
+        return redirect(url_for('admin_careers'))
+        
+    careers_list = list(db.careers.find({}))
+    return render_template('admin_careers.html', careers=careers_list)
+
+@app.route('/admin/career/<career_id>/delete', methods=['POST'])
+def delete_career(career_id):
+    if not session.get('admin_logged_in'):
+        return redirect(url_for('admin_login'))
+    ensure_db()
+    db.careers.delete_one({"_id": ObjectId(career_id)})
+    return redirect(url_for('admin_careers'))
 
 @app.errorhandler(404)
 def page_not_found(e):
