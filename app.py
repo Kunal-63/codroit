@@ -370,14 +370,23 @@ def sitemap():
     # Dynamic blog URLs
     try:
         if db:
-            blogs = db.blogs.find({}, {"_id": 1, "slug": 1})
+            blogs = db.blogs.find({}, {"_id": 1, "slug": 1, "updated_at": 1, "date": 1})
             for blog in blogs:
                 # Use slug if available, otherwise fallback to _id
-                identifier = blog.get('slug', blog['_id'])
+                identifier = blog.get('slug') or str(blog['_id'])
+                
+                # Try to determine the last modification date
+                lastmod_val = blog.get('updated_at') or blog.get('date')
+                if lastmod_val and 'T' in lastmod_val:
+                    lastmod_val = lastmod_val.split('T')[0]
+                elif not lastmod_val:
+                    lastmod_val = datetime.now().strftime("%Y-%m-%d")
+                    
                 urls.append({
                     "loc": f"{base_url}/blog/{identifier}",
                     "priority": "0.6",
-                    "changefreq": "weekly"
+                    "changefreq": "weekly",
+                    "lastmod": lastmod_val
                 })
     except Exception:
         pass  # Skip if database is not available
@@ -391,7 +400,8 @@ def sitemap():
         xml_content += f'    <loc>{url["loc"]}</loc>\n'
         xml_content += f'    <priority>{url["priority"]}</priority>\n'
         xml_content += f'    <changefreq>{url["changefreq"]}</changefreq>\n'
-        xml_content += f'    <lastmod>{datetime.now().strftime("%Y-%m-%d")}</lastmod>\n'
+        last_mod = url.get("lastmod", datetime.now().strftime("%Y-%m-%d"))
+        xml_content += f'    <lastmod>{last_mod}</lastmod>\n'
         xml_content += '  </url>\n'
     
     xml_content += '</urlset>'
