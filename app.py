@@ -486,9 +486,9 @@ def admin_logout():
     session.pop('admin_logged_in', None)
     return redirect(url_for('home'))
 
+import base64
+
 # ── Image Upload with Pillow compression ──────────────────────────────────────
-BLOG_IMG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static', 'images', 'blog')
-os.makedirs(BLOG_IMG_DIR, exist_ok=True)
 
 @app.route('/admin/upload-image', methods=['POST'])
 def upload_image():
@@ -501,11 +501,8 @@ def upload_image():
     original_bytes = len(file.read())
     file.seek(0)
 
-    filename = f"{uuid.uuid4().hex}.webp"
-    save_path = os.path.join(BLOG_IMG_DIR, filename)
-
-    if PIL_AVAILABLE:
-        try:
+    try:
+        if PIL_AVAILABLE:
             img = PilImage.open(file)
             # Convert to RGB (handles PNG transparency etc.)
             if img.mode in ('RGBA', 'P', 'LA'):
@@ -522,21 +519,28 @@ def upload_image():
             if max(w, h) > max_px:
                 ratio = max_px / max(w, h)
                 img = img.resize((int(w * ratio), int(h * ratio)), PilImage.LANCZOS)
-            # Save as WebP quality 72
-            img.save(save_path, 'WEBP', quality=72, optimize=True)
-        except Exception as exc:
-            return jsonify({'error': f'Image processing failed: {exc}'}), 500
-    else:
-        # Fallback: save raw
-        file.seek(0)
-        file.save(save_path)
+            
+            # Save to BytesIO as WebP
+            buffer = io.BytesIO()
+            img.save(buffer, format="WEBP", quality=72, optimize=True)
+            compressed_bytes = buffer.tell()
+            b64_data = base64.b64encode(buffer.getvalue()).decode('utf-8')
+            url = f"data:image/webp;base64,{b64_data}"
+        else:
+            # Fallback: encode original file
+            file.seek(0)
+            file_data = file.read()
+            compressed_bytes = len(file_data)
+            b64_data = base64.b64encode(file_data).decode('utf-8')
+            mime_type = file.content_type or 'image/jpeg'
+            url = f"data:{mime_type};base64,{b64_data}"
 
-    compressed_bytes = os.path.getsize(save_path)
-    savings = max(0, round((1 - compressed_bytes / max(original_bytes, 1)) * 100))
-    size_kb = round(compressed_bytes / 1024, 1)
+        savings = max(0, round((1 - compressed_bytes / max(original_bytes, 1)) * 100))
+        size_kb = round(compressed_bytes / 1024, 1)
 
-    url = f'/static/images/blog/{filename}'
-    return jsonify({'url': url, 'size_kb': size_kb, 'savings': savings})
+        return jsonify({'url': url, 'size_kb': size_kb, 'savings': savings})
+    except Exception as exc:
+        return jsonify({'error': f'Image processing failed: {exc}'}), 500
 
 
 # ── Admin: Blogs List ──────────────────────────────────────────────────────────

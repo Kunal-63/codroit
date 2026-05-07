@@ -230,7 +230,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
 <script>
 // ── Existing data ────────────────────────────────────────────
-const EXISTING_SECTIONS = {{ (blog.sections | tojson) if blog and blog.sections else '[]' }};
+const EXISTING_SECTIONS = {{ (blog.sections if blog and blog.sections else []) | tojson }};
 const BLOG_ID = "{{ blog._id if blog else '' }}";
 
 // ── Toast ────────────────────────────────────────────────────
