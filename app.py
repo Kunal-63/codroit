@@ -1,13 +1,21 @@
 import os
+import io
 import json
 import math
+import uuid
 import smtplib
+from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from flask import Flask, render_template, send_from_directory, request, jsonify, session, redirect, url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from dotenv import load_dotenv
+try:
+    from PIL import Image as PilImage
+    PIL_AVAILABLE = True
+except ImportError:
+    PIL_AVAILABLE = False
 
 load_dotenv()
 
@@ -478,35 +486,148 @@ def admin_logout():
     session.pop('admin_logged_in', None)
     return redirect(url_for('home'))
 
-@app.route('/admin/blogs', methods=['GET', 'POST'])
+# ── Image Upload with Pillow compression ──────────────────────────────────────
+BLOG_IMG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static', 'images', 'blog')
+os.makedirs(BLOG_IMG_DIR, exist_ok=True)
+
+@app.route('/admin/upload-image', methods=['POST'])
+def upload_image():
+    if not session.get('admin_logged_in'):
+        return jsonify({'error': 'unauthorized'}), 401
+    file = request.files.get('image')
+    if not file:
+        return jsonify({'error': 'no file'}), 400
+
+    original_bytes = len(file.read())
+    file.seek(0)
+
+    filename = f"{uuid.uuid4().hex}.webp"
+    save_path = os.path.join(BLOG_IMG_DIR, filename)
+
+    if PIL_AVAILABLE:
+        try:
+            img = PilImage.open(file)
+            # Convert to RGB (handles PNG transparency etc.)
+            if img.mode in ('RGBA', 'P', 'LA'):
+                bg = PilImage.new('RGB', img.size, (255, 255, 255))
+                if img.mode == 'P':
+                    img = img.convert('RGBA')
+                bg.paste(img, mask=img.split()[-1] if img.mode == 'RGBA' else None)
+                img = bg
+            elif img.mode != 'RGB':
+                img = img.convert('RGB')
+            # Resize: max 1200px on longest side
+            max_px = 1200
+            w, h = img.size
+            if max(w, h) > max_px:
+                ratio = max_px / max(w, h)
+                img = img.resize((int(w * ratio), int(h * ratio)), PilImage.LANCZOS)
+            # Save as WebP quality 72
+            img.save(save_path, 'WEBP', quality=72, optimize=True)
+        except Exception as exc:
+            return jsonify({'error': f'Image processing failed: {exc}'}), 500
+    else:
+        # Fallback: save raw
+        file.seek(0)
+        file.save(save_path)
+
+    compressed_bytes = os.path.getsize(save_path)
+    savings = max(0, round((1 - compressed_bytes / max(original_bytes, 1)) * 100))
+    size_kb = round(compressed_bytes / 1024, 1)
+
+    url = f'/static/images/blog/{filename}'
+    return jsonify({'url': url, 'size_kb': size_kb, 'savings': savings})
+
+
+# ── Admin: Blogs List ──────────────────────────────────────────────────────────
+@app.route('/admin/blogs')
 def admin_blogs():
     if not session.get('admin_logged_in'):
         return redirect(url_for('admin_login'))
     ensure_db()
-    
-    if request.method == 'POST':
-        title = request.form.get('title')
-        author = request.form.get('author')
-        date = request.form.get('date')
-        cover_image = request.form.get('cover_image')
-        db.blogs.insert_one({
-            "title": title,
-            "author": author,
-            "date": date,
-            "cover_image": cover_image,
-            "sections": [] 
-        })
-        return redirect(url_for('admin_blogs'))
-        
-    blogs_list = list(db.blogs.find({}).sort("date", -1))
+    blogs_list = list(db.blogs.find({}).sort('date', -1))
     return render_template('admin_blogs.html', blogs=blogs_list)
 
+
+# ── Admin: New Blog (editor) ───────────────────────────────────────────────────
+@app.route('/admin/blog/new')
+def admin_blog_new():
+    if not session.get('admin_logged_in'):
+        return redirect(url_for('admin_login'))
+    return render_template('admin_blog_editor.html', blog=None)
+
+
+# ── Admin: Edit Blog ───────────────────────────────────────────────────────────
+@app.route('/admin/blog/<blog_id>/edit')
+def admin_blog_edit(blog_id):
+    if not session.get('admin_logged_in'):
+        return redirect(url_for('admin_login'))
+    ensure_db()
+    try:
+        blog = db.blogs.find_one({'_id': ObjectId(blog_id)})
+    except Exception:
+        blog = None
+    if not blog:
+        return redirect(url_for('admin_blogs'))
+    return render_template('admin_blog_editor.html', blog=blog)
+
+
+# ── Admin: Create Blog (JSON POST from editor) ─────────────────────────────────
+@app.route('/admin/blog/create', methods=['POST'])
+def admin_blog_create():
+    if not session.get('admin_logged_in'):
+        return jsonify({'error': 'unauthorized'}), 401
+    ensure_db()
+    data = request.get_json()
+    if not data:
+        return jsonify({'error': 'no data'}), 400
+    doc = {
+        'title':       (data.get('title') or '').strip(),
+        'author':      (data.get('author') or '').strip(),
+        'date':        (data.get('date') or '').strip(),
+        'category':    (data.get('category') or '').strip(),
+        'excerpt':     (data.get('excerpt') or '').strip(),
+        'cover_image': (data.get('cover_image') or '').strip(),
+        'sections':    data.get('sections', []),
+        'created_at':  datetime.utcnow().isoformat(),
+    }
+    result = db.blogs.insert_one(doc)
+    return jsonify({'status': 'ok', 'id': str(result.inserted_id)})
+
+
+# ── Admin: Update Blog (JSON POST from editor) ─────────────────────────────────
+@app.route('/admin/blog/<blog_id>/update', methods=['POST'])
+def admin_blog_update(blog_id):
+    if not session.get('admin_logged_in'):
+        return jsonify({'error': 'unauthorized'}), 401
+    ensure_db()
+    data = request.get_json()
+    if not data:
+        return jsonify({'error': 'no data'}), 400
+    update = {
+        'title':       (data.get('title') or '').strip(),
+        'author':      (data.get('author') or '').strip(),
+        'date':        (data.get('date') or '').strip(),
+        'category':    (data.get('category') or '').strip(),
+        'excerpt':     (data.get('excerpt') or '').strip(),
+        'cover_image': (data.get('cover_image') or '').strip(),
+        'sections':    data.get('sections', []),
+        'updated_at':  datetime.utcnow().isoformat(),
+    }
+    try:
+        db.blogs.update_one({'_id': ObjectId(blog_id)}, {'$set': update})
+    except Exception as exc:
+        return jsonify({'error': str(exc)}), 500
+    return jsonify({'status': 'ok'})
+
+
+# ── Admin: Delete Blog ─────────────────────────────────────────────────────────
 @app.route('/admin/blog/<blog_id>/delete', methods=['POST'])
 def delete_blog(blog_id):
     if not session.get('admin_logged_in'):
         return redirect(url_for('admin_login'))
     ensure_db()
-    db.blogs.delete_one({"_id": ObjectId(blog_id)})
+    db.blogs.delete_one({'_id': ObjectId(blog_id)})
     return redirect(url_for('admin_blogs'))
 
 @app.route('/admin/careers', methods=['GET', 'POST'])

@@ -23,10 +23,18 @@
 
         <!-- Article Header -->
         <div class="fade-up-scroll mb-5">
-          <span class="badge bg-primary-subtle text-primary rounded-pill px-4 py-2 mb-4 fs-6 fw-semibold d-inline-block">
+          {% if blog.category %}
+          <span class="badge bg-success-subtle text-success rounded-pill px-3 py-2 mb-3 fs-6 d-inline-block">
+            <i class="bi bi-tag me-1"></i>{{ blog.category }}
+          </span>
+          {% endif %}
+          <span class="badge bg-primary-subtle text-primary rounded-pill px-4 py-2 mb-4 fs-6 fw-semibold d-inline-block ms-2">
             <i class="bi bi-calendar3 me-1"></i>{{ blog.date }}
           </span>
           <h1 class="display-4 fw-bold mb-4" style="line-height: 1.2;">{{ blog.title }}</h1>
+          {% if blog.excerpt %}
+          <p class="lead text-muted mb-4">{{ blog.excerpt }}</p>
+          {% endif %}
           <div class="d-flex align-items-center gap-4">
             <div class="d-flex align-items-center gap-2">
               <div class="icon-circle" style="width: 44px; height: 44px; font-size: 1.2rem;">
@@ -57,19 +65,40 @@
           {% for section in blog.sections %}
             {% if section.type == 'text' %}
               <p class="mb-4 text-muted" style="font-size: 1.05rem; line-height: 1.85;">{{ section.content }}</p>
+            {% elif section.type == 'heading' %}
+              <h2 class="fw-bold mt-5 mb-3" style="font-size: 1.55rem; color: var(--color-text-dark);">{{ section.content }}</h2>
             {% elif section.type == 'image' %}
               <div class="my-5 text-center">
                 <div class="overflow-hidden" style="border-radius: 20px; box-shadow: 0 15px 40px rgba(3,76,174,0.1);">
-                  <img src="{{ section.content }}" class="img-fluid w-100" alt="Blog Image" style="object-fit: cover;">
+                  <img src="{{ section.imageUrl or section.content }}" class="img-fluid w-100" alt="Blog Image" style="object-fit: cover;">
                 </div>
               </div>
             {% elif section.type == 'quote' %}
               <figure class="my-5 px-5 py-4 position-relative" style="border-left: 4px solid var(--color-primary-vibrant); background: rgba(3,76,174,0.04); border-radius: 0 16px 16px 0;">
                 <i class="bi bi-quote display-4 text-primary opacity-25 position-absolute" style="top: -10px; left: 16px;"></i>
                 <blockquote class="blockquote mb-0 ps-4">
-                  <p class="fs-4 fst-italic fw-medium text-dark" style="line-height: 1.6;">"{{ section.content }}"</p>
+                  <p class="fs-4 fst-italic fw-medium text-dark" style="line-height: 1.6;">&ldquo;{{ section.content }}&rdquo;</p>
                 </blockquote>
               </figure>
+            {% elif section.type == 'code' %}
+              <div class="my-4" style="border-radius: 14px; overflow: hidden; background: #1e1e2e; box-shadow: 0 8px 24px rgba(0,0,0,.18);">
+                <div class="px-4 py-2 d-flex align-items-center gap-2" style="background:#2a2a3d;">
+                  <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+                  <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
+                  <span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:inline-block;"></span>
+                  <span class="text-muted small ms-2" style="font-family:monospace;">code</span>
+                </div>
+                <pre class="mb-0 p-4" style="color:#e2e8f0;font-size:.88rem;line-height:1.7;overflow-x:auto;font-family:monospace;">{{ section.content }}</pre>
+              </div>
+            {% elif section.type == 'list' %}
+              <ul class="mb-4 ps-3" style="line-height: 2;">
+                {% for item in section.content.split('\n') %}
+                  {% set clean = item.lstrip('- ').strip() %}
+                  {% if clean %}
+                  <li class="text-muted">{{ clean }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
             {% endif %}
           {% endfor %}
         </div>
