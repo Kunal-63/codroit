@@ -42,7 +42,7 @@
               </span>
             </div>
             <h5 class="fw-bold mb-3 flex-grow-1" style="line-height: 1.4;">{{ blog.title }}</h5>
-            <a href="/blog/{{ blog._id }}" class="btn btn-outline-primary rounded-pill w-100 mt-auto" style="font-weight: 600;">
+            <a href="/blog/{{ blog.slug or blog._id }}" class="btn btn-outline-primary rounded-pill w-100 mt-auto" style="font-weight: 600;">
               Read Article <i class="bi bi-arrow-right ms-2"></i>
             </a>
           </div>

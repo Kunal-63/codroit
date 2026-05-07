@@ -4,6 +4,7 @@ import json
 import math
 import uuid
 import smtplib
+import re
 from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -369,10 +370,12 @@ def sitemap():
     # Dynamic blog URLs
     try:
         if db:
-            blogs = db.blogs.find({}, {"_id": 1})
+            blogs = db.blogs.find({}, {"_id": 1, "slug": 1})
             for blog in blogs:
+                # Use slug if available, otherwise fallback to _id
+                identifier = blog.get('slug', blog['_id'])
                 urls.append({
-                    "loc": f"{base_url}/blog/{blog['_id']}",
+                    "loc": f"{base_url}/blog/{identifier}",
                     "priority": "0.6",
                     "changefreq": "weekly"
                 })
@@ -456,13 +459,17 @@ def blogs():
     blogs_list = list(db.blogs.find({}).sort("date", -1))
     return render_template('blogs.html', blogs=blogs_list)
 
-@app.route('/blog/<blog_id>')
-def blog(blog_id):
+@app.route('/blog/<slug>')
+def blog(slug):
     ensure_db()
-    try:
-        blog_data = db.blogs.find_one({"_id": ObjectId(blog_id)})
-    except:
-        blog_data = None
+    # Try to find by slug first, fallback to ObjectId if slug matches id pattern
+    blog_data = db.blogs.find_one({"slug": slug})
+    if not blog_data:
+        try:
+            blog_data = db.blogs.find_one({"_id": ObjectId(slug)})
+        except:
+            pass
+            
     if not blog_data:
         from flask import abort
         abort(404)
@@ -585,8 +592,18 @@ def admin_blog_create():
     data = request.get_json()
     if not data:
         return jsonify({'error': 'no data'}), 400
+        
+    title = (data.get('title') or '').strip()
+    base_slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
+    slug = base_slug
+    counter = 1
+    while db.blogs.find_one({'slug': slug}):
+        slug = f"{base_slug}-{counter}"
+        counter += 1
+        
     doc = {
-        'title':       (data.get('title') or '').strip(),
+        'title':       title,
+        'slug':        slug,
         'author':      (data.get('author') or '').strip(),
         'date':        (data.get('date') or '').strip(),
         'category':    (data.get('category') or '').strip(),
@@ -608,8 +625,18 @@ def admin_blog_update(blog_id):
     data = request.get_json()
     if not data:
         return jsonify({'error': 'no data'}), 400
+        
+    title = (data.get('title') or '').strip()
+    base_slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
+    slug = base_slug
+    counter = 1
+    while db.blogs.find_one({'slug': slug, '_id': {'$ne': ObjectId(blog_id)}}):
+        slug = f"{base_slug}-{counter}"
+        counter += 1
+        
     update = {
-        'title':       (data.get('title') or '').strip(),
+        'title':       title,
+        'slug':        slug,
         'author':      (data.get('author') or '').strip(),
         'date':        (data.get('date') or '').strip(),
         'category':    (data.get('category') or '').strip(),
@@ -668,7 +695,7 @@ def delete_career(career_id):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('index.html')
+    return redirect('/')
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
