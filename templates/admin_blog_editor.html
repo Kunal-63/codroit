@@ -140,6 +140,11 @@
                  value="{{ blog.title if blog else '' }}" required>
         </div>
         <div class="mb-3">
+          <label class="form-label fw-medium small">Slug</label>
+          <input type="text" class="form-control" id="blogSlug" placeholder="url-friendly-slug"
+                 value="{{ blog.slug if blog else '' }}">
+        </div>
+        <div class="mb-3">
           <label class="form-label fw-medium small">Author <span class="text-danger">*</span></label>
           <input type="text" class="form-control" id="blogAuthor" placeholder="Author name"
                  value="{{ blog.author if blog else '' }}" required>
@@ -467,6 +472,7 @@ async function submitBlog() {
 
   const payload = {
     title,
+    slug: document.getElementById('blogSlug').value.trim(),
     author,
     date,
     category: document.getElementById('blogCategory').value.trim(),
