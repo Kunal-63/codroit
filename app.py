@@ -332,9 +332,9 @@ def subscribe():
     return jsonify({"status": "success", "message": "Subscribed successfully"}), 200
 
 
-@app.route('/Logo.svg')
-def logo():
-    return send_from_directory(os.path.dirname(os.path.abspath(__file__)), 'Logo.svg')
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory(os.path.dirname(os.path.abspath(__file__)), 'robots.txt')
 
 @app.route('/sitemap.xml')
 def sitemap():
@@ -705,7 +705,7 @@ def delete_career(career_id):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return redirect('/')
+    return render_template('404.html'), 404
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
