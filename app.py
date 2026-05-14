@@ -356,7 +356,7 @@ def sitemap():
     
     # Dynamic project URLs
     try:
-        if db:
+        if db is not None:
             projects = db.projects.find({}, {"id": 1})
             for project in projects:
                 urls.append({
@@ -369,7 +369,7 @@ def sitemap():
     
     # Dynamic blog URLs
     try:
-        if db:
+        if db is not None:
             blogs = db.blogs.find({}, {"_id": 1, "slug": 1, "updated_at": 1, "date": 1})
             for blog in blogs:
                 # Use slug if available, otherwise fallback to _id
