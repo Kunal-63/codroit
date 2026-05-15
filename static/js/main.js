@@ -212,4 +212,56 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = '/contact';
         });
     }
+
+    // ── Lazy-image fade-in ──────────────────────────────────────────────────
+    // Once a lazy image is loaded by the browser, fade it in smoothly.
+    // This prevents the jarring "pop-in" flash that harms perceived LCP.
+    function activateLazyImage(img) {
+        if (img.complete) {
+            img.classList.add('img-loaded');
+        } else {
+            img.addEventListener('load', () => img.classList.add('img-loaded'), { once: true });
+            img.addEventListener('error', () => img.classList.add('img-loaded'), { once: true });
+        }
+    }
+    document.querySelectorAll('img[loading="lazy"]').forEach(activateLazyImage);
+
+    // Observe dynamically injected lazy images (e.g. from JS-rendered content)
+    const lazyImgObserver = new MutationObserver((mutations) => {
+        mutations.forEach(m => m.addedNodes.forEach(node => {
+            if (node.nodeType === 1) {
+                if (node.tagName === 'IMG' && node.loading === 'lazy') activateLazyImage(node);
+                node.querySelectorAll && node.querySelectorAll('img[loading="lazy"]').forEach(activateLazyImage);
+            }
+        }));
+    });
+    lazyImgObserver.observe(document.body, { childList: true, subtree: true });
+
+    // ── Skeleton-screen helper ──────────────────────────────────────────────
+    // Call window.showSkeletons(container, count) before a slow fetch to
+    // render shimmer placeholders instantly, then clear them when data arrives.
+    // Example usage in a page script:
+    //   const { clear } = window.showSkeletons(document.getElementById('blog-grid'), 6);
+    //   fetch('/api/blogs').then(r => r.json()).then(data => { clear(); renderCards(data); });
+    window.showSkeletons = function(container, count = 6) {
+        if (!container) return { clear: () => {} };
+        const skeletons = [];
+        for (let i = 0; i < count; i++) {
+            const col = document.createElement('div');
+            col.className = 'col-md-6 col-lg-4';
+            col.innerHTML = `
+                <div class="skeleton-card">
+                    <div class="skeleton-shimmer skeleton-img"></div>
+                    <div class="skeleton-shimmer skeleton-line"></div>
+                    <div class="skeleton-shimmer skeleton-line-short"></div>
+                    <div class="skeleton-shimmer skeleton-btn"></div>
+                </div>`;
+            container.appendChild(col);
+            skeletons.push(col);
+        }
+        return {
+            clear: () => skeletons.forEach(s => s.remove())
+        };
+    };
 });
+

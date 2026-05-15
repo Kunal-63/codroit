@@ -17,62 +17,77 @@
       type="image/png"
       href="{{ url_for('static', filename='images/favicon.png') }}"
     />
-    <!-- Fonts -->
+    <!-- Fonts: font-display:swap prevents invisible text flash (FOIT) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@200;300;400;500&display=swap" />
-    <link
+    <!-- Non-render-blocking font load via preload + onload swap trick -->
+    <link rel="preload" as="style"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@200;300;400;500&display=swap"
-      rel="stylesheet"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
-    <!-- Bootstrap CSS -->
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet" />
+    </noscript>
+
+    <!-- Bootstrap CSS (render-critical: controls layout) -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
+
+    <!-- Bootstrap Icons: deferred — only icons, not layout-critical -->
+    <link rel="preload" as="style"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    </noscript>
 
-    <!-- Custom Modular CSS -->
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
-    />
-    <link
-      rel="stylesheet"
+    <!-- Critical CSS: style.css controls above-the-fold layout -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+
+    <!-- Non-critical CSS: deferred via preload/onload pattern -->
+    <link rel="preload" as="style"
       href="{{ url_for('static', filename='css/video_section.css') }}"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
-    <link
-      rel="stylesheet"
+    <link rel="preload" as="style"
       href="{{ url_for('static', filename='css/services.css') }}"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
-    <link
-      rel="stylesheet"
+    <link rel="preload" as="style"
       href="{{ url_for('static', filename='css/why_choose_us.css') }}"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
-    <link
-      rel="stylesheet"
+    <link rel="preload" as="style"
       href="{{ url_for('static', filename='css/stats.css') }}"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
-    <link
-      rel="stylesheet"
+    <link rel="preload" as="style"
       href="{{ url_for('static', filename='css/clients.css') }}"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
-    <link
-      rel="stylesheet"
+    <link rel="preload" as="style"
       href="{{ url_for('static', filename='css/feedback.css') }}"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
-    <link
-      rel="stylesheet"
+    <link rel="preload" as="style"
       href="{{ url_for('static', filename='css/cta_footer.css') }}"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/video_section.css') }}" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/services.css') }}" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/why_choose_us.css') }}" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/stats.css') }}" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/clients.css') }}" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/feedback.css') }}" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/cta_footer.css') }}" />
+    </noscript>
 
-    <!-- Preload Critical Assets -->
-    <link rel="preload" as="image" href="{{ url_for('static', filename='images/Logo.png') }}" />
+    <!-- Preload LCP-critical assets -->
+    <link rel="preload" as="image" href="{{ url_for('static', filename='images/Logo.png') }}" fetchpriority="high" />
   </head>
 
   <body>
@@ -236,29 +251,26 @@
       </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <!-- Google tag (gtag.js) -->
+    <!-- Bootstrap JS: defer so it doesn't block parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+    <!-- main.js: defer, loads after HTML parsed -->
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+
+    <!-- Google Analytics: async keeps it off critical path -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J0BDBCN8NV"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-J0BDBCN8NV');
     </script>
 
-    <!-- Vercel Analytics -->
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
+    <!-- Vercel Analytics: deferred, non-critical -->
+    <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
     <script defer src="/_vercel/insights/script.js"></script>
 
-    <!-- Vercel Speed Insights -->
-    <script>
-      window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-    </script>
+    <!-- Vercel Speed Insights: deferred, non-critical -->
+    <script>window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };</script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
   </body>
 </html>

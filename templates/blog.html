@@ -53,12 +53,15 @@
           </div>
         </div>
 
-        <!-- Cover Image -->
+        <!-- Cover Image: LCP element — never lazy, high fetch priority -->
         {% if blog.cover_image %}
         <div class="fade-up-scroll mb-5 overflow-hidden"
           style="border-radius: 24px; box-shadow: 0 20px 60px rgba(3,76,174,0.12);">
           <img src="{{ blog.cover_image }}" class="img-fluid w-100" alt="{{ blog.title }}"
-            style="max-height: 500px; object-fit: cover;">
+            style="max-height: 500px; object-fit: cover;"
+            width="800" height="450"
+            fetchpriority="high"
+            decoding="sync">
         </div>
         {% endif %}
 
@@ -74,8 +77,12 @@
           {% elif section.type == 'image' %}
           <div class="my-5 text-center">
             <div class="overflow-hidden" style="border-radius: 20px; box-shadow: 0 15px 40px rgba(3,76,174,0.1);">
+              <!-- Below-the-fold images: lazy-load + async decode prevents jank -->
               <img src="{{ section.imageUrl or section.content }}" class="img-fluid w-100" alt="Blog Image"
-                style="object-fit: cover;">
+                style="object-fit: cover;"
+                width="800" height="450"
+                loading="lazy"
+                decoding="async">
             </div>
           </div>
           {% elif section.type == 'quote' %}
@@ -149,16 +156,13 @@
   </div>
 </section>
 
-<script>
-  // Scroll-triggered fade-up animation
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(el => {
-      if (el.isIntersecting) {
-        el.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.05 });
-
-  document.querySelectorAll('.fade-up-scroll').forEach(el => observer.observe(el));
+<script defer>
+  // Deferred scroll animation — does not block first paint
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up-scroll').forEach(el => observer.observe(el));
+  });
 </script>
 {% endblock %}

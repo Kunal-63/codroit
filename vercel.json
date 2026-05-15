@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, s-maxage=31536000, stale-while-revalidate=86400, immutable"
+      },
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/robots.txt",
+      "headers": {
+        "Cache-Control": "public, max-age=86400, s-maxage=86400"
+      },
+      "dest": "/robots.txt"
+    },
+    {
+      "src": "/sitemap.xml",
+      "headers": {
+        "Cache-Control": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=600"
+      },
+      "dest": "/app.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/app.py"
+    }
+  ]
+}

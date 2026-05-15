@@ -34,6 +34,9 @@
               onmouseover="this.style.transform='scale(1.05)'"
               onmouseout="this.style.transform='scale(1)'"
               loading="lazy"
+              decoding="async"
+              width="400"
+              height="240"
             >
           </div>
           <div class="p-4 d-flex flex-column flex-grow-1">
@@ -65,16 +68,15 @@
   </div>
 </section>
 
-<script>
-  // Scroll-triggered fade-up animation
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(el => {
-      if (el.isIntersecting) {
-        el.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-up-scroll').forEach(el => observer.observe(el));
+<script defer>
+  // Deferred — won't block first paint
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) el.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-up-scroll').forEach(el => observer.observe(el));
+  });
 </script>
 {% endblock %}

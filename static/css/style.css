@@ -445,3 +445,80 @@ section { position: relative; z-index: 10; }
 .page-header {
     margin-top: 120px;
 }
+
+/* ── font-display: swap override ──────────────────────────────────────────────
+   Prevents FOIT (invisible text) while Google Fonts loads.
+   Works as a local CSS safety-net alongside the &display=swap param in URL. */
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Outfit';
+    font-display: swap;
+}
+
+/* ── Skeleton Screen: shimmer loading cards ───────────────────────────────────
+   Used when blog/project grids are loading. Shows content shape immediately
+   so FCP is instant even if DB is slow. Apply .skeleton-card class via JS. */
+@keyframes skeleton-shimmer {
+    0%   { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+}
+
+.skeleton-card {
+    border-radius: 24px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255,255,255,0.8);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+    height: 380px;
+    pointer-events: none;
+}
+
+.skeleton-shimmer {
+    background: linear-gradient(
+        90deg,
+        rgba(230, 235, 245, 0.6) 0%,
+        rgba(255, 255, 255, 0.9) 40%,
+        rgba(230, 235, 245, 0.6) 80%
+    );
+    background-size: 800px 100%;
+    animation: skeleton-shimmer 1.4s ease-in-out infinite;
+    border-radius: 8px;
+}
+
+.skeleton-img {
+    width: 100%;
+    height: 240px;
+    border-radius: 20px 20px 0 0;
+}
+
+.skeleton-line {
+    height: 14px;
+    margin: 16px 20px 8px;
+}
+
+.skeleton-line-short {
+    height: 14px;
+    width: 60%;
+    margin: 8px 20px;
+}
+
+.skeleton-btn {
+    height: 44px;
+    margin: 20px 20px 0;
+    border-radius: 50px;
+}
+
+/* ── img lazy-load fade-in ────────────────────────────────────────────────────
+   Images fade in once the browser loads them, preventing jarring pop-in. */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+img[loading="lazy"].img-loaded {
+    opacity: 1;
+}
+

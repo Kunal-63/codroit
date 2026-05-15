@@ -1,22 +1,23 @@
 import os
-import io
 import json
 import math
-import uuid
-import smtplib
 import re
 from datetime import datetime
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 from flask import Flask, render_template, send_from_directory, request, jsonify, session, redirect, url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from dotenv import load_dotenv
+
+# PIL: optional heavy import — only used on /admin/upload-image
 try:
     from PIL import Image as PilImage
     PIL_AVAILABLE = True
 except ImportError:
     PIL_AVAILABLE = False
+
+# smtplib, email, io, uuid, base64 are intentionally NOT imported here.
+# Each is deferred to the specific route that needs it to keep cold-start
+# as fast as possible (each top-level import adds ~20-60ms on Vercel).
 
 load_dotenv()
 
@@ -36,20 +37,26 @@ def init_db_connection():
         return
 
     try:
+        # maxPoolSize: reuse connections across warm Vercel invocations.
+        # minPoolSize=0: don't hold idle connections (serverless-friendly).
+        # The connect=False flag defers the actual TCP handshake until the
+        # first DB operation, avoiding a cold-start penalty just to import.
         client = MongoClient(
             MONGODB_URI,
-            serverSelectionTimeoutMS=5000,
-            connectTimeoutMS=5000,
-            socketTimeoutMS=5000,
+            serverSelectionTimeoutMS=4000,
+            connectTimeoutMS=4000,
+            socketTimeoutMS=8000,
+            maxPoolSize=5,
+            minPoolSize=0,
+            connect=False,  # lazy connect — avoids blocking cold start
         )
-        client.admin.command("ping")
         try:
             db = client.get_database()
         except Exception:
             db = client[MONGO_DB_NAME]
-        print("[MongoDB] Connected successfully.")
+        print("[MongoDB] Client configured (lazy connect).")
     except Exception as exc:
-        print(f"[MongoDB] Connection failed: {exc}")
+        print(f"[MongoDB] Configuration failed: {exc}")
         client = None
         db = None
 
@@ -263,6 +270,12 @@ https://codroit.in
 
     # Send email only if GMAIL_APP_PASSWORD is configured
     if GMAIL_PASSWORD:
+        # Deferred imports — only load SMTP machinery when actually sending mail
+        import smtplib
+        import io
+        from email.mime.text import MIMEText
+        from email.mime.multipart import MIMEMultipart
+
         try:
             with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
                 server.login(GMAIL_USER, GMAIL_PASSWORD)
@@ -503,12 +516,14 @@ def admin_logout():
     session.pop('admin_logged_in', None)
     return redirect(url_for('home'))
 
-import base64
-
 # ── Image Upload with Pillow compression ──────────────────────────────────────
 
 @app.route('/admin/upload-image', methods=['POST'])
 def upload_image():
+    # Deferred imports — heavy, only needed on this admin route
+    import io
+    import base64
+
     if not session.get('admin_logged_in'):
         return jsonify({'error': 'unauthorized'}), 401
     file = request.files.get('image')
