@@ -67,6 +67,28 @@ def ensure_db():
         from flask import abort
         abort(503, description="MongoDB is unavailable. Please start MongoDB or set MONGO_URI.")
 
+@app.after_request
+def add_cache_headers(response):
+    """
+    Set aggressive cache headers for static assets served by Flask.
+    This is the correct approach for @vercel/python — vercel.json route-level
+    headers don't work reliably when all requests funnel through app.py.
+    """
+    path = request.path
+    if path.startswith('/static/'):
+        # 1-year immutable cache for versioned static assets (JS, CSS, images)
+        response.headers['Cache-Control'] = (
+            'public, max-age=31536000, s-maxage=31536000, '
+            'stale-while-revalidate=86400, immutable'
+        )
+    elif path in ('/robots.txt', '/sitemap.xml'):
+        response.headers['Cache-Control'] = 'public, max-age=3600, s-maxage=3600'
+    else:
+        # HTML pages: never cache — always fresh from server
+        response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    return response
+
+
 # ─── Gmail SMTP Config ───────────────────────────────────────────────────────
 # Set these environment variables before running the app:
 #   set GMAIL_USER=contact.codroit@gmail.com
