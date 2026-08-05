@@ -69,7 +69,7 @@
 </section>
 
 <script defer>
-  // Deferred — won't block first paint
+  // Deferred, so it won't block first paint
   document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(el => {
