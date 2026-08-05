@@ -39,6 +39,9 @@
         font-weight: 600;
     }
 </style>
+<!-- Add reCAPTCHA script -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <div class="hero-background-glow"></div>
 
 <!-- PAGE HERO -->
@@ -169,6 +172,9 @@
                                     placeholder="Briefly describe what you're looking to achieve..."></textarea>
                             </div>
                             <div class="col-12">
+                                <div class="g-recaptcha mb-3" data-sitekey="6LeARXctAAAAANxL6sWcA-55ZUzrc30RGno3AjPT"></div>
+                            </div>
+                            <div class="col-12">
                                 <button type="button" id="contactSubmitBtn"
                                     class="btn btn-primary w-100 py-3 mt-2 rounded-pill shadow hover-lift fw-bold fs-5">
                                     <i class="bi bi-send me-2"></i>Send Message
@@ -274,80 +280,86 @@
 
 
 <script>
-    document.getElementById('contactSubmitBtn').addEventListener('click', async function () {
-        const btn = this;
-        const form = document.getElementById('contactForm');
-        const errorDiv = document.getElementById('contactError');
-        const errorMsg = document.getElementById('contactErrorMsg');
+document.getElementById('contactSubmitBtn').addEventListener('click', async function () {
+    const btn = this;
+    const form = document.getElementById('contactForm');
+    const errorDiv = document.getElementById('contactError');
+    const errorMsg = document.getElementById('contactErrorMsg');
 
-        const firstName = document.getElementById('firstName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
+    // Get reCAPTCHA response
+    const recaptchaToken = grecaptcha.getResponse();
+    
+    if (!recaptchaToken) {
+        errorDiv.classList.remove('d-none');
+        errorMsg.textContent = 'Please complete the reCAPTCHA verification.';
+        return;
+    }
 
-        if (!firstName || !email) {
-            errorDiv.classList.remove('d-none');
-            errorMsg.textContent = 'Please fill in your name and email before sending.';
-            return;
-        }
+    const firstName = document.getElementById('firstName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
 
-        btn.disabled = true;
-        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
-        errorDiv.classList.add('d-none');
+    if (!firstName || !email || !message) {
+        errorDiv.classList.remove('d-none');
+        errorMsg.textContent = 'Please fill in all required fields.';
+        return;
+    }
 
-        try {
-            const formData = new FormData();
-            formData.append('first_name', firstName);
-            formData.append('last_name', document.getElementById('lastName').value.trim());
-            formData.append('email', email);
-            formData.append('phone', document.getElementById('phone').value.trim());
-            formData.append('company', document.getElementById('company').value.trim());
-            formData.append('service', document.getElementById('service').value);
-            formData.append('message', message);
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Verifying...';
+    errorDiv.classList.add('d-none');
 
-            const response = await fetch('/contact', {
-                method: 'POST',
-                body: formData
-            });
+    try {
+        const formData = new FormData();
+        formData.append('first_name', firstName);
+        formData.append('last_name', document.getElementById('lastName').value.trim());
+        formData.append('email', email);
+        formData.append('phone', document.getElementById('phone').value.trim());
+        formData.append('company', document.getElementById('company').value.trim());
+        formData.append('service', document.getElementById('service').value);
+        formData.append('message', message);
+        formData.append('g-recaptcha-response', recaptchaToken);
 
-            const data = await response.json();
+        const response = await fetch('/contact', {
+            method: 'POST',
+            body: formData
+        });
 
-            if (data.status === 'success') {
-                // Show success banner near the top of the form instead of replacing the form
-                const successMsg = data.message || "Thanks for reaching out! We'll get back to you within 24 hours.";
-                const successHtml = `
-                    <div class="col-12 mb-3" id="successBanner">
-                        <div class="alert alert-success alert-dismissible fade show rounded-3 mb-0" role="alert">
-                            <i class="bi bi-check-circle-fill me-2"></i> ${successMsg}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+        const data = await response.json();
+
+        if (data.status === 'success') {
+            const successHtml = `
+                <div class="col-12 mb-3" id="successBanner">
+                    <div class="alert alert-success alert-dismissible fade show rounded-3 mb-0" role="alert">
+                        <i class="bi bi-check-circle-fill me-2"></i> ${data.message || "Thanks for reaching out! We'll get back to you within 24 hours."}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                `;
+                </div>
+            `;
 
-                // remove any existing banner first
-                const existingBanner = document.getElementById('successBanner');
-                if (existingBanner) existingBanner.remove();
+            const existingBanner = document.getElementById('successBanner');
+            if (existingBanner) existingBanner.remove();
 
-                form.insertAdjacentHTML('afterbegin', successHtml);
+            form.insertAdjacentHTML('afterbegin', successHtml);
+            form.reset();
+            grecaptcha.reset();
 
-                // Clear the form
-                form.reset();
-
-                // Reset button
-                btn.disabled = false;
-                btn.innerHTML = '<i class="bi bi-send me-2"></i>Send Message';
-
-            } else {
-                errorDiv.classList.remove('d-none');
-                errorMsg.textContent = data.message || 'Something went wrong. Please try again.';
-                btn.disabled = false;
-                btn.innerHTML = '<i class="bi bi-send me-2"></i>Send Message';
-            }
-        } catch (e) {
-            errorDiv.classList.remove('d-none');
-            errorMsg.textContent = 'Network error. Please check your connection and try again.';
             btn.disabled = false;
             btn.innerHTML = '<i class="bi bi-send me-2"></i>Send Message';
+        } else {
+            errorDiv.classList.remove('d-none');
+            errorMsg.textContent = data.message || 'Something went wrong. Please try again.';
+            btn.disabled = false;
+            btn.innerHTML = '<i class="bi bi-send me-2"></i>Send Message';
+            grecaptcha.reset();
         }
-    });
+    } catch (e) {
+        errorDiv.classList.remove('d-none');
+        errorMsg.textContent = 'Network error. Please check your connection and try again.';
+        btn.disabled = false;
+        btn.innerHTML = '<i class="bi bi-send me-2"></i>Send Message';
+        grecaptcha.reset();
+    }
+});
 </script>
 {% endblock %}

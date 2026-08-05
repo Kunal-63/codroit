@@ -2,6 +2,7 @@ import os
 import json
 import math
 import re
+import requests
 from datetime import datetime
 from flask import Flask, render_template, send_from_directory, request, jsonify, session, redirect, url_for
 from pymongo import MongoClient
@@ -103,6 +104,34 @@ GMAIL_USER     = os.environ.get('GMAIL_USER', 'contact.codroit@gmail.com')
 GMAIL_PASSWORD = os.environ.get('GMAIL_APP_PASSWORD', 'llpn aikm zxem ukcg')      # Set this via env var
 NOTIFY_TO      = 'info@codroit.in'   # Where to receive contact form emails
 
+# ─── reCAPTCHA Config ─────────────────────────────────────────────────────────
+RECAPTCHA_SECRET_KEY = os.environ.get('RECAPTCHA_SECRET_KEY', '6LeARXctAAAAAHBsRXCMHW_Aw04-ycrvzpNpU0VE')
+
+def verify_recaptcha(token):
+    """Verify reCAPTCHA token with Google"""
+    try:
+        response = requests.post(
+            'https://www.google.com/recaptcha/api/siteverify',
+            data={
+                'secret': RECAPTCHA_SECRET_KEY,
+                'response': token
+            },
+            timeout=5
+        )
+        result = response.json()
+        # For v2 Challenge, just check success flag
+        # For v3 Score-based, also check score
+        success = result.get('success', False)
+        score = result.get('score', 1.0)
+        
+        print(f"[reCAPTCHA] Success: {success}, Score: {score}")
+        
+        # Accept if success is True. For v3, also require score > 0.3 (lenient for localhost)
+        return success and score > 0.3
+    except Exception as e:
+        print(f"[reCAPTCHA] Verification error: {e}")
+        return False
+
 
 @app.route('/')
 def home():
@@ -176,6 +205,22 @@ def contact():
     company    = (request.form.get('company')    or '').strip()
     service    = (request.form.get('service')    or '').strip()
     message    = (request.form.get('message')    or '').strip()
+    recaptcha_token = (request.form.get('g-recaptcha-response') or '').strip()
+
+    print(f"[DEBUG] Received reCAPTCHA token: {recaptcha_token[:20]}..." if recaptcha_token else "[DEBUG] No reCAPTCHA token received")
+
+    # Validate reCAPTCHA
+    if not recaptcha_token:
+        return jsonify({
+            'status': 'error',
+            'message': 'Please complete the reCAPTCHA verification.'
+        }), 400
+
+    if not verify_recaptcha(recaptcha_token):
+        return jsonify({
+            'status': 'error',
+            'message': 'reCAPTCHA verification failed. Please try again.'
+        }), 400
 
     if not first_name or not email:
         return jsonify({'status': 'error', 'message': 'Name and email are required.'}), 400
