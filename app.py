@@ -105,7 +105,8 @@ GMAIL_PASSWORD = os.environ.get('GMAIL_APP_PASSWORD', 'llpn aikm zxem ukcg')    
 NOTIFY_TO      = 'info@codroit.in'   # Where to receive contact form emails
 
 # ─── reCAPTCHA Config ─────────────────────────────────────────────────────────
-RECAPTCHA_SECRET_KEY = os.environ.get('RECAPTCHA_SECRET_KEY', '6LeARXctAAAAAHBsRXCMHW_Aw04-ycrvzpNpU0VE')
+RECAPTCHA_SECRET_KEY = os.environ.get('RECAPTCHA_SECRET_KEY')
+RECAPTCHA_SITE_KEY = os.getenv("RECAPTCHA_SITE_KEY")
 
 def verify_recaptcha(token):
     """Verify reCAPTCHA token with Google"""
@@ -195,7 +196,10 @@ def project(project_id):
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'GET':
-        return render_template('contact.html')
+        return render_template(
+            'contact.html',
+            recaptcha_site_key=RECAPTCHA_SITE_KEY
+        )
 
     # ── POST: handle contact form submission ──────────────────────────────────
     first_name = (request.form.get('first_name') or '').strip()
