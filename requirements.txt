@@ -2,3 +2,5 @@ Flask
 pymongo
 python-dotenv
 Pillow
+Requests
+certifi
