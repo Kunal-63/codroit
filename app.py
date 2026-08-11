@@ -8,6 +8,7 @@ from flask import Flask, render_template, send_from_directory, request, jsonify,
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from dotenv import load_dotenv
+import certifi
 
 # PIL: optional heavy import — only used on /admin/upload-image
 try:
@@ -44,12 +45,13 @@ def init_db_connection():
         # first DB operation, avoiding a cold-start penalty just to import.
         client = MongoClient(
             MONGODB_URI,
+            tlsCAFile=certifi.where(),
             serverSelectionTimeoutMS=4000,
             connectTimeoutMS=4000,
             socketTimeoutMS=8000,
             maxPoolSize=5,
             minPoolSize=0,
-            connect=False,  # lazy connect — avoids blocking cold start
+            connect=False,
         )
         try:
             db = client.get_database()
