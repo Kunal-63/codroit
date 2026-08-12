@@ -152,6 +152,10 @@ def about():
 def portfolio():
     return render_template('portfolio.html')
 
+@app.route('/digital-broucher')
+def digitalBroucher():
+    return render_template('digital_broucher.html')
+
 @app.route('/project/<int:project_id>')
 def project(project_id):
     ensure_db()
