@@ -13,13 +13,13 @@
         "challenge": "SwiftMove's delivery fleet was operating on fixed, manually assigned routes \u2014 dispatchers spent 3 hours daily on route planning, fuel costs were spiraling due to inefficient paths, and customers had no visibility into their delivery status, generating 400+ complaint calls per week.",
         "solution": "Built a Flutter-based cross-platform delivery app with live GPS tracking for customers, an AI-powered dynamic route optimization engine that recalculates based on traffic in real time, WebSocket-driven order status updates, and a dispatcher dashboard with automated zone-based driver assignment.",
         "outcome": "Average delivery time dropped by 28%, fuel costs fell by 32% due to optimized routing, and customer complaint calls dropped by 74% within the first 3 months \u2014 with dispatchers reclaiming over 60 hours per month previously lost to manual planning.",
-        "imageUrl": "/static/images/projects/AppDev/ondemad_delivery/cover_image.jpg",
+        "imageUrl": "/static/images/projects/AppDev/ondemad_delivery/cover_image.png",
         "cardIcon": "bi-phone",
         "cardGradient": "linear-gradient(135deg, #0d6efd, #6610f2)",
         "gallery": [
-            "/static/images/projects/AppDev/ondemad_delivery/cover_image.jpg",
-            "/static/images/projects/AppDev/ondemad_delivery/img1.jpg",
-            "/static/images/projects/AppDev/ondemad_delivery/img2.jpg"
+            "/static/images/projects/AppDev/ondemad_delivery/cover_image.png",
+            "/static/images/projects/AppDev/ondemad_delivery/img1.png",
+            "/static/images/projects/AppDev/ondemad_delivery/img2.png"
         ]
     },
     {
@@ -36,11 +36,11 @@
         "challenge": "FitLife Inc's original app had a 68% drop-off rate within the first week \u2014 users cited a confusing onboarding flow, inaccurate calorie and step tracking compared to their wearables, and severe lag on mid-range Android devices that made daily logging feel like a chore.",
         "solution": "Completely redesigned the UX with a 3-step personalized onboarding flow, integrated native sync with Apple Health, Fitbit, and Garmin APIs for accurate cross-device tracking, and rebuilt the backend data pipeline to reduce API response times from 4.2s to under 600ms on all device tiers.",
         "outcome": "7-day retention improved from 32% to 71%, daily active users doubled to 120,000 within 6 months, and App Store ratings climbed from 3.2 to 4.8 stars \u2014 with the redesigned onboarding cited in 40% of positive reviews as the primary reason users stayed.",
-        "imageUrl": "/static/images/projects/AppDev/health_tracker/cover_img.jpg",
+        "imageUrl": "/static/images/projects/AppDev/health_tracker/cover_img.png",
         "cardIcon": "bi-heart-pulse",
         "cardGradient": "linear-gradient(135deg, #cc0000, #ff4c4c)",
         "gallery": [
-            "/static/images/projects/AppDev/health_tracker/cover_img.jpg",
+            "/static/images/projects/AppDev/health_tracker/cover_img.png",
             "/static/images/projects/AppDev/health_tracker/img1.jpg",
             "/static/images/projects/AppDev/health_tracker/landing_page.jpg"
         ]
@@ -233,6 +233,190 @@
             "/static/images/projects/AI/intelligent_customer_agent.jpg",
             "/static/images/projects/AI/next_gen_hub.jpg",
             "/static/images/projects/AI/predictive_platform.jpg"
+        ]
+    },
+    {
+        "id": 39,
+        "categoryId": "marketing",
+        "service": "Digital Marketing & SEO",
+        "title": "Pilgrim Mauritius Skincare Brand Growth",
+        "badgeName": "Beauty",
+        "badgeColor": "info",
+        "client": "Pilgrim Mauritius",
+        "duration": "6 months",
+        "result": "3.2x follower growth and 85% higher Instagram engagement",
+        "team": "2 Digital Marketers, 1 Content Strategist",
+        "challenge": "Pilgrim Mauritius needed a stronger Instagram presence to showcase its skincare range, but inconsistent posting, weak engagement, and a fragmented brand voice were keeping the beauty brand from converting followers into product buyers.",
+        "solution": "Delivered full digital marketing support by managing their Instagram profile end-to-end: skincare-focused content strategy, product storytelling, branded visuals, community engagement, hashtag optimization, and campaign-driven promotions that turned every post into a conversion opportunity.",
+        "outcome": "Pilgrim Mauritius doubled social-driven product inquiries, grew its Instagram audience by over 3x, and built stronger brand awareness for its skincare offerings across local and international markets.",
+        "imageUrl": "/static/images/projects/Marketing/pilgrim_mauritius/img2.png",
+        "cardIcon": "bi-instagram",
+        "cardGradient": "linear-gradient(135deg, #0dcaf0, #084298)",
+        "gallery": [
+            "/static/images/projects/Marketing/pilgrim_mauritius/cover_img.png",
+            "/static/images/projects/Marketing/pilgrim_mauritius/img1.png",
+            "/static/images/projects/Marketing/pilgrim_mauritius/img2.png"
+        ]
+    },
+    {
+        "id": 40,
+        "categoryId": "marketing",
+        "service": "Digital Marketing & SEO",
+        "title": "Sheth Overseas Export Brand Growth",
+        "badgeName": "Exports",
+        "badgeColor": "success",
+        "client": "Sheth Overseas",
+        "duration": "7 months",
+        "result": "4x follower growth and 250% increase in buyer inquiries",
+        "team": "2 Digital Marketers, 1 Content Strategist, 1 Video Producer",
+        "challenge": "Sheth Overseas was a global exporter of spices and oil seeds with limited social visibility, outdated content, and a weak brand narrative that made it difficult to attract new international buyers.",
+        "solution": "Restructured their Instagram presence to showcase product quality, export capabilities, and production traceability. We produced rich visual content for spices and oil seeds, buyer-focused posts, export story reels, and targeted hashtag campaigns to connect with importers, distributors, and B2B buyers.",
+        "outcome": "Instagram following grew from 8K to 32K+ within 7 months, engagement rose sharply, and the channel became a key source of qualified buyer inquiries for their spices and oil seeds export business.",
+        "imageUrl": "/static/images/projects/Marketing/sheth_overseas/cover_img.jpg",
+        "cardIcon": "bi-instagram",
+        "cardGradient": "linear-gradient(135deg, #10b981, #059669)",
+        "gallery": [
+            "/static/images/projects/Marketing/sheth_overseas/cover_img.png",
+            "/static/images/projects/Marketing/sheth_overseas/img1.png",
+            "/static/images/projects/Marketing/sheth_overseas/img2.png"
+        ]
+    },
+    {
+        "id": 41,
+        "categoryId": "app",
+        "service": "App Development",
+        "title": "Vaya Taxi Female-First Mobility App",
+        "badgeName": "Mobility",
+        "badgeColor": "info",
+        "client": "Vaya Taxi",
+        "duration": "8 months",
+        "result": "40% increase in female driver onboarding and 3x growth in ride-booking inquiries",
+        "team": "3 App Developers, 1 DevOps Engineer",
+        "challenge": "Vaya Taxi launched a women-only driver network but lacked a polished app experience and reliable deployment infrastructure to support fast onboarding, driver routing, and rider trust across a new mobility category.",
+        "solution": "Built and deployed a female-first taxi application with user-friendly driver onboarding, ride-booking workflows, safety-first rider features, and cloud deployment automation. We integrated real-time tracking, secure driver verification, and scalable backend services to support rapid growth and smooth daily operations.",
+        "outcome": "The app launch enabled Vaya Taxi to increase female driver onboarding by 40%, accelerate booking inquiries 3x, and deliver a reliable mobile experience that strengthened trust among riders and drivers alike.",
+        "imageUrl": "/static/images/projects/AppDev/vaya_taxi/cover_img.png",
+        "cardIcon": "bi-taxi-front",
+        "cardGradient": "linear-gradient(135deg, #0d6efd, #fd7e14)",
+        "gallery": [
+            "/static/images/projects/AppDev/vaya_taxi/cover_img.png",
+            "/static/images/projects/AppDev/vaya_taxi/img1.png",
+            "/static/images/projects/AppDev/vaya_taxi/img2.png"
+        ]
+    },
+    {
+        "id": 42,
+        "categoryId": "app",
+        "service": "App Development",
+        "title": "ScoreYourRun Cricket Tracker",
+        "badgeName": "Sports Tech",
+        "badgeColor": "success",
+        "client": "ScoreYourRun",
+        "duration": "9 months",
+        "result": "Real-time cricket analytics and player tracking for every run, wicket, bowl, and tournament entry",
+        "team": "4 App Developers, 1 QA Engineer, 1 DevOps Engineer",
+        "challenge": "ScoreYourRun needed a robust mobile platform to capture cricket activity across players, teams, tournaments, and match details, but their existing tools were fragmented and could not support real-time score tracking or consistent player analytics.",
+        "solution": "Developed a complete cricket activity management app with modules for run tracking, wicket logging, bowling analytics, player profiles, tournament schedules, and match summaries. We also deployed the application on a scalable cloud platform to handle live scoring updates and multiple concurrent tournament events.",
+        "outcome": "ScoreYourRun launched with a polished app experience that unified all cricket data, enabling coaches and players to track performance across matches, manage tournament fixtures, and access player insights from a single platform.",
+        "imageUrl": "/static/images/projects/AppDev/scoreyourrun/cover_img.png",
+        "cardIcon": "bi-trophy",
+        "cardGradient": "linear-gradient(135deg, #198754, #0a3622)",
+        "gallery": [
+            "/static/images/projects/AppDev/scoreyourrun/cover_img.png",
+            "/static/images/projects/AppDev/scoreyourrun/img1.png",
+            "/static/images/projects/AppDev/scoreyourrun/img2.png"
+        ]
+    },
+    {
+        "id": 43,
+        "categoryId": "web",
+        "service": "Web Development",
+        "title": "Shanti Global Capital Portfolio Website",
+        "badgeName": "Finance",
+        "badgeColor": "warning",
+        "client": "Shanti Global Capital",
+        "duration": "6 months",
+        "result": "Improved online visibility and professional credibility for a finance portfolio brand",
+        "team": "3 Developers, 1 UI/UX Designer",
+        "challenge": "Shanti Global Capital needed a strong online presence to showcase investment expertise and financial services, but lacked a polished portfolio site that could build trust with high-value clients and improve search visibility.",
+        "solution": "Developed a modern portfolio website that highlights the client's financial services, case studies, investment approach, and client testimonials. The site was built with SEO-friendly architecture, clean financial branding, and responsive performance to drive credibility for prospective investors.",
+        "outcome": "The portfolio website elevated Shanti Global Capital's online presence, increased inbound enquiries, and helped establish the brand as a trusted finance advisor in a competitive market.",
+        "imageUrl": "/static/images/projects/WebDev/shanti_global_capital/cover_img.png",
+        "cardIcon": "bi-graph-up-arrow",
+        "cardGradient": "linear-gradient(135deg, #ffc107, #d39e00)",
+        "gallery": [
+            "/static/images/projects/WebDev/shanti_global_capital/cover_img.png",
+            "/static/images/projects/WebDev/shanti_global_capital/img1.png",
+            "/static/images/projects/WebDev/shanti_global_capital/img2.png"
+        ]
+    },
+    {
+        "id": 44,
+        "categoryId": "web",
+        "service": "Web Development",
+        "title": "Pilgrim Ecommerce Website",
+        "badgeName": "Retail",
+        "badgeColor": "warning",
+        "client": "Pilgrim",
+        "duration": "6 months",
+        "result": "Branded ecommerce launch for online product sales and improved customer acquisition",
+        "team": "4 Developers, 1 UI/UX Designer, 1 QA Engineer",
+        "challenge": "Pilgrim needed an ecommerce destination to sell products directly online, but their digital presence was limited to brochure-style content and did not support product discovery, checkout, or customer retention.",
+        "solution": "Designed and developed a full ecommerce website with product catalog, secure checkout, payment integration, inventory management, and marketing-ready landing pages. The site was optimized for product discovery, mobile shopping, and seamless brand storytelling across the Pilgrim product portfolio.",
+        "outcome": "Pilgrim launched a scalable online storefront that converted visitors into customers, improved product visibility, and established a direct ecommerce channel for sustainable revenue growth.",
+        "imageUrl": "/static/images/projects/WebDev/pilgrim_ecommerce/cover_img.png",
+        "cardIcon": "bi-bag-check",
+        "cardGradient": "linear-gradient(135deg, #ffc107, #d39e00)",
+        "gallery": [
+            "/static/images/projects/WebDev/pilgrim_ecommerce/cover_img.png",
+            "/static/images/projects/WebDev/pilgrim_ecommerce/img1.png",
+            "/static/images/projects/WebDev/pilgrim_ecommerce/img2.png"
+        ]
+    },
+    {
+        "id": 45,
+        "categoryId": "ai",
+        "service": "AI Solutions",
+        "title": "Insurance Patient Support Chatbot",
+        "badgeName": "Healthcare",
+        "badgeColor": "primary",
+        "client": "Insurance Company",
+        "duration": "7 months",
+        "result": "Reduced manual patient outreach and improved self-service access to policy and treatment information",
+        "team": "3 AI Engineers, 1 Product Manager",
+        "challenge": "The insurer relied heavily on call center agents to answer patient queries, resulting in long wait times, high operational costs, and difficulty delivering consistent information at scale.",
+        "solution": "Built and integrated an AI-powered chatbot for patient support, capable of handling policy questions, appointment reminders, claim status checks, and FAQs. The chatbot was deployed across web and mobile touchpoints, reducing the need for manual calling while ensuring patients received timely, accurate information.",
+        "outcome": "The chatbot helped the insurer cut inbound support calls significantly, reduce manpower dependency, and make it easier for patients to get instant answers to insurance and treatment-related questions.",
+        "imageUrl": "/static/images/projects/AI/insurance_chatbot/cover_img.png",
+        "cardIcon": "bi-robot",
+        "cardGradient": "linear-gradient(135deg, #0d6efd, #6610f2)",
+        "gallery": [
+            "/static/images/projects/AI/insurance_chatbot/cover_img.png",
+            "/static/images/projects/AI/insurance_chatbot/img1.png",
+            "/static/images/projects/AI/insurance_chatbot/img2.png"
+        ]
+    },
+    {
+        "id": 46,
+        "categoryId": "ai",
+        "service": "AI Solutions",
+        "title": "Healthcare Lead Automation Platform",
+        "badgeName": "Healthcare",
+        "badgeColor": "primary",
+        "client": "Healthcare Company",
+        "duration": "7 months",
+        "result": "Fully automated lead generation from multiple sources with AI checkpoints for qualification and routing",
+        "team": "3 AI Engineers, 1 Automation Specialist, 1 Data Analyst",
+        "challenge": "The healthcare business was manually gathering leads from disparate sources, resulting in inconsistent lead quality, slow response times, and high operational overhead.",
+        "solution": "Built an AI-driven automation platform that aggregates leads from multiple channels, applies condition-based filtering, and qualifies prospects through intelligent checkpoints. The system automates lead capture, enrichment, and routing to the right teams while using AI to improve accuracy and reduce manual work.",
+        "outcome": "The solution removed manual lead collection entirely, delivered a steady stream of qualified healthcare leads, and reduced staffing effort while improving lead quality through AI-assisted validation.",
+        "imageUrl": "/static/images/projects/AI/healthcare_lead_automation/cover_img.png",
+        "cardIcon": "bi-gear-wide-connected",
+        "cardGradient": "linear-gradient(135deg, #0d6efd, #22b8cf)",
+        "gallery": [
+            "/static/images/projects/AI/healthcare_lead_automation/cover_img.png",
+            "/static/images/projects/AI/healthcare_lead_automation/img1.png",
+            "/static/images/projects/AI/healthcare_lead_automation/img2.png"
         ]
     }
 ]
