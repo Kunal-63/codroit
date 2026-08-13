@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Codroit | Company Profile</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Original Website CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- Profile CSS -->
+ 
+
+</head>
+
+<body>
+
+  <div class="hero-background-glow"></div>
+
+  <!-- ===================================================== -->
+  <!--                 COMPANY PROFILE HERO                  -->
+  <!-- ===================================================== -->
+
+  <section class="hero-section text-center">
+
+    <div class="container position-relative z-1">
+
+      <!-- Company Logo -->
+      <div style="margin-bottom: 10rem; margin-top: -0.75rem;">
+
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Codroit" style="width:220px; display:block; margin:0 auto;"
+          class="img-fluid">
+
+      </div>
+       <div class="container position-relative z-1">
+        <h1 class="hero-title text-dark mb-4">
+            <span><span id="hero-typing"></span><span class="cursor">|</span></span>
+        </h1>
+        <p class="hero-sub-tagline mb-4 text-muted fs-5">We Don't Just Build Software. We Drive Growth.</p>
+        <div class="hero-buttons mt-4">
+            <a href="/services"
+                class="btn btn-primary btn-lg rounded-pill shadow hover-lift fw-bold me-md-3 mb-3 mb-md-0">Explore our
+                Services</a>
+            <a href="/contact" class="btn btn-outline-dark btn-lg rounded-pill shadow hover-lift fw-bold">Book a Free
+                Consultation</a>
+        </div>
+    </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- HERO VIDEO (Copied from Homepage)                     -->
+  <!-- ===================================================== -->
+<section class=" py-6 position-relative bg-white border-top border-bottom">
+    <div class="container">
+        <div class="video-wrapper rounded-5 shadow-lg overflow-hidden" id="videoContainer"
+            style="border-radius: 2rem !important;">
+            <video autoplay loop muted playsinline class="sleeping-video w-100 d-block" style="object-fit: cover;">
+                <source src="static/videos/hero.mp4" type="video/mp4">
+            </video>
+            <div class="custom-video-cursor" id="customCursor"><i class="bi bi-play-fill me-1 fs-5"></i> Let's Work
+                Together</div>
+        </div>
+    </div>
+</section>
+<style>
+  .video-container-section {
+    background: transparent;
+}
+.video-wrapper {
+    position: relative;
+    overflow: hidden;
+    cursor: none; /* Hide default cursor to show custom one */
+    border-radius: 40px;
+}
+.sleeping-video {
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+.video-wrapper:hover .sleeping-video {
+    transform: scale(1.03);
+}
+.custom-video-cursor {
+    position: absolute;
+    top: -100px; left: -100px;
+    width: auto; height: auto;
+    padding: 16px 32px;
+    background: rgba(3, 76, 174, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: white;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+    pointer-events: none; /* Never blocks hover */
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 100;
+    box-shadow: 0 15px 35px rgba(3, 76, 174, 0.4);
+    letter-spacing: 0.5px;
+}
+
+</style>
+
+  
+
+  <!-- ===================================================== -->
+  <!-- NEXT : ABOUT CODROIT (PART 1B)                        -->
+  <!-- ===================================================== -->
+  
+  <!-- ===================================================== -->
+  <!-- NEXT PART -->
+  <!-- SERVICES SECTION -->
+  <!-- ===================================================== -->
+  <!-- ===================================================== -->
+  <!-- SERVICES -->
+  <!-- ===================================================== -->
+
+  <section id="services" class="py-6 bg-light border-top border-bottom">
+
+    <div class="container">
+
+      <div class="text-center mb-5">
+
+        
+
+        <h2 class="display-5 fw-bold text-primary">
+          Everything You Need Under One Roof
+        </h2>
+
+        <p class="lead text-muted mx-auto" style="max-width:750px;">
+
+          From digital marketing and AI automation to enterprise software
+          and mobile applications — we build complete digital ecosystems.
+
+        </p>
+
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Website -->
+
+        <div class="col-lg-4 col-md-6">
+
+          <div class="card service-detail-card border-0 shadow-sm rounded-4 h-100 hover-lift">
+
+            <div class="card-body p-5">
+
+              <div class="service-icon-wrap mb-4">
+
+                <i class="bi bi-globe2 text-primary display-4"></i>
+
+              </div>
+
+              <h4 class="fw-bold">
+
+                Website Development
+
+              </h4>
+
+              <p class="text-muted">
+
+                Business websites, corporate websites,
+                landing pages, ecommerce stores,
+                high-speed SEO optimized websites.
+
+              </p>
+
+              <ul class="small text-muted">
+
+                <li>Corporate Websites</li>
+
+                <li>Landing Pages</li>
+
+                <li>WordPress</li>
+
+                <li>Shopify</li>
+
+                <li>Website Redesign</li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Mobile -->
+
+        <div class="col-lg-4 col-md-6">
+
+          <div class="card service-detail-card border-0 shadow-sm rounded-4 h-100 hover-lift">
+
+            <div class="card-body p-5">
+
+              <div class="service-icon-wrap mb-4">
+
+                <i class="bi bi-phone text-primary display-4"></i>
+
+              </div>
+
+              <h4 class="fw-bold">
+
+                Mobile App Development
+
+              </h4>
+
+              <p class="text-muted">
+
+                Android, iOS and Cross-platform mobile
+                applications built with modern frameworks.
+
+              </p>
+
+              <ul class="small text-muted">
+
+                <li>Flutter</li>
+
+                <li>React Native</li>
+
+                <li>Native Android</li>
+
+                <li>Native iOS</li>
+
+                <li>App Store Deployment</li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Software -->
+
+        <div class="col-lg-4 col-md-6">
+
+          <div class="card service-detail-card border-0 shadow-sm rounded-4 h-100 hover-lift">
+
+            <div class="card-body p-5">
+
+              <div class="service-icon-wrap mb-4">
+
+                <i class="bi bi-code-slash text-primary display-4"></i>
+
+              </div>
+
+              <h4 class="fw-bold">
+
+                Custom Software
+
+              </h4>
+
+              <p class="text-muted">
+
+                ERP, CRM, SaaS Platforms,
+                Dashboards and Enterprise Applications.
+
+              </p>
+
+              <ul class="small text-muted">
+
+                <li>ERP</li>
+
+                <li>CRM</li>
+
+                <li>SaaS</li>
+
+                <li>Admin Dashboard</li>
+
+                <li>Automation</li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-4">
+                <div class="card service-card border-0 shadow-sm h-100 rounded-4 hover-lift">
+                    <div class="card-body p-5 text-center">
+                        <i class="bi bi-cpu text-primary display-4 mb-4 d-block"></i>
+                        <h4 class="card-title fw-bold mb-3">AI & Automation</h4>
+                        <p class="card-text text-muted">We build intelligent AI workflows, chatbots, and automation
+                            pipelines that save time, reduce cost, and accelerate growth.</p>
+                    </div>
+                </div>
+            </div>
+       
+            <div class="col-md-4">
+                <div class="card service-card border-0 shadow-sm h-100 rounded-4 hover-lift">
+                    <div class="card-body p-5 text-center">
+                        <i class="bi bi-stars text-primary display-4 mb-4 d-block"></i>
+                        <h4 class="card-title fw-bold mb-3">Digital Marketing</h4>
+                        <p class="card-text text-muted">We run data-driven campaigns, SEO strategies, and social media
+                            funnels that bring real traffic, leads, and conversions to your business.</p>
+                    </div>
+                </div>
+              </div>
+
+
+          
+        
+        <!-- UI -->
+
+        <div class="col-lg-4 col-md-6">
+
+          <div class="card service-detail-card border-0 shadow-sm rounded-4 h-100 hover-lift">
+
+            <div class="card-body p-5">
+
+              <div class="service-icon-wrap mb-4">
+
+                <i class="bi bi-palette text-primary display-4"></i>
+
+              </div>
+
+              <h4 class="fw-bold">
+
+                UI / UX Design
+
+              </h4>
+              <p class="text-muted mb-4">Great design isn't just about looking good — it's about making things
+                        easy and enjoyable to use. We design intuitive interfaces that delight your users and drive real
+                        business results.</p>
+              
+
+             
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- VIEW ALL SERVICES BUTTON -->
+        <div class="text-center mt-5">
+            <a href="/services" class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow hover-lift fw-bold">
+                <i class="bi bi-grid-3x3-gap-fill me-2"></i>View All Services
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+  <!-- ===================================================== -->
+  <!-- NEXT : WHY CHOOSE US -->
+  <!-- ===================================================== -->
+  <!-- ===================================================== -->
+  <!-- WHY CHOOSE CODROIT -->
+  <!-- ===================================================== -->
+
+  <section class="py-6 why-choose-us bg-white border-bottom">
+
+    <div class="container">
+
+      <div class="row align-items-center">
+
+        <div class="col-lg-6">
+
+         
+
+          <h2 class="display-5 fw-bold text-primary">
+
+            Why Businesses Choose
+            Codroit
+
+          </h2>
+
+          <p class="lead text-muted mb-5">
+
+            We don't just deliver software.
+            We become your long-term technology partner.
+
+          </p>
+
+          <div class="d-flex mb-4">
+
+            <i class="bi bi-check-circle-fill text-primary fs-3 me-3"></i>
+
+            <div>
+
+              <h5 class="fw-bold">
+
+                Growth Focused
+
+              </h5>
+
+              <p class="text-muted">
+
+                Every project is designed to generate
+                measurable business growth.
+
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="d-flex mb-4">
+
+            <i class="bi bi-check-circle-fill text-primary fs-3 me-3"></i>
+
+            <div>
+
+              <h5 class="fw-bold">
+
+                Modern Technology
+
+              </h5>
+
+              <p class="text-muted">
+
+                AI, Cloud,
+                Mobile,
+                Automation,
+                Enterprise Software.
+
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="d-flex">
+
+            <i class="bi bi-check-circle-fill text-primary fs-3 me-3"></i>
+
+            <div>
+
+              <h5 class="fw-bold">
+
+                End-to-End Support
+
+              </h5>
+
+              <p class="text-muted">
+
+                From idea validation
+                to deployment
+                and long-term maintenance.
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+          <img src="{{ url_for('static', filename='images/home.png') }}" class="img-fluid rounded-5 shadow-lg"
+            alt="Why Codroit">
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ===================================================== -->
+  <!-- ACHIEVEMENTS -->
+  <!-- ===================================================== -->
+
+  <section class="py-6 bg-light">
+
+    <div class="container">
+
+     
+
+      <div class="row text-center g-4">
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="card border-0 shadow rounded-4 p-5 h-100">
+
+            <h1 class="display-3 fw-bold text-primary">
+
+              100+
+
+            </h1>
+
+            <h5>
+
+              Projects Delivered
+
+            </h5>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="card border-0 shadow rounded-4 p-5 h-100">
+
+            <h1 class="display-3 fw-bold text-primary">
+
+              50+
+
+            </h1>
+
+            <h5>
+
+              Happy Clients
+
+            </h5>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="card border-0 shadow rounded-4 p-5 h-100">
+
+            <h1 class="display-3 fw-bold text-primary">
+
+              5×
+
+            </h1>
+
+            <h5>
+
+              Average ROI
+
+            </h5>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="card border-0 shadow rounded-4 p-5 h-100">
+
+            <h1 class="display-3 fw-bold text-primary">
+
+              2
+
+            </h1>
+
+            <h5>
+
+              Countries Served
+
+            </h5>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- NEXT PART -->
+  <!-- PORTFOLIO -->
+  <!-- ===================================================== -->
+  <!-- ===================================================== -->
+  <!-- PORTFOLIO -->
+  <!-- ===================================================== -->
+
+
+{% block content %}
+<div class="hero-background-glow"></div>
+
+<!-- PAGE HERO -->
+<section class="page-header text-center py-6 bg-white border-top">
+    <div class="container z-1 position-relative">
+        
+        <h1 class="display-5 fw-bold text-primary">Portfolio</h1>
+        <p class="lead text-muted" style="max-width:580px; margin:auto;">Real transformations. Measurable impact. Explore
+            our top case studies showcasing the value we bring to our clients.</p>
+    </div>
+    <div> <br><br></div>
+
+    <div class="container">
+
+        <!-- Loading Spinner -->
+        <div id="portfolioLoader" class="text-center py-5">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="text-muted mt-3 fw-semibold">Loading projects...</p>
+        </div>
+
+        <div id="portfolioGrid" style="display: none;">
+            <!-- Grid generated by JS -->
+        </div>
+
+        <!-- No Results Message -->
+        <div id="noResults" class="text-center py-6 d-none">
+            <i class="bi bi-search text-muted display-4 mb-3 d-block"></i>
+            <h5 class="text-muted">No projects found.</h5>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="/portfolio" class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow hover-lift fw-bold">
+                <i class="bi bi-grid-3x3-gap-fill me-2"></i>View All Projects
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="py-6 bg-light border-top">
+    <div class="container">
+        <div class="card border-0 rounded-5 p-4 p-md-5 mx-auto text-center position-relative overflow-hidden"
+            style="max-width: 900px; background: white; box-shadow: 0 25px 50px rgba(14, 19, 43, 0.08), 0 0 0 1px rgba(0,0,0,0.02);">
+
+            <div class="position-relative z-1 mt-3">
+                
+                <h2 class="cta-title fw-bold text-dark mb-3 mb-md-4">Ready to be our next success story?</h2>
+                <p class="cta-text text-muted mb-4 mb-md-5 mx-auto" style="max-width: 600px;">
+                    Let's discuss how we can deliver measurable results for your organisation.
+                </p>
+                <div class="d-flex justify-content-center">
+                    <a href="/contact"
+                        class="btn btn-primary rounded-pill px-4 px-md-5 py-3 hover-lift fw-bold shadow-sm cta-btn">
+                        Start a Conversation <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CASE STUDY MODAL ===================== -->
+<div class="modal fade" id="caseStudyModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" style="max-width:960px;">
+        <div class="modal-content border-0 rounded-5 overflow-hidden shadow-lg case-study-modal">
+
+            <div class="modal-body p-0">
+                <!-- Close button -->
+                <button type="button" class="case-study-close" data-bs-dismiss="modal">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+
+                <!-- HERO BANNER -->
+                <div id="modalHeroBg" class="case-study-hero">
+                    <div class="case-study-hero-overlay"></div>
+                    <div class="case-study-hero-content">
+                        <span id="modalBadge" class="badge rounded-pill px-3 py-2 mb-3 fw-semibold fs-6"></span>
+                        <h2 id="modalTitle" class="fw-bold mb-2"
+                            style="font-family:'Outfit'; font-size:2.2rem; line-height:1.2;"></h2>
+                        <div class="d-flex align-items-center gap-2 text-white opacity-75 fw-semibold">
+                            <i id="modalServiceIcon" class="bi fs-5"></i>
+                            <span id="modalService" class="fs-6"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STATS STRIP -->
+                <div class="case-study-stats">
+                    <div class="stat-item">
+                        <i class="bi bi-building text-primary fs-4 mb-1"></i>
+                        <span class="stat-label">Client</span>
+                        <span id="modalClient" class="stat-value"></span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <i class="bi bi-clock text-primary fs-4 mb-1"></i>
+                        <span class="stat-label">Duration</span>
+                        <span id="modalDuration" class="stat-value"></span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <i class="bi bi-people text-primary fs-4 mb-1"></i>
+                        <span class="stat-label">Team</span>
+                        <span id="modalTeam" class="stat-value"></span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <i class="bi bi-trophy text-primary fs-4 mb-1"></i>
+                        <span class="stat-label">Key Result</span>
+                        <span id="modalResult" class="stat-value"></span>
+                    </div>
+                </div>
+
+                <!-- CASE STUDY BODY -->
+                <div class="case-study-body">
+                    <!-- Challenge -->
+                    <div class="case-block challenge-block">
+                        <div class="case-block-icon">
+                            <i class="bi bi-exclamation-triangle-fill"></i>
+                        </div>
+                        <div class="case-block-content">
+                            <h5 class="case-block-title">The Challenge</h5>
+                            <p id="modalChallenge" class="case-block-text"></p>
+                        </div>
+                    </div>
+                    <!-- Solution -->
+                    <div class="case-block solution-block">
+                        <div class="case-block-icon">
+                            <i class="bi bi-tools"></i>
+                        </div>
+                        <div class="case-block-content">
+                            <h5 class="case-block-title">Our Solution</h5>
+                            <p id="modalSolution" class="case-block-text"></p>
+                        </div>
+                    </div>
+                    <!-- Outcome -->
+                    <div class="case-block outcome-block">
+                        <div class="case-block-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <div class="case-block-content">
+                            <h5 class="case-block-title">The Outcome</h5>
+                            <p id="modalOutcome" class="case-block-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GALLERY STRIP -->
+                <div id="modalGalleryStrip" class="modal-gallery-strip d-none">
+                    <div class="modal-gallery-header">
+                        <span class="modal-gallery-label"><i class="bi bi-images me-2"></i>Project Gallery</span>
+                        <button class="modal-gallery-viewall" id="modalGalleryViewAll">
+                            View All <i class="bi bi-arrow-right ms-1"></i>
+                        </button>
+                    </div>
+                    <div class="modal-gallery-thumbs" id="modalGalleryThumbs"></div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="case-study-footer">
+                <a href="/contact" class="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold shadow hover-lift">
+                    <i class="bi bi-chat-dots me-2"></i>Start a Similar Project
+                </a>
+                <button type="button" class="btn btn-outline-secondary rounded-pill px-4 py-3"
+                    data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===================== GALLERY MODAL ===================== -->
+<div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content border-0 rounded-5 overflow-hidden shadow-lg bg-white">
+            <div class="modal-body p-0 position-relative">
+                <!-- Close button -->
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-3 m-md-4" data-bs-dismiss="modal" aria-label="Close"
+                    style="background-color: rgba(255,255,255,0.8); padding: 12px; border-radius: 50%; z-index: 1050; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></button>
+
+                <div id="galleryCarousel" class="carousel slide carousel-fade carousel-dark">
+                    <div class="carousel-indicators mb-2 mb-md-3 z-3" id="galleryIndicators">
+                        <!-- Indicators generated by JS -->
+                    </div>
+                    <div class="carousel-inner" id="galleryInner">
+                        <!-- Images generated by JS -->
+                    </div>
+                    <button class="carousel-control-prev z-3" type="button" data-bs-target="#galleryCarousel"
+                        data-bs-slide="prev" style="width: 10%;">
+                        <span class="carousel-control-prev-icon drop-shadow" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next z-3" type="button" data-bs-target="#galleryCarousel"
+                        data-bs-slide="next" style="width: 10%;">
+                        <span class="carousel-control-next-icon drop-shadow" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+                <div class="gallery-caption p-3 p-md-4 pt-5 text-center text-dark position-absolute bottom-0 start-0 end-0 z-2"
+                    style="background: linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 100%); pointer-events: none;">
+                    <h4 id="galleryTitle" class="fw-bold mb-1 fs-5 fs-md-4" style="font-family:'Outfit';"></h4>
+                    <p id="galleryService" class="text-muted small mb-0"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let allProjects = [];   // full list, loaded once for modal lookups
+        let activeCategory = 'all';
+        const portfolioGrid = document.getElementById('portfolioGrid');
+        const portfolioLoader = document.getElementById('portfolioLoader');
+        const noResultsDiv = document.getElementById('noResults');
+
+        // ── Pre-load full list ───────
+        fetch('/api/projects?category=all&per_page=6')
+            .then(r => r.json())
+            .then(data => { 
+                allProjects = data.items; 
+                fetchAndRender();
+            });
+
+        function fetchAndRender() {
+            portfolioLoader.style.display = 'none';
+            if (allProjects.length === 0) {
+                noResultsDiv.classList.remove('d-none');
+                return;
+            }
+            renderProjectCards(allProjects, activeCategory);
+        }
+
+        // ── Render Case Study Layout ───────────────────────────────────────────
+        function renderProjectCards(items, selectedCategory = 'all') {
+
+    let html = `
+
+    <div class="portfolio-filter text-center mb-5">
+
+        <button class="filter-btn ${selectedCategory === 'all' ? 'active' : ''}" data-category="all">All</button>
+        <button class="filter-btn ${selectedCategory === 'app' ? 'active' : ''}" data-category="app">App</button>
+        <button class="filter-btn ${selectedCategory === 'web' ? 'active' : ''}" data-category="web">Web</button>
+        <button class="filter-btn ${selectedCategory === 'ai' ? 'active' : ''}" data-category="ai">AI</button>
+        <button class="filter-btn ${selectedCategory === 'digital' ? 'active' : ''}" data-category="digital">Digital</button>
+
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    `;
+
+    items.forEach(p => {
+
+        const textDark =
+            (p.badgeColor === 'warning' || p.badgeColor === 'info')
+                ? 'text-dark'
+                : 'text-white';
+
+        html += `
+
+        <div class="col">
+
+            <div class="portfolio-card h-100 shadow-sm rounded-5 overflow-hidden">
+
+                <div class="portfolio-card-thumb has-real-image"
+                     onclick="openCaseStudy(${p.id})"
+                     style="background:${p.cardGradient};cursor:pointer;">
+
+                    <img src="${p.imageUrl}"
+                         class="portfolio-thumb-img"
+                         alt="${p.title}">
+
+                    <span class="portfolio-card-badge badge bg-${p.badgeColor} ${textDark}">
+                        ${p.badgeName}
+                    </span>
+
+                </div>
+
+                <div class="p-4">
+
+                    <div class="small text-primary fw-bold mb-2">
+                        ${p.service}
+                    </div>
+
+                    <h4 class="fw-bold mb-3">
+                        ${p.title}
+                    </h4>
+
+                    <p class="text-muted small mb-4">
+                        ${p.result}
+                    </p>
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <span class="small text-secondary">
+                            ${p.client}
+                        </span>
+
+                        <button
+                            class="btn btn-primary rounded-pill px-4"
+                            onclick="openCaseStudy(${p.id})">
+
+                            View
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+    html += `</div>`;
+
+    portfolioGrid.innerHTML = html;
+    portfolioGrid.style.display = "block";
+
+}
+function initPortfolioFilters() {
+
+    portfolioGrid.addEventListener("click", function (event) {
+        const button = event.target.closest(".filter-btn");
+        if (!button) return;
+
+        const category = button.dataset.category;
+        if (category === activeCategory) return;
+
+        activeCategory = category;
+
+        document.querySelectorAll(".filter-btn").forEach((btn) => {
+            btn.classList.toggle("active", btn.dataset.category === category);
+        });
+
+        portfolioLoader.style.display = "block";
+        portfolioGrid.style.display = "none";
+
+        fetch(`/api/projects?category=${category}&per_page=6`)
+            .then(res => res.json())
+            .then(data => {
+                portfolioLoader.style.display = "none";
+                renderProjectCards(data.items, activeCategory);
+            });
+    });
+
+}
+initPortfolioFilters();
+        // ── Case Study Modal ───────────────────────────────────────────────
+        window.openCaseStudy = function (projectId) {
+            const p = allProjects.find(item => item.id === projectId);
+            if (!p) return;
+
+            document.getElementById('modalTitle').textContent = p.title;
+            document.getElementById('modalService').textContent = p.service;
+            document.getElementById('modalServiceIcon').className = `bi ${p.cardIcon} fs-5`;
+
+            const badge = document.getElementById('modalBadge');
+            badge.textContent = p.badgeName;
+            badge.className = `badge rounded-pill px-3 py-2 mb-3 fw-semibold fs-6 bg-${p.badgeColor}`;
+            if (p.badgeColor === 'warning' || p.badgeColor === 'info') badge.classList.add('text-dark');
+            else badge.classList.remove('text-dark');
+
+            document.getElementById('modalClient').textContent = p.client;
+            document.getElementById('modalDuration').textContent = p.duration;
+            document.getElementById('modalTeam').textContent = p.team;
+            document.getElementById('modalResult').textContent = p.result;
+            document.getElementById('modalChallenge').textContent = p.challenge;
+            document.getElementById('modalSolution').textContent = p.solution;
+            document.getElementById('modalOutcome').textContent = p.outcome;
+
+            document.getElementById('modalHeroBg').style.backgroundImage = `url('${p.imageUrl}')`;
+
+            // Gallery strip
+            const strip = document.getElementById('modalGalleryStrip');
+            const thumbsContainer = document.getElementById('modalGalleryThumbs');
+            const viewAllBtn = document.getElementById('modalGalleryViewAll');
+            thumbsContainer.innerHTML = '';
+            
+            const pGallery = (p.gallery && p.gallery.length > 0) ? p.gallery : (p.imageUrl ? [p.imageUrl] : []);
+
+            if (pGallery.length > 0) {
+                strip.classList.remove('d-none');
+                pGallery.forEach((imgSrc, idx) => {
+                    const thumb = document.createElement('div');
+                    thumb.className = 'modal-gallery-thumb';
+                    thumb.innerHTML = `<img src="${imgSrc}" alt="Gallery ${idx + 1}" loading="lazy">`;
+                    thumb.addEventListener('click', () => {
+                        bootstrap.Modal.getInstance(document.getElementById('caseStudyModal')).hide();
+                        setTimeout(() => openGallery(p.id, idx), 350);
+                    });
+                    thumbsContainer.appendChild(thumb);
+                });
+                viewAllBtn.onclick = () => {
+                    bootstrap.Modal.getInstance(document.getElementById('caseStudyModal')).hide();
+                    setTimeout(() => openGallery(p.id, 0), 350);
+                };
+            } else {
+                strip.classList.add('d-none');
+            }
+
+            const modalEl = document.getElementById('caseStudyModal');
+            const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+            modal.show();
+        };
+
+        // ── Gallery Modal ───────────────────────────────────────────
+        window.openGallery = function (projectId, startIndex = 0) {
+            const p = allProjects.find(item => item.id === projectId);
+            if (!p) return;
+            
+            const pGallery = (p.gallery && p.gallery.length > 0) ? p.gallery : (p.imageUrl ? [p.imageUrl] : []);
+            if (pGallery.length === 0) return;
+
+            document.getElementById('galleryTitle').textContent = p.title;
+            document.getElementById('galleryService').textContent = p.service;
+
+            const indicators = document.getElementById('galleryIndicators');
+            const inner = document.getElementById('galleryInner');
+            indicators.innerHTML = '';
+            inner.innerHTML = '';
+
+            pGallery.forEach((img, idx) => {
+                const activeClass = idx === startIndex ? 'active' : '';
+                const currentAttr = idx === startIndex ? 'aria-current="true"' : '';
+
+                indicators.innerHTML += `<button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="${idx}" class="${activeClass}" ${currentAttr} aria-label="Slide ${idx + 1}"></button>`;
+
+                inner.innerHTML += `
+                    <div class="carousel-item ${activeClass}">
+                        <div class="d-flex align-items-center justify-content-center" style="height: 65vh; background: #fff;">
+                            <img src="${img}" class="d-block w-100 h-100 p-2 p-md-4" style="object-fit: contain;" alt="Project image ${idx + 1}">
+                        </div>
+                    </div>`;
+            });
+
+            // Destroy any cached empty carousel instance and re-initialize with new items
+            const carouselEl = document.getElementById('galleryCarousel');
+            const existingCarousel = bootstrap.Carousel.getInstance(carouselEl);
+            if (existingCarousel) existingCarousel.dispose();
+            new bootstrap.Carousel(carouselEl, { interval: false });
+
+            const modalEl = document.getElementById('galleryModal');
+            const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+            modal.show();
+        };
+    });
+</script>
+
+
+<style>
+
+  .portfolio-filter{
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+
+}
+
+.filter-btn{
+
+    border:none;
+    background:white;
+    padding:12px 26px;
+    border-radius:50px;
+    font-weight:600;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+
+}
+
+.filter-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+.filter-btn.active{
+
+    background:var(--color-primary-vibrant);
+    color:white;
+    box-shadow: 0 10px 24px rgba(3,76,174,0.22);
+    transform: translateY(-1px);
+
+}
+
+.portfolio-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.portfolio-card .portfolio-thumb-img{
+
+    height:240px;
+    width:100%;
+    object-fit:cover;
+
+}
+
+    .feedback-marquee {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    .feedback-content {
+        display: flex;
+        width: max-content;
+        animation: feedback-scroll 28s linear infinite;
+        will-change: transform;
+    }
+
+    .feedback-card {
+        flex: 0 0 auto;
+    }
+
+    .feedback-module {
+        position: relative;
+        isolation: isolate;
+    }
+
+    .feedback-marquee:hover .feedback-content {
+        animation-play-state: paused;
+    }
+
+    @keyframes feedback-scroll {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
+    }
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .c-pointer {
+        cursor: pointer;
+    }
+
+    .hover-opacity:hover {
+        opacity: 0.7;
+        transition: opacity 0.2s ease;
+    }
+
+    /* ── Portfolio Card Thumbnail ── */
+    .portfolio-card-thumb {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+    }
+
+    .portfolio-thumb-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.35;
+        mix-blend-mode: overlay;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    /* Cards with real screenshots get a stronger image display */
+    .portfolio-card:hover .portfolio-thumb-img {
+        transform: scale(1.05);
+    }
+
+    .portfolio-thumb-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(160deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+        z-index: 1;
+    }
+
+    .portfolio-thumb-icon {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
+
+    .portfolio-card-badge {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        z-index: 3;
+        font-size: 0.72rem;
+        letter-spacing: 0.3px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Real-image variant: show the image more prominently */
+    .portfolio-card-thumb.has-real-image .portfolio-thumb-img {
+        opacity: 0.85;
+        mix-blend-mode: normal;
+    }
+
+    .portfolio-card-thumb.has-real-image .portfolio-thumb-icon {
+        display: none;
+    }
+
+    #galleryCarousel .carousel-item img {
+        max-height: 85vh;
+    }
+
+    @media (max-width: 991.98px) {
+        .case-study-row {
+            margin-bottom: 2.25rem !important;
+            padding-top: 0.5rem !important;
+            padding-bottom: 0.5rem !important;
+        }
+
+        .case-study-row .display-6 {
+            font-size: 2rem;
+        }
+
+        .case-study-row .d-flex.align-items-center.gap-3.mt-4.pt-2 {
+            flex-wrap: wrap;
+        }
+
+        .case-study-row .d-flex.align-items-center.gap-3.mt-4.pt-2 .btn {
+            width: 100%;
+            justify-content: center;
+            display: inline-flex;
+        }
+    }
+
+    @media (max-width: 575.98px) {
+        .page-header {
+            padding-top: 4.25rem !important;
+            padding-bottom: 2.5rem !important;
+        }
+
+        .page-header .display-3 {
+            font-size: 2rem;
+        }
+
+        .page-header .lead {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .portfolio-card-thumb {
+            border-radius: 1rem !important;
+            aspect-ratio: 16 / 11 !important;
+        }
+
+        .portfolio-card-badge {
+            font-size: 0.66rem;
+            padding: 0.35rem 0.6rem !important;
+            margin: 0.75rem !important;
+        }
+
+        .case-study-row .position-absolute.bottom-0.start-0.m-4 {
+            margin: 0.9rem !important;
+            font-size: 0.72rem !important;
+        }
+
+        .case-study-row .display-6 {
+            font-size: 1.55rem;
+            line-height: 1.25;
+        }
+
+        .case-study-row .text-muted.mb-4.fs-6.lh-lg {
+            font-size: 0.95rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .case-study-row .row.g-3.mb-4.mt-2 {
+            margin-top: 0.25rem !important;
+            margin-bottom: 0.75rem !important;
+        }
+
+        .case-study-row .col-6 {
+            width: 100%;
+        }
+
+        .case-study-row .d-flex.align-items-center.gap-3.mt-4.pt-2 {
+            margin-top: 0.9rem !important;
+            padding-top: 0 !important;
+            gap: 0.6rem !important;
+        }
+
+        .case-study-footer .btn {
+            width: 100%;
+        }
+    }
+</style>
+
+{% endblock %}
+
+
+  <!-- ===================================================== -->
+  <!-- NEXT -->
+  <!-- TRUSTED BY -->
+  <!-- CLIENT TESTIMONIALS -->
+  <!-- ===================================================== -->
+  <!-- ===================================================== -->
+  <!-- TRUSTED BY -->
+  <!-- ===================================================== -->
+
+
+
+
+
+  <!-- ===================================================== -->
+  <!-- CLIENT TESTIMONIALS -->
+  <!-- ===================================================== -->
+
+  <!-- 7. CLIENT FEEDBACK -->
+<section class="py-6 bg-cream feedback-module overflow-hidden border-bottom border-top">
+    <div class="container-fluid px-0 position-relative z-1">
+        <h2 class="text-center fw-bold fs-1 mb-5 text-primary">What Our Clients Say</h2>
+        <div class="feedback-marquee">
+            <div class="feedback-content d-flex py-4">
+                <div class="feedback-card position-relative bg-white p-5 rounded-4 mx-3 d-flex flex-column hover-lift"
+                    style="width: 440px; min-width: 440px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 15px 35px rgba(0,0,0,0.04); z-index: 1; transition: all 0.3s ease;">
+                    <i class="bi bi-quote position-absolute"
+                        style="font-size: 8rem; top: -20px; right: 20px; color: rgba(13, 110, 253, 0.03); z-index: -1;"></i>
+                    <div class="d-flex text-warning mb-4 gap-1 fs-6">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="text-dark fs-6 lh-lg mb-4 flex-grow-1 fw-medium" style="position: relative; z-index: 2;">
+                        "The entire digital overhaul Codroit provided for our school completely modernized how we
+                        interact with students and parents. Highly intuitive, fast, and structured flawlessly."</p>
+                    <div class="d-flex align-items-center mt-auto pt-4 border-top">
+                        <div class="rounded-4 bg-primary text-white d-flex justify-content-center align-items-center flex-shrink-0 shadow-sm"
+                            style="width:55px; height:55px;">
+                            <i class="bi bi-book-half fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1 fw-bold text-dark">Administrative Board</h6>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <small class="text-muted fw-semibold">Airport School Ahmedabad</small>
+                                <span class="badge rounded-pill bg-primary-subtle text-primary"
+                                    style="font-size: 0.65rem; padding: 0.35rem 0.65rem;">Education</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-card position-relative bg-white p-5 rounded-4 mx-3 d-flex flex-column hover-lift"
+                    style="width: 440px; min-width: 440px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 15px 35px rgba(0,0,0,0.04); z-index: 1; transition: all 0.3s ease;">
+                    <i class="bi bi-quote position-absolute"
+                        style="font-size: 8rem; top: -20px; right: 20px; color: rgba(13, 110, 253, 0.03); z-index: -1;"></i>
+                    <div class="d-flex text-warning mb-4 gap-1 fs-6">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="text-dark fs-6 lh-lg mb-4 flex-grow-1 fw-medium" style="position: relative; z-index: 2;">
+                        "Codroit established a sophisticated digital storefront for our audio equipment. They understood
+                        our high-end acoustic aesthetic perfectly, and the transition was seamless."</p>
+                    <div class="d-flex align-items-center mt-auto pt-4 border-top">
+                        <div class="rounded-4 bg-dark text-white d-flex justify-content-center align-items-center flex-shrink-0 shadow-sm"
+                            style="width:55px; height:55px;">
+                            <i class="bi bi-speaker fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1 fw-bold text-dark">Marketing & Operations</h6>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <small class="text-muted fw-semibold">Thalassa India</small>
+                                <span class="badge rounded-pill bg-dark-subtle text-dark"
+                                    style="font-size: 0.65rem; padding: 0.35rem 0.65rem;">Premium Audio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-card position-relative bg-white p-5 rounded-4 mx-3 d-flex flex-column hover-lift"
+                    style="width: 440px; min-width: 440px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 15px 35px rgba(0,0,0,0.04); z-index: 1; transition: all 0.3s ease;">
+                    <i class="bi bi-quote position-absolute"
+                        style="font-size: 8rem; top: -20px; right: 20px; color: rgba(13, 110, 253, 0.03); z-index: -1;"></i>
+                    <div class="d-flex text-warning mb-4 gap-1 fs-6">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="text-dark fs-6 lh-lg mb-4 flex-grow-1 fw-medium" style="position: relative; z-index: 2;">
+                        "We needed robust UI improvements and highly scalable infrastructure for our cricket app.
+                        Codroit delivered exactly that, keeping systems stable during peak match hours."</p>
+                    <div class="d-flex align-items-center mt-auto pt-4 border-top">
+                        <div class="rounded-4 bg-info text-dark d-flex justify-content-center align-items-center flex-shrink-0 shadow-sm"
+                            style="width:55px; height:55px;">
+                            <i class="bi bi-phone fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1 fw-bold text-dark">Product Development</h6>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <small class="text-muted fw-semibold">Score Your Run</small>
+                                <span class="badge rounded-pill bg-info-subtle text-info-emphasis"
+                                    style="font-size: 0.65rem; padding: 0.35rem 0.65rem;">Sports Tech</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-card position-relative bg-white p-5 rounded-4 mx-3 d-flex flex-column hover-lift"
+                    style="width: 440px; min-width: 440px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 15px 35px rgba(0,0,0,0.04); z-index: 1; transition: all 0.3s ease;">
+                    <i class="bi bi-quote position-absolute"
+                        style="font-size: 8rem; top: -20px; right: 20px; color: rgba(13, 110, 253, 0.03); z-index: -1;"></i>
+                    <div class="d-flex text-warning mb-4 gap-1 fs-6">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="text-dark fs-6 lh-lg mb-4 flex-grow-1 fw-medium" style="position: relative; z-index: 2;">
+                        "Working with Codroit feels like having a brilliant in-house agency. They handled our B2B
+                        technical requirements and brand positioning with absolute precision."</p>
+                    <div class="d-flex align-items-center mt-auto pt-4 border-top">
+                        <div class="rounded-4 bg-success text-white d-flex justify-content-center align-items-center flex-shrink-0 shadow-sm"
+                            style="width:55px; height:55px;">
+                            <i class="bi bi-hdd-network fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1 fw-bold text-dark">Technical Architecture</h6>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <small class="text-muted fw-semibold">Nexnodez</small>
+                                <span class="badge rounded-pill bg-success-subtle text-success-emphasis"
+                                    style="font-size: 0.65rem; padding: 0.35rem 0.65rem;">IT Services</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-card position-relative bg-white p-5 rounded-4 mx-3 d-flex flex-column hover-lift"
+                    style="width: 440px; min-width: 440px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 15px 35px rgba(0,0,0,0.04); z-index: 1; transition: all 0.3s ease;">
+                    <i class="bi bi-quote position-absolute"
+                        style="font-size: 8rem; top: -20px; right: 20px; color: rgba(13, 110, 253, 0.03); z-index: -1;"></i>
+                    <div class="d-flex text-warning mb-4 gap-1 fs-6">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="text-dark fs-6 lh-lg mb-4 flex-grow-1 fw-medium" style="position: relative; z-index: 2;">
+                        "The custom loyalty app developed by Codroit drastically improved our customer retention. The
+                        interface is stunning and the loyalty loop is incredibly easy to use."</p>
+                    <div class="d-flex align-items-center mt-auto pt-4 border-top">
+                        <div class="rounded-4 bg-warning text-dark d-flex justify-content-center align-items-center flex-shrink-0 shadow-sm"
+                            style="width:55px; height:55px;">
+                            <i class="bi bi-gift fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1 fw-bold text-dark">Growth & Retention</h6>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <small class="text-muted fw-semibold">Welcome Mobiles</small>
+                                <span class="badge rounded-pill bg-warning-subtle text-warning-emphasis"
+                                    style="font-size: 0.65rem; padding: 0.35rem 0.65rem;">Retail Rewards</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-card position-relative bg-white p-5 rounded-4 mx-3 d-flex flex-column hover-lift"
+                    style="width: 440px; min-width: 440px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 15px 35px rgba(0,0,0,0.04); z-index: 1; transition: all 0.3s ease;">
+                    <i class="bi bi-quote position-absolute"
+                        style="font-size: 8rem; top: -20px; right: 20px; color: rgba(13, 110, 253, 0.03); z-index: -1;"></i>
+                    <div class="d-flex text-warning mb-4 gap-1 fs-6">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="text-dark fs-6 lh-lg mb-4 flex-grow-1 fw-medium" style="position: relative; z-index: 2;">
+                        "The patient management portal Codroit built for us is secure, compliant, and incredibly
+                        user-friendly. It cuts our administrative setup time in half."</p>
+                    <div class="d-flex align-items-center mt-auto pt-4 border-top">
+                        <div class="rounded-4 bg-danger text-white d-flex justify-content-center align-items-center flex-shrink-0 shadow-sm"
+                            style="width:55px; height:55px;">
+                            <i class="bi bi-heart-pulse fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1 fw-bold text-dark">Hospital Administration</h6>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <small class="text-muted fw-semibold">Apex Medical Care</small>
+                                <span class="badge rounded-pill bg-danger-subtle text-danger-emphasis"
+                                    style="font-size: 0.65rem; padding: 0.35rem 0.65rem;">Healthcare</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-card position-relative bg-white p-5 rounded-4 mx-3 d-flex flex-column hover-lift"
+                    style="width: 440px; min-width: 440px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 15px 35px rgba(0,0,0,0.04); z-index: 1; transition: all 0.3s ease;">
+                    <i class="bi bi-quote position-absolute"
+                        style="font-size: 8rem; top: -20px; right: 20px; color: rgba(13, 110, 253, 0.03); z-index: -1;"></i>
+                    <div class="d-flex text-warning mb-4 gap-1 fs-6">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="text-dark fs-6 lh-lg mb-4 flex-grow-1 fw-medium" style="position: relative; z-index: 2;">
+                        "The 3D site visualization and lead-gen funnels they set up for our new properties are
+                        unmatched. We've seen a massive surge in qualified conversions."</p>
+                    <div class="d-flex align-items-center mt-auto pt-4 border-top">
+                        <div class="rounded-4 bg-secondary text-white d-flex justify-content-center align-items-center flex-shrink-0 shadow-sm"
+                            style="width:55px; height:55px;">
+                            <i class="bi bi-buildings fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1 fw-bold text-dark">Sales Leadership</h6>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <small class="text-muted fw-semibold">Skyline Developers</small>
+                                <span class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis"
+                                    style="font-size: 0.65rem; padding: 0.35rem 0.65rem;">Real Estate</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate for loop -->
+                <div class="feedback-card position-relative bg-white p-5 rounded-4 mx-3 d-flex flex-column hover-lift"
+                    style="width: 440px; min-width: 440px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 15px 35px rgba(0,0,0,0.04); z-index: 1; transition: all 0.3s ease;">
+                    <i class="bi bi-quote position-absolute"
+                        style="font-size: 8rem; top: -20px; right: 20px; color: rgba(13, 110, 253, 0.03); z-index: -1;"></i>
+                    <div class="d-flex text-warning mb-4 gap-1 fs-6">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="text-dark fs-6 lh-lg mb-4 flex-grow-1 fw-medium" style="position: relative; z-index: 2;">
+                        "The entire digital overhaul Codroit provided for our school completely modernized how we
+                        interact with students and parents. Highly intuitive, fast, and structured flawlessly."</p>
+                    <div class="d-flex align-items-center mt-auto pt-4 border-top">
+                        <div class="rounded-4 bg-primary text-white d-flex justify-content-center align-items-center flex-shrink-0 shadow-sm"
+                            style="width:55px; height:55px;">
+                            <i class="bi bi-book-half fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1 fw-bold text-dark">Administrative Board</h6>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <small class="text-muted fw-semibold">Airport School Ahmedabad</small>
+                                <span class="badge rounded-pill bg-primary-subtle text-primary"
+                                    style="font-size: 0.65rem; padding: 0.35rem 0.65rem;">Education</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-card position-relative bg-white p-5 rounded-4 mx-3 d-flex flex-column hover-lift"
+                    style="width: 440px; min-width: 440px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 15px 35px rgba(0,0,0,0.04); z-index: 1; transition: all 0.3s ease;">
+                    <i class="bi bi-quote position-absolute"
+                        style="font-size: 8rem; top: -20px; right: 20px; color: rgba(13, 110, 253, 0.03); z-index: -1;"></i>
+                    <div class="d-flex text-warning mb-4 gap-1 fs-6">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="text-dark fs-6 lh-lg mb-4 flex-grow-1 fw-medium" style="position: relative; z-index: 2;">
+                        "Codroit established a sophisticated digital storefront for our audio equipment. They understood
+                        our high-end acoustic aesthetic perfectly, and the transition was seamless."</p>
+                    <div class="d-flex align-items-center mt-auto pt-4 border-top">
+                        <div class="rounded-4 bg-dark text-white d-flex justify-content-center align-items-center flex-shrink-0 shadow-sm"
+                            style="width:55px; height:55px;">
+                            <i class="bi bi-speaker fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1 fw-bold text-dark">Marketing & Operations</h6>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <small class="text-muted fw-semibold">Thalassa India</small>
+                                <span class="badge rounded-pill bg-dark-subtle text-dark"
+                                    style="font-size: 0.65rem; padding: 0.35rem 0.65rem;">Premium Audio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-card position-relative bg-white p-5 rounded-4 mx-3 d-flex flex-column hover-lift"
+                    style="width: 440px; min-width: 440px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 15px 35px rgba(0,0,0,0.04); z-index: 1; transition: all 0.3s ease;">
+                    <i class="bi bi-quote position-absolute"
+                        style="font-size: 8rem; top: -20px; right: 20px; color: rgba(13, 110, 253, 0.03); z-index: -1;"></i>
+                    <div class="d-flex text-warning mb-4 gap-1 fs-6">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="text-dark fs-6 lh-lg mb-4 flex-grow-1 fw-medium" style="position: relative; z-index: 2;">
+                        "We needed robust UI improvements and highly scalable infrastructure for our cricket app.
+                        Codroit delivered exactly that, keeping systems stable during peak match hours."</p>
+                    <div class="d-flex align-items-center mt-auto pt-4 border-top">
+                        <div class="rounded-4 bg-info text-dark d-flex justify-content-center align-items-center flex-shrink-0 shadow-sm"
+                            style="width:55px; height:55px;">
+                            <i class="bi bi-phone fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1 fw-bold text-dark">Product Development</h6>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <small class="text-muted fw-semibold">Score Your Run</small>
+                                <span class="badge rounded-pill bg-info-subtle text-info-emphasis"
+                                    style="font-size: 0.65rem; padding: 0.35rem 0.65rem;">Sports Tech</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-card position-relative bg-white p-5 rounded-4 mx-3 d-flex flex-column hover-lift"
+                    style="width: 440px; min-width: 440px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 15px 35px rgba(0,0,0,0.04); z-index: 1; transition: all 0.3s ease;">
+                    <i class="bi bi-quote position-absolute"
+                        style="font-size: 8rem; top: -20px; right: 20px; color: rgba(13, 110, 253, 0.03); z-index: -1;"></i>
+                    <div class="d-flex text-warning mb-4 gap-1 fs-6">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="text-dark fs-6 lh-lg mb-4 flex-grow-1 fw-medium" style="position: relative; z-index: 2;">
+                        "Working with Codroit feels like having a brilliant in-house agency. They handled our B2B
+                        technical requirements and brand positioning with absolute precision."</p>
+                    <div class="d-flex align-items-center mt-auto pt-4 border-top">
+                        <div class="rounded-4 bg-success text-white d-flex justify-content-center align-items-center flex-shrink-0 shadow-sm"
+                            style="width:55px; height:55px;">
+                            <i class="bi bi-hdd-network fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1 fw-bold text-dark">Technical Architecture</h6>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <small class="text-muted fw-semibold">Nexnodez</small>
+                                <span class="badge rounded-pill bg-success-subtle text-success-emphasis"
+                                    style="font-size: 0.65rem; padding: 0.35rem 0.65rem;">IT Services</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-card position-relative bg-white p-5 rounded-4 mx-3 d-flex flex-column hover-lift"
+                    style="width: 440px; min-width: 440px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 15px 35px rgba(0,0,0,0.04); z-index: 1; transition: all 0.3s ease;">
+                    <i class="bi bi-quote position-absolute"
+                        style="font-size: 8rem; top: -20px; right: 20px; color: rgba(13, 110, 253, 0.03); z-index: -1;"></i>
+                    <div class="d-flex text-warning mb-4 gap-1 fs-6">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="text-dark fs-6 lh-lg mb-4 flex-grow-1 fw-medium" style="position: relative; z-index: 2;">
+                        "The custom loyalty app developed by Codroit drastically improved our customer retention. The
+                        interface is stunning and the loyalty loop is incredibly easy to use."</p>
+                    <div class="d-flex align-items-center mt-auto pt-4 border-top">
+                        <div class="rounded-4 bg-warning text-dark d-flex justify-content-center align-items-center flex-shrink-0 shadow-sm"
+                            style="width:55px; height:55px;">
+                            <i class="bi bi-gift fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1 fw-bold text-dark">Growth & Retention</h6>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <small class="text-muted fw-semibold">Welcome Mobiles</small>
+                                <span class="badge rounded-pill bg-warning-subtle text-warning-emphasis"
+                                    style="font-size: 0.65rem; padding: 0.35rem 0.65rem;">Retail Rewards</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-card position-relative bg-white p-5 rounded-4 mx-3 d-flex flex-column hover-lift"
+                    style="width: 440px; min-width: 440px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 15px 35px rgba(0,0,0,0.04); z-index: 1; transition: all 0.3s ease;">
+                    <i class="bi bi-quote position-absolute"
+                        style="font-size: 8rem; top: -20px; right: 20px; color: rgba(13, 110, 253, 0.03); z-index: -1;"></i>
+                    <div class="d-flex text-warning mb-4 gap-1 fs-6">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="text-dark fs-6 lh-lg mb-4 flex-grow-1 fw-medium" style="position: relative; z-index: 2;">
+                        "The patient management portal Codroit built for us is secure, compliant, and incredibly
+                        user-friendly. It cuts our administrative setup time in half."</p>
+                    <div class="d-flex align-items-center mt-auto pt-4 border-top">
+                        <div class="rounded-4 bg-danger text-white d-flex justify-content-center align-items-center flex-shrink-0 shadow-sm"
+                            style="width:55px; height:55px;">
+                            <i class="bi bi-heart-pulse fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1 fw-bold text-dark">Hospital Administration</h6>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <small class="text-muted fw-semibold">Apex Medical Care</small>
+                                <span class="badge rounded-pill bg-danger-subtle text-danger-emphasis"
+                                    style="font-size: 0.65rem; padding: 0.35rem 0.65rem;">Healthcare</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-card position-relative bg-white p-5 rounded-4 mx-3 d-flex flex-column hover-lift"
+                    style="width: 440px; min-width: 440px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 15px 35px rgba(0,0,0,0.04); z-index: 1; transition: all 0.3s ease;">
+                    <i class="bi bi-quote position-absolute"
+                        style="font-size: 8rem; top: -20px; right: 20px; color: rgba(13, 110, 253, 0.03); z-index: -1;"></i>
+                    <div class="d-flex text-warning mb-4 gap-1 fs-6">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="text-dark fs-6 lh-lg mb-4 flex-grow-1 fw-medium" style="position: relative; z-index: 2;">
+                        "The 3D site visualization and lead-gen funnels they set up for our new properties are
+                        unmatched. We've seen a massive surge in qualified conversions."</p>
+                    <div class="d-flex align-items-center mt-auto pt-4 border-top">
+                        <div class="rounded-4 bg-secondary text-white d-flex justify-content-center align-items-center flex-shrink-0 shadow-sm"
+                            style="width:55px; height:55px;">
+                            <i class="bi bi-buildings fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-1 fw-bold text-dark">Sales Leadership</h6>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <small class="text-muted fw-semibold">Skyline Developers</small>
+                                <span class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis"
+                                    style="font-size: 0.65rem; padding: 0.35rem 0.65rem;">Real Estate</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <!-- ===================================================== -->
+  <!-- NEXT PART -->
+  <!-- CONTACT -->
+  <!-- ===================================================== -->
+  <!-- ===================================================== -->
+  <!-- CONTACT US -->
+  <!-- ===================================================== -->
+
+  <section id="contact" class="py-6 bg-light border-top">
+
+    <div class="container">
+
+      <div class="text-center mb-5">
+
+        <span class="badge bg-primary-subtle text-primary rounded-pill px-4 py-2">
+
+          Contact Us
+
+        </span>
+
+        <h2 class="display-5 fw-bold mt-3">
+
+          Let's Build Something Amazing Together
+
+        </h2>
+
+        <p class="lead text-muted">
+
+          Have an idea?
+          Let's discuss your next project.
+
+        </p>
+
+      </div>
+
+      <div class="row g-5">
+
+        <!-- LEFT -->
+
+        <div class="col-lg-5">
+
+          <div class="card border-0 shadow rounded-5 h-100">
+
+            <div class="card-body p-5">
+
+              <h3 class="fw-bold mb-4">
+
+                Contact Information
+
+              </h3>
+
+              <div class="d-flex mb-4">
+
+                <i class="bi bi-geo-alt-fill text-primary fs-2 me-4"></i>
+
+                <div>
+
+                  <h5>Office</h5>
+
+                  <p class="text-muted mb-0">
+
+                    Ahmedabad, Gujarat
+
+                  </p>
+
+                  <p class="text-muted">
+
+                    Winnipeg, Canada
+
+                  </p>
+
+                </div>
+
+              </div>
+
+              <div class="d-flex mb-4">
+
+                <i class="bi bi-envelope-fill text-primary fs-2 me-4"></i>
+
+                <div>
+
+                  <h5>Email</h5>
+
+                  <p class="text-muted mb-0">
+
+                    info@codroit.in
+
+                  </p>
+
+                  <p class="text-muted">
+
+                    contact.codroit@gmail.com
+
+                  </p>
+
+                </div>
+
+              </div>
+
+              <div class="d-flex">
+
+                <i class="bi bi-telephone-fill text-primary fs-2 me-4"></i>
+
+                <div>
+
+                  <h5>Phone</h5>
+
+                  <p class="text-muted">
+
+                    +91 84909 46729
+
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="col-lg-7">
+
+          <div class="card border-0 shadow rounded-5">
+
+            <div class="card-body p-5">
+
+              <h3 class="fw-bold mb-4">
+
+                Send Us A Message
+
+              </h3>
+
+              <form>
+
+                <div class="row">
+
+                  <div class="col-md-6 mb-4">
+
+                    <input type="text" class="form-control form-control-lg" placeholder="First Name">
+
+                  </div>
+
+                  <div class="col-md-6 mb-4">
+
+                    <input type="text" class="form-control form-control-lg" placeholder="Last Name">
+
+                  </div>
+
+                </div>
+
+                <div class="mb-4">
+
+                  <input type="email" class="form-control form-control-lg" placeholder="Email">
+
+                </div>
+
+                <div class="mb-4">
+
+                  <input type="text" class="form-control form-control-lg" placeholder="Company">
+
+                </div>
+
+                <div class="mb-4">
+
+                  <textarea rows="6" class="form-control form-control-lg"
+                    placeholder="Tell us about your project"></textarea>
+
+                </div>
+
+                <button class="btn btn-primary btn-lg rounded-pill px-5">
+
+                  Send Message
+
+                </button>
+
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- FOOTER CTA -->
+  <!-- ===================================================== -->
+
+  <section class="py-6 bg-primary text-white">
+
+    <div class="container text-center">
+
+      <h2 class="display-5 fw-bold mb-4">
+
+        Ready To Grow Your Business?
+
+      </h2>
+
+      <p class="lead mb-5">
+
+        Let's create digital products that help your company
+        scale faster.
+
+      </p>
+
+      <a href="/contact" class="btn btn-light btn-lg rounded-pill px-5">
+
+        Book Free Consultation
+
+      </a>
+
+    </div>
+
+  </section>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+
+   <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+  
+  <!-- ===================================================== -->
+  <!-- FOOTER -->
+  <!-- ===================================================== -->
+
+</body>
+
+</html>
